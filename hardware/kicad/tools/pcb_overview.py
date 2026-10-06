@@ -15,6 +15,7 @@ M = 40           # margin px
 W_NEW, H = 120.65, 231.76
 PI_X0, PI_YE = W_NEW - 64.5, 152.0
 MOVED = {"J1": "J1", "J2": "J2", "J10": "J10", "J5": "J5"}
+HEATSINK = (59.0, 41.0, 107.0, 54.0)
 
 
 def P(x, y):
@@ -59,10 +60,12 @@ def main(fpjson, poscsv, out):
     d.text(P(PI_X0 + 65.5, PI_YE - 26), "off board", fill=(40, 80, 200), font=small)
     d.text(P(PI_X0 + 2, PI_YE - 84), "Pi USB-C / micro-HDMI plug space", fill=(90, 120, 200), font=small)
 
+    d.rectangle([P(*HEATSINK[:2]), P(*HEATSINK[2:])], outline=(200, 90, 0), width=2, fill=(250, 232, 210))
+    d.text(P(HEATSINK[0] + 1, HEATSINK[1] + 1), "heatsink for U23 / U24", fill=(170, 70, 0), font=small)
     for ref, f in fps.items():
         if f["x0"] > W_NEW + 10:
             continue  # parts waiting off the board
-        conn = ref.startswith(("J", "SW")) or ref == "U4"
+        conn = ref.startswith(("J", "SW")) or ref in ("U4", "U23", "U24")
         hole = ref.startswith("MH")
         if not hole:
             d.rectangle([P(f["x0"], f["y0"]), P(f["x1"], f["y1"])],

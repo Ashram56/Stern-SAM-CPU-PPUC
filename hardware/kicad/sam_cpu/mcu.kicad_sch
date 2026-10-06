@@ -6065,10 +6065,6 @@
 		(uuid "01d04efd-55d8-58b5-bc33-ea89cd0895c3")
 	)
 	(no_connect
-		(at 208.28 193.04)
-		(uuid "03712ce0-011e-5cb2-a156-620cd8a38210")
-	)
-	(no_connect
 		(at 157.48 195.58)
 		(uuid "1a2fdf7c-4d48-5162-9cfb-4cd90eda7830")
 	)
@@ -6371,6 +6367,16 @@
 			(type default)
 		)
 		(uuid "1171719e-e707-5b72-adc3-60e742da324f")
+	)
+	(wire
+		(pts
+			(xy 208.28 193.04) (xy 213.36 193.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15c0a2da-8ec2-5bd7-8a18-e0198363d58d")
 	)
 	(wire
 		(pts
@@ -8560,6 +8566,29 @@
 			)
 		)
 	)
+	(global_label "AMP_MUTE"
+		(shape bidirectional)
+		(at 213.36 193.04 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1d5c6b51-1b5b-5ae7-a279-9ca0a8dde234")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 226.92 193.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "DMD_ROWCLK"
 		(shape bidirectional)
 		(at 213.36 157.48 0)
@@ -9333,7 +9362,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 193.04 254 0)
+		(at 203.2 254 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9343,7 +9372,7 @@
 		(dnp no)
 		(uuid "0a429eb3-e1cc-511e-bab9-d00a77c4355f")
 		(property "Reference" "TP9"
-			(at 193.04 247.142 0)
+			(at 203.2 247.142 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9352,8 +9381,8 @@
 				)
 			)
 		)
-		(property "Value" "RUN"
-			(at 193.04 248.92 0)
+		(property "Value" "GND"
+			(at 203.2 248.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9363,7 +9392,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 198.12 254 0)
+			(at 208.28 254 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9374,7 +9403,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 198.12 254 0)
+			(at 208.28 254 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9385,7 +9414,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 193.04 254 0)
+			(at 203.2 254 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9402,6 +9431,82 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
 					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 182.88 254 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0c414214-4c52-543c-9d98-741b049a3649")
+		(property "Reference" "TP7"
+			(at 182.88 247.142 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+1V1"
+			(at 182.88 248.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 187.96 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 182.88 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c9e89d95-8d65-58d1-83d6-f2da390354cd")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
+					(reference "TP7")
 					(unit 1)
 				)
 			)
@@ -11115,6 +11220,17 @@
 				)
 			)
 		)
+		(property "MPN" "Abracon AOTA-B201610S3R3-101-T (polarity dot as on Pico 2)"
+			(at 187.96 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "48823fe8-6b35-52ab-bda9-b11faf4214bb")
 		)
@@ -12585,82 +12701,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 203.2 254 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5d423428-1bb0-5768-a2b4-c61620f2b95c")
-		(property "Reference" "TP10"
-			(at 203.2 247.142 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 203.2 248.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 208.28 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 208.28 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 203.2 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cc44b1fd-621c-52c3-bc23-17f5309c9062")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
-					(reference "TP10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3V3")
 		(at 220.98 40.64 0)
 		(unit 1)
@@ -12739,7 +12779,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 182.88 254 0)
+		(at 193.04 254 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12749,7 +12789,7 @@
 		(dnp no)
 		(uuid "5fe81d64-f402-5eb9-84f4-1797151b707a")
 		(property "Reference" "TP8"
-			(at 182.88 247.142 0)
+			(at 193.04 247.142 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12758,8 +12798,8 @@
 				)
 			)
 		)
-		(property "Value" "+1V1"
-			(at 182.88 248.92 0)
+		(property "Value" "RUN"
+			(at 193.04 248.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12769,7 +12809,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 187.96 254 0)
+			(at 198.12 254 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12780,7 +12820,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 187.96 254 0)
+			(at 198.12 254 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12791,7 +12831,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 182.88 254 0)
+			(at 193.04 254 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14547,7 +14587,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 144.78 83.82 180)
+		(at 203.2 66.04 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14557,7 +14597,7 @@
 		(dnp no)
 		(uuid "9518bf8c-26b3-5d33-8902-4859f4d29071")
 		(property "Reference" "#FLG8"
-			(at 144.78 85.725 0)
+			(at 203.2 67.945 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14568,7 +14608,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 144.78 87.63 0)
+			(at 203.2 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14578,7 +14618,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 144.78 83.82 0)
+			(at 203.2 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14589,7 +14629,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 144.78 83.82 0)
+			(at 203.2 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14600,7 +14640,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 144.78 83.82 0)
+			(at 203.2 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14781,6 +14821,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 144.78 83.82 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9b727321-3f68-5ff7-8aff-65e87c719c81")
+		(property "Reference" "#FLG7"
+			(at 144.78 85.725 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 144.78 87.63 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 144.78 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 144.78 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 144.78 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "aa022a01-89ed-5973-93ad-d405dabb6912")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
+					(reference "#FLG7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 165.1 63.5 0)
 		(unit 1)
@@ -14852,83 +14969,6 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
 					(reference "#PWR02005")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 203.2 66.04 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9f1bdeae-e71f-56b9-aa82-cd6856ad8f8f")
-		(property "Reference" "#FLG9"
-			(at 203.2 67.945 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 203.2 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 203.2 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 203.2 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 203.2 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "22982f0f-67fc-54c0-a0fd-0ba936ec2d6d")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
-					(reference "#FLG9")
 					(unit 1)
 				)
 			)
@@ -18573,6 +18613,17 @@
 			)
 		)
 		(property "Description" "Four pin crystal, GND on pins 2 and 4"
+			(at 111.76 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "Abracon ABM8-272-T3"
 			(at 111.76 158.75 0)
 			(hide yes)
 			(show_name no)

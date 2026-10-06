@@ -16,7 +16,7 @@ continues, in square brackets.
 
 | Page | Sheet | Content | Architecture doc |
 |---|---|---|---|
-| 2 | Power | J11 (original pinout, from IO board J16), J17 external +5 V, ideal-diode mux with external priority, AMS1117 3.3 V, +4.5 V switch supply, ADC supply monitors, rail test points | 9.3 |
+| 2 | Power | J11 (original connector, +5 V and ground only), J17 external +5 V, ideal-diode mux with external priority, J23 external +12 V for audio (polyfuse + TVS), NCP1117 3.3 V (ceramic-stable), +4.5 V switch supply, ADC supply monitors, rail test points | 9.3 |
 | 3 | MCU and Pi | RP2354B, crystal, core regulator parts, TPS3808 reset supervisor, RESET / BOOTSEL buttons, status LED, J21 Raspberry Pi 4 40-pin header (UART0, SPI0, I2S, RUN, BOOTSEL, IRQ), J19 USB-C to the Pi, J20 SWD, U25 DS3231MZ real-time clock on the Pi I2C1 with a CR2032 (BT1) | 4.2, 9.1, 9.2 |
 | 4 | IO bus | J9 to IO board J1: SN74LVC8T245 data, 74AHCT541 address + IOSTB, 2N7002 open-drain NBRESET, 33 R series resistor packs | 3.1, 3.2 |
 | 5 | Switch columns | 74HC595 + 8 MMBT3904 strobe drivers, J1 switch columns | 5.3, 5.4 |
@@ -25,7 +25,7 @@ continues, in square brackets.
 | 8 | Dedicated switches 1-16 | J2, J3, input filters, 2 x 74HC165, coin door memory protect | 5.2, 5.3 |
 | 9 | Dedicated switches 17-24 | J13, input filters, 74HC165, 8 DIP switches with their 74HC165 | 5.2, 5.3 |
 | 10 | Display and GI | 74HCT245 driver for the original DMD on J5, J18 GI dimmer header | 8, 10.2 |
-| 11 | Audio | PCM5102A DAC from Pi I2S, two TDA2030A on +-12 V, J10 speakers, J22 second speaker connector (stereo pairs) | 8 |
+| 11 | Audio | PCM5102A DAC from Pi I2S; U23 TDA7297 bridge amplifier for left / right (J10, J22); (L + R) / 2 110 Hz low-pass (OPA1678) into U24 TDA7297 for the subwoofer (J24); all on +12 V; software mute | 8 |
 
 The prototype uses a Raspberry Pi 4 plugged into the 40-pin header J21. The Pi keeps its own HDMI output, so no
 high-speed signals are routed on this board. A CM4 is not planned for now.
@@ -33,26 +33,34 @@ high-speed signals are routed on this board. A CM4 is not planned for now.
 Connector references follow the original CPU/Sound board 520-5246-00 (J1, J2, J3, J5, J6, J9, J10, J11, J12,
 J13), so the cabinet harness labels still match. The harness connectors J1, J2, J3, J6, J12 and J13 use 3.96 mm
 KK-396 headers like the original board, so the existing harness plugs fit. New connectors start at J17: J17 external +5 V, J18 GI dimmer,
-J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header.
+J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header, J22 stereo speaker pairs, J23 external +12 V, J24 subwoofer.
 
-Test points (TP1-TP22, 1.5 mm SMD pads): +5V, +3V3, +4V5, +12V, -12V and two GND on the power page; +1V1, RUN and
+Test points (TP1-TP22, 1.5 mm SMD pads): +5V, +3V3, +4V5, +12V and two GND on the power page; +1V1, RUN and
 GND by the RP2354B; J9 IOSTB, NBRESET, D0 and A0 on the bus; strobes 1-2, SW_CLK and SW_DATA on the switch columns
-page; VREF; DAC left / right outputs and GND on the audio page.
+page; VREF; DAC left / right outputs, subwoofer filter output and GND on the audio page.
 
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 1 warning. The warning is the unused 74HCT245 input A7 tied to
   ground, which KiCad reports because the pin is typed tri-state.
 - The netlist KiCad exports was compared pin by pin with the nets the generator intended (`tools/verify2.py`):
-  1303 pins, 302 nets, no differences.
+  1339 pins, 313 nets, no differences.
 
 ## Open items before layout
 
 - **Power mux**: the doc names a TPS2121. KiCad has no symbol for it, so this draft uses two LTC4412 ideal-diode
   controllers with AO3401A P-MOSFETs (external path always on, J11 path turned off by `EXT_PRESENT`). Swap back to a
   TPS2121 with a checked custom symbol if preferred.
-- **RP2354B support parts** (VREG inductor, VREG_AVDD filter, crystal load, USB series resistors) follow the Pico 2
-  pattern from memory; check them against the RP2350 hardware design guide.
+- **RP2354B support parts** were checked against the RP2350 hardware design guide: 3.3 uH Abracon
+  AOTA-B201610S3R3-101-T for L1 (mind its polarity dot), 4.7 uF on VREG_VIN and on the 1.1 V output, 33 R + 4.7 uF
+  on VREG_AVDD, ABM8-272-T3 12 MHz crystal with 15 pF and 1 k, 27 R USB series resistors, 100 nF per supply pin.
+  The guide uses 0402; this board uses 0603 for 100 nF and 0805 / 1206 for every regulator capacitor so their value
+  holds under DC bias.
+- **Audio**: TDA7297 outputs are bridged, so no speaker wire may touch ground. J10 pins 3 / 4 (ground on the
+  original board) now carry left - / right -: check the harness keeps the two speaker returns separate. At 12 V
+  expect about 6 W per bridge into 8 ohm (the TDA7297 is rated 2 x 15 W at 18 V / 8 ohm); check the speaker
+  impedances before using 4 ohm. U23 and U24 need a heatsink (keep-out drawn on the board). The datasheet pin list
+  was not reachable from here: confirm pins 1 / 2 and 14 / 15 output polarity (symbol: pin 1 and pin 15 = +).
 - **Pin orders to confirm with a meter** on a real board or harness: J6 / J12 return order, J2 / J3 / J13 dedicated
   input order, J1 strobe order, J5 DMD pinout (Q18).
 - **Memory protect**: J2 pin 10 (coin door) goes to GPIO31, which the doc lists as spare.

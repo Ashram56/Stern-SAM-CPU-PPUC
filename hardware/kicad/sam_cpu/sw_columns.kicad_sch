@@ -4095,7 +4095,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 320.04 76.2 0)
+		(at 335.28 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4105,7 +4105,7 @@
 		(dnp no)
 		(uuid "1e8c5ef7-6937-501c-b3d1-ca1b76868e3b")
 		(property "Reference" "TP16"
-			(at 320.04 69.342 0)
+			(at 335.28 69.342 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4114,8 +4114,8 @@
 				)
 			)
 		)
-		(property "Value" "STB2"
-			(at 320.04 71.12 0)
+		(property "Value" "SW_CLK"
+			(at 335.28 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4125,7 +4125,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 325.12 76.2 0)
+			(at 340.36 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4136,7 +4136,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 325.12 76.2 0)
+			(at 340.36 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4147,7 +4147,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 320.04 76.2 0)
+			(at 335.28 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4164,6 +4164,82 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/5cd31ef4-0228-58c0-894e-3c4c8dbd5bd6"
 					(reference "TP16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 304.8 76.2 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1f2a83b3-40ca-5c54-90b9-5d520d34063c")
+		(property "Reference" "TP14"
+			(at 304.8 69.342 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "STB1"
+			(at 304.8 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 309.88 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 309.88 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 304.8 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d4eb475a-06c0-5c97-a8ff-43e40438ee1e")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/5cd31ef4-0228-58c0-894e-3c4c8dbd5bd6"
+					(reference "TP14")
 					(unit 1)
 				)
 			)
@@ -4496,7 +4572,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 304.8 76.2 0)
+		(at 320.04 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4506,7 +4582,7 @@
 		(dnp no)
 		(uuid "39f8bcf8-d839-5240-aeb8-b248e29b8046")
 		(property "Reference" "TP15"
-			(at 304.8 69.342 0)
+			(at 320.04 69.342 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4515,8 +4591,8 @@
 				)
 			)
 		)
-		(property "Value" "STB1"
-			(at 304.8 71.12 0)
+		(property "Value" "STB2"
+			(at 320.04 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4526,7 +4602,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 309.88 76.2 0)
+			(at 325.12 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4537,7 +4613,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 309.88 76.2 0)
+			(at 325.12 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4548,7 +4624,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 304.8 76.2 0)
+			(at 320.04 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4807,7 +4883,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 335.28 76.2 0)
+		(at 350.52 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4817,7 +4893,7 @@
 		(dnp no)
 		(uuid "45aa3b79-0f9e-5e81-a206-d79a76f69343")
 		(property "Reference" "TP17"
-			(at 335.28 69.342 0)
+			(at 350.52 69.342 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4826,8 +4902,8 @@
 				)
 			)
 		)
-		(property "Value" "SW_CLK"
-			(at 335.28 71.12 0)
+		(property "Value" "SW_DATA"
+			(at 350.52 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4837,7 +4913,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 340.36 76.2 0)
+			(at 355.6 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4848,7 +4924,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 340.36 76.2 0)
+			(at 355.6 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4859,7 +4935,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 335.28 76.2 0)
+			(at 350.52 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5053,82 +5129,6 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/5cd31ef4-0228-58c0-894e-3c4c8dbd5bd6"
 					(reference "#PWR04009")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 350.52 76.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "563241e1-b79b-5bc8-937a-e67f626aeabd")
-		(property "Reference" "TP18"
-			(at 350.52 69.342 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DATA"
-			(at 350.52 71.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 355.6 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 355.6 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 350.52 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "46cf2ef4-ea68-5e8e-b6dd-43ba8d2f3f97")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/5cd31ef4-0228-58c0-894e-3c4c8dbd5bd6"
-					(reference "TP18")
 					(unit 1)
 				)
 			)

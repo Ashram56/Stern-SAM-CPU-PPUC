@@ -18,16 +18,19 @@ ROOT_NOTES = ('SAM CPU replacement board, draft 0.2, drawn from docs/ARCHITECTUR
 U = 2.54
 
 _cnt = collections.Counter({'D': 10, 'Q': 10})
+EXPLICIT = {'C119'}          # refs given by hand; the counters skip them
 def nref(prefix):
     _cnt[prefix] += 1
+    while f'{prefix}{_cnt[prefix]}' in EXPLICIT:
+        _cnt[prefix] += 1
     return f'{prefix}{_cnt[prefix]}'
 
 FP = {
     'R': 'Resistor_SMD:R_0603_1608Metric', 'RN': 'Resistor_SMD:R_Array_Convex_4x0603',
-    'C': 'Capacitor_SMD:C_0603_1608Metric', 'C0805': 'Capacitor_SMD:C_0805_2012Metric',
+    'C': 'Capacitor_SMD:C_0603_1608Metric', 'C0805': 'Capacitor_SMD:C_0805_2012Metric', 'C1206': 'Capacitor_SMD:C_1206_3216Metric',
     'CP6': 'Capacitor_SMD:CP_Elec_6.3x7.7', 'CP8': 'Capacitor_SMD:CP_Elec_8x10',
     'SOD123': 'Diode_SMD:D_SOD-123', 'SMA': 'Diode_SMD:D_SMA', 'SMB': 'Diode_SMD:D_SMB',
-    'SO14': 'Package_SO:SOIC-14_3.9x8.7mm_P1.27mm', 'SO16': 'Package_SO:SOIC-16_3.9x9.9mm_P1.27mm',
+    'SO8': 'Package_SO:SOIC-8_3.9x4.9mm_P1.27mm', 'SO14': 'Package_SO:SOIC-14_3.9x8.7mm_P1.27mm', 'SO16': 'Package_SO:SOIC-16_3.9x9.9mm_P1.27mm',
     'TSSOP20': 'Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm', 'TSSOP24': 'Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm',
     'LED': 'LED_SMD:LED_0603_1608Metric', 'FB': 'Inductor_SMD:L_0805_2012Metric',
     'BTN': 'Button_Switch_SMD:SW_SPST_TL3342',
@@ -110,8 +113,10 @@ def page(*a, **k):
 # =====================================================================
 # Power
 # =====================================================================
-S = page('Power', 'power.kicad_sch', 'Power: +5 V mux (external / J11), 3.3 V, 4.5 V, supply monitors', notes=(
-    'J11 keeps the original CPU board pinout (IO board J16 harness): +5 V, +-12 V and ground.',
+S = page('Power', 'power.kicad_sch', 'Power: +5 V mux, external +12 V, 3.3 V, 4.5 V, monitors', notes=(
+    'J11 keeps the original CPU board connector (IO board J16 harness) for +5 V and ground only: its +-12 V pins are not used.',
+    'The audio amplifiers run from an external +12 V supply on J23 (about 3 A at full volume). F1 + D5 blow the fuse on reverse polarity.',
+    'U3 NCP1117 (as in the RP2350 hardware guide) is stable with ceramic capacitors. All regulator capacitors are 0805 or larger for low DC-bias derating.',
     'External +5 V on J17 has priority: U2 turns the J11 path off whenever +5V_EXT is present (EXT_PRESENT high).',
     'LTC4412 + AO3401A ideal diodes stand in for the TPS2121 of ARCHITECTURE.md 9.3 (library part, about 4 A per path).',
     'JP1 (bridged by default) disconnects the J11 +5 V completely; leaving J17 unplugged forces J11.',
@@ -126,7 +131,7 @@ S.at(Part('Q1', 'Transistor_FET:AO3401A', 'AO3401A', {'1': 'GATE_EXT', '3': '+5V
 S.at(Part('U1', 'Power_Management:LTC4412xS6', 'LTC4412', {'1': '+5V_EXT', '3': 'GND', '5': 'GATE_EXT', '2': 'GND', '6': '+5V', '4': 'NC'}), 48, 31)
 # J11 input (row 2)
 S.at(Part('J11', 'Connector_Generic:Conn_01x06', 'J11 POWER',
-          {'1': '+5V_J11_IN', '2': 'GND', '3': '-12V_IN', '4': 'GND', '5': 'GND', '6': '+12V_IN'}, kk396(6), mirror='y'), 10, 56)
+          {'1': '+5V_J11_IN', '2': 'GND', '3': 'NC', '4': 'GND', '5': 'GND', '6': 'NC'}, kk396(6), mirror='y'), 10, 56)
 S.at(Part('FB1', 'Device:FerriteBead_Small', '3A', {'1': '+5V_J11_IN', '2': '+5V_J11_F'}, FP['FB'], rotation=90), 19, 54)
 S.at(Part('JP1', 'Jumper:SolderJumper_2_Bridged', 'J11 5V', {'1': '+5V_J11_F', '2': '+5V_J11'},
           'Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm'), 27, 54)
@@ -135,18 +140,20 @@ S.at(Part('Q2', 'Transistor_FET:AO3401A', 'AO3401A', {'1': 'GATE_J11', '3': '+5V
 S.at(Part('U2', 'Power_Management:LTC4412xS6', 'LTC4412', {'1': '+5V_J11', '3': 'EXT_PRESENT', '5': 'GATE_J11', '2': 'GND', '6': '+5V', '4': 'NC'}), 48, 59)
 S.vr('100k', '+5V_EXT', 'EXT_PRESENT', 36, 36)
 S.vr('100k', 'EXT_PRESENT', 'GND', 36, 42)
-# +-12 V
-S.at(Part('FB2', 'Device:FerriteBead_Small', '1A', {'1': '+12V_IN', '2': '+12V'}, FP['FB'], rotation=90), 25, 66)
-S.at(Part('FB3', 'Device:FerriteBead_Small', '1A', {'1': '-12V_IN', '2': '-12V'}, FP['FB'], rotation=90), 25, 74)
-S.vc('47u', '+12V', 38, 70, pol=True, fp=FP['CP6'])
-S.vc('47u', 'GND', 44, 70, n2='-12V', pol=True, fp=FP['CP6'])
+# external +12 V for the audio amplifiers
+S.at(Part('J23', 'Connector:Screw_Terminal_01x02', 'EXT 12V', {'1': '+12V_IN', '2': 'GND'},
+          'TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal', mirror='y'), 10, 70)
+S.at(Part('F1', 'Device:Polyfuse', '4A hold', {'1': '+12V_IN', '2': '+12V'}, 'Fuse:Fuse_2920_7451Metric', rotation=90), 22, 69)
+S.at(Part('D5', 'Device:D_Zener', 'SMBJ15A', {'1': '+12V', '2': 'GND'}, FP['SMB'], rotation=270), 30, 73)
+S.vc('100u', '+12V', 38, 70, pol=True, fp=FP['CP8'])
+S.vc('100n', '+12V', 44, 70)
 S.stub_len['+3V3'] = 6
 # +5 V output
 S.decaps('+5V', ['100u', '10u'], 62, 36)
 # 3.3 V
-S.at(Part('U3', 'Regulator_Linear:AMS1117-3.3', 'AMS1117-3.3', {'3': '+5V', '1': 'GND', '2': '+3V3'}), 90, 28)
-S.vc('10u', '+5V', 82, 30)
-S.vc('22u', '+3V3', 98, 30)
+S.at(Part('U3', 'Regulator_Linear:NCP1117-3.3_SOT223', 'NCP1117-3.3', {'3': '+5V', '1': 'GND', '2': '+3V3'}), 90, 28)
+S.vc('10u', '+5V', 82, 30, fp=FP['C1206'])
+S.vc('10u', '+3V3', 98, 30, fp=FP['C1206'])
 S.vr('1k', '+3V3', 'LED_PWR', 104, 28)
 S.at(Part('D2', 'Device:LED', 'green', {'2': 'LED_PWR', '1': 'GND'}, FP['LED'], rotation=90), 104, 35.5)
 # 4.5 V switch supply
@@ -162,12 +169,13 @@ S.vc('100n', 'VMON_12V', 145, 34)
 S.port('VMON_5V', 132 * U, 32 * U, 'R')
 S.port('VMON_12V', 152 * U, 32 * U, 'R')
 # power flags for the rails
-for i, n in enumerate(['+5V', '+4V5', '+12V', '-12V', 'GND']):
+for i, n in enumerate(['+5V', '+4V5', '+12V', 'GND']):
     S.at(flag(n), 70 + i * 6, 80)
-S.tps(['+5V', '+3V3', '+4V5', '+12V', '-12V', 'GND', 'GND'], 70, 92, dx=6)
+S.tps(['+5V', '+3V3', '+4V5', '+12V', 'GND', 'GND'], 70, 92, dx=6)
 S.frame('Test points', 64 * U, 84 * U, 112 * U, 98 * U)
 S.frame('External +5 V (J17, priority)', 5 * U, 16 * U, 58 * U, 44 * U)
-S.frame('IO board power (J11)', 5 * U, 46 * U, 58 * U, 92 * U)
+S.frame('IO board power (J11, +5 V only)', 5 * U, 46 * U, 58 * U, 64 * U)
+S.frame('External +12 V for audio (J23)', 5 * U, 66 * U, 58 * U, 92 * U)
 S.frame('3.3 V', 76 * U, 16 * U, 112 * U, 44 * U)
 S.frame('4.5 V for the switch matrix', 76 * U, 46 * U, 112 * U, 66 * U)
 S.frame('Supply monitors (RP2354B ADC)', 114 * U, 16 * U, 160 * U, 44 * U)
@@ -188,7 +196,7 @@ gp.update({12: 'BUS_IOSTB', 13: 'BUS_DIR', 14: 'NBRESET_DRV', 15: 'BUS_OE_N',
            21: 'DMD_DE', 22: 'DMD_ROWDATA', 23: 'DMD_ROWCLK', 24: 'DMD_COLLATCH_A', 25: 'DMD_PIXCLK',
            26: 'DMD_SDATA', 27: 'DMD_COLLATCH_B', 28: 'FRAME_MOSI', 29: 'FRAME_CS_N', 30: 'FRAME_SCK',
            31: 'MEM_PROTECT', 32: 'RP_UART_TX', 33: 'RP_UART_RX', 34: 'RP_IRQ_N', 35: 'GI_PWM', 36: 'GI_SPARE',
-           40: 'VMON_5V', 41: 'VMON_12V', 42: 'LED_STATUS'})
+           37: 'AMP_MUTE', 40: 'VMON_5V', 41: 'VMON_12V', 42: 'LED_STATUS'})
 sd = SymDef.get('MCU_RaspberryPi:RP2354B')
 nets = {}
 fixed = {'VREG_AVDD': 'VREG_AVDD', 'DVDD': '+1V1', 'VREG_FB': '+1V1', 'VREG_LX': 'VREG_LX', 'GND': 'GND',
@@ -205,7 +213,8 @@ MX, MY = 72, 58
 u4 = S.at(Part('U4', 'MCU_RaspberryPi:RP2354B', 'RP2354B', nets), MX, MY)
 S.label_nets |= {'MR_N', 'BOOTSEL', 'SWCLK', 'SWDIO'}
 # core regulator parts (above the chip)
-S.at(Part('L1', 'Device:L', '3.3u', {'1': 'VREG_LX', '2': '+1V1'}, 'Inductor_SMD:L_Cenker_CKCS201610', rotation=180), 74, 28.5)
+S.at(Part('L1', 'Device:L', '3.3u', {'1': 'VREG_LX', '2': '+1V1'}, 'Inductor_SMD:L_Cenker_CKCS201610', rotation=180,
+          props={'MPN': 'Abracon AOTA-B201610S3R3-101-T (polarity dot as on Pico 2)'}), 74, 28.5)
 S.vr('33', '+3V3', 'VREG_AVDD', 65, 26)
 S.vc('4.7u', 'VREG_AVDD', 61, 30)
 S.at(flag('VREG_AVDD', up=True), 57, 33)
@@ -232,7 +241,7 @@ S.hr('1k', 'BOOTSEL_BTN', 'BOOTSEL', 48, 54)
 S.at(Part('SW2', 'Switch:SW_Push', 'BOOTSEL', {'1': 'BOOTSEL_BTN', '2': 'GND'}, FP['BTN'], mirror='y'), 43, 54)
 # crystal
 S.at(Part('Y1', 'Device:Crystal_GND24', '12MHz', {'1': 'XIN', '3': 'XTAL_OUT', '2': 'GND', '4': 'GND'},
-          'Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm', rotation=270), 44, 62.5)
+          'Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm', rotation=270, props={'MPN': 'Abracon ABM8-272-T3'}), 44, 62.5)
 S.hr('1k', 'XTAL_OUT', 'XOUT', 52, 66)
 S.vc('15p', 'XIN', 36, 60)
 S.vc('15p', 'XTAL_OUT', 48, 66)
@@ -461,11 +470,11 @@ S.frame('GI dimmer board link (J18)', 12 * U, 78 * U, 112 * U, 100 * U)
 # =====================================================================
 # Audio
 # =====================================================================
-S = page('Audio', 'audio.kicad_sch', 'Audio: Pi I2S -> PCM5102A -> 2 x TDA2030A on +-12 V -> J10', notes=(
-    'Same structure as the original (DAC + two TDA2030A on +-12 V, speakers on J10). Volume stays digital (ROM / PinMAME).',
-    'Gain: 22k / 4.7k input divider x (1 + 22k / 1k) = about 4 overall. Starting values, to check on the bench.',
-    'J10 keeps the original pinout (left = backbox, right = cabinet woofer by default; the woofer low-pass is done on the Pi).',
-    'J22 carries the same two outputs as separate pairs (L+ L- R+ R-) for a stereo backbox harness.',
+S = page('Audio', 'audio.kicad_sch', 'Audio: PCM5102A, TDA7297 stereo + subwoofer (+12 V)', notes=(
+    'Single +12 V supply (J23). U23 drives left / right in bridge (BTL): no output capacitor, but no speaker wire may go to ground.',
+    'J10 keeps the original connector: pins 1 / 2 = left + / right +, pins 3 / 4 (ground on the original) = left - / right -. Check the harness keeps the two speaker returns separate.',
+    'J22 = the same two channels as pairs (L+ L- R+ R-). Subwoofer: (L + R) / 2 through a 110 Hz 2nd-order low-pass (U26), U24 drives two bridged outputs on J24 (dual voice coil or two subwoofers).',
+    'TDA7297 gain is fixed at 32 dB: 22k / 1.8k input dividers give full output at DAC full scale. AMP_MUTE (RP2354B GPIO37) high mutes all outputs. U23 / U24 need a heatsink.',
 ))
 S.at(Part('U22', 'Audio:PCM5102A', 'PCM5102A',
           {'15': 'I2S_LRCK', '14': 'I2S_DIN', '13': 'I2S_BCK', '12': 'GND', '11': 'GND', '10': 'GND', '17': 'DAC_XSMT',
@@ -481,27 +490,66 @@ S.at(Part('FB4', 'Device:FerriteBead_Small', 'FB', {'1': '+3V3', '2': '+3V3_A'},
 S.vc('10u', '+3V3_A', 44, 43)
 S.at(flag('+3V3_A'), 48, 42)
 S.decaps('+3V3', ['100n', '100n', '10u'], 10, 70)
-def amp(S, ch, y, uref):
-    S.hr('470', f'DAC_OUT{ch}', f'AF{ch}', 56, y)
-    S.vc('2.2n', f'AF{ch}', 61, y + 1)
-    S.hc('1u', f'AF{ch}', f'AC{ch}', 63, y)
-    S.hr('22k', f'AC{ch}', f'AIN{ch}', 68, y)
-    S.vr('4.7k', f'AIN{ch}', 'GND', 73, y + 1)
-    S.at(Part(uref, 'Amplifier_Audio:TDA2030', 'TDA2030A',
-              {'1': f'AIN{ch}', '2': f'AFB{ch}', '5': '+12V', '3': '-12V', '4': f'SPK_{ch}'}), 80, y + 1)
-    S.hr('22k', f'AFB{ch}', f'SPK_{ch}', 79, y + 8)
-    S.vr('1k', f'AFB{ch}', f'AFC{ch}', 74, y + 6)
-    S.vc('22u', f'AFC{ch}', 74, y + 11, pol=True, fp=FP['CP6'])
-    S.vr('1', f'SPK_{ch}', f'ZB{ch}', 90, y + 3, fp='Resistor_SMD:R_1206_3216Metric')
-    S.vc('220n', f'ZB{ch}', 90, y + 8)
-    S.at(Part(nref('D'), 'Device:D', 'S1M', {'2': f'SPK_{ch}', '1': '+12V'}, FP['SMA'], rotation=270), 96, y - 3.5)
-    S.at(Part(nref('D'), 'Device:D', 'S1M', {'2': '-12V', '1': f'SPK_{ch}'}, FP['SMA'], rotation=270), 96, y + 4.5)
-    S.decaps('+12V', ['100n', '100u'], 106, y - 8, dx=5)
-    S.decaps('GND', ['100n', '100u'], 106, y + 6, n2='-12V', dx=5)
-amp(S, 'L', 26, 'U23')
-amp(S, 'R', 78, 'U24')
-S.at(conn('J10', 4, {1: 'SPK_L', 2: 'SPK_R', 3: 'GND', 4: 'GND'}, kk396(4), 'J10 SPEAKERS'), 140, 56)
-S.at(conn('J22', 4, {1: 'SPK_L', 2: 'GND', 3: 'SPK_R', 4: 'GND'}, kk396(4), 'J22 STEREO'), 140, 72)
-S.tps(['DAC_OUTL', 'DAC_OUTR', 'GND'], 12, 90)
-S.frame('Left amplifier', 52 * U, 14 * U, 124 * U, 46 * U)
-S.frame('Right amplifier', 52 * U, 66 * U, 124 * U, 98 * U)
+S.label_nets |= {'AFL', 'AFR', 'SUB_OUT', 'AMP_STBY', 'AMP_PLAY'}
+
+def amp_in(S, src, tag, x, y, flt=True):
+    """DAC output -> (470 R / 2.2 nF filter) -> 22k / 1.8k divider -> 1 uF -> TDA7297 input"""
+    if flt:
+        S.hr('470', src, f'AF{tag}', x, y)
+        S.vc('2.2n', f'AF{tag}', x + 5, y + 1)
+        src = f'AF{tag}'
+    S.hr('22k', src, f'AD{tag}', x + 7, y)
+    S.vr('1.8k', f'AD{tag}', 'GND', x + 12, y + 1)
+    S.hc('1u', f'AD{tag}', f'AIN{tag}', x + 14, y)
+
+def tda7297(S, uref, ins, outs, x, y, dy=14):
+    """both bridge channels of one TDA7297 (units 1 and 2) plus its supply unit"""
+    (i1, i2), (o1p, o1n, o2p, o2n) = ins, outs
+    S.at(Part(uref, 'Amplifier_Audio:TDA7297', 'TDA7297', {'4': i1, '1': o1p, '2': o1n, '6': 'AMP_PLAY', '7': 'AMP_STBY',
+                                                           '5': 'NC', '10': 'NC', '11': 'NC'},
+              'Package_TO_SOT_THT:TO-220-15_P2.54x5.08mm_StaggerOdd_Lead4.58mm_Vertical', unit=1), x, y)
+    S.at(Part(uref, 'Amplifier_Audio:TDA7297', 'TDA7297', {'12': i2, '15': o2p, '14': o2n},
+              'Package_TO_SOT_THT:TO-220-15_P2.54x5.08mm_StaggerOdd_Lead4.58mm_Vertical', unit=2), x, y + dy)
+    S.at(Part(uref, 'Amplifier_Audio:TDA7297', 'TDA7297', {'3': '+12V', '13': '+12V', '8': 'GND', '9': 'GND'},
+              'Package_TO_SOT_THT:TO-220-15_P2.54x5.08mm_StaggerOdd_Lead4.58mm_Vertical', unit=3), x + 14, y + dy // 2)
+    S.decaps('+12V', ['100n', '470u'], x + 22, y + 2, dx=5)
+
+# stereo amplifier
+amp_in(S, 'DAC_OUTL', 'L', 54, 22)
+amp_in(S, 'DAC_OUTR', 'R', 54, 36)
+tda7297(S, 'U23', ('AINL', 'AINR'), ('SPK_LP', 'SPK_LN', 'SPK_RP', 'SPK_RN'), 82, 22)
+# subwoofer: (L + R) / 2, 2nd-order Sallen-Key low-pass about 110 Hz, Q about 0.74, on a 6 V bias
+S.hc('1u', 'AFL', 'SUB_CL', 54, 60)
+S.hc('1u', 'AFR', 'SUB_CR', 54, 64)
+S.hr('20k', 'SUB_CL', 'SUB_SUM', 58, 60)
+S.hr('20k', 'SUB_CR', 'SUB_SUM', 58, 64)
+S.vr('100k', 'SUB_SUM', 'SUB_BIAS', 63, 66)
+S.hr('10k', 'SUB_SUM', 'SUB_P', 64, 60)
+S.vc('100n', 'SUB_P', 69, 62)
+S.hc('220n', 'SUB_SUM', 'SUB_OUT', 64, 55)
+S.at(Part('U26', 'Amplifier_Operational:OPA1678', 'OPA1678', {'3': 'SUB_P', '2': 'SUB_OUT', '1': 'SUB_OUT'}, FP['SO8'], unit=1), 76, 60)
+S.at(Part('U26', 'Amplifier_Operational:OPA1678', 'OPA1678', {'5': 'SUB_BIAS', '6': 'SUB_SPARE', '7': 'SUB_SPARE'}, FP['SO8'], unit=2), 76, 72)
+S.at(Part('U26', 'Amplifier_Operational:OPA1678', 'OPA1678', {'8': '+12V', '4': 'GND'}, FP['SO8'], unit=3), 88, 60)
+S.decaps('+12V', ['100n'], 92, 58)
+S.vr('10k', '+12V', 'SUB_BIAS', 58, 72)
+S.vr('10k', 'SUB_BIAS', 'GND', 58, 78)
+S.vc('10u', 'SUB_BIAS', 63, 78)
+S.hc('1u', 'SUB_OUT', 'SUB_AC', 54, 88)
+amp_in(S, 'SUB_AC', 'S', 54, 88, flt=False)
+tda7297(S, 'U24', ('AINS', 'AINS'), ('SUB1P', 'SUB1N', 'SUB2P', 'SUB2N'), 100, 80, dy=12)
+# standby (soft start) and mute, shared by both amplifiers
+S.vr('10k', '+5V', 'AMP_STBY', 112, 56)
+S.vc('10u', 'AMP_STBY', 116, 62)
+S.vr('10k', '+5V', 'AMP_PLAY', 120, 56)
+S.vc('10u', 'AMP_PLAY', 124, 62)
+S.at(Part('Q4', 'Transistor_FET:2N7002', '2N7002', {'1': 'AMP_MUTE', '3': 'AMP_PLAY', '2': 'GND'}), 128, 68)
+S.vr('100k', 'AMP_MUTE', 'GND', 120, 70)
+S.port('AMP_MUTE', 112 * U, 69 * U, 'L')
+S.at(conn('J10', 4, {1: 'SPK_LP', 2: 'SPK_RP', 3: 'SPK_LN', 4: 'SPK_RN'}, kk396(4), 'J10 SPEAKERS'), 140, 24)
+S.at(conn('J22', 4, {1: 'SPK_LP', 2: 'SPK_LN', 3: 'SPK_RP', 4: 'SPK_RN'}, kk396(4), 'J22 STEREO'), 140, 40)
+S.at(conn('J24', 4, {1: 'SUB1P', 2: 'SUB1N', 3: 'SUB2P', 4: 'SUB2N'}, kk396(4), 'J24 SUBWOOFER'), 140, 84)
+S.tps(['DAC_OUTL', 'DAC_OUTR', 'SUB_OUT', 'GND'], 12, 90)
+S.frame('Stereo amplifier (bridge)', 52 * U, 14 * U, 132 * U, 50 * U)
+S.frame('Subwoofer low-pass', 52 * U, 52 * U, 94 * U, 98 * U)
+S.frame('Subwoofer amplifier', 96 * U, 76 * U, 132 * U, 98 * U)
+S.frame('Standby / mute', 108 * U, 52 * U, 132 * U, 74 * U)

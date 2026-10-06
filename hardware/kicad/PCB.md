@@ -1,7 +1,7 @@
-# PCB placement draft (0.2)
+# PCB placement draft (0.3)
 
 `sam_cpu/sam_cpu.kicad_pcb` has the board outline, the mounting holes, the connectors and a first placement of all
-429 parts, on **2 copper layers**. Nothing is routed. It matches the schematic (KiCad schematic parity: 0 footprint
+436 parts, on **2 copper layers**. Nothing is routed. It matches the schematic (KiCad schematic parity: 0 footprint
 errors) and has no courtyard overlaps.
 
 ![Overview](sam_cpu/pcb_overview.png)
@@ -46,10 +46,12 @@ pad (M4) until the real screw is measured.
 | J2 | dedicated in (lower), 12 pin | 75.85, 201.41 | 151.77, 221.73 | 76 mm left, second row 20.3 mm up |
 | J1 | switch strobes, 9 pin | 115.57, 201.41 | 194.94, 221.73 | 79 mm left, second row 20.3 mm up |
 | J11 | power in | 58.41, 11.18 | same | none |
-| J10 | speakers | 85.00, 11.18 | 156.19, 8.76 | 71 mm left |
+| J10 | speakers (now bridged: L+ R+ L- R-) | 85.00, 11.18 | 156.19, 8.76 | 71 mm left |
 | J5 | DMD 2x7 | 115.57, 176.46 | 211.44, 164.46 | 96 mm left, 12 mm down |
-| J22 | second speaker connector (L+ L- R+ R-) | 115.0, 30.0 | new | right edge |
 | J17 | external +5 V terminal, wires from the right edge | 114.5, 18.0 | new | |
+| J23 | external +12 V terminal (audio), wires from the right edge | 114.5, 30.0 | new | |
+| J22 | second speaker connector (L+ L- R+ R-) | 115.0, 41.5 | new | right edge |
+| J24 | subwoofer (SUB1+ SUB1- SUB2+ SUB2-) | 115.0, 59.5 | new | right edge |
 | J18 | GI dimmer header | 116.5, 193.0 | new | |
 | J19 | USB-C to the Pi, on the top edge | centre X 45.6 | new | 13 mm from the RP2354B USB pins |
 | J21 | Raspberry Pi 40-pin socket | 64.52, 147.23 | new | |
@@ -69,33 +71,44 @@ board could lose about 10 mm of width.
 ## Placement
 
 - **RP2354B (U4)** sits at (44, 26), right next to the bus buffers and J9. The USB-C J19 is on the top edge
-  above it: 13 mm from the connector's D+/D- pads to the chip's USB pins, with the 27 R series resistors in
-  between, so the USB pair can be routed short on 2 layers without impedance control.
-- Around U4, each 100 nF sits on its own IOVDD / DVDD pin, the regulator inductor L1 and the VREG_AVDD filter
-  (R8, C11) are on the regulator pins (61-65), and the crystal with its load capacitors and 1 k sits on XIN / XOUT.
+  above it: 13 mm from the connector's D+/D- pads to the chip's USB pins, so the USB pair can be routed short on
+  2 layers without impedance control. The 27 R series resistors R13 / R14 sit just left of the regulator parts; the
+  pair leaves pins 66 / 67 to the left, above pins 68-70.
+- **Core regulator** (RP2350 hardware guide, Pico 2 layout, with 0805 capacitors): L1 straight above VREG_LX
+  (1.8 mm), C12 4.7 uF on VREG_VIN on its left, C24 4.7 uF on the 1.1 V output on its right with its ground pad
+  next to VREG_PGND, then the VREG_AVDD filter R8 / C11. Route LX, VIN, PGND and the 1.1 V output on the top layer
+  with a solid ground under them, as the guide asks.
+- Around U4, each 100 nF sits on its own IOVDD / DVDD pin, and the crystal with its load capacitors and 1 k sits on
+  XIN / XOUT.
   Reset and BOOTSEL buttons, the SWD header J20 and the status LED are just below.
 - Every other IC has its decoupling capacitor on its supply pin. The rest is grouped by schematic sheet next to its
   connector: power under J11 (power-path parts toward J17), bus buffers beside J9, switch inputs beside J12, J6,
-  J13, J2/J3 and J1, DMD driver beside J5, audio amplifiers under J10 next to J22.
+  J13, J2/J3 and J1, DMD driver beside J5, audio under J10 next to J22 / J24.
+- **Amplifiers**: U23 (stereo) and U24 (subwoofer) TDA7297 stand in a row at y 54-65 with their tabs toward the
+  top edge, so one heatsink bar can take both. The area behind the tabs (59-107 x 41-54 mm) is kept free for it and
+  marked on User.Drawings. The +12 V input J23, J22 and J24 are on the right edge next to them.
 - The RTC and its CR2032 holder are at the left middle, reachable without removing the Pi.
 - The Pi was moved down 12 mm (and J5 with it) to leave room for the audio parts above its plug area. Only low
   parts (SMD, no electrolytics or TO-220) are placed under the Pi and under its USB-C / micro-HDMI plugs.
+- The outline stayed at 120.65 mm: everything fits without widening the board.
 - This is a first pass made by a script: expect to tighten the U4 area, rotate parts for routing, and spread the
   dense resistor blocks once routing starts.
 
 ## Checks
 
-- `kicad-cli pcb drc --schematic-parity` (KiCad 10.0.6): 0 footprint errors, no courtyard overlaps, no shorts,
-  no hole clearance issues. The remaining reports are expected before routing: unconnected pads, overlapping
-  reference designators, and the keyhole footprints coming from an in-board library.
+- `kicad-cli pcb drc --schematic-parity` (KiCad 10.0.6): every schematic part has its footprint with matching nets
+  (no missing, extra or net-conflict reports), no courtyard overlaps, no shorts, no hole clearance issues. The
+  remaining reports are expected before routing: unconnected pads, silkscreen overlaps, the keyhole footprints
+  coming from an in-board library, and footprint field differences (Description / Datasheet / MPN text and the
+  BOM flag), which "Update PCB from Schematic" fills in.
 
 ## To confirm
 
 - The measurements listed in `docs/mechanical/README.md` (board size, KK pin row from the edge, screws in the round
   holes and their diameter).
 - Pi orientation (face down on the socket, or face up on a ribbon).
-- Whether the TDA2030A amplifiers need a heatsink at the volume you run.
-- Harness reach for J1, J2, J5 and J10 at their new positions.
+- The heatsink for U23 / U24 (size and how it is fixed) and the speaker impedances.
+- Harness reach for J1, J2, J5 and J10 at their new positions, and that J10's two speaker returns are separate wires.
 
 ## How it was generated
 

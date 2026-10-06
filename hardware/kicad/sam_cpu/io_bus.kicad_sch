@@ -5823,6 +5823,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 335.28 76.2 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "05bce3cf-bf7e-57de-b7c7-2403ab673544")
+		(property "Reference" "TP10"
+			(at 335.28 69.342 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J9_IOSTB"
+			(at 335.28 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 340.36 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 340.36 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 335.28 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "82ecca8b-a204-5a01-aa79-f54ebb3da95c")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/83d33106-5c77-5ce5-b632-befe6bf553de"
+					(reference "TP10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 101.6 121.92 0)
 		(unit 1)
@@ -6829,82 +6905,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 381 76.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7cca6828-a30c-5ef9-afe0-c81c88ac9518")
-		(property "Reference" "TP14"
-			(at 381 69.342 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "J9_A0"
-			(at 381 71.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 386.08 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 386.08 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 381 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a69914f1-45ae-571b-9adb-6dc7cffb8c03")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/83d33106-5c77-5ce5-b632-befe6bf553de"
-					(reference "TP14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 135.89 203.2 90)
 		(unit 1)
@@ -6985,7 +6985,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 335.28 76.2 0)
+		(at 350.52 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6995,7 +6995,7 @@
 		(dnp no)
 		(uuid "86450260-ab15-5546-9a08-dd89ccfdbe95")
 		(property "Reference" "TP11"
-			(at 335.28 69.342 0)
+			(at 350.52 69.342 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7004,8 +7004,8 @@
 				)
 			)
 		)
-		(property "Value" "J9_IOSTB"
-			(at 335.28 71.12 0)
+		(property "Value" "J9_NBRESET"
+			(at 350.52 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7015,7 +7015,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 340.36 76.2 0)
+			(at 355.6 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7026,7 +7026,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 340.36 76.2 0)
+			(at 355.6 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7037,7 +7037,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 335.28 76.2 0)
+			(at 350.52 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7838,7 +7838,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 365.76 76.2 0)
+		(at 381 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7848,7 +7848,7 @@
 		(dnp no)
 		(uuid "a414584b-1484-5751-a3d9-027ae0d2702d")
 		(property "Reference" "TP13"
-			(at 365.76 69.342 0)
+			(at 381 69.342 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7857,8 +7857,8 @@
 				)
 			)
 		)
-		(property "Value" "J9_D0"
-			(at 365.76 71.12 0)
+		(property "Value" "J9_A0"
+			(at 381 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7868,7 +7868,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 370.84 76.2 0)
+			(at 386.08 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7879,7 +7879,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 370.84 76.2 0)
+			(at 386.08 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7890,7 +7890,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 365.76 76.2 0)
+			(at 381 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8153,7 +8153,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 350.52 76.2 0)
+		(at 365.76 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8163,7 +8163,7 @@
 		(dnp no)
 		(uuid "ba7ecf7c-0db9-599e-a0d3-a02861e5ea08")
 		(property "Reference" "TP12"
-			(at 350.52 69.342 0)
+			(at 365.76 69.342 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8172,8 +8172,8 @@
 				)
 			)
 		)
-		(property "Value" "J9_NBRESET"
-			(at 350.52 71.12 0)
+		(property "Value" "J9_D0"
+			(at 365.76 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8183,7 +8183,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 355.6 76.2 0)
+			(at 370.84 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8194,7 +8194,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 355.6 76.2 0)
+			(at 370.84 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8205,7 +8205,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 350.52 76.2 0)
+			(at 365.76 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

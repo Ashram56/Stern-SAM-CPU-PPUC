@@ -34,6 +34,9 @@ PI_YE = 152.0                  # Pi long edge at the header (the lower edge, Pi 
 MCU_X, MCU_Y = 44.0 - 5.6, 26.0 - 3.8   # RP2354B pin 1 (QFN-80 centre at 44, 26)
 J19_X = 45.6                             # USB-C centre on the top edge, data pads above RP2354B pins 66/67
 
+AMP_X, AMP_Y = 62.0, 64.0     # U23 pin 1; U24 is 23 mm to the right
+HEATSINK = (59.0, 41.0, 107.0, AMP_Y - 10.0)   # keep-out behind the TDA7297 tabs for a shared heatsink bar
+
 KK_ROW1 = 221.73               # original J1/J2/J3 pin row, 10.03 mm above the bottom edge
 KK_ROW2 = KK_ROW1 - 20.32      # second stacked row
 
@@ -52,7 +55,12 @@ FIXED = {
     "J11": (58.41, 11.18, 0),
     "J10": (85.00, 11.18, 0),
     "J17": (114.50, 18.00, 270),   # external +5 V terminal block, wires enter from the right edge
-    "J22": (115.00, 30.00, 270),   # second speaker connector (stereo pairs)
+    "J23": (114.50, 30.00, 270),   # external +12 V terminal block (audio amplifiers)
+    "J22": (115.00, 41.50, 270),   # second speaker connector (stereo pairs)
+    "J24": (115.00, 59.50, 270),   # subwoofer outputs
+    # TDA7297 amplifiers in a row, tabs toward the top edge so one heatsink bar can take both
+    "U23": (AMP_X, AMP_Y, 0),
+    "U24": (AMP_X + 23.0, AMP_Y, 0),
     # right edge: DMD moved from x 211.4 to the new right edge, same height and orientation
     "J5":  (115.57, 176.46, 180),
     "J18": (116.50, 193.00, 90),   # GI dimmer header
@@ -64,9 +72,9 @@ FIXED = {
 LOW = "low"
 UNDER_PI = (58, 98, 118, 135, LOW)
 REGIONS = {
-    "power.kicad_sch":          [(55, 17, 107, 31), (55, 31, 75, 47), (58, 67, 84, 95, LOW)],
+    "power.kicad_sch":          [(55, 17, 107, 31), (55, 31, 75, 41), (58, 67, 84, 95, LOW), (75, 31, 108, 41)],
     "io_bus.kicad_sch":         [(17, 21, 33.8, 59)],
-    "audio.kicad_sch":          [(84, 67, 112, 95, LOW), (75, 31, 110, 62), (55, 47, 75, 62), UNDER_PI],
+    "audio.kicad_sch":          [(75, 31, 108, 41), (84, 67, 112, 95, LOW), UNDER_PI],
     "sw_rows_9.kicad_sch":      [(17, 60, 55, 104)],
     "sw_rows_1.kicad_sch":      [(17, 128, 55, 168), UNDER_PI],
     "display_gi.kicad_sch":     [(84, 154, 108.5, 169), UNDER_PI],
@@ -80,12 +88,20 @@ REGIONS = {
 GROUP_OF = {r: "mcu_misc" for r in ("U5", "R9", "SW1", "SW2", "R15", "J20", "D3", "R17", "R10", "R11", "R12")}
 GROUP_OF.update({r: "pi_if" for r in ("R18", "R19", "R20", "R21", "R22")})
 GROUP_OF.update({r: "rtc" for r in ("U25", "BT1")})
-GROUP_OF.update({r: "mcu_misc" for r in ("TP8", "TP9", "TP10")})
+GROUP_OF["C8"] = "sw_rows_9.kicad_sch"      # +4V5 bulk capacitor, next to the switch inputs it feeds
+GROUP_OF.update({r: "mcu_misc" for r in ("TP7", "TP8", "TP9")})
 TALL = ("Capacitor_SMD:CP_Elec", "Package_TO_SOT_THT", "TerminalBlock", "Battery", "Button_Switch_THT",
         "Connector_", "Relay")
 # RP2354B parts that sit on one of its pins, in placement order: (ref, pad of U4)
-U4_SATS = [("L1", "63"), ("C11", "61"), ("R8", "61"), ("R13", "66"), ("R14", "67"), ("C24", "65")]
-SUPPLY = ("+3V3", "+1V1", "+5V", "+4V5", "+12V", "-12V", "+3V3_A")
+# Core regulator by hand, as close to the Pico 2 layout of the RP2350 hardware guide as 0805 parts allow: L1 straight
+# above VREG_LX (63), C12 (4.7 uF, VREG_VIN 64) on its left, C24 (4.7 uF, 1.1 V output) on its right with its ground
+# pad next to VREG_PGND (62), then the VREG_AVDD filter (R8 33 R + C11 4.7 uF, pin 61). Centre x, y and rotation.
+# The USB 27 R resistors sit left of C12; the pair leaves pins 66 / 67 under C12's left edge.
+REG_PARTS = {"L1": (46.70, 18.60, 90), "C12": (44.10, 18.45, 90), "C24": (49.45, 18.45, 270),
+             "C11": (51.75, 18.45, 270), "R8": (53.75, 18.60, 270),
+             "R14": (41.75, 18.60, 270), "R13": (39.85, 18.60, 270)}
+U4_SATS = []
+SUPPLY = ("+3V3", "+1V1", "+5V", "+4V5", "+12V", "+3V3_A")
 
 HOLES = [
     # (name, x, y, kind) screw positions from docs/mechanical; keyholes open upward
@@ -405,6 +421,7 @@ def main(netfile, out):
     j19.SetLocked(True)
 
     occ = Occupancy()
+    occ.boxes.append(HEATSINK)
     placed = set(FIXED) | {"J19"}
     for r in placed:
         occ.add(fps[r])
@@ -431,6 +448,15 @@ def main(netfile, out):
 
     # RP2354B: regulator, USB, decoupling and crystal on their pins
     u4 = fps["U4"]
+    for ref, (x, y, rot) in REG_PARTS.items():
+        fp = fps[ref]
+        fp.SetOrientationDegrees(rot)
+        b = box(fp)
+        move_box_to(fp, x - (b[2] - b[0]) / 2, y - (b[3] - b[1]) / 2)
+        if not occ.free(box(fp)):
+            print("regulator part overlaps:", ref)
+        occ.add(fp)
+        placed.add(ref)
     for ref, num in U4_SATS:
         net = netof[(ref, "1")]
         toward = "1" if net == padnet[("U4", num)] or ref == "R8" else "2"
@@ -491,7 +517,9 @@ def main(netfile, out):
         ic, num = ics[0]
         count[ic] = count.get(ic, 0) + 1
         if not place_satellite(fps[ref], fps[ic], pad(ic, num), occ, toward):
-            print("decap without room:", ref, ic)
+            # no room on the pin: pack it with the rest of its sheet
+            if pack([fps[ref]], REGIONS[comps[ref]["sheet"]], occ):
+                print("decap without room:", ref, ic)
 
     edge_rect(board, 0, 0, W, H, pcbnew.Edge_Cuts, 0.1)
     # Pi body and the space its connectors need, on User.Drawings
@@ -503,6 +531,8 @@ def main(netfile, out):
          PI_X0 + 1, PI_YE - 30, dl, 1.0)
     text(board, "PI USB / ETHERNET (OFF BOARD)", PI_X0 + 65.5, PI_YE - 30, dl, 1.0)
     text(board, "PI USB-C / MICRO-HDMI PLUGS: KEEP LOW", PI_X0 + 1, PI_YE - 70, dl, 1.0)
+    edge_rect(board, *HEATSINK, dl, 0.2)
+    text(board, "HEATSINK FOR U23 / U24 (TDA7297): NO PARTS", HEATSINK[0] + 1, HEATSINK[1] + 2, dl, 1.0)
     # original board outline for reference
     edge_rect(board, 0, 0, 219.06, H, pcbnew.Cmts_User, 0.1)
     text(board, "ORIGINAL 520-5246-00 OUTLINE (219.06 x 231.76)", 125, 4, pcbnew.Cmts_User, 2.0)
