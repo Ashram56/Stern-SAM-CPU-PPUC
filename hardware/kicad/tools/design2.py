@@ -306,7 +306,7 @@ for i in range(1, 9):
     strobe_channel(S, i, 50, 22 + (i - 1) * 11)
     S.fan(f'STB_Q{i}', (30, 55 + i), {1: 33, 2: 34, 3: 35, 4: 36, 5: 36, 6: 35, 7: 34, 8: 33}[i], (50, 22 + (i - 1) * 11))
 j1 = {p: f'STB{i + 1}' for i, p in enumerate([1, 3, 4, 5, 6, 7, 8, 9])}; j1[2] = 'NC'
-S.at(conn('J1', 9, j1, kk254(9), 'J1 SWITCH COLUMNS'), 92, 60)
+S.at(conn('J1', 9, j1, kk396(9), 'J1 SWITCH COLUMNS'), 92, 60)
 
 # =====================================================================
 # Switch rows: J6 / J12, LM339 front end, 74HC165
@@ -328,7 +328,7 @@ def rows_page(first, jref, jpins, keypin, uref, cmp_refs, chain_in, chain_out, e
         'VREF (2.25 V). Output 1 = open, 0 = closed, as the ROM expects. Connector pin order follows the original drawing: check it with a meter.',
     ))
     jn = {p: f'RET{first + k}_IN' for k, p in enumerate(jpins)}; jn.update({keypin: 'NC', 10: 'GND'})
-    S.at(Part(jref, 'Connector_Generic:Conn_01x10', f'{jref} SWITCH ROWS', {str(k): v for k, v in jn.items()}, kk254(10), mirror='y'), 8, 58)
+    S.at(Part(jref, 'Connector_Generic:Conn_01x10', f'{jref} SWITCH ROWS', {str(k): v for k, v in jn.items()}, kk396(10), mirror='y'), 8, 58)
     S.fan_in([(f'RET{first + k}_IN', (10, 54 + p - 1), (20, 18 + k * 11)) for k, p in enumerate(jpins)], 15)
     for k in range(8):
         y = 18 + k * 11
@@ -368,7 +368,7 @@ def ded_channel(S, name, cx, y, pull='1.5k'):
 
 def ded_column(S, jref, npins, pinmap, extra_nets, first, uref, chain_in, chain_out, cx, title):
     jn = {p: f'DED{first + k}_IN' for k, p in enumerate(pinmap)}; jn.update(extra_nets)
-    S.at(Part(jref, f'Connector_Generic:Conn_01x{npins:02d}', title, {str(k): v for k, v in jn.items()}, kk254(npins), mirror='y'), cx, 54)
+    S.at(Part(jref, f'Connector_Generic:Conn_01x{npins:02d}', title, {str(k): v for k, v in jn.items()}, kk396(npins), mirror='y'), cx, 54)
     pin_y = lambda p: 54 - (5 if npins == 12 else 4) + p - 1
     items = [(f'DED{first + k}_IN', (cx + 2, pin_y(p)), (cx + 15, 18 + k * 10)) for k, p in enumerate(pinmap)]
     if npins == 12: items.append(('MEM_PROTECT_IN', (cx + 2, pin_y(10)), (cx + 15, 100)))

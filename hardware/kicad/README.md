@@ -31,7 +31,8 @@ The prototype uses a Raspberry Pi 4 plugged into the 40-pin header J21. The Pi k
 high-speed signals are routed on this board. A CM4 is not planned for now.
 
 Connector references follow the original CPU/Sound board 520-5246-00 (J1, J2, J3, J5, J6, J9, J10, J11, J12,
-J13), so the cabinet harness labels still match. New connectors start at J17: J17 external +5 V, J18 GI dimmer,
+J13), so the cabinet harness labels still match. The harness connectors J1, J2, J3, J6, J12 and J13 use 3.96 mm
+KK-396 headers like the original board, so the existing harness plugs fit. New connectors start at J17: J17 external +5 V, J18 GI dimmer,
 J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header.
 
 ## Checks

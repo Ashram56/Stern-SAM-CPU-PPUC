@@ -4390,7 +4390,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Molex:Molex_KK-254_AE-6410-09A_1x09_P2.54mm_Vertical"
+		(property "Footprint" "Connector_Molex:Molex_KK-396_A-41791-0009_1x09_P3.96mm_Vertical"
 			(at 233.68 152.4 0)
 			(hide yes)
 			(show_name no)
