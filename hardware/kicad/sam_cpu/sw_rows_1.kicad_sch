@@ -4329,7 +4329,7 @@
 		)
 		(uuid "fed4eef8-ee23-5c56-9ba6-f60907a2284f")
 	)
-	(global_label "SW_DATA"
+	(global_label "CHAIN6"
 		(shape output)
 		(at 195.58 132.08 0)
 		(fields_autoplaced yes)

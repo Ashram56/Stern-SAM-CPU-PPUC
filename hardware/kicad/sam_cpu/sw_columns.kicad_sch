@@ -1813,7 +1813,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "One shift clock for both registers: PIO1 shifts the next strobe pattern into the 595 while the 74HC165 chain shifts in (ARCHITECTURE.md 5.3-5.4).\nStrobes: 595 output high -> MMBT3904 on -> strobe pulled low (active), with the original 1 k pull-up to +4.5 V and 100 nF.\nJ1 keeps the original pinout (key on pin 2). Strobes 5-8 are driven even where a game does not use them (Q15)."
+	(text "U20 latch shares SW_LOAD_N with the 74HC165 load (one pulse: 165 loads while low, 595 latches on the rising edge). U20 now follows U31 (DMD panels sheet), which carries the status LED and GI_SPARE.\nOne shift clock for both registers: PIO1 shifts the next strobe pattern into the 595 while the 74HC165 chain shifts in (ARCHITECTURE.md 5.3-5.4).\nStrobes: 595 output high -> MMBT3904 on -> strobe pulled low (active), with the original 1 k pull-up to +4.5 V and 100 nF.\nJ1 keeps the original pinout (key on pin 2). Strobes 5-8 are driven even where a game does not use them (Q15)."
 		(exclude_from_sim no)
 		(at 15.24 15.24 0)
 		(effects
@@ -3296,7 +3296,7 @@
 		)
 		(uuid "fdcff8b6-e1d3-5460-8f6c-574c34bb0056")
 	)
-	(global_label "STB_LATCH"
+	(global_label "SW_LOAD_N"
 		(shape input)
 		(at 50.8 154.94 180)
 		(fields_autoplaced yes)
@@ -3342,7 +3342,7 @@
 			)
 		)
 	)
-	(global_label "STB_DATA"
+	(global_label "STB_CHAIN"
 		(shape input)
 		(at 50.8 142.24 180)
 		(fields_autoplaced yes)

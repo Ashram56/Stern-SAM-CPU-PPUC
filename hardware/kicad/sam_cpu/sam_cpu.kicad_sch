@@ -110,6 +110,63 @@
 		)
 		(uuid "b71aa25e-d7e8-52b6-9684-a321cd9df897")
 	)
+	(sheet
+		(at 279.4 200.66)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "89a6077c-5515-50a9-b346-15159338c668")
+		(property "Sheetname" "DMD panels"
+			(at 279.4 199.9484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "dmd_panels.kicad_sch"
+			(at 279.4 226.6484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "12")
+				)
+			)
+		)
+	)
+	(text "HD DMD panels (HUB75) and switch-chain extensions"
+		(exclude_from_sim no)
+		(at 281.94 205.74 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "93343ae3-a66c-5e98-9b10-9738172dfc80")
+	)
 	(text "Switch matrix returns 9-16: J12, LM339 front end, 74HC165"
 		(exclude_from_sim no)
 		(at 281.94 114.3 0)

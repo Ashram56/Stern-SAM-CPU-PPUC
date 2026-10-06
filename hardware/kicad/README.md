@@ -26,6 +26,7 @@ continues, in square brackets.
 | 9 | Dedicated switches 17-24 | J13, input filters, 74HC165, 8 DIP switches with their 74HC165 | 5.2, 5.3 |
 | 10 | Display and GI | 74HCT245 driver for the original DMD on J5, J18 GI dimmer header | 8, 10.2 |
 | 11 | Audio | PCM5102A DAC from Pi I2S; U23 TDA7297 bridge amplifier for left / right (J10, J22); (L + R) / 2 110 Hz low-pass (OPA1678) into U24 TDA7297 for the subwoofer (J24); all on +12 V; software mute | 8 |
+| 12 | DMD panels | Two HD DMD panels (HUB75, J25 / J26) driven by RP2354B PIO over a parallel bus: 3 x 74AHCT245 (U27-U29) with 33 R packs RN6-RN11, 12 data lines (6 per panel), shared CLK / LAT / OE and row lines A / B; U30 7th 74HC165 (coin door memory protect); U31 extra 74HC595 first in the strobe chain (LED_STATUS, GI_SPARE); TP23 / TP24 | 8, 9.2 |
 
 The prototype uses a Raspberry Pi 4 plugged into the 40-pin header J21. The Pi keeps its own HDMI output, so no
 high-speed signals are routed on this board. A CM4 is not planned for now.
@@ -33,16 +34,33 @@ high-speed signals are routed on this board. A CM4 is not planned for now.
 Connector references follow the original CPU/Sound board 520-5246-00 (J1, J2, J3, J5, J6, J9, J10, J11, J12,
 J13), so the cabinet harness labels still match. The harness connectors J1, J2, J3, J6, J12 and J13 use 3.96 mm
 KK-396 headers like the original board, so the existing harness plugs fit. New connectors start at J17: J17 external +5 V, J18 GI dimmer,
-J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header, J22 stereo speaker pairs, J23 external +12 V, J24 subwoofer.
+J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header, J22 stereo speaker pairs, J23 external +12 V, J24 subwoofer, J25 / J26 HUB75 DMD panels A / B.
 
-Test points (TP1-TP22, 1.5 mm SMD pads): +5V, +3V3, +4V5, +12V and two GND on the power page; +1V1, RUN and
+Test points (TP1-TP24, 1.5 mm SMD pads): +5V, +3V3, +4V5, +12V and two GND on the power page; +1V1, RUN and
 GND by the RP2354B; J9 IOSTB, NBRESET, D0 and A0 on the bus; strobes 1-2, SW_CLK and SW_DATA on the switch columns
-page; VREF; DAC left / right outputs, subwoofer filter output and GND on the audio page.
+page; VREF; DAC left / right outputs, subwoofer filter output and GND on the audio page; DMD_CLK and DMD_LAT on the DMD panels page.
+
+## RP2354B GPIO map (two-panel version)
+
+| GPIO | Signal |
+|---|---|
+| 0-19 | unchanged (GPIO17 = SW_LOAD_N, now also the 74HC595 latch) |
+| 20-31 | DMD_D0-D11: panel A R1 G1 B1 R2 G2 B2 on D0-D5, panel B on D6-D11. D0-D6 also feed the J5 driver (original DMD), so J5 and the panels are used one at a time |
+| 32-36 | DMD_CLK, DMD_LAT, DMD_OE, DMD_A, DMD_B (shared by both panels) |
+| 37-39 | RP_IRQ_N, GI_PWM, AMP_MUTE |
+| 40-42 | FRAME_MOSI, FRAME_CS_N, FRAME_SCK (SPI1, frames from the Pi) |
+| 43 | spare |
+| 44-45 | RP_UART_TX / RX (UART0 to the Pi) |
+| 46-47 | VMON_5V, VMON_12V |
+
+The switch input chain is now 7 x 74HC165 (56 bits, U30 last, holding the coin door memory protect) and the strobe
+chain 3 x 74HC595 with U31 first (QA LED_STATUS, QB GI_SPARE). HUB75 lines C, D and E are not connected: the
+17-signal variant supports panels with 4 row-address states (1/4 scan) only.
 
 ## Checks
 
-- ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 1 warning. The warning is the unused 74HCT245 input A7 tied to
-  ground, which KiCad reports because the pin is typed tri-state.
+- ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 3 warnings, all unused 74HCT245 / 74AHCT245 inputs tied to
+  ground, which KiCad reports because the pins are typed tri-state.
 - The netlist KiCad exports was compared pin by pin with the nets the generator intended (`tools/verify2.py`):
   1339 pins, 313 nets, no differences.
 
@@ -63,7 +81,7 @@ page; VREF; DAC left / right outputs, subwoofer filter output and GND on the aud
   was not reachable from here: confirm pins 1 / 2 and 14 / 15 output polarity (symbol: pin 1 and pin 15 = +).
 - **Pin orders to confirm with a meter** on a real board or harness: J6 / J12 return order, J2 / J3 / J13 dedicated
   input order, J1 strobe order, J5 DMD pinout (Q18).
-- **Memory protect**: J2 pin 10 (coin door) goes to GPIO31, which the doc lists as spare.
+- **Memory protect**: J2 pin 10 (coin door) is now read through U30, the 7th 74HC165.
 - **Audio gain** and **LM339 / switch filter values** are starting points for the bench.
 - **Part numbers**: footprints are JLCPCB-friendly packages (0603 passives, SOIC / TSSOP logic, SOT-23), but no LCSC
   numbers are filled in yet. They come with the BOM for layout.
@@ -81,3 +99,10 @@ KICAD_CLI=kicad-cli KICAD9_SYMBOL_DIR=/usr/share/kicad/symbols tools/run.sh /tmp
 ```
 
 From now on the `.kicad_sch` files are the source of truth. Edit them in KiCad; do not regenerate over them.
+
+### Incremental changes
+
+Since the two-panel DMD change, the sheets and the board are edited in place, never regenerated. The scripts in
+`tools/changes/` (c01-c04) are the record of each edit: GPIO remap on the MCU sheet, net renames, the new DMD
+panels sheet, and the board update (pad nets plus the 20 new footprints; no existing footprint moved). They are not
+idempotent: each one was run once on the previous state.

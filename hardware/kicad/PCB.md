@@ -1,7 +1,7 @@
-# PCB placement draft (0.3)
+# PCB placement draft (0.4)
 
 `sam_cpu/sam_cpu.kicad_pcb` has the board outline, the mounting holes, the connectors and a first placement of all
-436 parts, on **2 copper layers**. Nothing is routed. It matches the schematic (KiCad schematic parity: 0 footprint
+456 parts, on **2 copper layers**. Nothing is routed. It matches the schematic (KiCad schematic parity: 0 footprint
 errors) and has no courtyard overlaps.
 
 ![Overview](sam_cpu/pcb_overview.png)
@@ -14,7 +14,8 @@ backbox (same frame as `docs/mechanical/`). KiCad's grid and drill origins are s
 
 ## Outline
 
-**120.65 x 231.76 mm** (4.75 x 9.125 in), 55 % of the original 219.06 mm width. Height and the left edge are
+**120.65 x 231.76 mm** (4.75 x 9.125 in), 55 % of the original 219.06 mm width, widened to **142 mm below
+the Pi (Y 154 to the bottom edge)** for the two HUB75 panel headers and their buffers. Height and the left edge are
 unchanged. The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
 hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 2 copper layers.
 
@@ -55,6 +56,8 @@ pad (M4) until the real screw is measured.
 | J18 | GI dimmer header | 116.5, 193.0 | new | |
 | J19 | USB-C to the Pi, on the top edge | centre X 45.6 | new | 13 mm from the RP2354B USB pins |
 | J21 | Raspberry Pi 40-pin socket | 64.52, 147.23 | new | |
+| J25 | HD DMD panel A, HUB75 2x8 | 124.6, 160.0 | new | extension, right of J5 |
+| J26 | HD DMD panel B, HUB75 2x8 | 135.4, 160.0 | new | extension, right of J25 |
 
 The KK-396 headers keep the original orientation: pin 1 at the bottom of the left-edge connectors and at the right
 end of the bottom ones, friction ramp toward the board centre. J3 stays in the bottom row; J2 and J1 form a second
@@ -90,7 +93,9 @@ board could lose about 10 mm of width.
 - The RTC and its CR2032 holder are at the left middle, reachable without removing the Pi.
 - The Pi was moved down 12 mm (and J5 with it) to leave room for the audio parts above its plug area. Only low
   parts (SMD, no electrolytics or TO-220) are placed under the Pi and under its USB-C / micro-HDMI plugs.
-- The outline stayed at 120.65 mm: everything fits without widening the board.
+- **DMD panels**: J25 / J26 side by side at the top of the extension, the three 74AHCT245 buffers U27-U29 in a
+  column below them with the series packs RN6-RN11 close to the headers, TP23 / TP24 on CLK / LAT. U31 (595) sits
+  by J1, U30 (165) under J6 at the end of the switch chain.
 - This is a first pass made by a script: expect to tighten the U4 area, rotate parts for routing, and spread the
   dense resistor blocks once routing starts.
 
@@ -112,6 +117,9 @@ board could lose about 10 mm of width.
 
 ## How it was generated
 
+The two-panel change (draft 0.4) was applied in place by `tools/changes/c04_board_update.py`: pad nets updated (52)
+and 20 new footprints placed, with no existing footprint moved. Earlier drafts came from:
+
 ```
 kicad-cli sch export netlist -o /tmp/sam_cpu.net sam_cpu/sam_cpu.kicad_sch
 python3 tools/place_pcb.py /tmp/sam_cpu.net sam_cpu/sam_cpu.kicad_pcb      # KiCad 10's Python (import pcbnew)
@@ -119,4 +127,4 @@ python3 tools/pcb_dump.py sam_cpu/sam_cpu.kicad_pcb /tmp/fp.json           # KiC
 python3 tools/pcb_overview.py /tmp/fp.json <docs/mechanical positions CSV> sam_cpu/pcb_overview.png
 ```
 
-From now on edit the board in KiCad; rerunning `place_pcb.py` overwrites it.
+Do not rerun `place_pcb.py`: it overwrites the board. Edit in KiCad or with a new change script.

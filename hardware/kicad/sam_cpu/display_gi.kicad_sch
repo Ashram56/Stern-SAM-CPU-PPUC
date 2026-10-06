@@ -2190,7 +2190,7 @@
 		)
 		(uuid "905c62cf-d20c-59fc-86c1-0a07d58819ae")
 	)
-	(text "J5 pinout read from the original drawing (ARCHITECTURE.md 8): signals on odd pins, ground on even pins. Confirm with a meter (Q18).\nThe 100 k pull-downs keep the DMD lines low while the RP2354B boots.\nJ18 is the default GI dimmer link of ARCHITECTURE.md 10.2: +5 V, GND, GI_PWM, GI_SPARE."
+	(text "J5 pinout read from the original drawing (ARCHITECTURE.md 8): signals on odd pins, ground on even pins. Confirm with a meter (Q18).\nThe 100 k pull-downs keep the DMD lines low while the RP2354B boots. J5 shares GPIO20-26 (DMD_D0-D6) with the HD panel bus: J5 order DE, ROWDATA, ROWCLK, COLLATCH_A, PIXCLK, SDATA, COLLATCH_B = DMD_D0-D6. Only one display path runs at a time (PIO2 program chosen at boot).\nJ18 is the default GI dimmer link of ARCHITECTURE.md 10.2: +5 V, GND, GI_PWM, GI_SPARE (GI_SPARE is now an on/off output of U31)."
 		(exclude_from_sim no)
 		(at 15.24 15.24 0)
 		(effects
@@ -3243,7 +3243,7 @@
 		)
 		(uuid "feda2214-261f-5c2f-8d2f-c3d9f5286052")
 	)
-	(global_label "DMD_ROWCLK"
+	(global_label "DMD_D2"
 		(shape output)
 		(at 55.88 119.38 180)
 		(fields_autoplaced yes)
@@ -3266,7 +3266,7 @@
 			)
 		)
 	)
-	(global_label "DMD_COLLATCH_A"
+	(global_label "DMD_D3"
 		(shape output)
 		(at 55.88 121.92 180)
 		(fields_autoplaced yes)
@@ -3289,7 +3289,7 @@
 			)
 		)
 	)
-	(global_label "DMD_DE"
+	(global_label "DMD_D0"
 		(shape output)
 		(at 55.88 114.3 180)
 		(fields_autoplaced yes)
@@ -3335,7 +3335,7 @@
 			)
 		)
 	)
-	(global_label "DMD_COLLATCH_B"
+	(global_label "DMD_D6"
 		(shape output)
 		(at 55.88 129.54 180)
 		(fields_autoplaced yes)
@@ -3358,7 +3358,7 @@
 			)
 		)
 	)
-	(global_label "DMD_ROWDATA"
+	(global_label "DMD_D1"
 		(shape output)
 		(at 55.88 116.84 180)
 		(fields_autoplaced yes)
@@ -3404,7 +3404,7 @@
 			)
 		)
 	)
-	(global_label "DMD_PIXCLK"
+	(global_label "DMD_D4"
 		(shape output)
 		(at 55.88 124.46 180)
 		(fields_autoplaced yes)
@@ -3427,7 +3427,7 @@
 			)
 		)
 	)
-	(global_label "DMD_SDATA"
+	(global_label "DMD_D5"
 		(shape output)
 		(at 55.88 127 180)
 		(fields_autoplaced yes)

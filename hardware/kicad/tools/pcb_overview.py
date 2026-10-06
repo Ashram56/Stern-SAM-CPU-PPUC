@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 S = 6.0          # px per mm
 M = 40           # margin px
 W_NEW, H = 120.65, 231.76
+W_EXT, Y_EXT = 142.0, 154.0     # board extension below the Pi (HUB75 headers)
 PI_X0, PI_YE = W_NEW - 64.5, 152.0
 MOVED = {"J1": "J1", "J2": "J2", "J10": "J10", "J5": "J5"}
 HEATSINK = (59.0, 41.0, 107.0, 54.0)
@@ -29,7 +30,7 @@ def main(fpjson, poscsv, out):
     d = ImageDraw.Draw(img)
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 22)
     small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
-    d.text((M, 8), "Placement draft (green, 120.65 x 231.76 mm) over the original 520-5246-00 "
+    d.text((M, 8), "Placement draft (green, 120.65 / 142 x 231.76 mm) over the original 520-5246-00 "
            "(grey, 219.06 x 231.76 mm)", fill="black", font=font)
 
     # original board, its connectors and holes
@@ -47,7 +48,8 @@ def main(fpjson, poscsv, out):
             d.text(P(x + 3.5, y - 1.5), k, fill=(120, 120, 120), font=small)
 
     # new board
-    d.rectangle([P(0, 0), P(W_NEW, H)], outline=(0, 120, 60), fill=(225, 242, 230), width=4)
+    d.polygon([P(0, 0), P(W_NEW, 0), P(W_NEW, Y_EXT), P(W_EXT, Y_EXT), P(W_EXT, H), P(0, H)],
+              outline=(0, 120, 60), fill=(225, 242, 230), width=4)
     # Pi
     d.rectangle([P(PI_X0, PI_YE - 86), P(PI_X0 + 64.5, PI_YE - 56)], outline=(90, 120, 200), width=1,
                 fill=(232, 238, 252))
@@ -92,7 +94,7 @@ def main(fpjson, poscsv, out):
     for i, line in enumerate(["Orange dot = pin 1, orange line = connector moved",
                               "Red = holes: keyholes MH6/MH3 and round MH7/MH5/MH4",
                               "on original screw positions, MH9-12 Pi standoffs"]):
-        d.text(P(124, 200 + 4 * i), line, fill="black", font=small)
+        d.text(P(146, 200 + 4 * i), line, fill="black", font=small)
     img.save(out)
 
 
