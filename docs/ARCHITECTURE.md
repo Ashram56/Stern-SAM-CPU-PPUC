@@ -458,12 +458,13 @@ USB, a handful of GPIOs), so a CM4 carrier is a layout change, not a redesign.
 | Switch chain: shift clock, 165 load, 165 data, 595 data, 595 latch | 5 |
 | UART0 TX, RX to the Pi | 2 |
 | IRQ to the Pi | 1 |
-| **Total** | **24 of 30** |
+| GI dimmer header: GI_PWM, GI_SPARE (10.2) | 2 |
+| **Total** | **26 of 30** |
 
-The 6 spare GPIOs (including ADC pins) can carry a status LED, a 5 V supply monitor and a spare. RUN, SWD and BOOTSEL are dedicated
+The 4 spare GPIOs (including ADC pins) can carry a status LED, a 5 V supply monitor and a spare. RUN, SWD and BOOTSEL are dedicated
 RP2040 pins, wired to Pi GPIOs.
 
-If the DMD driver (8.A, 7 outputs) has to share this RP2040, it is one pin short. The fallback is an **RP2350B** (48 GPIO, 3 PIO blocks,
+If the DMD driver (8.A, 7 outputs) has to share this RP2040, it is three pins short (one without the GI header). The fallback is an **RP2350B** (48 GPIO, 3 PIO blocks,
 12 state machines), which runs the same firmware. Alternatively a second RP2040 for the display.
 
 ### 9.3 Power [proposal]
@@ -523,11 +524,21 @@ measure the 5 V at J11 under load before relying on it [proposal].
 - libppuc changes, small and upstreamable: configurable baud rate and output interval; later the lamp brightness
   extension (section 6.2).
 - GI (Vincent, Q17): **controlled by the PPUC controller**, which may be PinMAME or something else, and potentially PWM.
-  The firmware therefore treats GI as an ordinary PPUC output mapped to bit 0 of the aux/GI latch, and libppuc's "GI forced
-  on for non-WPC platforms" [ppuc] has to give way to a configurable mapping. **Caveat**: on the stock IO board, GI goes
-  through relay RLY1 (an FRL264, section 3.6). A relay can only switch GI on and off; PWM on it would wear the contacts
-  quickly. The firmware enforces a minimum switching interval on that bit. Real GI dimming needs the relay replaced by a
-  solid-state switch on the GI circuit (an IO board modification, outside this design for now).
+  libppuc's "GI forced on for non-WPC platforms" [ppuc] has to give way to a configurable mapping. Vincent's follow-up
+  settles how:
+  - **The relay stays on/off.** GI is an ordinary PPUC output mapped to bit 0 of the aux/GI latch, driving RLY1 (an
+    FRL264, section 3.6). The firmware enforces a minimum switching interval on that bit, so PWM never reaches the relay.
+  - **Optional solid-state GI dimmer board, wired after the relay.** It sits in series with the GI feed downstream of the
+    RLY1 contacts, so the relay remains the master on/off and the stock behaviour is untouched when the board is absent.
+    GI on SAM is low-voltage AC, so the dimmer does phase-angle control (back-to-back MOSFETs with its own zero-cross
+    detection) [proposal].
+  - **Link to the CPU board** (IO to be defined; "whatever is available"). Default [proposal]: a small 4-pin header,
+    J_GI: +5 V, GND, GI_PWM, GI_SPARE. GI_PWM is one RP2040 GPIO producing a fixed-frequency PWM whose duty cycle is the
+    brightness; the dimmer board takes it through an optocoupler, filters it and sets its phase angle locally, so the
+    CPU board never needs the AC zero crossing and stays isolated from the GI circuit. GI_SPARE is a second
+    GPIO, reserved for a zero-cross or fault signal back, or for a second GI channel. Both come from the spare GPIOs in
+    9.2. In PPUC terms, GI brightness is a PWM output whose value goes to GI_PWM while the on/off state still goes to the
+    relay.
 
 ### 10.3 Rejected alternative: raw bus pass-through
 
@@ -555,7 +566,7 @@ Answered so far:
 | Q11 | Licences | Yes: GPLv3 for firmware and software (`LICENSE`), CERN-OHL-S v2 for hardware (`LICENSE-HARDWARE`) | 10.1 |
 | Q12 | The high speed bus | GPIO or USB, no RS485. Both wired; UART default | 4.2 |
 | Q14 | Power budget | Plenty; support both an external supply and the IO board (J11) | 9.3 |
-| Q17 | GI control | By the PPUC controller (PinMAME or other), potentially PWM; relay caveat in 10.2 | 10.2 |
+| Q17 | GI control | By the PPUC controller. Relay stays on/off; optional solid-state dimmer board after the relay, wired to a CPU board header (IO to be defined, default one PWM GPIO + one spare) | 10.2, 9.2 |
 
 Still open:
 
