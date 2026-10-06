@@ -219,7 +219,7 @@ hres(b, '1k', 'BOOTSEL', 'BOOTSEL_BTN', 30.48, 33.02)
 
 b = S.block('USB to the Pi (CDC link + firmware update)')
 b.place(Part('J19', 'Connector:USB_C_Receptacle_USB2.0_16P', 'USB-C (to Pi)',
-             {'S1': 'GND', 'A1': 'GND', 'A12': 'GND', 'B1': 'GND', 'B12': 'GND', 'A4': 'VBUS_PI', 'A9': 'VBUS_PI',
+             {'S1': 'GND', 'SH': 'GND', 'A1': 'GND', 'A12': 'GND', 'B1': 'GND', 'B12': 'GND', 'A4': 'VBUS_PI', 'A9': 'VBUS_PI',
               'B4': 'VBUS_PI', 'B9': 'VBUS_PI', 'A5': 'CC1', 'B5': 'CC2', 'A7': 'USB_DM', 'B7': 'USB_DM',
               'A6': 'USB_DP', 'B6': 'USB_DP', 'A8': 'NC', 'B8': 'NC'},
              'Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12'), 0, 0)

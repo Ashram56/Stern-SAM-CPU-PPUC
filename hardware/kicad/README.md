@@ -3,8 +3,8 @@
 Draft 0.1 of the schematic, drawn from [`docs/ARCHITECTURE.md`](../../docs/ARCHITECTURE.md). No PCB yet.
 Licence: CERN-OHL-S v2 (see [`LICENSE-HARDWARE`](../../LICENSE-HARDWARE)).
 
-- `sam_cpu/`: the KiCad 9 project. Open `sam_cpu.kicad_pro`. All symbols come from the standard KiCad 9
-  libraries and are embedded in the sheets, so no project library is needed.
+- `sam_cpu/`: the KiCad 10 project (10.0 file format). Open `sam_cpu.kicad_pro` in KiCad 10. All symbols come from
+  the standard KiCad 10 libraries and are embedded in the sheets, so no project library is needed.
 - `sam_cpu/sam_cpu.pdf`: the sheets exported to PDF, for reading without KiCad.
 - `tools/`: the Python script that generated this first draft (see the end of this file).
 
@@ -28,7 +28,7 @@ J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header.
 
 ## Checks
 
-- ERC (KiCad 9.0.3, `kicad-cli sch erc`): 0 errors, 1 warning. The warning is the unused 74HCT245 input A7 tied to
+- ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 1 warning. The warning is the unused 74HCT245 input A7 tied to
   ground, which KiCad reports because the pin is typed tri-state.
 - The netlist KiCad exports was compared pin by pin with the nets the generator intended (`tools/verify.py`):
   1266 pins, 299 nets, no differences.
@@ -49,11 +49,13 @@ J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header.
 
 ## How the draft was generated
 
-`tools/build.py` places symbols from the KiCad 9 library, connects them with wires, net labels, hierarchical labels
-and power symbols, and writes the sheets; `tools/verify.py` compares KiCad's exported netlist with the intended nets.
+`tools/build.py` places symbols from the KiCad library, connects them with wires, net labels, hierarchical labels
+and power symbols, and writes the sheets in the KiCad 9 format, which `kicad-cli sch upgrade` then converts to
+KiCad 10 (run it on every sheet); `tools/verify.py` compares KiCad's exported netlist with the intended nets.
 
 ```
 KICAD9_SYMBOL_DIR=/usr/share/kicad/symbols python3 tools/build.py /tmp/out
+for f in /tmp/out/*.kicad_sch; do kicad-cli sch upgrade --force $f; done
 kicad-cli sch export netlist -o /tmp/out/sam_cpu.net /tmp/out/sam_cpu.kicad_sch
 python3 tools/verify.py /tmp/out/sam_cpu.net
 ```
