@@ -5,6 +5,8 @@ through the [PPUC](https://github.com/PPUC) stack. An RP2040 on the same board d
 with its PIO, and reads the switch matrix, dedicated switches and DIP switches.
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): architecture, bus timing, pin budget, safety, and open questions.
+- [docs/reference/](docs/reference/): Stern SAM manual extracts (IO power driver and CPU/Sound board schematics, backbox,
+  playfield, cabinet and coin door wiring).
 
 Background:
 - [Tron-Legacy-LE-ROM-Decryption/io/bus](https://github.com/Ashram56/Tron-Legacy-LE-ROM-Decryption/tree/main/io/bus):

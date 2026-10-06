@@ -8,15 +8,18 @@ Sources this document builds on:
   (`README.md`, `CPU_BOARD_IO.md` and the CSVs). Register map, ISR schedule and every timing number come from there.
 - **J1 schematic reading**: [Stern-SAM-Databus-Analysis](https://github.com/Ashram56/Stern-SAM-Databus-Analysis)
   (`IO board analysis`). Pinout, pull resistors and logic families come from there.
-- **IO power driver board schematic**: Stern 520-5249-00 Rev A (Indiana Jones manual, pages 106-113), shared by Vincent
-  on 2026-10-06. Read from the drawings.
-- **CPU/Sound board schematic**: Stern 520-5246-00 Rev G (same manual, pages 116-125). Only the text layer of the manual
-  was available (part numbers, net names, connector names), not the drawings, so wiring read from it is marked as such.
+- **Stern SAM manual extracts** in [`reference/`](reference/), shared by Vincent on 2026-10-06 (taken from the Indiana
+  Jones manual; the SAM boards are the same across titles apart from minor variants):
+  - [IO power driver board schematic](reference/Stern_SAM_Manual-IO_Power_Driver_Board_Schematic.pdf), 520-5249-00 Rev A;
+  - [CPU/Sound board schematic, layout and parts](reference/Stern_SAM_Manual-CPU_Sound_Board_Schematic.pdf), 520-5246-00 Rev G;
+  - [backbox wiring](reference/Stern_SAM_Manual-Backbox_Wiring.pdf),
+    [playfield switch and lamp wiring](reference/Stern_SAM_Manual-Playfield_Switch_Lamp_Wiring.pdf),
+    [cabinet and coin door wiring](reference/Stern_SAM_Manual-Cabinet_Coin_Door_Wiring.pdf).
 - **PPUC**: [github.com/PPUC](https://github.com/PPUC), read on 2026-10-06: `ppuc/docs/STACK.md`, `ppuc/docs/V2_PROTOCOL.md`,
   `io-boards/src/PPUCProtocolV2.h`, `io-boards/src/IODevices/SwitchMatrix*`, `libppuc/src/PPUC.cpp`.
 
-Statements are tagged **[doc]** (bus docs and schematic notes), **[io-sch]** (IO board schematic), **[cpu-sch]** (CPU board
-schematic text), **[ppuc]** (PPUC source), or **[proposal]** (a design choice made here, open to change).
+Statements are tagged **[doc]** (bus docs and schematic notes), **[io-sch]** (IO board schematic), **[cpu-sch]** (CPU/Sound board
+schematic), **[ppuc]** (PPUC source), or **[proposal]** (a design choice made here, open to change).
 
 ---
 
@@ -65,7 +68,7 @@ From `CPU_BOARD_IO.md` §9 [doc], mapped to who does it here:
 | Function | Original SAM CPU board | Here |
 |---|---|---|
 | IO power board bus (J1): 32 coils + 8 aux coils, 10x8 lamp matrix, GI relay, aux strobes, STATUS | AT91 EBI, 250 µs ISR | RP2040 PIO0 + core1 |
-| Switch matrix, 4 strobes x 16 returns (64) in the ROM; 8 strobe drivers on the board | 74LV273 + 2N3904 strobes (J1), LM339 returns (J6, J12) [cpu-sch] | RP2040 PIO1 |
+| Switch matrix, 4 strobes x 16 returns (64) in the ROM; 8 strobe drivers on the board | 74LV273 + eight 2N3904 strobes (J1), LM339 returns (J6, J12) [cpu-sch] | RP2040 PIO1 |
 | 24 dedicated switches + 8 DIP switches | 74LVC245 inputs on J2, J3, J13 [cpu-sch] | RP2040 PIO1 (same shift chain) |
 | Game logic | ROM on the AT91 | PinMAME on the Pi |
 | DMD, 128 x 32, 16 shades | Xilinx CPLD scanner, 7 signals on the 14-pin J5 [cpu-sch] | Pi + display driver (section 8) |
@@ -314,21 +317,19 @@ the core1 tick.
 
 ### 5.2 The original circuit [cpu-sch]
 
-From the CPU/Sound board schematic text (part numbers and net names; the drawings themselves were not available):
-
 | Connector | Function | Circuit |
 |---|---|---|
-| J1, 1x9 ("SWITCH COLUMNS") | 8 strobe outputs | 74LV273 latch (SWSTB) → eight 2N3904 open-collector drivers, 1 k base resistors; 1 k and 0.01 µF per line |
-| J6 and J12, 1x10 each ("SWITCH ROWS") | 16 return inputs | 1 k pull-up to **+4.5 V**, 220 Ω and 0.1 µF filter, then an **LM339 comparator** against VREF (3.3 k / 3.3 k divider, about 2.25 V); comparator outputs pulled up to 3.3 V and read through 74LVC245s |
-| J2 (1x12), J3 (1x10), J13 (1x10) | 24 dedicated inputs | switches to ground; 1.5 k pull-up to +4.5 V, 39 k series, 47 pF, read through 5 V-tolerant 74LVC245s |
+| J1, 1x9, key pin 2 ("SWITCH COLUMNS") | **8 strobes** on pins 1 and 3-9 | 74LV273 latch (SWSTB) → eight independent 2N3904 open-collector drivers (1 k base resistors); each line has a 1 k pull-up to +4.5 V and 0.1 µF to ground |
+| J6, 1x10, key pin 4, and J12, 1x10, key pin 5 ("SWITCH ROWS") | **16 returns**, 8 per connector, plus a ground pin each | each return: series diode (SMT4148) from the connector, 220 Ω, 1 k pull-up to **+4.5 V**, 0.1 µF, into an **LM339** comparator against VREF (3.3 k / 3.3 k divider of 4.5 V, about 2.25 V, 22 µF); comparator outputs pulled up to 3.3 V (10 k) and read through 74LVC245s |
+| J2 (1x12, key 5), J3 (1x10, key 3), J13 (1x10, key 2) | **24 dedicated inputs**, 8 per connector, plus ground pins | switches to ground; 1 k pull-up to +4.5 V (the parts list says 1.5 k), 39 k series, 47 pF, read through 5 V-tolerant 74LVC245s |
 | SW1 | 8 DIP switches | on the board, 1 k pull-ups to 3.3 V |
 
-+4.5 V is the 5 V rail through a diode. So the switch matrix runs at about 4.5 V, not 12 V: a closed switch pulls a return
-low through its diode and the active strobe transistor. Stern's manual describes the same thing as a "4 x 16 matrix of
-Switch Drives and Switch Returns" plus a "2 x 16" dedicated matrix that includes the 8 DIP positions, with the returns on
-LM339D comparators.
++4.5 V is the 5 V rail through a diode (D10). So the matrix runs at about 4.5 V, not 12 V: a closed switch pulls its return
+low through the playfield diode, the return diode and the active strobe transistor. Stern's manual describes it as a
+"4 x 16 matrix of Switch Drives and Switch Returns" plus a "2 x 16" dedicated matrix that includes the 8 DIP positions.
 
-The board has **8** strobe drivers while the ROM scans 4 (Q15).
+The board has **8** strobe drivers, but the ROM scans 4 and the Indiana Jones playfield wiring diagram only uses switch
+drives 1-4 (Q15).
 
 ### 5.3 Hardware [proposal]
 
@@ -417,9 +418,10 @@ These are on the original CPU board, so the replacement has to provide them, but
 
 - **Display, two options** (Q8):
   - **A. Keep the original 128x32 DMD.** PinMAME already renders the 16-shade frame. The original scans the display at
-    62.67 Hz, 12 slots of 41.55 µs per row, planes weighted 1/2/4/5 [doc]. The display cable is the 14-pin J5, carrying 7
-    signals from the Xilinx CPLDs through a 74HCT245 at 5 V: **PIXCLK, SDATA, COLLATCH_A, COLLATCH_B, ROWCLK, ROWDATA, DE**
-    [cpu-sch]. The display's high voltage comes from its own Display Power Supply board (520-5138-00), not the CPU board.
+    62.67 Hz, 12 slots of 41.55 µs per row, planes weighted 1/2/4/5 [doc]. The display cable is the 2x7 J5: the 7 signals on
+    the odd pins, every even pin ground. They come from the XC95144XL CPLDs through a 74HCT245 at 5 V (U55) [cpu-sch]. In
+    buffer order: pin 1 DE, 3 ROWDATA, 5 ROWCLK, 7 COLLATCH_A, 9 PIXCLK, 11 SDATA, 13 COLLATCH_B (read from the drawing;
+    confirm with a meter before relying on it). The display's high voltage comes from its own Display Power Supply board (520-5138-00), not the CPU board.
     7 outputs and one state machine is a small PIO job: a second RP2040 (or an RP2350B instead of the RP2040, section 9.2)
     receives frames from the Pi over SPI and generates the signals. PPUC's `dmdreader` firmware [ppuc] already decodes SAM
     DMD signals, which documents their timing from the other side.
@@ -427,7 +429,8 @@ These are on the original CPU board, so the replacement has to provide them, but
     firmware, but it changes the machine.
 - **Sound**: PinMAME emulates the SAM sound system and ppuc-pinmame plays it through SDL [ppuc]. The original amplifier is on
   the CPU board [cpu-sch]: a PCM1755 DAC (I2S, with the 3-wire volume control), an OPA2353 buffer and **two TDA2030A power
-  amplifiers on ±12 V**, with the speakers on the 4-pin J10. The new board does the same: Pi I2S → a stereo DAC → two
+  amplifiers on ±12 V**, with the speakers on the 1x4 J10 (pin 1 amplifier U50, pin 2 amplifier U51, pins 3-4 ground) [cpu-sch].
+  The DAC runs from its own +5 V (LM340T-5 from +12 V). The new board does the same: Pi I2S → a stereo DAC → two
   amplifiers on J10, pin-compatible with the cabinet harness. The volume buttons are dedicated switches handled by the ROM,
   so volume stays the ROM's job.
 
@@ -462,7 +465,9 @@ If the DMD driver (8.A, 7 outputs) has to share this RP2040, it is one pin short
 
 ### 9.3 Power [proposal]
 
-The CPU board is fed from IO board connector **J16** (15-pin KK156) [io-sch], into the CPU board's power input J11 [cpu-sch]:
+The CPU board is fed from IO board connector **J16** (15-pin KK156) [io-sch]. On the CPU board it arrives on **J11, 1x6**:
+pin 1 +5 V, pin 3 -12 V, pin 6 +12 V, pins 2, 4, 5 ground, each through a ferrite bead and 47 µF [cpu-sch]. On board, an
+LT1086 makes 3.3 V from 5 V and an LT1503 makes the AT91 core voltage. J16 on the IO board:
 
 | J16 pin | Rail |
 |---|---|
@@ -519,15 +524,15 @@ Answered so far:
 | Q3 | J1 pins 9, 10, 11, 17, 19, and CPU board power | 9, 10, 11, 17 not connected; 19, 20 ground. Power from IO board J16 (+5 V, ±12 V) | IO schematic; 3.1, 9.3 |
 | Q5 | What feeds the IO board watchdog | DS1232: falling edge on lamp strobe line 0 (DRV0) at least every 62.5 ms worst case | IO schematic; 3.6 |
 | Q6 | Does NBRESET clear the latches? | Yes: NBRESET → DS1232 /PBRST → NRESET → /MR of every output latch; at least 250 ms reset | IO schematic; 3.6, 7 |
-| Q2 | Switch input conditioning | 4.5 V pull-ups, LM339 comparators on the returns, 2N3904 open-collector strobes | CPU schematic text; 5.2 |
-| Q9 | Audio amplifier on the CPU board? | Yes: PCM1755 + two TDA2030A on ±12 V, speakers on J10 | CPU schematic text; 8 |
+| Q1 | CPU/Sound board schematic | Shared as PDF; now in `reference/` | 5.2, 8, 9.3 |
+| Q2 | Switch input conditioning | 4.5 V pull-ups, LM339 comparators on the returns, 8 independent 2N3904 open-collector strobes | CPU schematic; 5.2 |
+| Q9 | Audio amplifier on the CPU board? | Yes: PCM1755 + two TDA2030A on ±12 V, speakers on J10 | CPU schematic; 8 |
 | Q12 | The high speed bus | GPIO or USB, no RS485 (Vincent). Both wired; UART default | 4.2 |
 
 Still open:
 
 | # | Question | Why it matters | Default if no answer |
 |---|---|---|---|
-| Q1 | Can you share the CPU/Sound board schematic **drawings** (manual pages 116-125 as images or PDF)? The text file has part numbers and net names but no wiring or connector pin numbers. | Connector pinouts for J1/J6/J12 (switches), J2/J3/J13 (dedicated), J5 (DMD), J10 (audio), J11 (power). | Use the IO board's J16 pinout and the net names; confirm before layout. |
 | Q4 | Can you put a scope (or the analyzer at 100 MS/s+) on IOSTB, one address and one data line at the IO board, and on a coil MOSFET gate? | Confirms the PIO timing constants and the real coil switching time (39 k / 10 nF gate). | Use the conservative timings in 3.3. |
 | Q7 | Which coils may fire without 50 V present (if any)? | Interlock gating rule. | Gate all coils on both interlocks. |
 | Q8 | Keep the original DMD (7 signals on J5, needs a PIO driver) or switch to a ZeDMD-style LED panel (works today)? | Section 8, and whether a second MCU or an RP2350B is needed. | Keep the original DMD; ZeDMD for bring-up. |
@@ -535,7 +540,7 @@ Still open:
 | Q11 | GPLv3 for the firmware (reusing PPUC io-boards) and an open hardware licence (PPUC boards use TAPR OHL) OK? | Licensing of this repo. | GPLv3 firmware, CERN-OHL-S hardware. |
 | Q13 | Which SAM titles must this support first besides Tron LE? | Aux latch devices and game YAMLs. | Tron LE, then any SAM title without aux boards. |
 | Q14 | How much current can the IO board's +5 V (LM338K, 5 A, shared with its own logic) and +12 V spare for the CPU board? | A Pi 5 wants 5 A at 5 V. | Pi 4 on +5 V; leave room for a 12 V → 5 V buck. |
-| Q15 | The CPU board has 8 switch strobe drivers but the ROM scans 4. Do any SAM games use strobes 5-8? | Strobe count and scan time. | Drive all 8. |
+| Q15 | The CPU board has 8 independent strobe drivers but the ROM scans 4 and Indiana Jones wires drives 1-4. Do any SAM games use strobes 5-8? | Strobe count and scan time. | Drive all 8. |
 | Q16 | The 74HCT273 input pins are scrambled (bus D0 → chip D4). Section 3.6 reads SOL_B bit 0 → Q1 / J8-1 and LMP_DRV bit 0 → J13-1, unlike the transistor tables in Stern-SAM-Databus-Analysis. Worth a continuity check? | Wiring docs and test fixtures, not firmware. | Trust the ROM's bus bits; check one coil and one lamp on the bench. |
 | Q17 | GI: libppuc forces GI on for non-WPC platforms, but the SAM ROM drives the GI relay itself. Should GI follow PinMAME? | GI behaviour in attract and tilt. | Follow PinMAME (small libppuc change). |
 
