@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "filename": "sam_cpu.kicad_pro",
+    "version": 3
+  },
+  "schematic": {
+    "drawing": {
+      "default_line_thickness": 6.0,
+      "default_text_size": 50.0
+    },
+    "legacy_lib_dir": "",
+    "legacy_lib_list": []
+  },
+  "sheets": [
+    [
+      "2aea4fdf-a573-57d0-a5af-7bd6ce737647",
+      "Root"
+    ],
+    [
+      "febff99c-25e7-5ff2-ad94-91f07160e16c",
+      "Power"
+    ],
+    [
+      "d360c6c3-40d3-5528-aec0-e616a30a2847",
+      "MCU"
+    ],
+    [
+      "3a683086-49c9-55f2-ab75-c86e63a45387",
+      "Raspberry Pi"
+    ],
+    [
+      "83d33106-5c77-5ce5-b632-befe6bf553de",
+      "IO bus"
+    ],
+    [
+      "a761dbfc-d02c-594d-ac82-a88b6f6cde20",
+      "Switch returns"
+    ],
+    [
+      "f7e668bc-896d-5dc4-b9f1-989bdc4fbd91",
+      "Dedicated switches"
+    ],
+    [
+      "7a8280d1-3336-5ba8-8d88-d48bea1d4cba",
+      "Switch scan"
+    ],
+    [
+      "e5bcf56a-1356-5dfa-9e64-6b2f23d447fd",
+      "Display and GI"
+    ],
+    [
+      "a37597f6-5aec-507d-b794-5c4f395391ec",
+      "Audio"
+    ]
+  ],
+  "text_variables": {}
+}
