@@ -28,7 +28,7 @@ schematic), **[ppuc]** (PPUC source), or **[proposal]** (a design choice made he
 ## 1. Summary
 
 ```
-   ┌──────────────────────────── Raspberry Pi (4 / 5 or CM4 / CM5) ───────────────────────────┐
+   ┌──────────────────── Raspberry Pi 4 / 5 on the 40-pin header (own HDMI) ──────────────────┐
    │ ppuc-pinmame: PinMAME runs the original SAM ROM, libppuc maps it to boards,              │
    │ libdmdutil drives the display, SDL audio goes out over I2S                               │
    └──────┬──────────────────────┬─────────────────────────┬──────────────────────┬───────────┘
@@ -489,15 +489,20 @@ These are on the original CPU board, so the replacement has to provide them, but
 
 ## 9. Hardware
 
-### 9.1 Pi choice [proposal]
+### 9.1 Pi choice
 
-Vincent (Q10): whatever is available, most likely a **Pi 4 or CM4**. A Pi 4 runs PinMAME's ARM7 SAM core comfortably
-(inferred, to confirm with a benchmark). Two packaging options:
-- a carrier board in the SAM CPU board footprint with a 40-pin header for a standard Pi (cheapest, easy to swap);
-- a Compute Module 4 socket (better mechanically, eMMC, more robust in a vibrating cabinet).
+Vincent (Q10): whatever is available, most likely a **Pi 4**. A Pi 4 runs PinMAME's ARM7 SAM core comfortably (inferred,
+to confirm with a benchmark).
 
-Default here: the 40-pin header first, using only signals that a CM4 also has on the same GPIO numbers (UART, SPI, I2S,
-USB, a handful of GPIOs), so a CM4 carrier is a layout change, not a redesign.
+**Decided for the prototype (Vincent, 2026-10-06): a standard Pi on its 40-pin GPIO header** (J21, section 9.4). The Pi
+keeps its own native HDMI output, so no high-speed video signals are routed on this PCB; the same goes for its USB and
+Ethernet. Every signal the board needs is on the header: UART, SPI (DMD frames), I2S (audio), and plain GPIOs for RUN,
+BOOTSEL, SWD and IRQ. The native-USB link to the RP2354B (section 4.2) goes Pi USB-A to the board's USB-C (J19) with a
+short cable, because USB is not on the header.
+
+A Compute Module carrier is out of scope for now. Keeping to header signals means a CM4 or CM5 carrier stays a layout
+change rather than a redesign, but it would bring HDMI and USB routing onto the board, which is exactly what this choice
+avoids.
 
 ### 9.2 RP2354B and pin budget [proposal]
 
@@ -555,7 +560,7 @@ and capacitors on the IO board.
 **Vincent (Q14): power is plentiful and will be provided externally; both sources must be supported** (follow-up:
 "provide both option to use external or the regular IO board"). So the new board:
 - has **two +5 V inputs**: the J11 +5 V pin from the IO board (as on the original CPU board), and an **external supply
-  connector** sized for a Pi 4 / CM4 (3 A) plus the RP2354B, the switch inputs and the DMD buffer, with margin;
+  connector** sized for a Pi 4 (3 A) plus the RP2354B, the switch inputs and the DMD buffer, with margin;
 - feeds them through an **ideal-diode power mux** that prefers the external input when it is present and falls back to
   J11 otherwise. The KiCad draft (PR #2) uses **two LTC4412 ideal-diode controllers with AO3401A P-MOSFETs**: the external
   path is always on, and `EXT_PRESENT` turns the J11 path off. The two 5 V supplies are never tied together, so neither
@@ -570,7 +575,7 @@ and capacitors on the IO board.
 
 Caveat for the IO-board source: the LM338K is rated 5 A and also powers the IO board's own logic, and the original CPU
 board drew well under that. A Pi 4 can pull up to 3 A, and the drop along the J16/J11 harness can push it below its
-4.63 V undervoltage threshold. With J11 power, a Pi 3/CM4 or a capped Pi 4 load is the safe choice; bring-up should
+4.63 V undervoltage threshold. With J11 power, a Pi 3 or a capped Pi 4 load is the safe choice; bring-up should
 measure the 5 V at J11 under load before relying on it [proposal].
 
 ### 9.4 Connectors [proposal]
@@ -649,7 +654,7 @@ Answered so far:
 | Q7 | Coils allowed without 50 V | None | 7 |
 | Q8 | Original DMD or ZeDMD | Keep both options available | 8 |
 | Q9 | Audio amplifier on the CPU board? | Yes: PCM1755 + two TDA2030A on ±12 V, speakers on J10 | CPU schematic; 8 |
-| Q10 | Pi model | Whatever is available, likely Pi 4 or CM4 | 9.1 |
+| Q10 | Pi model | Whatever is available, likely Pi 4. Prototype plugs in through the 40-pin GPIO header and keeps the Pi's own HDMI; no CM4 for now | 9.1 |
 | Q11 | Licences | Yes: GPLv3 for firmware and software (`LICENSE`), CERN-OHL-S v2 for hardware (`LICENSE-HARDWARE`) | 10.1 |
 | Q12 | The high speed bus | GPIO or USB, no RS485. Both wired; UART default | 4.2 |
 | Q14 | Power budget | Plenty; support both an external supply and the IO board (J11) | 9.3 |
