@@ -483,15 +483,23 @@ LT1086 makes 3.3 V from 5 V and an LT1503 makes the AT91 core voltage. J16 on th
 The +5 V comes from an **LM338K (5 A) on the IO board**, which also powers the IO board's own logic. ±12 V come from a bridge
 and capacitors on the IO board.
 
-**Vincent (Q14): power is plentiful and will be provided externally.** So the new board:
-- takes its main **+5 V from an external supply connector**, sized for a Pi 4 / CM4 (3 A) plus the RP2040, the switch
-  inputs and the DMD buffer, with margin;
+**Vincent (Q14): power is plentiful and will be provided externally; both sources must be supported** (follow-up:
+"provide both option to use external or the regular IO board"). So the new board:
+- has **two +5 V inputs**: the J11 +5 V pin from the IO board (as on the original CPU board), and an **external supply
+  connector** sized for a Pi 4 / CM4 (3 A) plus the RP2040, the switch inputs and the DMD buffer, with margin;
+- feeds them through a **power mux** (e.g. TI TPS2121, 4.5 A, with reverse-current blocking) that prefers the external
+  input when it is present and falls back to J11 otherwise. The two 5 V supplies are never tied together, so neither
+  back-feeds the other. A jumper can force J11-only or external-only for debugging [proposal];
 - keeps J11 (same pinout as the original) for **±12 V for the two audio amplifiers** and as the common ground with the IO
-  board. The J11 +5 V pin is not used to power the Pi; leaving it unconnected avoids back-feeding between the two 5 V
-  supplies;
+  board, whichever +5 V source is used;
 - needs a solid ground between the external supply, J11 and J1, because J1 itself has only two ground wires;
 - makes 3.3 V for the RP2040 with its own regulator. A supervisor holds the RP2040 in reset until 3.3 V and 5 V are
   stable.
+
+Caveat for the IO-board source: the LM338K is rated 5 A and also powers the IO board's own logic, and the original CPU
+board drew well under that. A Pi 4 can pull up to 3 A, and the drop along the J16/J11 harness can push it below its
+4.63 V undervoltage threshold. With J11 power, a Pi 3/CM4 or a capped Pi 4 load is the safe choice; bring-up should
+measure the 5 V at J11 under load before relying on it [proposal].
 
 ## 10. Software
 
@@ -546,7 +554,7 @@ Answered so far:
 | Q10 | Pi model | Whatever is available, likely Pi 4 or CM4 | 9.1 |
 | Q11 | Licences | Yes: GPLv3 for firmware and software (`LICENSE`), CERN-OHL-S v2 for hardware (`LICENSE-HARDWARE`) | 10.1 |
 | Q12 | The high speed bus | GPIO or USB, no RS485. Both wired; UART default | 4.2 |
-| Q14 | Power budget | Plenty; provided externally | 9.3 |
+| Q14 | Power budget | Plenty; support both an external supply and the IO board (J11) | 9.3 |
 | Q17 | GI control | By the PPUC controller (PinMAME or other), potentially PWM; relay caveat in 10.2 | 10.2 |
 
 Still open:
