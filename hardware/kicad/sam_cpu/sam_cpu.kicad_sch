@@ -1,0 +1,600 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "2aea4fdf-a573-57d0-a5af-7bd6ce737647")
+	(paper "A3")
+	(title_block
+		(title "SAM CPU replacement board")
+		(date "2026-10-06")
+		(rev "0.2")
+		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
+	)
+	(lib_symbols)
+	(text "Dedicated switches D17-D24 (J13) and DIP switches"
+		(exclude_from_sim no)
+		(at 154.94 160.02 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "04dee7dd-7d40-5b21-98cc-3828cb2d2dea")
+	)
+	(text "Power: +5 V mux (external / J11), 3.3 V, 4.5 V, supply monitors"
+		(exclude_from_sim no)
+		(at 27.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "15b7e282-d183-54e9-8bc5-01514cd45b29")
+	)
+	(text "Dedicated switches D1-D16 (J2, J3) and coin door memory protect"
+		(exclude_from_sim no)
+		(at 27.94 160.02 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "48940a54-79df-5847-a7b3-f44512f06c32")
+	)
+	(text "J5 original DMD driver and J18 GI dimmer header"
+		(exclude_from_sim no)
+		(at 281.94 160.02 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "48d52621-74b5-51f4-b41f-1c2faa9945ba")
+	)
+	(text "J9: bus to the IO power driver board (IO board J1)"
+		(exclude_from_sim no)
+		(at 281.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "5bd73754-35cd-56bd-8d6e-32197a3b0ff6")
+	)
+	(text "SAM CPU replacement board, draft 0.2, drawn from docs/ARCHITECTURE.md. Licence: CERN-OHL-S v2.\nA Raspberry Pi 4 on the 40-pin header J21 runs PinMAME + ppuc (HDMI stays on the Pi). The RP2354B drives the\noriginal IO power driver board on J9 and scans the switches. Connector names and pinouts follow the original\nCPU/Sound board 520-5246-00. Each connector sits on the same page as the circuit that drives or reads it.\nSignals between pages use global labels; the numbers in brackets next to a label list the other pages it goes to."
+		(exclude_from_sim no)
+		(at 25.4 15.24 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "5c7ae8b6-7d45-5a71-8fdd-dbcfaca0b13b")
+	)
+	(text "Switch matrix columns: 74HC595, strobe drivers, J1"
+		(exclude_from_sim no)
+		(at 27.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "904661f3-14a6-5c97-a81c-296bad768bbb")
+	)
+	(text "Switch matrix returns 1-8: J6, LM339 front end, 74HC165"
+		(exclude_from_sim no)
+		(at 154.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "a96ea57b-b3f3-5486-b3d8-0ac915f3dc06")
+	)
+	(text "Audio: Pi I2S -> PCM5102A -> 2 x TDA2030A on +-12 V -> J10"
+		(exclude_from_sim no)
+		(at 27.94 205.74 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "b71aa25e-d7e8-52b6-9684-a321cd9df897")
+	)
+	(text "Switch matrix returns 9-16: J12, LM339 front end, 74HC165"
+		(exclude_from_sim no)
+		(at 281.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "f9e16e03-90ef-5a29-8153-4be91d2b3171")
+	)
+	(text "RP2354B SAM IO controller and Raspberry Pi 4 header"
+		(exclude_from_sim no)
+		(at 154.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "fc8666be-7f72-5f53-a077-0706449bd89b")
+	)
+	(sheet
+		(at 279.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "058f26e1-21a9-55e9-a36e-02b8bf87545d")
+		(property "Sheetname" "Switch rows 9-16"
+			(at 279.4 108.5084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sw_rows_9.kicad_sch"
+			(at 279.4 135.2084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "5cd31ef4-0228-58c0-894e-3c4c8dbd5bd6")
+		(property "Sheetname" "Switch columns"
+			(at 25.4 108.5084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sw_columns.kicad_sch"
+			(at 25.4 135.2084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "5eeea8c2-b047-5ab4-84ef-a141605efbc1")
+		(property "Sheetname" "Switch rows 1-8"
+			(at 152.4 108.5084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sw_rows_1.kicad_sch"
+			(at 152.4 135.2084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 154.94)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "75b8a098-dc9c-5d88-9005-e9f1a4e02e50")
+		(property "Sheetname" "Dedicated switches 17-24"
+			(at 152.4 154.2284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sw_dedicated_2.kicad_sch"
+			(at 152.4 180.9284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 279.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "83d33106-5c77-5ce5-b632-befe6bf553de")
+		(property "Sheetname" "IO bus"
+			(at 279.4 62.7884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "io_bus.kicad_sch"
+			(at 279.4 89.4884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 200.66)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a37597f6-5aec-507d-b794-5c4f395391ec")
+		(property "Sheetname" "Audio"
+			(at 25.4 199.9484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "audio.kicad_sch"
+			(at 25.4 226.6484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "11")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "d360c6c3-40d3-5528-aec0-e616a30a2847")
+		(property "Sheetname" "MCU and Pi"
+			(at 152.4 62.7884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 152.4 89.4884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 279.4 154.94)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e5bcf56a-1356-5dfa-9e64-6b2f23d447fd")
+		(property "Sheetname" "Display and GI"
+			(at 279.4 154.2284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "display_gi.kicad_sch"
+			(at 279.4 180.9284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 154.94)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f653dae6-0566-591b-9d89-a3845bb0bd64")
+		(property "Sheetname" "Dedicated switches 1-16"
+			(at 25.4 154.2284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sw_dedicated_1.kicad_sch"
+			(at 25.4 180.9284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "febff99c-25e7-5ff2-ad94-91f07160e16c")
+		(property "Sheetname" "Power"
+			(at 25.4 62.7884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 25.4 89.4884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

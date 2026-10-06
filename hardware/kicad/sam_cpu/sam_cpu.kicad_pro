@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "filename": "sam_cpu.kicad_pro",
+    "version": 3
+  },
+  "schematic": {
+    "drawing": {
+      "default_line_thickness": 6.0,
+      "default_text_size": 50.0,
+      "intersheets_ref_show": true,
+      "intersheets_ref_own_page": false,
+      "intersheets_ref_short": false,
+      "intersheets_ref_prefix": "[",
+      "intersheets_ref_suffix": "]"
+    },
+    "legacy_lib_dir": "",
+    "legacy_lib_list": []
+  },
+  "sheets": [
+    [
+      "2aea4fdf-a573-57d0-a5af-7bd6ce737647",
+      "Root"
+    ],
+    [
+      "febff99c-25e7-5ff2-ad94-91f07160e16c",
+      "Power"
+    ],
+    [
+      "d360c6c3-40d3-5528-aec0-e616a30a2847",
+      "MCU and Pi"
+    ],
+    [
+      "83d33106-5c77-5ce5-b632-befe6bf553de",
+      "IO bus"
+    ],
+    [
+      "5cd31ef4-0228-58c0-894e-3c4c8dbd5bd6",
+      "Switch columns"
+    ],
+    [
+      "5eeea8c2-b047-5ab4-84ef-a141605efbc1",
+      "Switch rows 1-8"
+    ],
+    [
+      "058f26e1-21a9-55e9-a36e-02b8bf87545d",
+      "Switch rows 9-16"
+    ],
+    [
+      "f653dae6-0566-591b-9d89-a3845bb0bd64",
+      "Dedicated switches 1-16"
+    ],
+    [
+      "75b8a098-dc9c-5d88-9005-e9f1a4e02e50",
+      "Dedicated switches 17-24"
+    ],
+    [
+      "e5bcf56a-1356-5dfa-9e64-6b2f23d447fd",
+      "Display and GI"
+    ],
+    [
+      "a37597f6-5aec-507d-b794-5c4f395391ec",
+      "Audio"
+    ]
+  ],
+  "text_variables": {}
+}
