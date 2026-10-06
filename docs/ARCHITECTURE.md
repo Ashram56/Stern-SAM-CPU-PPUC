@@ -408,7 +408,7 @@ numbers. Phase 1 drives them on/off; with phase 2 brightness they get BCM or edg
 | RP2040 hangs with the bus enabled | The lamp scan stops, so the IO board's own watchdog clears every output within 62.5-250 ms [io-sch]. |
 | Pi hangs or the link drops | No valid OutputState for 50 ms → all coil registers written 0, fast-flip rules disabled, lamps keep scanning. For a hard stop, assert NBRESET for at least 20 ms: the IO board then clears everything and holds it for at least 250 ms. PPUC has the same idea host-side [ppuc]. |
 | Host asks for a coil too long | PPUC board-owned envelopes: `maxPulseTime` on every coil, enforced in core1 even for host-driven coils [ppuc]. |
-| High voltage missing or door open | STATUS interlock bits gate coil outputs, like the ROM's mask at 0x3b984 [doc]. Which coils stay allowed without 50 V is Q7. |
+| High voltage missing or door open | STATUS interlock bits gate coil outputs, like the ROM's mask at 0x3b984 [doc]. No coil may fire without both interlocks (Vincent, Q7). |
 | Lamp driver fault | STATUS bits 3-4 reported to the host as switches (the ROM ignores them [doc]). |
 | Bus contention during STATUS reads | 8T245 DIR flips before IOSTB falls and back after it rises (section 3.4). |
 
@@ -416,7 +416,8 @@ numbers. Phase 1 drives them on/off; with phase 2 brightness they get BCM or edg
 
 These are on the original CPU board, so the replacement has to provide them, but they belong to the Pi side, not the RP2040.
 
-- **Display, two options** (Q8):
+- **Display: both options stay available** (Vincent, Q8). The board provides the original-DMD driver, and ppuc-pinmame can
+  drive a ZeDMD panel at the same time or instead, chosen in `ppuc.ini`:
   - **A. Keep the original 128x32 DMD.** PinMAME already renders the 16-shade frame. The original scans the display at
     62.67 Hz, 12 slots of 41.55 µs per row, planes weighted 1/2/4/5 [doc]. The display cable is the 2x7 J5: the 7 signals on
     the odd pins, every even pin ground. They come from the XC95144XL CPLDs through a 74HCT245 at 5 V (U55) [cpu-sch]. In
@@ -425,8 +426,8 @@ These are on the original CPU board, so the replacement has to provide them, but
     7 outputs and one state machine is a small PIO job: a second RP2040 (or an RP2350B instead of the RP2040, section 9.2)
     receives frames from the Pi over SPI and generates the signals. PPUC's `dmdreader` firmware [ppuc] already decodes SAM
     DMD signals, which documents their timing from the other side.
-  - **B. Replace it with an LED panel** driven by ZeDMD, which ppuc-pinmame supports today through libdmdutil [ppuc]. No new
-    firmware, but it changes the machine.
+  - **B. An LED panel** driven by ZeDMD, which ppuc-pinmame supports today through libdmdutil [ppuc] over USB. No new
+    firmware. It is also the display for bring-up, before the J5 driver works.
 - **Sound**: PinMAME emulates the SAM sound system and ppuc-pinmame plays it through SDL [ppuc]. The original amplifier is on
   the CPU board [cpu-sch]: a PCM1755 DAC (I2S, with the 3-wire volume control), an OPA2353 buffer and **two TDA2030A power
   amplifiers on ±12 V**, with the speakers on the 1x4 J10 (pin 1 amplifier U50, pin 2 amplifier U51, pins 3-4 ground) [cpu-sch].
@@ -438,11 +439,13 @@ These are on the original CPU board, so the replacement has to provide them, but
 
 ### 9.1 Pi choice [proposal]
 
-Pi 4 or Pi 5 runs PinMAME's ARM7 SAM core comfortably (inferred, to confirm with a benchmark: Q10). Two packaging options:
+Vincent (Q10): whatever is available, most likely a **Pi 4 or CM4**. A Pi 4 runs PinMAME's ARM7 SAM core comfortably
+(inferred, to confirm with a benchmark). Two packaging options:
 - a carrier board in the SAM CPU board footprint with a 40-pin header for a standard Pi (cheapest, easy to swap);
-- a Compute Module 4 / 5 socket (better mechanically, eMMC, more robust in a vibrating cabinet).
+- a Compute Module 4 socket (better mechanically, eMMC, more robust in a vibrating cabinet).
 
-Default here: 40-pin header, keeping the Pi signals on the standard GPIO numbers so a CM carrier stays possible later.
+Default here: the 40-pin header first, using only signals that a CM4 also has on the same GPIO numbers (UART, SPI, I2S,
+USB, a handful of GPIOs), so a CM4 carrier is a layout change, not a redesign.
 
 ### 9.2 RP2040 pin budget [proposal]
 
@@ -478,20 +481,26 @@ LT1086 makes 3.3 V from 5 V and an LT1503 makes the AT91 core voltage. J16 on th
 | 14 | key |
 
 The +5 V comes from an **LM338K (5 A) on the IO board**, which also powers the IO board's own logic. ±12 V come from a bridge
-and capacitors on the IO board. The new board needs:
-- +5 V for the Pi, the RP2040 regulator, the switch inputs and the DMD buffer. A Pi 4 needs up to 3 A; a Pi 5 asks for 5 A,
-  which the LM338K cannot spare. Either use a Pi 4 / CM4 on the existing +5 V, or give the Pi its own buck converter from
-  +12 V, if the +12 V supply can carry it (Q14).
-- ±12 V for the two audio amplifiers, as on the original.
-- 3.3 V for the RP2040 from its own regulator. A supervisor holds the RP2040 in reset until 3.3 V and 5 V are stable.
+and capacitors on the IO board.
+
+**Vincent (Q14): power is plentiful and will be provided externally.** So the new board:
+- takes its main **+5 V from an external supply connector**, sized for a Pi 4 / CM4 (3 A) plus the RP2040, the switch
+  inputs and the DMD buffer, with margin;
+- keeps J11 (same pinout as the original) for **±12 V for the two audio amplifiers** and as the common ground with the IO
+  board. The J11 +5 V pin is not used to power the Pi; leaving it unconnected avoids back-feeding between the two 5 V
+  supplies;
+- needs a solid ground between the external supply, J11 and J1, because J1 itself has only two ground wires;
+- makes 3.3 V for the RP2040 with its own regulator. A supervisor holds the RP2040 in reset until 3.3 V and 5 V are
+  stable.
 
 ## 10. Software
 
 ### 10.1 RP2040 firmware [proposal]
 
 - Base: PPUC `io-boards` (PlatformIO, Arduino earlephilhower core, pico-sdk PIO calls) [ppuc], as a new board type
-  ("SAM_CPU"), so the protocol code, config parser and pulse envelope logic are reused rather than rewritten. That makes the
-  firmware GPLv3 (Q11).
+  ("SAM_CPU"), so the protocol code, config parser and pulse envelope logic are reused rather than rewritten. The firmware is
+  GPLv3, matching PPUC (Q11); hardware design files are CERN-OHL-S v2. The manual extracts in `reference/` are Stern's
+  material and are not covered by either licence.
 - New code: the J1 bus PIO program and scheduler (core1), the 165-chain switch scanner, the SAM lamp matrix, aux latch
   devices, the STATUS reader and the safety rules above.
 - Core split: PPUC io-boards runs the bus and switches on core0 and LED effects on core1 [ppuc]. Here core1 becomes the SAM
@@ -505,8 +514,12 @@ and capacitors on the IO board. The new board needs:
   `io/bus/lamp_matrix_map.csv`, `dedicated_switches.csv`), so other SAM titles follow the same route.
 - libppuc changes, small and upstreamable: configurable baud rate and output interval; later the lamp brightness
   extension (section 6.2).
-- Check: libppuc forces GI on for non-WPC platforms [ppuc], while the SAM ROM switches the GI relay itself (about 40 call
-  sites in Tron [doc]). GI should follow PinMAME instead (Q17).
+- GI (Vincent, Q17): **controlled by the PPUC controller**, which may be PinMAME or something else, and potentially PWM.
+  The firmware therefore treats GI as an ordinary PPUC output mapped to bit 0 of the aux/GI latch, and libppuc's "GI forced
+  on for non-WPC platforms" [ppuc] has to give way to a configurable mapping. **Caveat**: on the stock IO board, GI goes
+  through relay RLY1 (an FRL264, section 3.6). A relay can only switch GI on and off; PWM on it would wear the contacts
+  quickly. The firmware enforces a minimum switching interval on that bit. Real GI dimming needs the relay replaced by a
+  solid-state switch on the GI circuit (an IO board modification, outside this design for now).
 
 ### 10.3 Rejected alternative: raw bus pass-through
 
@@ -521,28 +534,28 @@ Answered so far:
 
 | # | Question | Answer | Where |
 |---|---|---|---|
-| Q3 | J1 pins 9, 10, 11, 17, 19, and CPU board power | 9, 10, 11, 17 not connected; 19, 20 ground. Power from IO board J16 (+5 V, ±12 V) | IO schematic; 3.1, 9.3 |
-| Q5 | What feeds the IO board watchdog | DS1232: falling edge on lamp strobe line 0 (DRV0) at least every 62.5 ms worst case | IO schematic; 3.6 |
-| Q6 | Does NBRESET clear the latches? | Yes: NBRESET → DS1232 /PBRST → NRESET → /MR of every output latch; at least 250 ms reset | IO schematic; 3.6, 7 |
 | Q1 | CPU/Sound board schematic | Shared as PDF; now in `reference/` | 5.2, 8, 9.3 |
 | Q2 | Switch input conditioning | 4.5 V pull-ups, LM339 comparators on the returns, 8 independent 2N3904 open-collector strobes | CPU schematic; 5.2 |
+| Q3 | J1 pins 9, 10, 11, 17, 19, and CPU board power | 9, 10, 11, 17 not connected; 19, 20 ground. Power from IO board J16 (+5 V, ±12 V) | IO schematic; 3.1, 9.3 |
+| Q4 | Scope the bus and a coil gate? | Stay with the conservative default timings | 3.3 |
+| Q5 | What feeds the IO board watchdog | DS1232: falling edge on lamp strobe line 0 (DRV0) at least every 62.5 ms worst case | IO schematic; 3.6 |
+| Q6 | Does NBRESET clear the latches? | Yes: NBRESET → DS1232 /PBRST → NRESET → /MR of every output latch; at least 250 ms reset | IO schematic; 3.6, 7 |
+| Q7 | Coils allowed without 50 V | None | 7 |
+| Q8 | Original DMD or ZeDMD | Keep both options available | 8 |
 | Q9 | Audio amplifier on the CPU board? | Yes: PCM1755 + two TDA2030A on ±12 V, speakers on J10 | CPU schematic; 8 |
-| Q12 | The high speed bus | GPIO or USB, no RS485 (Vincent). Both wired; UART default | 4.2 |
+| Q10 | Pi model | Whatever is available, likely Pi 4 or CM4 | 9.1 |
+| Q11 | Licences | Yes: GPLv3 for firmware and software (`LICENSE`), CERN-OHL-S v2 for hardware (`LICENSE-HARDWARE`) | 10.1 |
+| Q12 | The high speed bus | GPIO or USB, no RS485. Both wired; UART default | 4.2 |
+| Q14 | Power budget | Plenty; provided externally | 9.3 |
+| Q17 | GI control | By the PPUC controller (PinMAME or other), potentially PWM; relay caveat in 10.2 | 10.2 |
 
 Still open:
 
-| # | Question | Why it matters | Default if no answer |
+| # | Question | Status | Default meanwhile |
 |---|---|---|---|
-| Q4 | Can you put a scope (or the analyzer at 100 MS/s+) on IOSTB, one address and one data line at the IO board, and on a coil MOSFET gate? | Confirms the PIO timing constants and the real coil switching time (39 k / 10 nF gate). | Use the conservative timings in 3.3. |
-| Q7 | Which coils may fire without 50 V present (if any)? | Interlock gating rule. | Gate all coils on both interlocks. |
-| Q8 | Keep the original DMD (7 signals on J5, needs a PIO driver) or switch to a ZeDMD-style LED panel (works today)? | Section 8, and whether a second MCU or an RP2350B is needed. | Keep the original DMD; ZeDMD for bring-up. |
-| Q10 | Pi 4, Pi 5 or a Compute Module? Header or CM socket? | Board outline and power (see Q14). | Pi 4 or CM4 on a 40-pin header / socket. |
-| Q11 | GPLv3 for the firmware (reusing PPUC io-boards) and an open hardware licence (PPUC boards use TAPR OHL) OK? | Licensing of this repo. | GPLv3 firmware, CERN-OHL-S hardware. |
-| Q13 | Which SAM titles must this support first besides Tron LE? | Aux latch devices and game YAMLs. | Tron LE, then any SAM title without aux boards. |
-| Q14 | How much current can the IO board's +5 V (LM338K, 5 A, shared with its own logic) and +12 V spare for the CPU board? | A Pi 5 wants 5 A at 5 V. | Pi 4 on +5 V; leave room for a 12 V → 5 V buck. |
-| Q15 | The CPU board has 8 independent strobe drivers but the ROM scans 4 and Indiana Jones wires drives 1-4. Do any SAM games use strobes 5-8? | Strobe count and scan time. | Drive all 8. |
-| Q16 | The 74HCT273 input pins are scrambled (bus D0 → chip D4). Section 3.6 reads SOL_B bit 0 → Q1 / J8-1 and LMP_DRV bit 0 → J13-1, unlike the transistor tables in Stern-SAM-Databus-Analysis. Worth a continuity check? | Wiring docs and test fixtures, not firmware. | Trust the ROM's bus bits; check one coil and one lamp on the bench. |
-| Q17 | GI: libppuc forces GI on for non-WPC platforms, but the SAM ROM drives the GI relay itself. Should GI follow PinMAME? | GI behaviour in attract and tilt. | Follow PinMAME (small libppuc change). |
+| Q13 | Which SAM titles come first besides Tron LE? | To be defined | Tron LE first |
+| Q15 | Do any SAM games use switch strobes 5-8? | Vincent to check | Drive all 8 |
+| Q16 | Continuity check of the 74HCT273 bit-to-pin mapping (section 3.6) against the Stern-SAM-Databus-Analysis tables | Vincent will check | Firmware uses the ROM's bus bits, so nothing waits on it |
 
 ## 12. Proposed plan
 
@@ -554,6 +567,7 @@ Still open:
    First full game.
 5. **Coils with safety**: fast-flip rules, envelopes, interlocks, host-loss timeout. Then coil power on.
 6. **Speed-up**: 1-3 Mbaud, 1 ms outputs, IRQ-driven polling.
-7. **Display and sound** (per Q8; the amplifier copies the original, section 8).
+7. **Display and sound**: ZeDMD over USB first, then the J5 driver for the original DMD; the audio amplifier copies the
+   original (section 8).
 8. **PCB** in the SAM CPU board footprint.
 9. **Phase 2**: lamp brightness, aux tube PWM, other SAM titles.

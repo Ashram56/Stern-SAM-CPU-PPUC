@@ -12,3 +12,10 @@ Background:
 - [Tron-Legacy-LE-ROM-Decryption/io/bus](https://github.com/Ashram56/Tron-Legacy-LE-ROM-Decryption/tree/main/io/bus):
   the CPU to IO board bus as the SAM ROM drives it.
 - [Stern-SAM-Databus-Analysis](https://github.com/Ashram56/Stern-SAM-Databus-Analysis): J1 pinout and IO board schematic notes.
+
+## Licence
+
+- Firmware and software: GNU GPL v3 ([LICENSE](LICENSE)), matching PPUC.
+- Hardware design files: CERN Open Hardware Licence v2, strongly reciprocal ([LICENSE-HARDWARE](LICENSE-HARDWARE)).
+- The manual extracts in `docs/reference/` are Stern Pinball's material, kept for reference, and are not covered by
+  either licence.
