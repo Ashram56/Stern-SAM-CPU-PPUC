@@ -82,6 +82,7 @@ class Part:
         fpprop = self.sd.props.get('Footprint')
         self.footprint = footprint if footprint is not None else (fpprop[2] if fpprop else '')
         self.unit, self.rot = unit, rotation
+        self.mirror = mirror
         self.props = props or {}
         self.dnp = dnp
         self.x = self.y = 0.0
@@ -91,6 +92,7 @@ class Part:
         for p in self.unit_pins():
             if p['number'] == str(number):
                 dx, dy = rot(p['x'], p['y'], self.rot)
+                if self.mirror == 'y': dx = -dx
                 return (round(self.x + dx, 4), round(self.y + dy, 4))
         raise KeyError(f'{self.ref} has no pin {number}')
     def pin(self, number):
@@ -277,10 +279,17 @@ class Design:
                 hidden = True
             if name == 'Reference' and hide_ref: hidden = True
             dx, dy = rot(px, py, r)
+            if mirror == 'y' and not lib_id.startswith('Device:'):
+                dx = -dx
+                if just and 'left' in just: just = just.replace('left', 'right')
+                elif just and 'right' in just: just = just.replace('right', 'left')
             ang = pa  # field angles are stored relative to the symbol orientation
             if name == 'Value' and lib_id.startswith('power:') and r in (90, 270):
                 ang = 90
-                just = 'left'  # rotation of field + symbol flips it back where needed
+                down = lib_id == 'power:GND'
+                pdir = ({90: 'R', 270: 'L'} if down else {90: 'L', 270: 'R'})[r]
+                ea = (ang + r) % 360
+                just = "left" if (pdir == "R") == (ea == 0) else "right"
             if name in ('Reference', 'Value') and two_pin is not None:
                 ang = 90 if r in (90, 270) else 0
                 if two_pin == 'V':
