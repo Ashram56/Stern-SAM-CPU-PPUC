@@ -43,6 +43,8 @@ def C(value, n1, n2, rot=0, pol=False, fp=None):
     return Part(nref('C'), 'Device:C_Polarized' if pol else 'Device:C', value, {'1': n1, '2': n2}, fp, rotation=rot)
 def conn(ref, n, nets, fp, value):
     return Part(ref, f'Connector_Generic:Conn_01x{n:02d}', value, {str(k): v for k, v in nets.items()}, fp)
+def TP(net):
+    return Part(nref('TP'), 'Connector:TestPoint', net, {'1': net}, 'TestPoint:TestPoint_Pad_D1.5mm')
 def flag(net, up=None):
     """PWR_FLAG; for +V rails it hangs below its pin so the rail symbol can point up."""
     from sch import POWER
@@ -61,6 +63,10 @@ class P(Page):
         return self.at(C(value, n1, n2, **k), x, y + 1.5)
     def hc(self, value, n1, n2, x, y, **k):
         return self.at(C(value, n1, n2, rot=90, **k), x + 1.5, y)
+    def tps(self, nets, x, y, dx=4):
+        """a row of test points, pins at y"""
+        for i, n in enumerate(nets):
+            self.at(TP(n), x + i * dx, y)
     def decaps(self, net, values, x, y, dx=3, n2='GND'):
         for i, v in enumerate(values):
             k = {}
@@ -158,6 +164,8 @@ S.port('VMON_12V', 152 * U, 32 * U, 'R')
 # power flags for the rails
 for i, n in enumerate(['+5V', '+4V5', '+12V', '-12V', 'GND']):
     S.at(flag(n), 70 + i * 6, 80)
+S.tps(['+5V', '+3V3', '+4V5', '+12V', '-12V', 'GND', 'GND'], 70, 92, dx=6)
+S.frame('Test points', 64 * U, 84 * U, 112 * U, 98 * U)
 S.frame('External +5 V (J17, priority)', 5 * U, 16 * U, 58 * U, 44 * U)
 S.frame('IO board power (J11)', 5 * U, 46 * U, 58 * U, 92 * U)
 S.frame('3.3 V', 76 * U, 16 * U, 112 * U, 44 * U)
@@ -171,6 +179,7 @@ S = page('MCU and Pi', 'mcu.kicad_sch', 'RP2354B SAM IO controller and Raspberry
     'GPIO map: ARCHITECTURE.md 9.2. PIO0 bus on GPIO0-15, PIO1 switch chain on GPIO16-20, PIO2 DMD on GPIO21-27, GPIO31 coin door memory protect.',
     'Core supply from the internal switching regulator: VREG_LX -> L1 -> DVDD (1.1 V); VREG_AVDD through 33 R / 4.7 uF. Check against the RP2350 hardware guide.',
     'Raspberry Pi 4 on the 40-pin header J21 (HDMI stays on the Pi). The Pi is powered from the board +5 V: never plug the Pi USB-C supply at the same time.',
+    'U25 DS3231MZ real-time clock on the Pi I2C1 bus (Linux: dtoverlay=i2c-rtc,ds3231), backed by a CR2032 in BT1.',
 ))
 gp = {i: f'BUS_D{i}' for i in range(8)}
 gp.update({8 + i: f'BUS_A{i}' for i in range(4)})
@@ -236,7 +245,7 @@ S.at(Part('D3', 'Device:LED', 'yellow', {'2': 'LED_STATUS_A', '1': 'GND'}, FP['L
 pi = Part('J21', 'Connector:Raspberry_Pi_2_3', 'Raspberry Pi 40-pin', {}, 'Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical', mirror='y')
 pimap = {'8': 'PI_TXD', '10': 'PI_RXD', '19': 'FRAME_MOSI', '23': 'FRAME_SCK', '24': 'FRAME_CS_N',
          '12': 'I2S_BCK', '35': 'I2S_LRCK', '40': 'I2S_DIN', '15': 'PI_RUN', '13': 'PI_BOOTSEL',
-         '18': 'SWCLK', '22': 'SWDIO', '16': 'RP_IRQ_N'}
+         '18': 'SWCLK', '22': 'SWDIO', '16': 'RP_IRQ_N', '3': 'PI_SDA', '5': 'PI_SCL'}
 for p in pi.sd.pins:
     n = p['number']
     pi.nets[n] = {'5V': '+5V', 'GND': 'GND', '3V3': 'NC'}.get(p['name'], pimap.get(n, 'NC'))
@@ -247,6 +256,16 @@ S.hr('1k', 'PI_RUN', 'MR_N', 146, 68)
 S.hr('1k', 'PI_BOOTSEL', 'BOOTSEL', 146, 73)
 S.vr('10k', '+3V3', 'RP_IRQ_N', 150, 76)
 S.frame('Raspberry Pi 4 (40-pin header J21)', 104 * U, 44 * U, 160 * U, 86 * U)
+# real-time clock for the Pi (I2C1, GPIO2/3; the Pi has 1.8 k pull-ups), kept running by a CR2032
+S.label_nets |= {'PI_SDA', 'PI_SCL'}
+S.at(Part('U25', 'Timer_RTC:DS3231MZ', 'DS3231MZ', {'2': '+3V3', '5': 'GND', '6': 'RTC_VBAT', '7': 'PI_SDA', '8': 'PI_SCL',
+                                                    '1': 'NC', '3': 'NC', '4': 'NC'}, 'Package_SO:SOIC-8_3.9x4.9mm_P1.27mm'), 34, 100)
+S.at(Part('BT1', 'Device:Battery_Cell', 'CR2032', {'1': 'RTC_VBAT', '2': 'GND'}, 'Battery:BatteryHolder_Keystone_3034_1x20mm'), 18, 102)
+S.at(Part('C119', 'Device:C', '100n', {'1': '+3V3', '2': 'GND'}, FP['C']), 46, 96.5)
+S.at(Part('#FLG99', 'power:PWR_FLAG', 'PWR_FLAG', {'1': 'RTC_VBAT'}, '', rotation=180), 24, 94)
+S.frame('Real-time clock (Pi I2C1, CR2032 backup)', 8 * U, 86 * U, 60 * U, 112 * U)
+S.tps(['+1V1', 'RUN', 'GND'], 72, 100)
+S.frame('Test points', 66 * U, 92 * U, 86 * U, 106 * U)
 
 # =====================================================================
 # IO bus: J9 to the IO power driver board
@@ -283,6 +302,7 @@ j9n = {'7': 'J9_D0', '5': 'J9_D1', '3': 'J9_D2', '1': 'J9_D3', '2': 'J9_D4', '4'
 S.at(Part('J9', 'Connector_Generic:Conn_02x10_Odd_Even', 'J9 IO BUS', j9n, 'Connector_IDC:IDC-Header_2x10_P2.54mm_Vertical'), 110, 56)
 S.decaps('+3V3', ['100n'], 14, 98)
 S.decaps('+5V', ['100n', '100n', '10u'], 20, 98)
+S.tps(['J9_IOSTB', 'J9_NBRESET', 'J9_D0', 'J9_A0'], 132, 30, dx=6)
 
 # =====================================================================
 # Switch columns: 74HC595 + strobe drivers + J1
@@ -307,6 +327,7 @@ for i in range(1, 9):
     S.fan(f'STB_Q{i}', (30, 55 + i), {1: 33, 2: 34, 3: 35, 4: 36, 5: 36, 6: 35, 7: 34, 8: 33}[i], (50, 22 + (i - 1) * 11))
 j1 = {p: f'STB{i + 1}' for i, p in enumerate([1, 3, 4, 5, 6, 7, 8, 9])}; j1[2] = 'NC'
 S.at(conn('J1', 9, j1, kk396(9), 'J1 SWITCH COLUMNS'), 92, 60)
+S.tps(['STB1', 'STB2', 'SW_CLK', 'SW_DATA'], 120, 30, dx=6)
 
 # =====================================================================
 # Switch rows: J6 / J12, LM339 front end, 74HC165
@@ -351,6 +372,7 @@ def vref(S):
     S.vr('3.3k', 'VREF', 'GND', 70, 92)
     S.vc('22u', 'VREF', 76, 92)
     S.port('VREF', 84 * U, 90 * U, 'R')
+    S.tps(['VREF'], 92, 84)
     S.frame('Comparator reference (2.25 V)', 64 * U, 78 * U, 100 * U, 102 * U)
 rows_page(1, 'J6', [1, 2, 3, 5, 6, 7, 8, 9], 4, 'U19', ['U8', 'U9'], 'CHAIN5', 'SW_DATA', extra=vref)
 rows_page(9, 'J12', [1, 2, 3, 4, 6, 7, 8, 9], 5, 'U18', ['U10', 'U11'], 'CHAIN4', 'CHAIN5',
@@ -442,6 +464,8 @@ S.frame('GI dimmer board link (J18)', 12 * U, 78 * U, 112 * U, 100 * U)
 S = page('Audio', 'audio.kicad_sch', 'Audio: Pi I2S -> PCM5102A -> 2 x TDA2030A on +-12 V -> J10', notes=(
     'Same structure as the original (DAC + two TDA2030A on +-12 V, speakers on J10). Volume stays digital (ROM / PinMAME).',
     'Gain: 22k / 4.7k input divider x (1 + 22k / 1k) = about 4 overall. Starting values, to check on the bench.',
+    'J10 keeps the original pinout (left = backbox, right = cabinet woofer by default; the woofer low-pass is done on the Pi).',
+    'J22 carries the same two outputs as separate pairs (L+ L- R+ R-) for a stereo backbox harness.',
 ))
 S.at(Part('U22', 'Audio:PCM5102A', 'PCM5102A',
           {'15': 'I2S_LRCK', '14': 'I2S_DIN', '13': 'I2S_BCK', '12': 'GND', '11': 'GND', '10': 'GND', '17': 'DAC_XSMT',
@@ -477,5 +501,7 @@ def amp(S, ch, y, uref):
 amp(S, 'L', 26, 'U23')
 amp(S, 'R', 78, 'U24')
 S.at(conn('J10', 4, {1: 'SPK_L', 2: 'SPK_R', 3: 'GND', 4: 'GND'}, kk396(4), 'J10 SPEAKERS'), 140, 56)
+S.at(conn('J22', 4, {1: 'SPK_L', 2: 'GND', 3: 'SPK_R', 4: 'GND'}, kk396(4), 'J22 STEREO'), 140, 72)
+S.tps(['DAC_OUTL', 'DAC_OUTR', 'GND'], 12, 90)
 S.frame('Left amplifier', 52 * U, 14 * U, 124 * U, 46 * U)
 S.frame('Right amplifier', 52 * U, 66 * U, 124 * U, 98 * U)

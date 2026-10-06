@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 S = 6.0          # px per mm
 M = 40           # margin px
 W_NEW, H = 120.65, 231.76
-PI_X0, PI_YE = W_NEW - 64.5, 140.0
+PI_X0, PI_YE = W_NEW - 64.5, 152.0
 MOVED = {"J1": "J1", "J2": "J2", "J10": "J10", "J5": "J5"}
 
 
@@ -28,7 +28,7 @@ def main(fpjson, poscsv, out):
     d = ImageDraw.Draw(img)
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 22)
     small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
-    d.text((M, 8), "Outline, holes and connectors (green, 120.65 x 231.76 mm) over the original 520-5246-00 "
+    d.text((M, 8), "Placement draft (green, 120.65 x 231.76 mm) over the original 520-5246-00 "
            "(grey, 219.06 x 231.76 mm)", fill="black", font=font)
 
     # original board, its connectors and holes

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the draft PCB (outline, holes, connectors) from the schematic netlist; other parts go off the board.
+"""Build the draft PCB placement (outline, holes, connectors and a first placement of every part).
 
 Run with KiCad 10's Python (the one that can `import pcbnew`):
     kicad-cli sch export netlist -o /tmp/sam_cpu.net hardware/kicad/sam_cpu/sam_cpu.kicad_sch
@@ -10,8 +10,10 @@ component side as the board hangs in the backbox: the same frame as docs/mechani
 The board is drawn at (ORIGIN_X, ORIGIN_Y) on the page; the grid and drill origins are set to the board corner so
 KiCad shows the same numbers as this file.
 
-Only the outline, holes and connectors are placed. Every other part is left off the board, to the right, in one
-block per schematic sheet, ready for manual placement. Once the board is edited in KiCad, do not rerun this.
+Connectors, holes and the RP2354B are placed by hand. Decoupling capacitors and the parts that belong to one IC pin
+(RP2354B regulator, crystal, USB resistors) are placed right next to that pin; everything else is packed into an
+area per schematic sheet, next to the connector it serves. Tall parts stay out from under the Pi.
+Once the board is edited in KiCad, do not rerun this.
 """
 import os
 import re
@@ -27,7 +29,10 @@ FPDIR = os.environ.get("KICAD10_FOOTPRINT_DIR", "/usr/share/kicad/footprints")
 # USB / Ethernet end hangs past the right edge. Pi frame: 85 x 56, holes at 3.5 / 61.5 x 3.5 / 52.5, header pin 1
 # at (8.37, 4.77) from the corner away from USB, header rows 3.5 mm from the long edge (HAT mechanical spec).
 PI_X0 = W - 64.5               # USB / Ethernet start about 65 mm from the Pi's left edge: keep them off the board
-PI_YE = 140.0                  # Pi long edge at the header (the lower edge, Pi face down)
+PI_YE = 152.0                  # Pi long edge at the header (the lower edge, Pi face down)
+
+MCU_X, MCU_Y = 44.0 - 5.6, 26.0 - 3.8   # RP2354B pin 1 (QFN-80 centre at 44, 26)
+J19_X = 45.6                             # USB-C centre on the top edge, data pads above RP2354B pins 66/67
 
 KK_ROW1 = 221.73               # original J1/J2/J3 pin row, 10.03 mm above the bottom edge
 KK_ROW2 = KK_ROW1 - 20.32      # second stacked row
@@ -46,16 +51,41 @@ FIXED = {
     # top edge: J11 unchanged, J10 audio moved left next to it
     "J11": (58.41, 11.18, 0),
     "J10": (85.00, 11.18, 0),
-    "J17": (24.00, 10.00, 0),      # external +5 V terminal block
+    "J17": (114.50, 18.00, 270),   # external +5 V terminal block, wires enter from the right edge
+    "J22": (115.00, 30.00, 270),   # second speaker connector (stereo pairs)
     # right edge: DMD moved from x 211.4 to the new right edge, same height and orientation
-    "J5":  (115.57, 164.46, 180),
+    "J5":  (115.57, 176.46, 180),
     "J18": (116.50, 193.00, 90),   # GI dimmer header
-    "J19": (115.50, 176.00, 90),   # USB-C, RP2354B to a Pi USB port
+    "U4":  (MCU_X, MCU_Y, 0),      # RP2354B (pad 1), near J9 and J19
     "J21": (PI_X0 + 8.37, PI_YE - 4.77, 90),
 }
 
-# off-board blocks, one per sheet, to the right of the Pi overhang
-OFF_X, OFF_W, OFF_H = 150.0, 48.0, 85.0
+# packing areas (x0, y0, x1, y1[, "low"]); "low" areas (under the Pi or its plugs) take only low parts
+LOW = "low"
+UNDER_PI = (58, 98, 118, 135, LOW)
+REGIONS = {
+    "power.kicad_sch":          [(55, 17, 107, 31), (55, 31, 75, 47), (58, 67, 84, 95, LOW)],
+    "io_bus.kicad_sch":         [(17, 21, 33.8, 59)],
+    "audio.kicad_sch":          [(84, 67, 112, 95, LOW), (75, 31, 110, 62), (55, 47, 75, 62), UNDER_PI],
+    "sw_rows_9.kicad_sch":      [(17, 60, 55, 104)],
+    "sw_rows_1.kicad_sch":      [(17, 128, 55, 168), UNDER_PI],
+    "display_gi.kicad_sch":     [(84, 154, 108.5, 169), UNDER_PI],
+    "sw_columns.kicad_sch":     [(84, 170, 108.5, 196), (100, 208, 119, 229)],
+    "sw_dedicated_2.kicad_sch": [(17, 170, 51, 197), (57, 154, 83, 168), UNDER_PI],
+    "sw_dedicated_1.kicad_sch": [(52, 170, 83, 196), (17, 211, 45, 229), UNDER_PI],
+    "mcu_misc":                 [(34, 38, 56, 59)],
+    "pi_if":                    [(60, 136, 112, 143, LOW)],
+    "rtc":                      [(17, 104.5, 55, 127)],
+}
+GROUP_OF = {r: "mcu_misc" for r in ("U5", "R9", "SW1", "SW2", "R15", "J20", "D3", "R17", "R10", "R11", "R12")}
+GROUP_OF.update({r: "pi_if" for r in ("R18", "R19", "R20", "R21", "R22")})
+GROUP_OF.update({r: "rtc" for r in ("U25", "BT1")})
+GROUP_OF.update({r: "mcu_misc" for r in ("TP8", "TP9", "TP10")})
+TALL = ("Capacitor_SMD:CP_Elec", "Package_TO_SOT_THT", "TerminalBlock", "Battery", "Button_Switch_THT",
+        "Connector_", "Relay")
+# RP2354B parts that sit on one of its pins, in placement order: (ref, pad of U4)
+U4_SATS = [("L1", "63"), ("C11", "61"), ("R8", "61"), ("R13", "66"), ("R14", "67"), ("C24", "65")]
+SUPPLY = ("+3V3", "+1V1", "+5V", "+4V5", "+12V", "-12V", "+3V3_A")
 
 HOLES = [
     # (name, x, y, kind) screw positions from docs/mechanical; keyholes open upward
@@ -200,35 +230,129 @@ def courtyard(fp):
     return fp.GetBoundingBox(False)
 
 
-def pack(fps, rects, gap=0.6):
-    """Shelf-pack footprints (tallest first) into the rectangles. Returns the refs that did not fit."""
-    order = sorted(fps, key=lambda f: (-courtyard(f).GetHeight(), -courtyard(f).GetWidth(), f.GetReference()))
+def box(fp, grow=0.0):
+    """courtyard box in board mm: (x0, y0, x1, y1)"""
+    bb = courtyard(fp)
+    return (pcbnew.ToMM(bb.GetX()) - ORIGIN_X - grow, pcbnew.ToMM(bb.GetY()) - ORIGIN_Y - grow,
+            pcbnew.ToMM(bb.GetRight()) - ORIGIN_X + grow, pcbnew.ToMM(bb.GetBottom()) - ORIGIN_Y + grow)
+
+
+def overlaps(a, b, gap=0.15):
+    return a[0] < b[2] + gap and b[0] < a[2] + gap and a[1] < b[3] + gap and b[1] < a[3] + gap
+
+
+def is_tall(fp):
+    lib = fp.GetFPID().GetLibNickname().wx_str() + ":" + fp.GetFPID().GetLibItemName().wx_str()
+    return lib.startswith(TALL)
+
+
+def move_box_to(fp, x, y):
+    """move so the courtyard's top-left lands at board (x, y)"""
+    bb = courtyard(fp)
+    pos = fp.GetPosition()
+    fp.SetPosition(pcbnew.VECTOR2I(pos.x + mm(ORIGIN_X + x) - bb.GetX(), pos.y + mm(ORIGIN_Y + y) - bb.GetY()))
+
+
+def pack(fps, rects, occ, margin=None, gap=0.6):
+    """Shelf-pack footprints (tallest first) into the rectangles, skipping anything already on the board;
+    margin[ref] keeps a free ring around a part (room for its decoupling capacitors). Rectangles marked LOW take
+    only low parts. Returns the refs that did not fit."""
+    margin = margin or {}
+    def size(f):
+        b, m = box(f), margin.get(f.GetReference(), 0.0)
+        return b[2] - b[0] + 2 * m, b[3] - b[1] + 2 * m
+    order = sorted(fps, key=lambda f: (-size(f)[1], -size(f)[0], f.GetReference()))
+    state = [None] * len(rects)          # per rectangle: (cx, cy, shelf)
     left = []
-    ri, cx, cy, shelf = 0, None, None, 0.0
     for f in order:
-        bb = courtyard(f)
-        w = pcbnew.ToMM(bb.GetWidth())
-        h = pcbnew.ToMM(bb.GetHeight())
-        while ri < len(rects):
-            x0, y0, x1, y1 = rects[ri]
-            if cx is None:
-                cx, cy, shelf = x0, y0, 0.0
-            if cx + w > x1:
-                cx, cy, shelf = x0, cy + shelf + gap, 0.0
-            if cy + h <= y1 and cx + w <= x1:
+        w, h = size(f)
+        m = margin.get(f.GetReference(), 0.0)
+        done = False
+        for i in range(len(rects)):
+            r = rects[i]
+            if len(r) > 4 and is_tall(f):
+                continue
+            x0, y0, x1, y1 = r[:4]
+            cx, cy, shelf = state[i] or (x0, y0, 0.0)
+            while True:
+                if cx + w > x1:
+                    cx, cy, shelf = x0, cy + shelf + gap, 0.0
+                if cy + h > y1:
+                    break
+                ring = (cx, cy, cx + w, cy + h)
+                if occ.free(ring, reserved=True):
+                    move_box_to(f, cx + m, cy + m)
+                    occ.add(f)
+                    occ.reserve(ring)
+                    state[i] = (cx + w + gap, cy, max(shelf, h))
+                    done = True
+                    break
+                cx += 1.0
+            if done:
                 break
-            ri, cx = ri + 1, None
-        if ri >= len(rects):
+            state[i] = (cx, cy, shelf)
+        if not done:
             left.append(f.GetReference())
-            continue
-        # move so the courtyard's top-left lands at (cx, cy)
-        pos = f.GetPosition()
-        dx = mm(ORIGIN_X + cx) - bb.GetX()
-        dy = mm(ORIGIN_Y + cy) - bb.GetY()
-        f.SetPosition(pcbnew.VECTOR2I(pos.x + dx, pos.y + dy))
-        cx += w + gap
-        shelf = max(shelf, h)
     return left
+
+
+class Occupancy:
+    """Courtyards already on the board, plus the rings packing keeps free around ICs for their capacitors."""
+    def __init__(self):
+        self.boxes, self.rings = [], []
+
+    def add(self, fp):
+        self.boxes.append(box(fp))
+
+    def reserve(self, b):
+        self.rings.append(b)
+
+    def free(self, b, reserved=False):
+        if b[0] < 0.3 or b[1] < 0.3 or b[2] > W - 0.3 or b[3] > H - 0.3:
+            return False
+        if any(overlaps(b, o) for o in self.boxes):
+            return False
+        return not (reserved and any(overlaps(b, o) for o in self.rings))
+
+
+def pad_xy(pad):
+    p = pad.GetPosition()
+    return pcbnew.ToMM(p.x) - ORIGIN_X, pcbnew.ToMM(p.y) - ORIGIN_Y
+
+
+def place_satellite(fp, ic, pad, occ, toward_pad="1"):
+    """Put a 2-pad part just outside the IC side where `pad` sits, its pad `toward_pad` facing the IC.
+    Slides along the side, then outward, until the courtyard is free."""
+    b = box(ic)
+    px, py = pad_xy(pad)
+    cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+    dx, dy = (px - cx) / (b[2] - b[0]), (py - cy) / (b[3] - b[1])
+    if abs(dx) >= abs(dy):
+        out, edge, rot = ((1, 0), b[2], 0) if dx > 0 else ((-1, 0), b[0], 180)
+    else:
+        out, edge, rot = ((0, 1), b[3], 270) if dy > 0 else ((0, -1), b[1], 90)
+    fp.SetOrientationDegrees(rot)
+    pads = {p.GetNumber(): p for p in fp.Pads()}
+    if toward_pad == "2":
+        fp.SetOrientationDegrees((rot + 180) % 360)
+    tan = (-out[1], out[0])
+    for k in range(20):                      # outward rows
+        for j in [0] + [s * i for i in range(1, 12) for s in (1, -1)]:
+            fp.SetPosition(pcbnew.VECTOR2I(0, 0))
+            fb = box(fp)
+            half_out = (fb[2] - fb[0]) / 2 if out[0] else (fb[3] - fb[1]) / 2
+            d = 0.1 + half_out + k * 1.0
+            if out[0]:
+                x, y = edge + out[0] * d, py + tan[1] * j * 0.9
+            else:
+                x, y = px + tan[0] * j * 0.9, edge + out[1] * d
+            # centre the courtyard on (x, y)
+            ccx, ccy = (fb[0] + fb[2]) / 2, (fb[1] + fb[3]) / 2
+            fp.SetPosition(pcbnew.VECTOR2I(mm(x - ccx), mm(y - ccy)))
+            if occ.free(box(fp)):
+                occ.add(fp)
+                return True
+    return False
 
 
 def main(netfile, out):
@@ -238,7 +362,7 @@ def main(netfile, out):
     ds = board.GetDesignSettings()
     ds.SetAuxOrigin(pt(0, 0))
     ds.SetGridOrigin(pt(0, 0))
-    board.SetCopperLayerCount(4)
+    board.SetCopperLayerCount(2)
 
     netinfo = {}
     for name, _ in nets:
@@ -272,16 +396,20 @@ def main(netfile, out):
         fp.SetPosition(pt(x, y) - off)
         fp.SetLocked(ref.startswith("J"))
 
-    groups = {}
-    for ref, c in comps.items():
-        if ref not in FIXED:
-            groups.setdefault(c["sheet"], []).append(fps[ref])
-    for i, (sheet, members) in enumerate(sorted(groups.items())):
-        x0, y0 = OFF_X + (i % 3) * (OFF_W + 5), (i // 3) * (OFF_H + 5)
-        left = pack(members, [(x0, y0, x0 + OFF_W, y0 + OFF_H)])
-        if left:
-            print("did not fit, sheet %s: %s" % (sheet, " ".join(left)))
+    # USB-C on the top edge above the RP2354B (rotated so the plug enters from the top edge)
+    j19 = fps["J19"]
+    j19.SetOrientationDegrees(180)
+    j19.SetPosition(pt(J19_X, 10))
+    jb = box(j19)
+    j19.SetPosition(pt(J19_X, 10 - jb[1] - 0.2))
+    j19.SetLocked(True)
 
+    occ = Occupancy()
+    placed = set(FIXED) | {"J19"}
+    for r in placed:
+        occ.add(fps[r])
+    # holes first, so nothing lands on them
+    hole_fps = []
     for name, x, y, kind in HOLES:
         if kind == "keyhole":
             fp = keyhole(board, name, x, y)
@@ -295,6 +423,75 @@ def main(netfile, out):
             fp.SetPosition(pt(x, y))
             board_only(fp)
         fp.SetLocked(True)
+        occ.add(fp)
+
+    netof = {(r, p): n for (r, p), n in padnet.items()}
+    def pad(ref, num):
+        return [p for p in fps[ref].Pads() if p.GetNumber() == num][0]
+
+    # RP2354B: regulator, USB, decoupling and crystal on their pins
+    u4 = fps["U4"]
+    for ref, num in U4_SATS:
+        net = netof[(ref, "1")]
+        toward = "1" if net == padnet[("U4", num)] or ref == "R8" else "2"
+        if ref == "R8":           # R8 is +3V3 -> VREG_AVDD: its VREG_AVDD end faces the chip
+            toward = "2"
+        place_satellite(fps[ref], u4, pad("U4", num), occ, toward)
+        placed.add(ref)
+    u4_supply = {}
+    for p in u4.Pads():
+        n = padnet.get(("U4", p.GetNumber()))
+        if n in ("+3V3", "+1V1"):
+            u4_supply.setdefault(n, []).append(p)
+    used = {}
+    for ref in sorted((r for r in comps if comps[r]["sheet"] == "mcu.kicad_sch" and r.startswith("C")),
+                      key=lambda r: int(r[1:])):
+        if ref in placed or ref == "C119" or netof.get((ref, "2")) != "GND" or netof.get((ref, "1")) not in u4_supply:
+            continue
+        cands = sorted(u4_supply[netof[(ref, "1")]], key=lambda p: used.get(p.GetNumber(), 0))
+        used[cands[0].GetNumber()] = used.get(cands[0].GetNumber(), 0) + 1
+        place_satellite(fps[ref], u4, cands[0], occ, "1")
+        placed.add(ref)
+    for ref, num, toward in (("Y1", "30", "1"), ("C28", "30", "1"), ("R16", "31", "2"), ("C29", "31", "1")):
+        place_satellite(fps[ref], u4, pad("U4", num), occ, toward)
+        placed.add(ref)
+
+    # decoupling capacitors of the other ICs: placed on their supply pins after packing
+    decaps = {}
+    for ref, c in comps.items():
+        if ref in placed or not ref.startswith("C") or c["fp"].startswith("Capacitor_SMD:CP_"):
+            continue
+        n1, n2 = netof.get((ref, "1")), netof.get((ref, "2"))
+        sup = n1 if n2 == "GND" else n2 if n1 == "GND" else None
+        if sup not in SUPPLY:
+            continue
+        ics = [(r, p) for (r, p), n in padnet.items() if n == sup and r.startswith("U") and r != "U4"
+               and comps[r]["sheet"] == c["sheet"]]
+        if ics:
+            decaps[ref] = (sup, "1" if sup == n1 else "2", ics)
+    ic_margin = {r: (1.2 if comps[r]["fp"].startswith("Package_TO_SOT_THT") else 2.2)
+                 for r in comps if r.startswith("U")}
+
+    groups = {}
+    for ref, c in comps.items():
+        if ref in placed or ref in decaps:
+            continue
+        groups.setdefault(GROUP_OF.get(ref, c["sheet"]), []).append(fps[ref])
+    for g in ("mcu_misc", "pi_if", "rtc"):
+        left = pack(groups.pop(g), REGIONS[g], occ, ic_margin)
+        if left:
+            print("did not fit, %s: %s" % (g, " ".join(left)))
+    for g, members in sorted(groups.items()):
+        left = pack(members, REGIONS[g], occ, ic_margin)
+        if left:
+            print("did not fit, %s: %s" % (g, " ".join(left)))
+    count = {}
+    for ref, (sup, toward, ics) in sorted(decaps.items(), key=lambda kv: int(kv[0][1:])):
+        ics.sort(key=lambda rp: (count.get(rp[0], 0), rp[0]))
+        ic, num = ics[0]
+        count[ic] = count.get(ic, 0) + 1
+        if not place_satellite(fps[ref], fps[ic], pad(ic, num), occ, toward):
+            print("decap without room:", ref, ic)
 
     edge_rect(board, 0, 0, W, H, pcbnew.Edge_Cuts, 0.1)
     # Pi body and the space its connectors need, on User.Drawings
