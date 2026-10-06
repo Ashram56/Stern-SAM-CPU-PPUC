@@ -354,7 +354,8 @@ low through the playfield diode, the return diode and the active strobe transist
 "4 x 16 matrix of Switch Drives and Switch Returns" plus a "2 x 16" dedicated matrix that includes the 8 DIP positions.
 
 The board has **8** strobe drivers, but the ROM scans 4 and the Indiana Jones playfield wiring diagram only uses switch
-drives 1-4 (Q15).
+drives 1-4. Tron LE also scans only 4 (Q15); its fiber optic ramp tubes are driven from the IO board's aux strobes, not
+from these switch strobes (section 6.3).
 
 ### 5.3 Hardware [proposal]
 
@@ -640,7 +641,7 @@ Still open:
 | # | Question | Status | Default meanwhile |
 |---|---|---|---|
 | Q13 | Which SAM titles come first besides Tron LE? | To be defined | Tron LE first |
-| Q15 | Do any SAM games use switch strobes 5-8? | Vincent to check | Drive all 8 |
+| Q15 | Do any SAM games use switch strobes 5-8? | Not Tron LE: its ROM sizes the matrix at 65 switch numbers, so 4 columns [doc: `CPU_BOARD_IO.md` §5.1]. The fiber optic ramp tubes are not switch strobes; they hang off the IO board's aux strobes ESTB/DSTB on IO J3 (section 6.3). Other titles unknown: the ROM's scan code handles up to 8 columns | Drive all 8; per-game strobe count in the config |
 | Q16 | Continuity check of the 74HCT273 bit-to-pin mapping (section 3.6) against the Stern-SAM-Databus-Analysis tables | Vincent will check | Firmware uses the ROM's bus bits, so nothing waits on it |
 | Q18 | Scope the original J5 DMD signals: dot clock, latch and row-clock timing within a slot, and whether page flips take effect at frame start | New, from the Tron repo update (`CPU_BOARD_IO.md` §3.4) | PinMAME's 62.67 Hz / 41.55 µs figures and `dmdreader`'s timing; swap buffers at frame start |
 
