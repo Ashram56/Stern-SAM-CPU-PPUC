@@ -8,11 +8,15 @@ Sources this document builds on:
   (`README.md`, `CPU_BOARD_IO.md` and the CSVs). Register map, ISR schedule and every timing number come from there.
 - **J1 schematic reading**: [Stern-SAM-Databus-Analysis](https://github.com/Ashram56/Stern-SAM-Databus-Analysis)
   (`IO board analysis`). Pinout, pull resistors and logic families come from there.
+- **IO power driver board schematic**: Stern 520-5249-00 Rev A (Indiana Jones manual, pages 106-113), shared by Vincent
+  on 2026-10-06. Read from the drawings.
+- **CPU/Sound board schematic**: Stern 520-5246-00 Rev G (same manual, pages 116-125). Only the text layer of the manual
+  was available (part numbers, net names, connector names), not the drawings, so wiring read from it is marked as such.
 - **PPUC**: [github.com/PPUC](https://github.com/PPUC), read on 2026-10-06: `ppuc/docs/STACK.md`, `ppuc/docs/V2_PROTOCOL.md`,
   `io-boards/src/PPUCProtocolV2.h`, `io-boards/src/IODevices/SwitchMatrix*`, `libppuc/src/PPUC.cpp`.
 
-Statements are tagged **[doc]** (from the sources above), **[ppuc]** (from PPUC source), or **[proposal]** (a design choice
-made here, open to change).
+Statements are tagged **[doc]** (bus docs and schematic notes), **[io-sch]** (IO board schematic), **[cpu-sch]** (CPU board
+schematic text), **[ppuc]** (PPUC source), or **[proposal]** (a design choice made here, open to change).
 
 ---
 
@@ -23,7 +27,7 @@ made here, open to change).
    │ ppuc-pinmame: PinMAME runs the original SAM ROM, libppuc maps it to boards,              │
    │ libdmdutil drives the display, SDL audio goes out over I2S                               │
    └──────┬──────────────────────┬─────────────────────────┬──────────────────────┬───────────┘
-          │ UART 1-3 Mbaud       │ GPIO: RUN, BOOTSEL,     │ I2S                  │ display link
+          │ UART (or USB)        │ GPIO: RUN, BOOTSEL,     │ I2S                  │ display link
           │ (PPUC v2 frames)     │ SWD, IRQ                │                      │ (section 8)
    ┌──────▼──────────────────────▼──────────┐       ┌──────▼──────┐        ┌──────▼──────┐
    │ RP2040 "SAM IO controller"             │       │ DAC + amp   │        │ DMD driver  │
@@ -44,8 +48,9 @@ The key choices:
    unchanged at first. Behind that, instead of driving MOSFETs directly, it translates PPUC's coil, lamp and GI bitmaps into
    writes on the original SAM J1 bus. PPUC already accepts `platform: SAM` [ppuc], but nothing in PPUC drives a SAM IO board
    yet, so that translation is the new work.
-2. **The Pi to RP2040 "high speed bus" is a UART at 1 to 3 Mbaud** carrying PPUC v2 frames, plus GPIO lines for reset,
-   flashing and a "switch changed" interrupt [proposal]. Section 4 compares this with SPI.
+2. **The Pi to RP2040 link is on-board, with no RS485**: a GPIO UART at 1 to 3 Mbaud as the default and native USB as the
+   second path, both carrying PPUC v2 frames, plus GPIO lines for reset, flashing and a "switch changed" interrupt
+   [proposal]. Section 4 compares them.
 3. **PIO does the J1 bus cycles, core1 does the timing** [proposal]. The IO power board is only decoders and edge-triggered
    latches with no timing of its own [doc], so every pulse width, lamp slot and blanking gap comes from the RP2040.
 4. **Switches are read by a second PIO block** through 74HC165 shift registers, so one RP2040 has enough pins for the bus,
@@ -60,27 +65,38 @@ From `CPU_BOARD_IO.md` §9 [doc], mapped to who does it here:
 | Function | Original SAM CPU board | Here |
 |---|---|---|
 | IO power board bus (J1): 32 coils + 8 aux coils, 10x8 lamp matrix, GI relay, aux strobes, STATUS | AT91 EBI, 250 µs ISR | RP2040 PIO0 + core1 |
-| Switch matrix, 4 strobes x 16 returns (64) | 0x01100000 / 0x01100008, 250 µs per column | RP2040 PIO1 |
-| 24 dedicated switches + 8 DIP switches | 0x01100002/4/5 | RP2040 PIO1 (same shift chain) |
+| Switch matrix, 4 strobes x 16 returns (64) in the ROM; 8 strobe drivers on the board | 74LV273 + 2N3904 strobes (J1), LM339 returns (J6, J12) [cpu-sch] | RP2040 PIO1 |
+| 24 dedicated switches + 8 DIP switches | 74LVC245 inputs on J2, J3, J13 [cpu-sch] | RP2040 PIO1 (same shift chain) |
 | Game logic | ROM on the AT91 | PinMAME on the Pi |
-| DMD, 128 x 32, 16 shades | Xilinx FPGA scanner | Pi + display driver (section 8) |
-| Audio, 24 kHz stereo + volume | Xilinx + PCM17xx-class DAC | Pi I2S + DAC + amplifier (section 8) |
+| DMD, 128 x 32, 16 shades | Xilinx CPLD scanner, 7 signals on the 14-pin J5 [cpu-sch] | Pi + display driver (section 8) |
+| Audio, 24 kHz stereo + volume | PCM1755 DAC, OPA2353, two TDA2030A amplifiers, speakers on J10 [cpu-sch] | Pi I2S + DAC + amplifier (section 8) |
 | NVRAM, real-time clock | battery SRAM, DS1302-style RTC | Pi storage (PinMAME `nvram/`), Pi 5 RTC or an I2C RTC |
 | LED sign port (9600 baud) | USART1 | optional, a Pi UART |
 
 ## 3. The J1 bus, electrically and logically
 
-### 3.1 Signals [doc]
+### 3.1 Signals [doc] [io-sch]
 
-| J1 pin | Signal | IO board side |
+J1 is a 2x10 header on both boards (IO board J1, CPU board J9 [cpu-sch]).
+
+| J1 pin | Signal | IO board side (every line also has 100 Ω in series and 22 pF to ground) |
 |---|---|---|
-| 7, 5, 3, 1, 2, 4, 6, 8 | D0 … D7 (pin 7 = D0, 5 = D1, 3 = D2, 1 = D3, 2 = D4, 4 = D5, 6 = D6, 8 = D7) | 74HC245, 10 k pull-down |
-| 12, 14, 16, 18 | A0, A1, A2, A3 | two 74LS138, 4.7 k pull-up to 5 V |
-| 15 | IOSTB (active low) | enables both 74LS138, 4.7 k pull-up |
-| 13 | NBRESET | no pull-up |
-| 20 | GND | |
+| 7, 5, 3, 1, 2, 4, 6, 8 | D0 … D7 (pin 7 = D0, 5 = D1, 3 = D2, 1 = D3, 2 = D4, 4 = D5, 6 = D6, 8 = D7) | 10 k pull-down; 74HC245 input buffer U18; STATUS and AUX_IN buffers drive these pins on reads |
+| 12, 14, 16, 18 | A0, A1, A2, A3 | 4.7 k pull-up to 5 V; two 74LS138 (U19, U20) |
+| 15 | IOSTB (active low) | 4.7 k pull-up; enables both 74LS138 |
+| 13 | NBRESET (active low) | **10 k pull-up to 5 V** (R144), 220 Ω + 470 pF into the watchdog chip (section 3.6) |
+| 19, 20 | GND | |
+| 9, 10, 11, 17 | not connected | |
 
-Pins 9, 10, 11, 17 and 19 are not in the schematic notes (open question Q3).
+Only two of the twenty wires are ground. The new board should keep both, and the ribbon should stay short.
+
+How the IO board uses the data lines [io-sch]:
+- **Writes**: U18 is a 74HC245 at 5 V with DIR tied high and its enable tied low, so it is a one-way input buffer that is
+  always on. It feeds the 74HCT273 latches (and a 74LS74 for AUX_LMP).
+- **STATUS read**: U22, a 74HC245, drives J1 D0-D7 only while the STATUS decode is active. D0 = 20 V interlock, D1 = 50 V
+  interlock, D2 = zero cross (through a transistor), D3 = LMP1STAT, D4 = LMP2STAT, **D5-D7 are tied low**.
+- **AUX_IN read**: U24, a 74HC245, drives J1 from J3 pins 1-8 (each with 39 k in series and a 1 k pull-up to 5 V).
+- Both read buffers drive J1 with **5 V levels**.
 
 Registers (`bus_register_map.csv`) [doc]:
 
@@ -109,8 +125,14 @@ The IO board side is 5 V logic. The RP2040 is 3.3 V and **not 5 V tolerant**.
 - **D0-D7 (bidirectional)**: one SN74LVC8T245 (A side 3.3 V, B side 5 V). The data inputs on the IO board are a **74HC245 at
   5 V, whose VIH is about 3.5 V**, so driving them straight from 3.3 V is out of spec. The 8T245 also level-shifts the 5 V
   STATUS read down to 3.3 V. Its DIR pin is driven by the PIO program, so direction changes exactly with the bus cycle.
+- **What Stern did** [cpu-sch]: the original CPU board drives J9 through two **74LVC245 at 3.3 V** (U25, U26), with 47 pF on
+  each line. So 3.3 V drive into the HC245 works in the field, but below its guaranteed threshold. A 74LVC245 (5 V tolerant
+  inputs, 3.3 V outputs) is a proven fallback if the 8T245 causes trouble.
+- **NBRESET**: open drain, as on the original, which pulls it low with a 2N3904 transistor on net IORESET [cpu-sch] against the IO
+  board's 10 k pull-up. An N-MOSFET (2N7002) driven by the RP2040 does the same and needs no level shifting.
 - **Power-up state**: both buffers' OE is pulled to "disabled" until firmware enables them. With the buffers off, the IO
-  board's own pull-ups hold IOSTB high, so no latch can clock while the RP2040 boots.
+  board's own pull-ups hold IOSTB high, so no latch can clock while the RP2040 boots. The NBRESET MOSFET's gate is pulled
+  up, so the IO board is held in reset (all outputs off) until the firmware lets go.
 - Series resistors (33 to 100 Ω) on the J1 side of every line, for the ribbon cable.
 
 ### 3.3 Bus cycle timing
@@ -199,6 +221,43 @@ writes, no interrupts from the host link. Each tick it:
 
 Core0 hands core1 new targets through a lock-free double buffer. Core1 never waits on core0.
 
+### 3.6 What the IO board does on its own [io-sch]
+
+**Reset and watchdog.** U23 is a DS1232 supervisor. Its /RST output drives the board-wide **NRESET** net, which goes to the
+/MR (clear) pin of **every** output latch: the four coil and flasher 74HCT273s, LMP_STB, LMP_DRV, AUX_DRV, the aux/GI latch,
+and the /CLR pins of the 74LS74 for AUX_LMP. While NRESET is low, every coil, lamp strobe, lamp drive and aux output is off and
+the GI relay is released. NRESET goes low when any of these happens:
+
+| Trigger | Wiring | Behaviour (DS1232 datasheet values, to verify on the bench) |
+|---|---|---|
+| 5 V supply low | DS1232 Vcc monitor, TOL set by a 0 Ω option (R146 / R147) | reset while 5 V is under 4.5 V or 4.75 V |
+| CPU board pulls **NBRESET** low | J1 pin 13 → 220 Ω → /PBRST, 10 k pull-up, 470 pF | debounced push-button input: must stay low at least ~20 ms to register |
+| **Watchdog**: no falling edge on **DRV0** in time | /ST = DRV0, TD tied to ground | timeout 62.5 ms minimum, 150 ms typical, 250 ms maximum |
+
+After a trigger clears, NRESET stays low for at least 250 ms. The yellow LED L18 lights while the board is in reset.
+
+**DRV0 is lamp strobe line 0.** It comes from bit 0 of the LMP_STB latch (U2) and also drives strobe MOSFET Q33. So the
+watchdog is fed every time lamp strobe line 0 turns off. The ROM does this every 10 ms, about 6 times faster than the
+shortest timeout. If the new board ever stops scanning lamps, the IO board shuts every output off within 62.5 to 250 ms,
+which is a useful last line of defence and the reason the scan must start before anything else is enabled.
+
+**Driver speeds**, which set the floor for any finer PWM in phase 2:
+- Coils and flashers: STP22NE10L MOSFETs, gate driven through **39 k with 10 nF** to ground. That is an RC of about 0.4 ms,
+  so a coil takes several hundred µs to switch fully. Coil hold PWM periods should stay at 1 ms or longer, as the ROM's are,
+  and very short pulses will not reach full current.
+- Lamp strobes: STP19NE06L, gate through 39 k (no extra capacitor), so tens of µs.
+- Lamp drives: VN02N high-side smart switches through 6.8 k. Their status outputs are wired-OR into LMP1STAT and LMP2STAT.
+- The ROM's 24 µs blank between strobe lines is in line with these. The exact edge times still need a scope (Q4).
+
+**GI relay**: bit 0 of the aux/GI latch drives a 2N3904 that energises relay RLY1 (FRL264, 20 V coil). The GI strings run
+through its normally closed contacts, which is why 0 = GI on.
+
+**Bit order inside the board.** The 74HCT273s are wired with scrambled pin numbers: bus D0 enters chip pin D4, D4 enters D0,
+and so on. Following the drawing, SOL_B bus bit 0 drives Q1 (J8 pin 1) and LMP_DRV bus bit 0 drives U10 (J13 pin 1). The
+transistor tables in Stern-SAM-Databus-Analysis appear to use the chip's own pin names instead, which gives different
+answers (SOL_B bit 0 = Q5, LMP_DRV bit 0 = J13 pin 9). This does not change the firmware, which only needs the ROM's bus bits,
+but it matters for wiring and test fixtures (Q16).
+
 ## 4. Pi to RP2040 link
 
 ### 4.1 What PPUC expects [ppuc]
@@ -211,21 +270,26 @@ Core0 hands core1 new targets through a lock-free double buffer. Core1 never wai
 
 ### 4.2 Proposal
 
+No RS485: the RP2040 sits on the same board as the Pi, so the link is either the Pi's GPIO UART or USB (Vincent, 2026-10-06).
+Both get wired, and the firmware can speak PPUC frames on either.
+
 | Layer | Choice |
 |---|---|
-| Physical | Pi UART (PL011) ↔ RP2040 UART0, 3.3 V point to point on the same PCB, no RS485 transceiver |
-| Speed | 115200 at first, so stock libppuc works. Then **1 to 3 Mbaud** with a small libppuc change (configurable baud and output interval) |
-| Protocol | PPUC v2 frames, unchanged. The RP2040 answers as one board (or two board ids, if splitting outputs and switches helps the YAML) |
+| Primary transport | Pi UART (PL011) ↔ RP2040 UART0, 3.3 V point to point. 115200 at first, so stock libppuc works; then **1 to 3 Mbaud** with a small libppuc change (configurable baud and output interval) |
+| Second transport | Pi USB ↔ RP2040 native USB (on-board, no connector). The RP2040 enumerates as a CDC serial port, which libppuc's libserialport opens like any other port, at full-speed USB rates and with no baud setting to change. The same USB port does firmware updates (BOOTSEL mode, `picotool`) |
+| Protocol | PPUC v2 frames, unchanged, on either transport. The RP2040 answers as one board (or two board ids, if splitting outputs and switches helps the YAML) |
 | Extra GPIO | Pi → RP2040 RUN (reset) and BOOTSEL; Pi ↔ RP2040 SWCLK/SWDIO (flash and debug from the Pi with OpenOCD); RP2040 → Pi IRQ ("switch changed, poll me now") |
 
-Why a UART rather than SPI:
-- It is what libppuc already speaks, so the first boot needs no host-side code.
+Why the UART is the default:
+- It is deterministic: no enumeration, no USB stack on the RP2040, no host-controller scheduling (USB full speed polls in
+  1 ms frames), and nothing to re-enumerate if a coil spike glitches the bus.
 - At 3 Mbaud it carries 300 KB/s. A SAM OutputState is about 60 bytes (40 coil bits, 80 lamp bits, GI), so even a 1 ms
   output interval uses about 20 % of the link.
 - Two pins. That matters on the RP2040 (section 9.2).
 
-SPI (Pi as master at 10 to 30 MHz, RP2040 as PIO or hardware slave) stays an option if per-lamp brightness or LED strips
-ever need more bandwidth. The frame format would not change, only the transport class in libppuc.
+USB costs no RP2040 GPIO, needs no libppuc change at all, and has more bandwidth, so it is a good choice for bring-up and the
+obvious place to go if phase 2 lamp brightness needs more than the UART carries. Which one ships can be decided on the bench
+by measuring switch-to-coil latency on both (Q12).
 
 ### 4.3 Latency budget [proposal]
 
@@ -248,33 +312,54 @@ the core1 tick.
 - Dedicated: D1-D24 (coin slots, flipper buttons and EOS, tilt, slam, coin door buttons), read every 1 ms.
 - DIP switches: 8, read once per OS tick.
 
-The physical wiring on the SAM CPU board connectors (strobe and return voltages, pull-ups, comparators or opto inputs,
-connector pinout) is not in either source repo yet (Q1, Q2).
+### 5.2 The original circuit [cpu-sch]
 
-### 5.2 Hardware [proposal]
+From the CPU/Sound board schematic text (part numbers and net names; the drawings themselves were not available):
 
-48 inputs (16 returns + 24 dedicated + 8 DIP) go through **six 74HC165** shift registers in one chain, at 3.3 V, behind
-input conditioning that matches whatever the original board does (likely a pull-up to 12 V and a comparator, or a divider
-and Schmitt trigger: Q2). The 4 strobes are driven by open-collector drivers (ULN2803-style or discrete MOSFETs) from 4 RP2040
-pins.
+| Connector | Function | Circuit |
+|---|---|---|
+| J1, 1x9 ("SWITCH COLUMNS") | 8 strobe outputs | 74LV273 latch (SWSTB) → eight 2N3904 open-collector drivers, 1 k base resistors; 1 k and 0.01 µF per line |
+| J6 and J12, 1x10 each ("SWITCH ROWS") | 16 return inputs | 1 k pull-up to **+4.5 V**, 220 Ω and 0.1 µF filter, then an **LM339 comparator** against VREF (3.3 k / 3.3 k divider, about 2.25 V); comparator outputs pulled up to 3.3 V and read through 74LVC245s |
+| J2 (1x12), J3 (1x10), J13 (1x10) | 24 dedicated inputs | switches to ground; 1.5 k pull-up to +4.5 V, 39 k series, 47 pF, read through 5 V-tolerant 74LVC245s |
+| SW1 | 8 DIP switches | on the board, 1 k pull-ups to 3.3 V |
 
-Cost: 3 RP2040 pins for 48 inputs, instead of 48 pins.
++4.5 V is the 5 V rail through a diode. So the switch matrix runs at about 4.5 V, not 12 V: a closed switch pulls a return
+low through its diode and the active strobe transistor. Stern's manual describes the same thing as a "4 x 16 matrix of
+Switch Drives and Switch Returns" plus a "2 x 16" dedicated matrix that includes the 8 DIP positions, with the returns on
+LM339D comparators.
 
-### 5.3 PIO1 scan program [proposal]
+The board has **8** strobe drivers while the ROM scans 4 (Q15).
+
+### 5.3 Hardware [proposal]
+
+- **Returns**: copy the original front end (1 k pull-up to 4.5 V, 220 Ω + 0.1 µF, LM339 against 2.25 V). The LM339's
+  open-collector outputs, pulled up to 3.3 V, feed the shift registers directly. It is cheap, proven on these harnesses and
+  immune to the ground offsets of a long cable.
+- **Dedicated switches**: the same 1.5 k pull-up and 39 k / 47 pF filter, then either an LM339 stage like the returns or a
+  divider into the 3.3 V shift registers.
+- **Shift chain**: 48 inputs (16 returns + 24 dedicated + 8 DIP) through **six 74HC165** at 3.3 V.
+- **Strobes**: **8** open-collector outputs, like the original, from a 74HC595 that shares the shift clock (below) and drives
+  8 low-side transistors or a ULN2803-class array.
+
+Cost: 5 RP2040 pins (shift clock, 165 load, 165 data, 595 data, 595 latch) for 48 inputs and 8 strobes.
+
+### 5.4 PIO1 scan program [proposal]
 
 One state machine loops forever:
-1. Drive strobe n (`set pins`), wait a settle time (start at 20 µs, the original waits 250 µs).
-2. Pulse the 165 load line, then shift 48 bits (`in pins, 1` with the clock on side-set) at about 10 MHz: about 5 µs.
-3. Push two words (returns for strobe n, plus the dedicated and DIP bits) and move to the next strobe.
+1. Pulse the 165 load line, then clock 48 bits at about 10 MHz (about 5 µs). On every clock it does `in pins, 1` from the 165
+   chain and `out pins, 1` to the 595, so the strobe pattern for the *next* strobe ends up in the 595 during the last 8 clocks.
+2. Pulse the 595 latch: the next strobe turns on.
+3. Push two words (returns for the strobe that was active, plus the dedicated and DIP bits) and wait a settle time (start
+   at 20 µs; the original waits 250 µs, and the 0.1 µF return filters need to be checked against a shorter time).
 
-A DMA channel copies the words into a ring in RAM. A full 4-strobe scan takes about 100 µs instead of 1 ms. Dedicated
-switches are sampled on every strobe, so 4 times per scan.
+A DMA channel copies the words into a ring in RAM. A full 4-strobe scan takes about 100 µs instead of 1 ms (200 µs with 8
+strobes). Dedicated switches are sampled on every strobe.
 
 This follows the structure of PPUC's `SwitchMatrix.cpp` and `SwitchMatrixPIO/*.pio` [ppuc] (one SM walks the strobes, a
 second reads the returns, "two identical scans" filter), but PPUC's code reads at most 8 returns on direct GPIOs and caps at
 8 rows. Our 16 returns through a shift chain need a new program either way.
 
-### 5.4 Debounce and reporting [proposal]
+### 5.5 Debounce and reporting [proposal]
 
 - Core0 diffs each scan against the last, then applies PPUC's two debounce modes per switch: `standard` (an edge counts
   only after it holds) and `fastFlip` (a close counts at once, an open must hold) [ppuc].
@@ -292,9 +377,9 @@ Reproduce what the ROM does [doc]:
 - 1 ms per line, 10 ms frame.
 - Lamp state comes from PPUC's lamp bitmap (on/off) [ppuc].
 
-**The IO board has a watchdog fed by the lamp strobe logic** [doc: "DRV_0 is generated from one of the insert matrix flip
-flop as an input to a watchdog timer"]. The scan therefore runs from the moment the RP2040 enables the bus, whether or not
-the Pi is connected, and stops only when we want the IO board to shut down (Q5).
+**The IO board's watchdog is fed by lamp strobe line 0** [io-sch, section 3.6]: a falling edge on DRV0 at least every 62.5 ms
+(worst case of the DS1232), or every output on the IO board is cleared. The scan therefore runs from the moment the RP2040
+enables the bus, whether or not the Pi is connected. Stopping the scan is a deliberate way to shut the IO board down.
 
 ### 6.2 Brightness, phase 2 [proposal]
 
@@ -318,8 +403,9 @@ numbers. Phase 1 drives them on/off; with phase 2 brightness they get BCM or edg
 
 | Risk | Mitigation |
 |---|---|
-| RP2040 boots or crashes with coils latched on (the latches hold their last value [doc]) | J1 buffers disabled at reset (IOSTB pulled high by the IO board). NBRESET held asserted until the firmware is configured (Q6: confirm NBRESET clears the latches). RP2040 hardware watchdog enabled; its reset path disables the buffers. |
-| Pi hangs or the link drops | No valid OutputState for 50 ms → all coil registers written 0, fast-flip rules disabled, lamps keep scanning (IO board watchdog). PPUC has the same idea host-side [ppuc]. |
+| RP2040 boots or crashes with coils latched on (the latches hold their last value [doc]) | J1 buffers disabled at reset (IOSTB pulled high by the IO board). NBRESET held low (gate pull-up on the open-drain MOSFET) until the firmware is configured: on the IO board this clears every output latch through the DS1232 [io-sch]. RP2040 hardware watchdog enabled; its reset path disables the buffers and asserts NBRESET. |
+| RP2040 hangs with the bus enabled | The lamp scan stops, so the IO board's own watchdog clears every output within 62.5-250 ms [io-sch]. |
+| Pi hangs or the link drops | No valid OutputState for 50 ms → all coil registers written 0, fast-flip rules disabled, lamps keep scanning. For a hard stop, assert NBRESET for at least 20 ms: the IO board then clears everything and holds it for at least 250 ms. PPUC has the same idea host-side [ppuc]. |
 | Host asks for a coil too long | PPUC board-owned envelopes: `maxPulseTime` on every coil, enforced in core1 even for host-driven coils [ppuc]. |
 | High voltage missing or door open | STATUS interlock bits gate coil outputs, like the ROM's mask at 0x3b984 [doc]. Which coils stay allowed without 50 V is Q7. |
 | Lamp driver fault | STATUS bits 3-4 reported to the host as switches (the ROM ignores them [doc]). |
@@ -330,15 +416,20 @@ numbers. Phase 1 drives them on/off; with phase 2 brightness they get BCM or edg
 These are on the original CPU board, so the replacement has to provide them, but they belong to the Pi side, not the RP2040.
 
 - **Display, two options** (Q8):
-  - **A. Keep the original 128x32 DMD.** PinMAME already renders the 16-shade frame. The original Xilinx scans the display
-    at 62.67 Hz, 12 slots of 41.55 µs per row, planes weighted 1/2/4/5 [doc]. A second small RP2040 (or the four free state
-    machines on this one, if pins allow) receives frames from the Pi over SPI and generates the DMD signals with PIO. PPUC's
-    `dmdreader` firmware [ppuc] already decodes SAM DMD signals, which documents their timing from the other side.
+  - **A. Keep the original 128x32 DMD.** PinMAME already renders the 16-shade frame. The original scans the display at
+    62.67 Hz, 12 slots of 41.55 µs per row, planes weighted 1/2/4/5 [doc]. The display cable is the 14-pin J5, carrying 7
+    signals from the Xilinx CPLDs through a 74HCT245 at 5 V: **PIXCLK, SDATA, COLLATCH_A, COLLATCH_B, ROWCLK, ROWDATA, DE**
+    [cpu-sch]. The display's high voltage comes from its own Display Power Supply board (520-5138-00), not the CPU board.
+    7 outputs and one state machine is a small PIO job: a second RP2040 (or an RP2350B instead of the RP2040, section 9.2)
+    receives frames from the Pi over SPI and generates the signals. PPUC's `dmdreader` firmware [ppuc] already decodes SAM
+    DMD signals, which documents their timing from the other side.
   - **B. Replace it with an LED panel** driven by ZeDMD, which ppuc-pinmame supports today through libdmdutil [ppuc]. No new
     firmware, but it changes the machine.
-- **Sound**: PinMAME emulates the SAM sound system and ppuc-pinmame plays it through SDL [ppuc]. On the board: Pi I2S → a
-  stereo DAC → an amplifier sized for the cabinet speakers, if the original amplifier is on the CPU board (Q9). The volume
-  buttons are dedicated switches handled by the ROM, so volume stays the ROM's job.
+- **Sound**: PinMAME emulates the SAM sound system and ppuc-pinmame plays it through SDL [ppuc]. The original amplifier is on
+  the CPU board [cpu-sch]: a PCM1755 DAC (I2S, with the 3-wire volume control), an OPA2353 buffer and **two TDA2030A power
+  amplifiers on ±12 V**, with the speakers on the 4-pin J10. The new board does the same: Pi I2S → a stereo DAC → two
+  amplifiers on J10, pin-compatible with the cabinet harness. The volume buttons are dedicated switches handled by the ROM,
+  so volume stays the ROM's job.
 
 ## 9. Hardware
 
@@ -358,23 +449,36 @@ Default here: 40-pin header, keeping the Pi signals on the standard GPIO numbers
 | IOSTB, 8T245 DIR (side-set, consecutive) | 2 |
 | NBRESET | 1 |
 | J1 buffer OE | 1 |
-| 74HC165 chain: LOAD, CLK, DATA | 3 |
-| Switch strobes 1-4 | 4 |
+| Switch chain: shift clock, 165 load, 165 data, 595 data, 595 latch | 5 |
 | UART0 TX, RX to the Pi | 2 |
 | IRQ to the Pi | 1 |
-| **Total** | **26 of 30** |
+| **Total** | **24 of 30** |
 
-The 4 spare GPIOs (including ADC pins) can carry a status LED and a 5 V supply monitor. RUN, SWD and BOOTSEL are dedicated
+The 6 spare GPIOs (including ADC pins) can carry a status LED, a 5 V supply monitor and a spare. RUN, SWD and BOOTSEL are dedicated
 RP2040 pins, wired to Pi GPIOs.
 
-If the DMD driver (8.A) has to share this RP2040, it will not fit. The fallback is an **RP2350B** (48 GPIO, 3 PIO blocks,
+If the DMD driver (8.A, 7 outputs) has to share this RP2040, it is one pin short. The fallback is an **RP2350B** (48 GPIO, 3 PIO blocks,
 12 state machines), which runs the same firmware. Alternatively a second RP2040 for the display.
 
 ### 9.3 Power [proposal]
 
-The SAM CPU board is fed by the IO power board; which rails and on which connector is Q3. The new board needs 5 V at about
-3 to 5 A for a Pi 5 (less for a Pi 4), 3.3 V for the RP2040 from its own regulator, and 12 V only if the switch matrix needs
-it. A supervisor holds the RP2040 in reset until 3.3 V and 5 V are stable.
+The CPU board is fed from IO board connector **J16** (15-pin KK156) [io-sch], into the CPU board's power input J11 [cpu-sch]:
+
+| J16 pin | Rail |
+|---|---|
+| 1 | -12 V |
+| 2, 3 | +12 V |
+| 4-8 | +5 V |
+| 9-13, 15 | GND |
+| 14 | key |
+
+The +5 V comes from an **LM338K (5 A) on the IO board**, which also powers the IO board's own logic. ±12 V come from a bridge
+and capacitors on the IO board. The new board needs:
+- +5 V for the Pi, the RP2040 regulator, the switch inputs and the DMD buffer. A Pi 4 needs up to 3 A; a Pi 5 asks for 5 A,
+  which the LM338K cannot spare. Either use a Pi 4 / CM4 on the existing +5 V, or give the Pi its own buck converter from
+  +12 V, if the +12 V supply can carry it (Q14).
+- ±12 V for the two audio amplifiers, as on the original.
+- 3.3 V for the RP2040 from its own regulator. A supervisor holds the RP2040 in reset until 3.3 V and 5 V are stable.
 
 ## 10. Software
 
@@ -397,7 +501,7 @@ it. A supervisor holds the RP2040 in reset until 3.3 V and 5 V are stable.
 - libppuc changes, small and upstreamable: configurable baud rate and output interval; later the lamp brightness
   extension (section 6.2).
 - Check: libppuc forces GI on for non-WPC platforms [ppuc], while the SAM ROM switches the GI relay itself (about 40 call
-  sites in Tron [doc]). GI should follow PinMAME instead (Q12).
+  sites in Tron [doc]). GI should follow PinMAME instead (Q17).
 
 ### 10.3 Rejected alternative: raw bus pass-through
 
@@ -408,21 +512,32 @@ debug mode for comparing the two paths on a logic analyzer.
 
 ## 11. Open questions for Vincent
 
+Answered so far:
+
+| # | Question | Answer | Where |
+|---|---|---|---|
+| Q3 | J1 pins 9, 10, 11, 17, 19, and CPU board power | 9, 10, 11, 17 not connected; 19, 20 ground. Power from IO board J16 (+5 V, ±12 V) | IO schematic; 3.1, 9.3 |
+| Q5 | What feeds the IO board watchdog | DS1232: falling edge on lamp strobe line 0 (DRV0) at least every 62.5 ms worst case | IO schematic; 3.6 |
+| Q6 | Does NBRESET clear the latches? | Yes: NBRESET → DS1232 /PBRST → NRESET → /MR of every output latch; at least 250 ms reset | IO schematic; 3.6, 7 |
+| Q2 | Switch input conditioning | 4.5 V pull-ups, LM339 comparators on the returns, 2N3904 open-collector strobes | CPU schematic text; 5.2 |
+| Q9 | Audio amplifier on the CPU board? | Yes: PCM1755 + two TDA2030A on ±12 V, speakers on J10 | CPU schematic text; 8 |
+| Q12 | The high speed bus | GPIO or USB, no RS485 (Vincent). Both wired; UART default | 4.2 |
+
+Still open:
+
 | # | Question | Why it matters | Default if no answer |
 |---|---|---|---|
-| Q1 | Can you share the SAM CPU board schematic pages (switch matrix, dedicated inputs, J1, power, DMD and audio connectors)? The Shrek manual you used for the IO board probably has them. | Section 5 and 9.3 need the real connector pinouts and input circuits. | Wait for it before the schematic. |
-| Q2 | How are switch strobes and returns conditioned on the original CPU board (voltage, pull-ups, comparators)? | Input stage design. | 12 V pull-ups, comparator to 3.3 V. |
-| Q3 | J1 pins 9, 10, 11, 17, 19: ground, power or unused? Which connector powers the CPU board, and with which rails? | Power design, ground return on the ribbon. | Treat as ground. |
-| Q4 | Can you put a scope (or the analyzer at 100 MS/s+) on IOSTB, one address and one data line at the IO board? | Confirms the PIO timing constants and edge rates. | Use the conservative timings in 3.3. |
-| Q5 | What exactly does the IO board watchdog need (which line, how often, timeout), and what does it shut down when it trips? | Section 6.1 must never starve it. | Keep the ROM's 1 ms strobe cadence. |
-| Q6 | Does NBRESET clear the output latches on the IO board? | Section 7, safe power-up. | Assume yes, verify on the bench with coil power off. |
+| Q1 | Can you share the CPU/Sound board schematic **drawings** (manual pages 116-125 as images or PDF)? The text file has part numbers and net names but no wiring or connector pin numbers. | Connector pinouts for J1/J6/J12 (switches), J2/J3/J13 (dedicated), J5 (DMD), J10 (audio), J11 (power). | Use the IO board's J16 pinout and the net names; confirm before layout. |
+| Q4 | Can you put a scope (or the analyzer at 100 MS/s+) on IOSTB, one address and one data line at the IO board, and on a coil MOSFET gate? | Confirms the PIO timing constants and the real coil switching time (39 k / 10 nF gate). | Use the conservative timings in 3.3. |
 | Q7 | Which coils may fire without 50 V present (if any)? | Interlock gating rule. | Gate all coils on both interlocks. |
-| Q8 | Keep the original DMD (more firmware) or switch to a ZeDMD-style LED panel (works today)? | Section 8, and whether a second MCU or an RP2350B is needed. | Keep the original DMD; ZeDMD for bring-up. |
-| Q9 | Is the audio amplifier on the original CPU board? | Section 8. | Yes: add DAC + amplifier. |
-| Q10 | Pi 4, Pi 5 or a Compute Module? Header or CM socket? | Board outline and power. | Pi 5 on a 40-pin header. |
+| Q8 | Keep the original DMD (7 signals on J5, needs a PIO driver) or switch to a ZeDMD-style LED panel (works today)? | Section 8, and whether a second MCU or an RP2350B is needed. | Keep the original DMD; ZeDMD for bring-up. |
+| Q10 | Pi 4, Pi 5 or a Compute Module? Header or CM socket? | Board outline and power (see Q14). | Pi 4 or CM4 on a 40-pin header / socket. |
 | Q11 | GPLv3 for the firmware (reusing PPUC io-boards) and an open hardware licence (PPUC boards use TAPR OHL) OK? | Licensing of this repo. | GPLv3 firmware, CERN-OHL-S hardware. |
-| Q12 | Is "UART at 1 to 3 Mbaud with PPUC frames" acceptable as the high speed bus, or did you have SPI or a parallel bus in mind? | Section 4. | UART. |
 | Q13 | Which SAM titles must this support first besides Tron LE? | Aux latch devices and game YAMLs. | Tron LE, then any SAM title without aux boards. |
+| Q14 | How much current can the IO board's +5 V (LM338K, 5 A, shared with its own logic) and +12 V spare for the CPU board? | A Pi 5 wants 5 A at 5 V. | Pi 4 on +5 V; leave room for a 12 V → 5 V buck. |
+| Q15 | The CPU board has 8 switch strobe drivers but the ROM scans 4. Do any SAM games use strobes 5-8? | Strobe count and scan time. | Drive all 8. |
+| Q16 | The 74HCT273 input pins are scrambled (bus D0 → chip D4). Section 3.6 reads SOL_B bit 0 → Q1 / J8-1 and LMP_DRV bit 0 → J13-1, unlike the transistor tables in Stern-SAM-Databus-Analysis. Worth a continuity check? | Wiring docs and test fixtures, not firmware. | Trust the ROM's bus bits; check one coil and one lamp on the bench. |
+| Q17 | GI: libppuc forces GI on for non-WPC platforms, but the SAM ROM drives the GI relay itself. Should GI follow PinMAME? | GI behaviour in attract and tilt. | Follow PinMAME (small libppuc change). |
 
 ## 12. Proposed plan
 
@@ -434,6 +549,6 @@ debug mode for comparing the two paths on a logic analyzer.
    First full game.
 5. **Coils with safety**: fast-flip rules, envelopes, interlocks, host-loss timeout. Then coil power on.
 6. **Speed-up**: 1-3 Mbaud, 1 ms outputs, IRQ-driven polling.
-7. **Display and sound** (per Q8 and Q9).
+7. **Display and sound** (per Q8; the amplifier copies the original, section 8).
 8. **PCB** in the SAM CPU board footprint.
 9. **Phase 2**: lamp brightness, aux tube PWM, other SAM titles.
