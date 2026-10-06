@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the placement-only draft PCB (sam_cpu.kicad_pcb) from the schematic netlist.
+"""Build the draft PCB (outline, holes, connectors) from the schematic netlist; other parts go off the board.
 
 Run with KiCad 10's Python (the one that can `import pcbnew`):
     kicad-cli sch export netlist -o /tmp/sam_cpu.net hardware/kicad/sam_cpu/sam_cpu.kicad_sch
@@ -10,8 +10,8 @@ component side as the board hangs in the backbox: the same frame as docs/mechani
 The board is drawn at (ORIGIN_X, ORIGIN_Y) on the page; the grid and drill origins are set to the board corner so
 KiCad shows the same numbers as this file.
 
-Only connectors, holes and the Pi are placed by hand. Every other part is packed into a rectangle for its schematic
-sheet, as a starting point for manual placement and routing. Once the board is edited in KiCad, do not rerun this.
+Only the outline, holes and connectors are placed. Every other part is left off the board, to the right, in one
+block per schematic sheet, ready for manual placement. Once the board is edited in KiCad, do not rerun this.
 """
 import os
 import re
@@ -52,28 +52,10 @@ FIXED = {
     "J18": (116.50, 193.00, 90),   # GI dimmer header
     "J19": (115.50, 176.00, 90),   # USB-C, RP2354B to a Pi USB port
     "J21": (PI_X0 + 8.37, PI_YE - 4.77, 90),
-    # parts that must stay reachable or are tall
-    "J20": (20.00, 128.00, 90),
-    "SW1": (36.00, 127.50, 0),
-    "SW2": (47.00, 127.50, 0),
-    "SW3": (63.00, 156.00, 90),    # DIP switches
-    "U23": (72.00, 27.00, 0),      # TDA2030A, TO-220 vertical
-    "U24": (90.00, 27.00, 0),
 }
 
-# packing rectangles per sheet: (x0, y0, x1, y1)
-REGIONS = {
-    "power.kicad_sch":          [(18, 16.5, 56, 39), (18, 40, 56, 47)],
-    "io_bus.kicad_sch":         [(18, 48, 56, 59)],
-    "audio.kicad_sch":          [(58, 34, 119, 48), (104, 14, 119, 32), (58, 49, 119, 56)],
-    "sw_rows_9.kicad_sch":      [(17, 60, 55, 104)],
-    "mcu.kicad_sch":            [(17, 106, 55, 124), (58, 57, 104, 80)],
-    "sw_rows_1.kicad_sch":      [(17, 133, 55, 168)],
-    "display_gi.kicad_sch":     [(84, 143, 108.5, 168)],
-    "sw_columns.kicad_sch":     [(84, 168.5, 109, 195)],
-    "sw_dedicated_2.kicad_sch": [(17, 170, 50, 194)],
-    "sw_dedicated_1.kicad_sch": [(52, 170, 83, 194), (17, 211, 45, 228), (100, 208, 119, 228)],
-}
+# off-board blocks, one per sheet, to the right of the Pi overhang
+OFF_X, OFF_W, OFF_H = 150.0, 48.0, 85.0
 
 HOLES = [
     # (name, x, y, kind) screw positions from docs/mechanical; keyholes open upward
@@ -294,8 +276,9 @@ def main(netfile, out):
     for ref, c in comps.items():
         if ref not in FIXED:
             groups.setdefault(c["sheet"], []).append(fps[ref])
-    for sheet, members in groups.items():
-        left = pack(members, REGIONS[sheet])
+    for i, (sheet, members) in enumerate(sorted(groups.items())):
+        x0, y0 = OFF_X + (i % 3) * (OFF_W + 5), (i // 3) * (OFF_H + 5)
+        left = pack(members, [(x0, y0, x0 + OFF_W, y0 + OFF_H)])
         if left:
             print("did not fit, sheet %s: %s" % (sheet, " ".join(left)))
 

@@ -1,8 +1,8 @@
-# PCB placement draft (0.1)
+# PCB outline, holes and connectors (draft 0.1)
 
-`sam_cpu/sam_cpu.kicad_pcb` is a placement-only layout: board outline, mounting holes, every connector at its
-intended position, and all other parts grouped by schematic sheet next to the connector they serve. Nothing is
-routed. It is built from the draft 0.2 schematic and passes KiCad's schematic-parity check (403 footprints, 0
+`sam_cpu/sam_cpu.kicad_pcb` holds the board outline, the mounting holes and the harness and board-to-board
+connectors at their intended positions. All other parts (including the SWD header J20) sit off the board to the
+right, one block per schematic sheet, for manual placement. Nothing is routed. It is built from the draft 0.2 schematic and passes KiCad's schematic-parity check (403 footprints, 0
 footprint errors).
 
 ![Overview](sam_cpu/pcb_overview.png)
@@ -52,7 +52,6 @@ pad (M4) until the real screw is measured.
 | J17 | external +5 V terminal | 24.0, 10.0 | new | |
 | J18 | GI dimmer header | 116.5, 193.0 | new | |
 | J19 | USB-C to the Pi, opens to the right edge | 115.5, 176.0 (origin) | new | |
-| J20 | SWD | 20.0, 128.0 | new | |
 | J21 | Raspberry Pi 40-pin socket | 64.52, 135.23 | new | |
 
 The KK-396 headers keep the original orientation: pin 1 at the bottom of the left-edge connectors and at the right
@@ -64,21 +63,13 @@ row above it, keeping the left-to-right order J3 / J2 / J1 so the harness branch
 Assumed mounted **face down** on J21 (female 2x20 socket on this board), about 11 mm above the board, with its
 USB/Ethernet end hanging past the right edge and its micro-SD card facing out. Under the Pi only low SMD parts
 (under ~3 mm) can go. Its USB-C and micro-HDMI plugs point toward the top of the board; the area above the Pi is
-kept for low parts only. If you prefer the Pi face up on a ribbon cable, J21 becomes a 2x20 box header and the
+for low parts only. If you prefer the Pi face up on a ribbon cable, J21 becomes a 2x20 box header and the
 board could lose about 10 mm of width.
-
-## Part groups
-
-Each schematic sheet is packed into its own area: power under J11/J17, IO bus next to J9, switch rows next to J12
-and J6, MCU between them (reset/BOOTSEL buttons and SWD at the left), audio (two TDA2030A, TO-220) under J10,
-dedicated inputs above J13/J3, strobe drivers above J1, DMD driver and DIP switches next to J5. The packing is only
-a starting point: there is spare room everywhere, so parts can be spread out during routing.
 
 ## Checks
 
 - `kicad-cli pcb drc --schematic-parity` (KiCad 10.0.6): 0 footprint errors, no courtyard overlaps, no shorts.
-  Remaining reports are expected for an unrouted draft: unconnected pads, silkscreen overlaps from the packed
-  reference designators, and the keyhole footprints coming from an in-board library.
+  The remaining reports are expected: unconnected pads, and the keyhole footprints coming from an in-board library.
 
 ## To confirm
 

@@ -28,7 +28,7 @@ def main(fpjson, poscsv, out):
     d = ImageDraw.Draw(img)
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 22)
     small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 15)
-    d.text((M, 8), "Placement draft (green, 120.65 x 231.76 mm) over the original 520-5246-00 "
+    d.text((M, 8), "Outline, holes and connectors (green, 120.65 x 231.76 mm) over the original 520-5246-00 "
            "(grey, 219.06 x 231.76 mm)", fill="black", font=font)
 
     # original board, its connectors and holes
@@ -60,6 +60,8 @@ def main(fpjson, poscsv, out):
     d.text(P(PI_X0 + 2, PI_YE - 84), "Pi USB-C / micro-HDMI plug space", fill=(90, 120, 200), font=small)
 
     for ref, f in fps.items():
+        if f["x0"] > W_NEW + 10:
+            continue  # parts waiting off the board
         conn = ref.startswith(("J", "SW")) or ref == "U4"
         hole = ref.startswith("MH")
         if not hole:
