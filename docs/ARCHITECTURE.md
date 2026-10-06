@@ -38,30 +38,30 @@ schematic), **[ppuc]** (PPUC source), or **[proposal]** (a design choice made he
    │ RP2354B "SAM IO controller"            │◄──────┼─────────────┼───────────────┘
    │  core0: PPUC protocol, config, safety  │       │ DAC + amp   │
    │  core1: real-time scheduler            │       └─────────────┘
-   │  PIO0: J1 bus master                   │
+   │  PIO0: IO bus master (J9)              │
    │  PIO1: switch matrix + dedicated scan  │
    │  PIO2: DMD scanner (J5), section 8     │
    └───┬──────────────────────────────┬─────┘
        │ 3.3 V ⇄ 5 V buffers          │ input conditioning, 74HC165 chain, strobe drivers
    ┌───▼─────────────┐          ┌─────▼──────────────────────────────┐
-   │ J1 → IO power   │          │ switch matrix (4 x 16), 24         │
-   │ board (original)│          │ dedicated switches, DIP switches   │
+   │ J9 → IO board J1│          │ switch matrix (4 x 16), 24         │
+   │ (original)      │          │ dedicated switches, DIP switches   │
    └─────────────────┘          └────────────────────────────────────┘
 ```
 
 The key choices:
 1. **The RP2354B looks like a PPUC IO board** [proposal]. It speaks PPUC's v2 protocol, so `ppuc-pinmame` and libppuc run
    unchanged at first. Behind that, instead of driving MOSFETs directly, it translates PPUC's coil, lamp and GI bitmaps into
-   writes on the original SAM J1 bus. PPUC already accepts `platform: SAM` [ppuc], but nothing in PPUC drives a SAM IO board
+   writes on the original SAM IO bus (CPU board J9 to IO board J1). PPUC already accepts `platform: SAM` [ppuc], but nothing in PPUC drives a SAM IO board
    yet, so that translation is the new work.
 2. **The Pi to RP2354B link is on-board, with no RS485**: a GPIO UART at 1 to 3 Mbaud as the default and native USB as the
    second path, both carrying PPUC v2 frames, plus GPIO lines for reset, flashing and a "switch changed" interrupt
    [proposal]. Section 4 compares them.
-3. **PIO does the J1 bus cycles, core1 does the timing** [proposal]. The IO power board is only decoders and edge-triggered
+3. **PIO does the IO bus cycles, core1 does the timing** [proposal]. The IO power board is only decoders and edge-triggered
    latches with no timing of its own [doc], so every pulse width, lamp slot and blanking gap comes from the RP2354B.
 4. **One RP2354B does it all** (Vincent, 2026-10-06): the RP2040's successor with 48 GPIOs and three PIO blocks. PIO0 runs
    the bus, PIO1 reads 64 matrix switches, 24 dedicated switches and 8 DIPs through 74HC165 shift registers, and PIO2 scans
-   the original DMD, with 9 GPIOs to spare (section 9.2).
+   the original DMD, with 8 GPIOs to spare (section 9.2).
 5. **The RP2354B owns safety**: coil pulse limits, the interlock gate, a host-loss timeout and NBRESET [proposal], using PPUC's
    board-owned pulse envelopes [ppuc].
 
@@ -71,7 +71,7 @@ From `CPU_BOARD_IO.md` §9 [doc], mapped to who does it here:
 
 | Function | Original SAM CPU board | Here |
 |---|---|---|
-| IO power board bus (J1): 32 coils + 8 aux coils, 10x8 lamp matrix, GI relay, aux strobes, STATUS | AT91 EBI, 250 µs ISR | RP2354B PIO0 + core1 |
+| IO power board bus (CPU J9 to IO J1): 32 coils + 8 aux coils, 10x8 lamp matrix, GI relay, aux strobes, STATUS | AT91 EBI, 250 µs ISR | RP2354B PIO0 + core1 |
 | Switch matrix, 4 strobes x 16 returns (64) in the ROM; 8 strobe drivers on the board | 74LV273 + eight 2N3904 strobes (J1), LM339 returns (J6, J12) [cpu-sch] | RP2354B PIO1 |
 | 24 dedicated switches + 8 DIP switches | 74LVC245 inputs on J2, J3, J13 [cpu-sch] | RP2354B PIO1 (same shift chain) |
 | Game logic | ROM on the AT91 | PinMAME on the Pi |
@@ -80,13 +80,15 @@ From `CPU_BOARD_IO.md` §9 [doc], mapped to who does it here:
 | NVRAM, real-time clock | battery SRAM, DS1302-style RTC | Pi storage (PinMAME `nvram/`), Pi 5 RTC or an I2C RTC |
 | LED sign port (9600 baud) | USART1 | optional, a Pi UART |
 
-## 3. The J1 bus, electrically and logically
+## 3. The IO bus (CPU board J9 to IO board J1), electrically and logically
 
 ### 3.1 Signals [doc] [io-sch]
 
-J1 is a 2x10 header on both boards (IO board J1, CPU board J9 [cpu-sch]).
+The bus is a 2x10 header on both boards with the same pinout: **J1 on the IO board, J9 on the CPU board** [cpu-sch]. This
+doc and the KiCad schematic follow the original CPU board's reference designators, so on the new board the bus header is
+**J9**; J1 on the CPU board is the switch strobe connector (section 5.2). Pin numbers below are the same at both ends.
 
-| J1 pin | Signal | IO board side (every line also has 100 Ω in series and 22 pF to ground) |
+| J1 / J9 pin | Signal | IO board side (every line also has 100 Ω in series and 22 pF to ground) |
 |---|---|---|
 | 7, 5, 3, 1, 2, 4, 6, 8 | D0 … D7 (pin 7 = D0, 5 = D1, 3 = D2, 1 = D3, 2 = D4, 4 = D5, 6 = D6, 8 = D7) | 10 k pull-down; 74HC245 input buffer U18; STATUS and AUX_IN buffers drive these pins on reads |
 | 12, 14, 16, 18 | A0, A1, A2, A3 | 4.7 k pull-up to 5 V; two 74LS138 (U19, U20) |
@@ -141,7 +143,7 @@ its outputs are 3.3 V, which the IO board's HC245 does not reliably see as high,
 - **Power-up state**: both buffers' OE is pulled to "disabled" until firmware enables them. With the buffers off, the IO
   board's own pull-ups hold IOSTB high, so no latch can clock while the RP2354B boots. The NBRESET MOSFET's gate is pulled
   up, so the IO board is held in reset (all outputs off) until the firmware lets go.
-- Series resistors (33 to 100 Ω) on the J1 side of every line, for the ribbon cable.
+- Series resistors (33 to 100 Ω) on the J9 side of every line, for the ribbon cable.
 
 ### 3.3 Bus cycle timing
 
@@ -184,9 +186,9 @@ Pins: OUT base = D0, 12 consecutive GPIOs (D0-D7, A0-A3). Side-set: IOSTB and th
 ```
 ; sketch: assembles (17 instructions), not yet run on hardware. Clock divider 5 at 150 MHz: 1 cycle = 33.3 ns
 .program sam_bus
-.side_set 2                         ; side bit 0 = IOSTB, bit 1 = DIR (1 = RP2354B drives the J1 data lines)
+.side_set 2                         ; side bit 0 = IOSTB, bit 1 = DIR (1 = RP2354B drives the J9 data lines)
 .wrap_target
-    pull block          side 0b11      ; idle: IOSTB high, 8T245 drives J1
+    pull block          side 0b11      ; idle: IOSTB high, 8T245 drives J9
     out pins, 12        side 0b11      ; address + data
     out x, 1            side 0b11      ; read flag
     out y, 19           side 0b11      ; delay after the cycle (these cycles are also the setup time)
@@ -198,7 +200,7 @@ read:
     nop                 side 0b00 [4]  ; IOSTB low 167 ns: the IO board 245 drives STATUS / AUX_IN
     in pins, 8          side 0b00      ; sample at the end of the strobe
     push noblock        side 0b01 [1]  ; IOSTB high, give the IO board 245 time to let go
-    mov osr, ~null      side 0b11 [1]  ; 8T245 drives J1 again
+    mov osr, ~null      side 0b11 [1]  ; 8T245 drives J9 again
     out pindirs, 8      side 0b11      ; RP2354B drives D0-D7 again
     jmp delay           side 0b11
 write:
@@ -444,7 +446,7 @@ numbers. Phase 1 drives them on/off; with phase 2 brightness they get BCM or edg
 
 | Risk | Mitigation |
 |---|---|
-| RP2354B boots or crashes with coils latched on (the latches hold their last value [doc]) | J1 buffers disabled at reset (IOSTB pulled high by the IO board). NBRESET held low (gate pull-up on the open-drain MOSFET) until the firmware is configured: on the IO board this clears every output latch through the DS1232 [io-sch]. RP2354B hardware watchdog enabled; its reset path disables the buffers and asserts NBRESET. |
+| RP2354B boots or crashes with coils latched on (the latches hold their last value [doc]) | J9 buffers disabled at reset (IOSTB pulled high by the IO board). NBRESET held low (gate pull-up on the open-drain MOSFET) until the firmware is configured: on the IO board this clears every output latch through the DS1232 [io-sch]. RP2354B hardware watchdog enabled; its reset path disables the buffers and asserts NBRESET. |
 | RP2354B hangs with the bus enabled | The lamp scan stops, so the IO board's own watchdog clears every output within 62.5-250 ms [io-sch]. |
 | Pi hangs or the link drops | No valid OutputState for 50 ms → all coil registers written 0, fast-flip rules disabled, lamps keep scanning. For a hard stop, assert NBRESET for at least 20 ms: the IO board then clears everything and holds it for at least 250 ms. PPUC has the same idea host-side [ppuc]. |
 | Host asks for a coil too long | PPUC board-owned envelopes: `maxPulseTime` on every coil, enforced in core1 even for host-driven coils [ppuc]. |
@@ -510,21 +512,22 @@ So the bus sits low for PIO0, the DMD high for PIO2, and the switch chain in the
 
 | GPIO | Function | Count | User |
 |---|---|---|---|
-| 0-11 | J1 D0-D7 + A0-A3 (consecutive, for `out pins, 12`) | 12 | PIO0 |
+| 0-11 | J9 D0-D7 + A0-A3 (consecutive, for `out pins, 12`) | 12 | PIO0 |
 | 12-13 | IOSTB, 8T245 DIR (side-set, consecutive) | 2 | PIO0 |
 | 14 | NBRESET | 1 | core1 |
-| 15 | J1 buffer OE | 1 | core1 |
+| 15 | J9 buffer OE | 1 | core1 |
 | 16-20 | Switch chain: shift clock, 165 load, 165 data, 595 data, 595 latch | 5 | PIO1 |
 | 21-27 | J5 DMD: DE, ROWDATA, ROWCLK, COLLATCH_A, PIXCLK, SDATA, COLLATCH_B | 7 | PIO2 (window 16-47) |
 | 28-30 | SPI1 from the Pi: RX, CSn, SCK (DMD frames) | 3 | SPI1, peripheral mode |
 | 32-33 | UART0 TX, RX to the Pi | 2 | UART0 |
 | 34 | IRQ to the Pi | 1 | core0 |
 | 35-36 | GI dimmer header: GI_PWM, GI_SPARE (10.2) | 2 | PWM |
+| 31 | Coin door memory protect (J2 pin 10) | 1 | core0 |
 | 40-41 | 5 V and 12 V supply monitors (ADC) | 2 | ADC |
 | 42 | status LED | 1 | core0 |
-| **Total** | | **39 of 48** | |
+| **Total** | | **40 of 48** | |
 
-That leaves 9 GPIOs (31, 37-39, 43-47, including 6 ADC inputs) for later. The exact function-select numbers (SPI1 and
+That leaves 8 GPIOs (37-39, 43-47, including 5 ADC inputs) for later. The exact function-select numbers (SPI1 and
 UART0 pins) are to be checked against the RP2350 datasheet's GPIO function table when the schematic starts. RUN, SWD and
 the BOOTSEL (QSPI_SS) pin are dedicated, wired to Pi GPIOs.
 
@@ -553,12 +556,15 @@ and capacitors on the IO board.
 "provide both option to use external or the regular IO board"). So the new board:
 - has **two +5 V inputs**: the J11 +5 V pin from the IO board (as on the original CPU board), and an **external supply
   connector** sized for a Pi 4 / CM4 (3 A) plus the RP2354B, the switch inputs and the DMD buffer, with margin;
-- feeds them through a **power mux** (e.g. TI TPS2121, 4.5 A, with reverse-current blocking) that prefers the external
-  input when it is present and falls back to J11 otherwise. The two 5 V supplies are never tied together, so neither
-  back-feeds the other. A jumper can force J11-only or external-only for debugging [proposal];
+- feeds them through an **ideal-diode power mux** that prefers the external input when it is present and falls back to
+  J11 otherwise. The KiCad draft (PR #2) uses **two LTC4412 ideal-diode controllers with AO3401A P-MOSFETs**: the external
+  path is always on, and `EXT_PRESENT` turns the J11 path off. The two 5 V supplies are never tied together, so neither
+  back-feeds the other. A TI TPS2121 (4.5 A integrated mux) does the same in one part and was the first choice, but KiCad's
+  libraries have no symbol for it, so it would need a custom symbol and footprint; it stays an option for the PCB. A jumper
+  can force J11-only or external-only for debugging [proposal];
 - keeps J11 (same pinout as the original) for **±12 V for the two audio amplifiers** and as the common ground with the IO
   board, whichever +5 V source is used;
-- needs a solid ground between the external supply, J11 and J1, because J1 itself has only two ground wires;
+- needs a solid ground between the external supply, J11 and J9, because the bus cable itself has only two ground wires;
 - makes 3.3 V for the RP2354B with its own regulator. A supervisor holds the RP2354B in reset until 3.3 V and 5 V are
   stable.
 
@@ -566,6 +572,20 @@ Caveat for the IO-board source: the LM338K is rated 5 A and also powers the IO b
 board drew well under that. A Pi 4 can pull up to 3 A, and the drop along the J16/J11 harness can push it below its
 4.63 V undervoltage threshold. With J11 power, a Pi 3/CM4 or a capped Pi 4 load is the safe choice; bring-up should
 measure the 5 V at J11 under load before relying on it [proposal].
+
+### 9.4 Connectors [proposal]
+
+Reference designators follow the original CPU/Sound board 520-5246-00, so the cabinet harness labels still match: J1
+switch strobes, J2 / J3 / J13 dedicated switches, J5 DMD, J6 / J12 switch returns, J9 IO bus, J10 speakers, J11 power
+from the IO board. New connectors start at J17 (as in `hardware/kicad/README.md`, PR #2):
+
+| Ref | Function |
+|---|---|
+| J17 | external +5 V input (9.3) |
+| J18 | GI dimmer header: +5 V, GND, GI_PWM, GI_SPARE (10.2) |
+| J19 | USB-C to the Pi |
+| J20 | SWD to the RP2354B |
+| J21 | Raspberry Pi 40-pin header (9.1) |
 
 ## 10. Software
 
@@ -575,7 +595,7 @@ measure the 5 V at J11 under load before relying on it [proposal].
   ("SAM_CPU"), so the protocol code, config parser and pulse envelope logic are reused rather than rewritten. The firmware is
   GPLv3, matching PPUC (Q11); hardware design files are CERN-OHL-S v2. The manual extracts in `reference/` are Stern's
   material and are not covered by either licence.
-- New code: the J1 bus PIO program and scheduler (core1), the 165-chain switch scanner, the SAM lamp matrix, aux latch
+- New code: the IO bus PIO program and scheduler (core1), the 165-chain switch scanner, the SAM lamp matrix, aux latch
   devices, the STATUS reader, the safety rules above, and the DMD scanner (PIO2 + DMA, frames over SPI1).
 - Core split: PPUC io-boards runs the bus and switches on core0 and LED effects on core1 [ppuc]. Here core1 becomes the SAM
   real-time scheduler instead, and LED effects (unused on SAM) are compiled out.
@@ -600,7 +620,7 @@ measure the 5 V at J11 under load before relying on it [proposal].
     GI on SAM is low-voltage AC, so the dimmer does phase-angle control (back-to-back MOSFETs with its own zero-cross
     detection) [proposal].
   - **Link to the CPU board** (IO to be defined; "whatever is available"). Default [proposal]: a small 4-pin header,
-    J_GI: +5 V, GND, GI_PWM, GI_SPARE. GI_PWM is one RP2354B GPIO producing a fixed-frequency PWM whose duty cycle is the
+    J18: +5 V, GND, GI_PWM, GI_SPARE. GI_PWM is one RP2354B GPIO producing a fixed-frequency PWM whose duty cycle is the
     brightness; the dimmer board takes it through an optocoupler, filters it and sets its phase angle locally, so the
     CPU board never needs the AC zero crossing and stays isolated from the GI circuit. GI_SPARE is a second
     GPIO, reserved for a zero-cross or fault signal back, or for a second GI channel. Both come from the spare GPIOs in
@@ -609,7 +629,7 @@ measure the 5 V at J11 under load before relying on it [proposal].
 
 ### 10.3 Rejected alternative: raw bus pass-through
 
-Hook PinMAME's emulated SAM IO handlers and forward every register write to the RP2354B, which replays them on J1. It would
+Hook PinMAME's emulated SAM IO handlers and forward every register write to the RP2354B, which replays them on the IO bus. It would
 reproduce the ROM exactly, but it needs about 57,000 accesses per second [doc] with emulator timing jitter on a non-real-time
 host, it bypasses PPUC's logical model and safety envelopes, and it keeps the ROM's coarse lamp and coil timing. Kept only as a
 debug mode for comparing the two paths on a logic analyzer.
@@ -622,7 +642,7 @@ Answered so far:
 |---|---|---|---|
 | Q1 | CPU/Sound board schematic | Shared as PDF; now in `reference/` | 5.2, 8, 9.3 |
 | Q2 | Switch input conditioning | 4.5 V pull-ups, LM339 comparators on the returns, 8 independent 2N3904 open-collector strobes | CPU schematic; 5.2 |
-| Q3 | J1 pins 9, 10, 11, 17, 19, and CPU board power | 9, 10, 11, 17 not connected; 19, 20 ground. Power from IO board J16 (+5 V, ±12 V) | IO schematic; 3.1, 9.3 |
+| Q3 | Bus pins 9, 10, 11, 17, 19 (IO J1 / CPU J9), and CPU board power | 9, 10, 11, 17 not connected; 19, 20 ground. Power from IO board J16 (+5 V, ±12 V) | IO schematic; 3.1, 9.3 |
 | Q4 | Scope the bus and a coil gate? | Stay with the conservative default timings | 3.3 |
 | Q5 | What feeds the IO board watchdog | DS1232: falling edge on lamp strobe line 0 (DRV0) at least every 62.5 ms worst case | IO schematic; 3.6 |
 | Q6 | Does NBRESET clear the latches? | Yes: NBRESET → DS1232 /PBRST → NRESET → /MR of every output latch; at least 250 ms reset | IO schematic; 3.6, 7 |
@@ -647,7 +667,7 @@ Still open:
 
 ## 12. Proposed plan
 
-1. **Bench bring-up of the J1 bus**: an RP2350B dev board (for example Pimoroni PGA2350; not a Pico 2, which has the
+1. **Bench bring-up of the IO bus**: an RP2350B dev board (for example Pimoroni PGA2350; not a Pico 2, which has the
    30-GPIO RP2350A) + the two level shifters on a prototype, the PIO bus program, and a
    logic analyzer next to a capture from the original CPU board. Coil power off.
 2. **Lamp matrix + watchdog** running standalone on the IO board, with a test pattern.
