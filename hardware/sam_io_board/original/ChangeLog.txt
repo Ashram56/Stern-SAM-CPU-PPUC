@@ -1,0 +1,57 @@
+2024-12-01  foenich
+
+	Corrected silkscreen printing on J1 and J8
+	No extra version released as schematic and function is not affected and nobody ever used V1.1.1 yet
+
+
+2024-11-16  foenich
+
+	Released Version 1.1.1
+	Updated MOSFETS for power outputs (more current at low UGS)
+		
+	* changed type of Q25-Q32 (same package, no change in layout)
+
+
+2024-10-04  foenich
+
+	Released Version 1.1.0
+	Jumpers for RS485 bias and termination. Adjusted bias resistors.
+	Prevented current from USB to 5V_IN.
+	+5V no longer at terminal, only internal supply
+	More terminals for A and B.
+	Smaller Cap for +5V
+	
+	* removed F1 (as +5V is no loger at a terminal)
+	* inserted D16
+	* changed J8, pin 5 from +5V to GND
+	* changed J1, pin 4 from GND to A and pin 5 from GND to B
+	* inserted JP1 to JP3
+	* changed C25 from 1000µ-throuhole to 100µ-SMD
+	* changed R3 and R5 form 1k to 620 Ohm (worst case for 16 nodes (Rin=12k) and 120 Ohm at beginning and end)
+	
+
+2023-10-21  foenich
+
+	Released Version 1.0.1
+	Changed default placement for capacitors at IN_2 and IN_3
+	
+	* set C29 and C30 to mount
+
+2023-10-21  foenich
+
+	Released Version 1.0.0
+	Correct geometry for impedance controlled traces for USB
+	
+	* changed USB-wire witdh and reduced distance to GND
+	* changed versioning to x.y.z (major.functional change.bugfix)
+
+2023-03-07  foenich
+
+	Correct voltage for addresses 0 to 7
+
+	* changed R17 to 5k
+
+2023-02-25  foenich
+
+	Released initial Version 0.10
+
