@@ -36,11 +36,11 @@ constexpr uint kChainSm = 0;
 // about 700 ns per write, the ROM's spacing.
 constexpr uint32_t kBusIdleCycles = 2;
 constexpr uint32_t kCoilPeriodUs = 250;
-// Coils need a valid interlock reading before they may fire. The polarity of
-// the STATUS interlock bits is not verified yet (README, open items), so the
-// gate is off by default.
+// Coils fire only while both interlocks read present (STATUS D0/D1 = 1 when
+// the 20 V / 50 V supplies are up, confirmed by Vincent 2026-10-07). Opening
+// the coin door therefore drops every coil and re-arms held flipper buttons.
 #ifndef SAM_GATE_COILS_ON_INTERLOCKS
-#define SAM_GATE_COILS_ON_INTERLOCKS 0
+#define SAM_GATE_COILS_ON_INTERLOCKS 1
 #endif
 constexpr uint32_t kGiPwmWrap = 999;  // 1 kHz at 1 MHz PWM clock
 

@@ -29,7 +29,7 @@ Compile-time options (`-D...` on the cmake line):
 | `SAM_BOARD_MASK` | `0x07` | PPUC board ids this firmware answers for |
 | `SAM_LINK_BAUD` | 115200 | UART0 baud rate (PPUC's `kBaudRate`) |
 | `SAM_DEFAULT_DISPLAY` | 0 | display before the host configures one: 0 none, 1 J5, 2 HUB75 |
-| `SAM_GATE_COILS_ON_INTERLOCKS` | 0 | drop coils while the 20 V / 50 V interlocks read open |
+| `SAM_GATE_COILS_ON_INTERLOCKS` | 1 | drop coils while the 20 V / 50 V interlocks read open (STATUS bit 1 = present) |
 
 Host tests for everything under `src/core` (protocol, config, switches,
 coils, lamps, frame conversion), no hardware needed:
@@ -170,10 +170,9 @@ format 1 = 4-bit grey (2 px/byte, left in the high nibble), 2 = RGB565 BE, 3 = R
 
 ## Open items
 
-- STATUS interlock polarity (1 = voltage present is assumed). Coils are not
-  gated on it until verified (`SAM_GATE_COILS_ON_INTERLOCKS`).
 - J5 timing inside a slot (dot clock, latch, row clock, DE polarity) needs a
-  scope on an original board (ARCHITECTURE.md Q18). Only `BuildJ5Steps` and
+  scope on an original board (ARCHITECTURE.md Q18); measurements to come.
+  Only `BuildJ5Steps` and
   the clock dividers change.
 - HUB75: only row lines A and B are routed. The firmware assumes 4 row
   addresses with 8 rows each per half (`dmd_frames.h`); the real mapping
