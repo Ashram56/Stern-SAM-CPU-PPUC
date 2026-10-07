@@ -60,7 +60,7 @@ pad (M4) until the real screw is measured.
 | J27 | RS485 in, top-entry RJ45 (OST PJ012), isolated | courtyard 124.9-141.5, 155.0-172.6 | new | extension |
 | J29 | RS485 out, same, in parallel with J27 (optional) | courtyard 124.9-141.5, 173.6-191.2 | new | extension |
 | J28 | I2S input from a remote Pi, 2x3 header | courtyard 105.4-111.6, 170.4-179.1 | new | below the RS485 resistors |
-| J30 | line-in, switched 3.5 mm stereo jack (CUI SJ1-3535NG), opening on the right edge | courtyard 127.2-146.3, 201.0-210.3 | new | extension, below J29 |
+| J30 | line-in, switched 3.5 mm stereo jack (CUI SJ1-3535NG), opening on the right edge | courtyard 105.8-124.9, 86.7-96.0 | new | right edge below J24, next to the amplifier inputs R187 / R190 |
 
 The KK-396 headers keep the original orientation: pin 1 at the bottom of the left-edge connectors and at the right
 end of the bottom ones, friction ramp toward the board centre. J3 stays in the bottom row; J2 and J1 form a second
@@ -98,8 +98,9 @@ board could lose about 10 mm of width.
   parts (SMD, no electrolytics or TO-220) are placed under the Pi and under its USB-C / micro-HDMI plugs.
 - **RS485 / I2S / line-in** (draft 0.7): the isolated transceiver U32 (ADM2682E, SOIC-16W) sits below MH10 and
   straddles the isolation gap at x 114.5; its 1 k / pull resistors and VCC capacitors on the left (logic side), its
-  isoPower capacitors, TVS D27, R211 and JP2 on the right. J27 / J29 are stacked in the extension, J30 below them
-  facing the right edge. The cable side has its own GND_ISO zone on all four layers (x 116-142, y 154-181, then
+  isoPower capacitors, TVS D27, R211 and JP2 on the right. J27 / J29 are stacked in the extension. J30 sits on the right edge just below J24,
+  next to the DAC and the 470 R amplifier inputs (Vincent: keep the line-in path short); R193 / R200 moved one row
+  down for it (`c20_line_in_near_amps.py`). The cable side has its own GND_ISO zone on all four layers (x 116-142, y 154-181, then
   x 122-142 down to y 197.5); GND / +3V3 stay 2 mm away. Keep every non-isolated track out of that area.
 - **MH3** (draft 0.7): Vincent saw the bottom-left keyhole sat too high. On the Stern drawing the top keyholes' screw
   positions are level with the top round hole MH5, but the bottom ones are 7.4 mm (one slide) above the bottom round
