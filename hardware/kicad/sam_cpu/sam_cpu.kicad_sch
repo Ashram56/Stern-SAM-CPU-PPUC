@@ -44,7 +44,7 @@
 		)
 		(uuid "48940a54-79df-5847-a7b3-f44512f06c32")
 	)
-	(text "J5 original DMD driver and J18 GI dimmer header"
+	(text "J18 GI dimmer header"
 		(exclude_from_sim no)
 		(at 281.94 160.02 0)
 		(effects
@@ -126,7 +126,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "89a6077c-5515-50a9-b346-15159338c668")
-		(property "Sheetname" "DMD panels"
+		(property "Sheetname" "Switch chain extensions"
 			(at 279.4 199.9484 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -156,7 +156,7 @@
 			)
 		)
 	)
-	(text "HD DMD panels (HUB75) and switch-chain extensions"
+	(text "Switch-chain extensions: 7th 74HC165, first 74HC595"
 		(exclude_from_sim no)
 		(at 281.94 205.74 0)
 		(effects
@@ -527,7 +527,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "e5bcf56a-1356-5dfa-9e64-6b2f23d447fd")
-		(property "Sheetname" "Display and GI"
+		(property "Sheetname" "GI dimmer"
 			(at 279.4 154.2284 0)
 			(show_name no)
 			(do_not_autoplace no)
