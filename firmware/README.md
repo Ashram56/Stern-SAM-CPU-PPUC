@@ -120,7 +120,7 @@ flash with picotool or SWD from the Pi.
 |---|---|
 | Coils 1-32 (driver board), 33-40 (aux, latched by reg 0xB bit 6) | SAM coil number |
 | Matrix lamps | SAM lamp number 1-80 |
-| Aux latch outputs | 200 + (reg 0xB strobe bit - 3) x 8 + AUX_DRV bit. Tron LE left tube R/G/B = 205/204/203, right = 213/212/211 |
+| Aux latch outputs | 200 + (reg 0xB strobe bit - 3) x 8 + AUX_DRV bit. Tron LE left tube R/G/B = 213/212/211, right = 221/220/219 |
 | Matrix switches | strobe x 16 + return + 1 (1-128) |
 | Dedicated D1-D32 (D25-D32 = DIP switches) | 129-160 |
 | Memory protect | 161 |
