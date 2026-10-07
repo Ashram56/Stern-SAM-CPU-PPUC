@@ -137,5 +137,7 @@ panels sheet, and the board update (pad nets plus the 20 new footprints; no exis
 `c12_board_remove_dmd.py` and `c15_board_rs485_i2s.py`. Draft 0.7: `c16_rs485_isolated_sheet.py` (page 13 rewritten:
 ADM2682E, J29, J30), `c17_audio_line_in.py` (DAC output wires split for J30) and `c18_board_isolated_rs485.py`
 (extension, MH3, placement, GND_ISO zone), then `c19_board_taller.py` (bottom edge 5 mm lower so MH3 is a
-complete keyhole). They are not
+complete keyhole), `c20_line_in_near_amps.py` (J30 next to the amplifiers), `c21_bus_buffer_channels.py` (U6 / U7
+channel order reversed on the IO bus sheet) and `c22_board_rp_fanout.py` (U6 / U7 turned, R13 / R14 swapped, RS485
+resistors next to U4). They are not
 idempotent: each one was run once on the previous state.

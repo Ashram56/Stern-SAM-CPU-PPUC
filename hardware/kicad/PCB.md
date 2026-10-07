@@ -102,6 +102,13 @@ board could lose about 10 mm of width.
   next to the DAC and the 470 R amplifier inputs (Vincent: keep the line-in path short); R193 / R200 moved one row
   down for it (`c20_line_in_near_amps.py`). The cable side has its own GND_ISO zone on all four layers (x 116-142, y 154-181, then
   x 122-142 down to y 197.5); GND / +3V3 stay 2 mm away. Keep every non-isolated track out of that area.
+- **RP2354B fan-out** (draft 0.7, Vincent's review): the bus buffers U6 / U7 were turned with their RP2354B side away
+  from U4, so every bus line had to go around its buffer. Both are now turned 180 degrees in place with their channel
+  order reversed on the IO bus sheet (`c21`), which keeps the bit order on U4 and on J9; their J9 side now faces J9.
+  R13 / R14 swapped so the USB pair leaves U4 without crossing. The RP-side RS485 resistors R205 / R207 / R209 moved
+  next to U4 (column between U7 and J20, x 31.4-33.0). The bus, USB and RS485 nets were ripped for re-routing
+  (`c22_board_rp_fanout.py`). BUS_DIR and BUS_OE_N still cross the address lines (fixed pins on both sides): one via
+  each.
 - **MH3** (draft 0.7): Vincent saw the bottom-left keyhole sat too high. On the Stern drawing the top keyholes' screw
   positions are level with the top round hole MH5, but the bottom ones are 7.4 mm (one slide) above the bottom round
   hole MH4. MH3's screw position moved down 7.42 mm to y 222.59 (0.27 mm from MH4's row); its clearance circle would
