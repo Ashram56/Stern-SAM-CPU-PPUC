@@ -25,7 +25,7 @@
 #define CONFIG_TOPIC_SWITCH_CHAIN 121
 
 // New section for this board (proposal, not in upstream PPUC yet): board-wide
-// SAM settings such as lamp PWM timing and the display path. See README.
+// SAM settings such as lamp PWM timing. See README.
 #define CONFIG_TOPIC_SAM_BOARD 122
 
 // Field topics (ConfigPayload.key). Several share a value; the section decides.

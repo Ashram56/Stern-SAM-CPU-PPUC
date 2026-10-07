@@ -46,12 +46,6 @@ struct SwitchConfig {
 
 // Board-wide settings (CONFIG_TOPIC_SAM_BOARD, a proposal). Defaults follow
 // ARCHITECTURE.md and the ROM.
-enum DisplayMode : uint8_t {
-  kDisplayNone = 0,
-  kDisplayJ5 = 1,        // original 128x32 DMD on J5
-  kDisplayHub75 = 2,     // two HUB75 panels, 256x64 in total
-};
-
 struct BoardSettings {
   uint16_t lamp_slot_us;       // time per lamp strobe line; 10 lines per frame
   uint16_t lamp_blank_us;      // dark gap before each line (ROM: 24 us)
@@ -64,7 +58,6 @@ struct BoardSettings {
   uint16_t coil_pwm_period_us; // software PWM period for power < 255
   uint16_t gi_relay_min_ms;    // minimum time between GI relay changes
   uint16_t host_timeout_ms;    // no OutputState for this long -> coils off
-  uint8_t display;             // DisplayMode
 };
 
 struct HighPowerConfig {

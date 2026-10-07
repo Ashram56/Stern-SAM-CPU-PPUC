@@ -12,7 +12,6 @@ add_executable(sam_core_tests
   core_tests.cpp
   ${SRC}/coil_engine.cpp
   ${SRC}/devices.cpp
-  ${SRC}/dmd_frames.cpp
   ${SRC}/io_scheduler.cpp
   ${SRC}/lamp_engine.cpp
   ${SRC}/ppuc_session.cpp
