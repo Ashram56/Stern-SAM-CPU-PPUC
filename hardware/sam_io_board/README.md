@@ -9,7 +9,10 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 (<https://github.com/PPUC/Hardware_IO_16_8_1>, commit `46e0c47`), licensed under the
 **TAPR Open Hardware License 1.0**. See [Licence](#licence-and-change-notice) below.
 
+- [`DESIGN.md`](DESIGN.md): detailed design notes (circuit, power, reset, bus timing, signal list, BOM, PCB,
+  manufacturing, bring-up).
 - `sam_io/`: the KiCad 10 project (10.0 file format). Open `sam_io.kicad_pro`.
+- `sam_io/sam_io_bom.csv`: bill of materials, grouped by value and footprint.
 - `sam_io/sam_io.pdf`: the two schematic sheets, for reading without KiCad.
 - `sam_io/pcb_render.png`: top view of the routed board; `sam_io/pcb_copper.png`: its copper (F.Cu red, B.Cu blue).
 - `original/`: the unmodified IO_16_8_1 v1.1.1 files this design was made from (KiCad 6), its PDF schematic,
@@ -107,13 +110,49 @@ The GPIOs match `src/IODevices/SamBus/SamBusPins.h` in io-boards exactly, so the
 - Schematic parity: no net differences. KiCad lists field differences (datasheet links, test point BOM flag)
   that one "Update PCB from Schematic" in KiCad clears.
 
-## Open items
+## Open points
 
+Nothing below blocks reviewing the design; the first group blocks ordering boards, the rest is to check on the
+bench or to tidy up later. [DESIGN.md](DESIGN.md) has the details behind each one.
+
+Before ordering:
+
+- **Fabrication files**: no Gerbers, drill files or pick-and-place file yet. Generate them from KiCad (or
+  `kicad-cli pcb export gerbers / drill / pos`) once the points below are settled.
+- **Update PCB from Schematic**: run it once in KiCad to clear the remaining field differences (datasheet links,
+  test point BOM flag). No net changes are expected; re-run DRC afterwards.
 - **C31 via in pad**: there was no room for a GND via beside C31 (U7's 5 V decoupling), so its GND pad has
-  one. Ask for it to be filled or tented, or check the solder joint.
+  one. Ask the fab for a filled or tented via, or check the solder joint.
+- **Mounting holes**: the four corner holes of the 100 x 70 mm outline follow neither IO_16_8_1 nor Opto_16.
+  Check where the board will sit in the machine (or on the SAM IO board's ribbon) and move them if needed.
+- **Parts availability**: check stock for the new parts (SN74LVC8T245 in TSSOP-24, 74AHCT541 in TSSOP-20, 2N7002,
+  4 x 33 R arrays, 2 x 10 IDC header) at the assembler; the BOM is `sam_io/sam_io_bom.csv`.
+
+On the bench:
+
+- **Bus timing against a real SAM IO board** (ARCHITECTURE.md Q4): setup, IOSTB width and hold as set by the
+  firmware (140 / 175 / 245 ns), the STATUS read turnaround (DIR flip and U7 delay inside the read window),
+  and edge quality on the 22 pF lines through the series resistors.
+- **Watchdog and reset**: the SAM IO board must stay in reset while the RP2040 boots and come out of it only
+  once lamp strobes run (DRV0 within 62.5-250 ms); NBRESET held low long enough for the DS1232 (about 20 ms).
+- **Ribbon**: the 20-way cable carries only two GND wires; keep it short, check pin-1 orientation on both ends
+  and the ground return under full lamp load.
+- **5 V supply**: confirm which 5 V the board takes in the machine and that its ground is shared with the SAM
+  IO board's logic ground.
+- **Firmware**: the `SAM_IO` board type is in Ashram56/io-boards PR #1, still open. Board type `0x05` is a
+  proposal to agree with PPUC upstream.
+
+Later, if wanted:
+
 - **References reused**: J9, Q1, R27-R30 and C30-C33 were IO_16_8_1 input / output parts and are now SAM bus
-  parts (matching the CPU board's J9). Compare with `original/` by function, not by reference.
-- **Bench check**: bus timing against a real SAM IO board, as for the CPU board (ARCHITECTURE.md Q4).
+  parts (matching the CPU board's J9). Compare with `original/` by function, not by reference. A re-annotation
+  would remove the confusion but break the comparison.
+- **Spare resources**: RP2040 GPIO19-24, 26, 27 are unconnected and U8 has three unused channels (inputs tied
+  to GND). They could carry the 20 V / 50 V interlock inputs or GI relay control later.
+- **Library footprints**: several footprints inherited from IO_16_8_1 differ from the KiCad 10 libraries (DRC
+  warnings only). Update them from the library if the board is reworked.
+- **Copper tidy-up**: a few short GND tracks between stitching vias on B.Cu are left from IO_16_8_1's routing;
+  harmless inside the pour, removable.
 
 ## Routing
 
