@@ -43,7 +43,7 @@
 // ---- Misc -----------------------------------------------------------------
 #define PIN_RP_IRQ_N 37       // to the Pi: low = "switch changed, poll me"
 #define PIN_GI_PWM 38         // J18 GI dimmer board, PWM (slice 11 A)
-#define PIN_AMP_MUTE 39       // audio amplifier mute (polarity: see README, to verify)
+#define PIN_AMP_MUTE 39       // audio amplifier mute, high = muted (pull-down on the board)
 
 // Frames from the Pi (Pi is SPI master, mode 0). Read by a PIO1 receiver.
 #define PIN_FRAME_MOSI 40

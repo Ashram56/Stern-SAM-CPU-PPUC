@@ -172,15 +172,14 @@ format 1 = 4-bit grey (2 px/byte, left in the high nibble), 2 = RGB565 BE, 3 = R
 
 - J5 timing inside a slot (dot clock, latch, row clock, DE polarity) needs a
   scope on an original board (ARCHITECTURE.md Q18); measurements to come.
-  Only `BuildJ5Steps` and
-  the clock dividers change.
+  Only `BuildJ5Steps` and the clock dividers change.
 - HUB75: only row lines A and B are routed. The firmware assumes 4 row
   addresses with 8 rows each per half (`dmd_frames.h`); the real mapping
   depends on the panel model.
 - Board type `0x05`, topic `SAM_BOARD` and the lamp keys must be agreed with
   PPUC, and libppuc taught to send them.
-- AMP_MUTE polarity unknown: the pin is left as an input. GI dimmer PWM on
-  GPIO38 (1 kHz, duty = level / 8) polarity to confirm.
+- GI dimmer PWM on GPIO38 (1 kHz, duty = level / 8) polarity to confirm.
+  (AMP_MUTE, GPIO39, is active high and driven low: amplifiers on.)
 - The aux strobe latching (data on AUX_DRV, latch on the strobe's rising
   edge) follows the ROM's aux coil burst; check on the Tron tube boards.
 - VMON ADC inputs are not used yet.

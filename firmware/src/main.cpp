@@ -127,8 +127,10 @@ int main() {
   gpio_init(PIN_RP_IRQ_N);
   gpio_put(PIN_RP_IRQ_N, 1);
   gpio_set_dir(PIN_RP_IRQ_N, GPIO_OUT);
-  // AMP_MUTE: left as an input (board pull decides) until its polarity is known.
+  // AMP_MUTE: high mutes the amplifiers (pull-down on the board). Unmuted.
   gpio_init(PIN_AMP_MUTE);
+  gpio_put(PIN_AMP_MUTE, 0);
+  gpio_set_dir(PIN_AMP_MUTE, GPIO_OUT);
 
   RealtimeInit(&g_devices, &g_shared);
   DisplayInit();
