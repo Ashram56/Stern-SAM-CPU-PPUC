@@ -166,7 +166,15 @@ stubs left dangling.
   1.1 V rail) and a 1.5 mm +5 V trunk from the power mux under the Pi to J21 pins 2 / 4.
 - Every SMD GND and +3V3 pad has its own via to its plane; 9 vias in the RP2354B exposed pad.
 - The rest is Freerouting 2.5 output (`tools/changes/route/`), not cleaned up: expect meanders and extra vias.
-  Draft 0.5 left 35 connections open; removing the DMD interfaces (draft 0.6) took that to 20, and the new RS485 /
-  I2S / line-in parts are not routed yet (74 unconnected-item reports in DRC after draft 0.7, the new nets included).
+  Draft 0.5 left 35 connections open; removing the DMD interfaces (draft 0.6) took that to 20.
+- **Draft 0.7 routing (cloud, 2026-10-07):** 36 connections open (DRC unconnected items; 124 before), no clearance or
+  short errors. The isolated RS485 side is routed on its own and no other net has copper inside the GND_ISO area
+  (`route/isochk.py`). New RS485 parts got plane vias (`route/fanout_missing.py`); the routing jammed around the
+  RP2354B (66 nets) was ripped (`route/ripreg.py`) and re-routed in 3-pass chunks. Still open: the USB pair R13 / R14
+  to U4 pins 66 / 67, BOOTSEL and +3V3 pin 76, some bus lines between U4 and U6 / U7 / RN1-RN3, a few long runs
+  (STB_DATA, SW_*, FRAME_CS_N, AMP_MUTE, GI_PWM, Pi SWCLK), +5 V / +12 V segments near the amplifiers, and one
+  GND_ISO pour island.
 - Steps: `tools/changes/c05_layout_setup.py` (rules, classes, hand routes), `c07_gnd_fanout.py`, `c08_four_layers.py`,
-  `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), Freerouting, and import the session.
+  `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), `route/mkiso.py r.dsn rA.dsn A` (isolated area as
+  keepout, iso nets in class ISO), `route/chunk2.sh rA.dsn rA.ses 3 --router.autorouter.ignore_net_classes=ISO`, and
+  import with `route/imp2.py` (keeps the zones). The isolated nets: `route/mkisoB.py`, Freerouting, `route/impiso.py`.
