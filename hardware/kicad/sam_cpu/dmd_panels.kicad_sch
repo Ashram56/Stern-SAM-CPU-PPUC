@@ -5,7 +5,7 @@
 	(uuid "c6411901-5267-5615-bb69-a8b6cf138411")
 	(paper "A3")
 	(title_block
-		(title "HD DMD panels (HUB75) and switch-chain extensions")
+		(title "Switch-chain extensions: 7th 74HC165, first 74HC595")
 		(date "2026-10-06")
 		(rev "0.2")
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")

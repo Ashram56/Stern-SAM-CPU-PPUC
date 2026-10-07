@@ -24,9 +24,10 @@ continues, in square brackets.
 | 7 | Switch rows 9-16 | J12, same circuit, 74HC165 | 5.2, 5.3 |
 | 8 | Dedicated switches 1-16 | J2, J3, input filters, 2 x 74HC165, coin door memory protect | 5.2, 5.3 |
 | 9 | Dedicated switches 17-24 | J13, input filters, 74HC165, 8 DIP switches with their 74HC165 | 5.2, 5.3 |
-| 10 | Display and GI | 74HCT245 driver for the original DMD on J5, J18 GI dimmer header | 8, 10.2 |
+| 10 | GI dimmer | J18 GI dimmer header (the original DMD driver on J5 was removed, see below) | 10.2 |
 | 11 | Audio | PCM5102A DAC from Pi I2S; U23 TDA7297 bridge amplifier for left / right (J10, J22); (L + R) / 2 110 Hz low-pass (OPA1678) into U24 TDA7297 for the subwoofer (J24); all on +12 V; software mute | 8 |
-| 12 | DMD panels | Two HD DMD panels (HUB75, J25 / J26) driven by RP2354B PIO over a parallel bus: 3 x 74AHCT245 (U27-U29) with 33 R packs RN6-RN11, 12 data lines (6 per panel), shared CLK / LAT / OE and row lines A / B; U30 7th 74HC165 (coin door memory protect); U31 extra 74HC595 first in the strobe chain (LED_STATUS, GI_SPARE); TP23 / TP24 | 8, 9.2 |
+| 12 | Switch chain extensions | U30 7th 74HC165 (coin door memory protect); U31 extra 74HC595 first in the strobe chain (LED_STATUS, GI_SPARE). File name `dmd_panels.kicad_sch` kept from when the HD panel outputs lived here | 5.3, 9.2 |
+| 13 | RS485 and I2S | J27 RS485 port (RJ45) with a THVD1450 transceiver, SM712 TVS and JP2 termination jumper, wired to both the Pi UART3 and the RP2354B UART1 through 1 k; J28 I2S input header for a remote Pi, in parallel with J21 | new |
 
 The prototype uses a Raspberry Pi 4 plugged into the 40-pin header J21. The Pi keeps its own HDMI output, so no
 high-speed signals are routed on this board. A CM4 is not planned for now.
@@ -34,19 +35,20 @@ high-speed signals are routed on this board. A CM4 is not planned for now.
 Connector references follow the original CPU/Sound board 520-5246-00 (J1, J2, J3, J5, J6, J9, J10, J11, J12,
 J13), so the cabinet harness labels still match. The harness connectors J1, J2, J3, J6, J12 and J13 use 3.96 mm
 KK-396 headers like the original board, so the existing harness plugs fit. New connectors start at J17: J17 external +5 V, J18 GI dimmer,
-J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header, J22 stereo speaker pairs, J23 external +12 V, J24 subwoofer, J25 / J26 HUB75 DMD panels A / B.
+J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header, J22 stereo speaker pairs, J23 external +12 V, J24 subwoofer, J27 RS485 (RJ45), J28 I2S input.
+J5 (original DMD) and J25 / J26 (HD panels) were removed in draft 0.6, so J5 is no longer fitted.
 
-Test points (TP1-TP24, 1.5 mm SMD pads): +5V, +3V3, +4V5, +12V and two GND on the power page; +1V1, RUN and
+Test points (TP1-TP22, 1.5 mm SMD pads): +5V, +3V3, +4V5, +12V and two GND on the power page; +1V1, RUN and
 GND by the RP2354B; J9 IOSTB, NBRESET, D0 and A0 on the bus; strobes 1-2, SW_CLK and SW_DATA on the switch columns
-page; VREF; DAC left / right outputs, subwoofer filter output and GND on the audio page; DMD_CLK and DMD_LAT on the DMD panels page.
+page; VREF; DAC left / right outputs, subwoofer filter output and GND on the audio page.
 
-## RP2354B GPIO map (two-panel version)
+## RP2354B GPIO map (draft 0.6)
 
 | GPIO | Signal |
 |---|---|
 | 0-19 | unchanged (GPIO17 = SW_LOAD_N, now also the 74HC595 latch) |
-| 20-31 | DMD_D0-D11: panel A R1 G1 B1 R2 G2 B2 on D0-D5, panel B on D6-D11. D0-D6 also feed the J5 driver (original DMD), so J5 and the panels are used one at a time |
-| 32-36 | DMD_CLK, DMD_LAT, DMD_OE, DMD_A, DMD_B (shared by both panels) |
+| 20-22 | RP_RS485_TX, RP_RS485_RX (UART1), RP_RS485_DE: the RS485 port when the Pi is remote |
+| 23-36 | unassigned (no-connect flags; were the DMD outputs) |
 | 37-39 | RP_IRQ_N, GI_PWM, AMP_MUTE |
 | 40-42 | FRAME_MOSI, FRAME_CS_N, FRAME_SCK (SPI1, frames from the Pi) |
 | 43 | spare |
@@ -54,13 +56,30 @@ page; VREF; DAC left / right outputs, subwoofer filter output and GND on the aud
 | 46-47 | VMON_5V, VMON_12V |
 
 The switch input chain is now 7 x 74HC165 (56 bits, U30 last, holding the coin door memory protect) and the strobe
-chain 3 x 74HC595 with U31 first (QA LED_STATUS, QB GI_SPARE). HUB75 lines C, D and E are not connected: the
-17-signal variant supports panels with 4 row-address states (1/4 scan) only.
+chain 3 x 74HC595 with U31 first (QA LED_STATUS, QB GI_SPARE).
+
+## DMD removed, RS485 and I2S added (draft 0.6, 2026-10-07)
+
+Both DMD interfaces are gone (Vincent: DMD signals will not survive the long wires in the cabinet): the original
+DMD driver (J5, U21, RN4, RN5, R176-R182, C95) and the HD panel bus (J25, J26, U27-U29, RN6-RN11, C122-C124, TP23,
+TP24). The display is left to the Pi.
+
+The new RS485 port (J27, RJ45) serves the two ways the Pi can be fitted:
+
+| Pi | RS485 port belongs to | Pins |
+|---|---|---|
+| On J21 | Pi UART3 | J21 pin 7 GPIO4 TXD3, pin 29 GPIO5 RXD3, pin 26 GPIO7 RTS3 = driver enable (Linux RS485 mode) |
+| Remote | RP2354B UART1 | GPIO20 TX, GPIO21 RX, GPIO22 driver enable; the remote Pi's I2S comes in on J28 |
+
+Both sides reach the transceiver through 1 k resistors and the transceiver stays in receive (10 k pull-down on
+DE / RE) until one side drives. Only the side that is configured drives; the other keeps its pins as inputs, which
+is how both boot. RJ45 pinout (DMX-over-RJ45 order): pin 1 A, pin 2 B, pins 7 / 8 GND, pins 3-6 not connected.
+JP2 fits the 120 R termination (fit it only at an end of the line). J28 (2x3, 2.54 mm): 1 I2S_BCK, 3 I2S_LRCK,
+5 I2S_DIN, even pins GND. I2S is clocked logic too, so keep that cable short.
 
 ## Checks
 
-- ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 3 warnings, all unused 74HCT245 / 74AHCT245 inputs tied to
-  ground, which KiCad reports because the pins are typed tri-state.
+- ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
 - The netlist KiCad exports was compared pin by pin with the nets the generator intended (`tools/verify2.py`):
   1339 pins, 313 nets, no differences.
 
@@ -80,7 +99,7 @@ chain 3 x 74HC595 with U31 first (QA LED_STATUS, QB GI_SPARE). HUB75 lines C, D 
   impedances before using 4 ohm. U23 and U24 need a heatsink (keep-out drawn on the board). The datasheet pin list
   was not reachable from here: confirm pins 1 / 2 and 14 / 15 output polarity (symbol: pin 1 and pin 15 = +).
 - **Pin orders to confirm with a meter** on a real board or harness: J6 / J12 return order, J2 / J3 / J13 dedicated
-  input order, J1 strobe order, J5 DMD pinout (Q18).
+  input order, J1 strobe order.
 - **Memory protect**: J2 pin 10 (coin door) is now read through U30, the 7th 74HC165.
 - **Audio gain** and **LM339 / switch filter values** are starting points for the bench.
 - **Part numbers**: footprints are JLCPCB-friendly packages (0603 passives, SOIC / TSSOP logic, SOT-23), but no LCSC
@@ -104,5 +123,8 @@ From now on the `.kicad_sch` files are the source of truth. Edit them in KiCad; 
 
 Since the two-panel DMD change, the sheets and the board are edited in place, never regenerated. The scripts in
 `tools/changes/` (c01-c04) are the record of each edit: GPIO remap on the MCU sheet, net renames, the new DMD
-panels sheet, and the board update (pad nets plus the 20 new footprints; no existing footprint moved). They are not
+panels sheet, and the board update (pad nets plus the 20 new footprints; no existing footprint moved). Draft 0.6:
+`c11_remove_dmd.py` (DMD parts out of pages 10 and 12, no-connect flags on GPIO20-36), `c13_rs485_i2s_sheet.py`
+(new page 13), `c14_mcu_rs485_labels.py` (RS485 labels on the RP2354B and J21), and on the board
+`c12_board_remove_dmd.py` and `c15_board_rs485_i2s.py`. They are not
 idempotent: each one was run once on the previous state.

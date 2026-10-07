@@ -537,6 +537,10 @@
     [
       "89a6077c-5515-50a9-b346-15159338c668",
       "Switch chain extensions"
+    ],
+    [
+      "f92b9d4e-3163-5cd0-8a78-99a8cf4f6f0a",
+      "RS485 and I2S"
     ]
   ],
   "text_variables": {},

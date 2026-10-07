@@ -1,23 +1,24 @@
-# PCB placement draft (0.4)
+# PCB placement draft (0.6)
 
 `sam_cpu/sam_cpu.kicad_pcb` has the board outline, the mounting holes, the connectors and a first placement of all
-456 parts, on **2 copper layers**. Nothing is routed. It matches the schematic (KiCad schematic parity: 0 footprint
+443 parts, on **4 copper layers**, partly routed (see Routing below). It matches the schematic (KiCad schematic parity: 0 footprint
 errors) and has no courtyard overlaps.
 
 ![Overview](sam_cpu/pcb_overview.png)
 
 `sam_cpu/pcb_overview.png` shows the new board over the original 520-5246-00 outline, with arrows for the
-connectors that moved. `sam_cpu/pcb_render.png` is KiCad's top render.
+connectors that moved; it dates from draft 0.4 and still shows J5 and the 142 mm extension. `sam_cpu/pcb_render.png`
+is KiCad's top render (draft 0.6).
 
 Coordinates are millimetres from the top-left board corner, Y down, component side, as the board hangs in the
 backbox (same frame as `docs/mechanical/`). KiCad's grid and drill origins are set to that corner.
 
 ## Outline
 
-**120.65 x 231.76 mm** (4.75 x 9.125 in), 55 % of the original 219.06 mm width, widened to **142 mm below
-the Pi (Y 154 to the bottom edge)** for the two HUB75 panel headers and their buffers. Height and the left edge are
-unchanged. The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
-hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 2 copper layers.
+**120.65 x 231.76 mm** (4.75 x 9.125 in), 55 % of the original 219.06 mm width. Height and the left edge are
+unchanged. (Draft 0.4 widened it to 142 mm below the Pi for two HUB75 panel headers; that extension went with the
+DMD interfaces in draft 0.6.) The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
+hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 4 copper layers.
 
 ## Mounting holes
 
@@ -48,7 +49,6 @@ pad (M4) until the real screw is measured.
 | J1 | switch strobes, 9 pin | 115.57, 201.41 | 194.94, 221.73 | 79 mm left, second row 20.3 mm up |
 | J11 | power in | 58.41, 11.18 | same | none |
 | J10 | speakers (now bridged: L+ R+ L- R-) | 85.00, 11.18 | 156.19, 8.76 | 71 mm left |
-| J5 | DMD 2x7 | 115.57, 176.46 | 211.44, 164.46 | 96 mm left, 12 mm down |
 | J17 | external +5 V terminal, wires from the right edge | 114.5, 18.0 | new | |
 | J23 | external +12 V terminal (audio), wires from the right edge | 114.5, 30.0 | new | |
 | J22 | second speaker connector (L+ L- R+ R-) | 115.0, 41.5 | new | right edge |
@@ -56,8 +56,8 @@ pad (M4) until the real screw is measured.
 | J18 | GI dimmer header | 116.5, 193.0 | new | |
 | J19 | USB-C to the Pi, on the top edge | centre X 45.6 | new | 13 mm from the RP2354B USB pins |
 | J21 | Raspberry Pi 40-pin socket | 64.52, 147.23 | new | |
-| J25 | HD DMD panel A, HUB75 2x8 | 124.6, 160.0 | new | extension, right of J5 |
-| J26 | HD DMD panel B, HUB75 2x8 | 135.4, 160.0 | new | extension, right of J25 |
+| J27 | RS485, RJ45 (Amphenol 54602), plug opening on the right edge | courtyard 102.2-121.0, 152.3-168.7 | new | where the original DMD J5 was |
+| J28 | I2S input from a remote Pi, 2x3 header | courtyard 113.0-119.2, 170.4-179.1 | new | right edge, between J27 and J18 |
 
 The KK-396 headers keep the original orientation: pin 1 at the bottom of the left-edge connectors and at the right
 end of the bottom ones, friction ramp toward the board centre. J3 stays in the bottom row; J2 and J1 form a second
@@ -86,16 +86,17 @@ board could lose about 10 mm of width.
   Reset and BOOTSEL buttons, the SWD header J20 and the status LED are just below.
 - Every other IC has its decoupling capacitor on its supply pin. The rest is grouped by schematic sheet next to its
   connector: power under J11 (power-path parts toward J17), bus buffers beside J9, switch inputs beside J12, J6,
-  J13, J2/J3 and J1, DMD driver beside J5, audio under J10 next to J22 / J24.
+  J13, J2/J3 and J1, audio under J10 next to J22 / J24.
 - **Amplifiers**: U23 (stereo) and U24 (subwoofer) TDA7297 stand in a row at y 54-65 with their tabs toward the
   top edge, so one heatsink bar can take both. The area behind the tabs (59-107 x 41-54 mm) is kept free for it and
   marked on User.Drawings. The +12 V input J23, J22 and J24 are on the right edge next to them.
 - The RTC and its CR2032 holder are at the left middle, reachable without removing the Pi.
-- The Pi was moved down 12 mm (and J5 with it) to leave room for the audio parts above its plug area. Only low
+- The Pi was moved down 12 mm to leave room for the audio parts above its plug area. Only low
   parts (SMD, no electrolytics or TO-220) are placed under the Pi and under its USB-C / micro-HDMI plugs.
-- **DMD panels**: J25 / J26 side by side at the top of the extension, the three 74AHCT245 buffers U27-U29 in a
-  column below them with the series packs RN6-RN11 close to the headers, TP23 / TP24 on CLK / LAT. U31 (595) sits
-  by J1, U30 (165) under J6 at the end of the switch chain.
+- **RS485 / I2S** (draft 0.6): J27 (RJ45) on the right edge below the Pi's mounting hole MH10, in the spot the
+  original DMD connector J5 had; the THVD1450 U32 with its resistors, TVS D27 and termination jumper JP2 just left
+  of it, under the Pi's edge (all low SMD parts); J28 on the edge between J27 and J18. U31 (595) sits by J1, U30
+  (165) under J6 at the end of the switch chain.
 - This is a first pass made by a script: expect to tighten the U4 area, rotate parts for routing, and spread the
   dense resistor blocks once routing starts.
 
@@ -113,7 +114,7 @@ board could lose about 10 mm of width.
   holes and their diameter).
 - Pi orientation (face down on the socket, or face up on a ribbon).
 - The heatsink for U23 / U24 (size and how it is fixed) and the speaker impedances.
-- Harness reach for J1, J2, J5 and J10 at their new positions, and that J10's two speaker returns are separate wires.
+- Harness reach for J1, J2 and J10 at their new positions, and that J10's two speaker returns are separate wires.
 
 ## How it was generated
 
@@ -129,6 +130,11 @@ python3 tools/pcb_overview.py /tmp/fp.json <docs/mechanical positions CSV> sam_c
 
 Do not rerun `place_pcb.py`: it overwrites the board. Edit in KiCad or with a new change script.
 
+Draft 0.6 (2026-10-07), also in place: `c12_board_remove_dmd.py` deletes the 28 DMD footprints, their tracks and
+the ground / power stubs that served only them, frees RP2354B GPIO20-36 and restores the 120.65 mm outline;
+`c15_board_rs485_i2s.py` updates 6 pad nets and places the 15 RS485 / I2S parts (no existing part moved), ripping
+the unlocked tracks that crossed their courtyards.
+
 ## Routing (draft 0.5)
 
 - **4 copper layers** (Vincent, 2026-10-07): F.Cu signals, In1.Cu solid GND plane, In2.Cu +3V3 plane, B.Cu signals.
@@ -139,7 +145,8 @@ Do not rerun `place_pcb.py`: it overwrites the board. Edit in KiCad or with a ne
 - Hand-routed and locked: the RP2354B core regulator (short LX loop, VIN cap, PGND into the exposed pad, FB on the
   1.1 V rail) and a 1.5 mm +5 V trunk from the power mux under the Pi to J21 pins 2 / 4.
 - Every SMD GND and +3V3 pad has its own via to its plane; 9 vias in the RP2354B exposed pad.
-- The rest is Freerouting 2.5 output (`tools/changes/route/`), **35 connections still open** (mostly RP2354B escapes
-  and the DMD buffers) and not cleaned up: expect meanders and extra vias.
+- The rest is Freerouting 2.5 output (`tools/changes/route/`), not cleaned up: expect meanders and extra vias.
+  Draft 0.5 left 35 connections open; removing the DMD interfaces (draft 0.6) took that to 20, and the new RS485 /
+  I2S parts are not routed yet (53 unconnected-item reports in DRC, the new nets included).
 - Steps: `tools/changes/c05_layout_setup.py` (rules, classes, hand routes), `c07_gnd_fanout.py`, `c08_four_layers.py`,
   `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), Freerouting, and import the session.

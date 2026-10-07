@@ -5,7 +5,7 @@
 	(uuid "dff57b87-89aa-5ba2-a9ac-85d315963469")
 	(paper "A3")
 	(title_block
-		(title "J5 original DMD driver and J18 GI dimmer header")
+		(title "J18 GI dimmer header")
 		(date "2026-10-06")
 		(rev "0.2")
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")

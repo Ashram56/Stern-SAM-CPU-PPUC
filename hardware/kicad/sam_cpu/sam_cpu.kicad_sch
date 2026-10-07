@@ -111,6 +111,63 @@
 		(uuid "b71aa25e-d7e8-52b6-9684-a321cd9df897")
 	)
 	(sheet
+		(at 25.4 246.38)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f92b9d4e-3163-5cd0-8a78-99a8cf4f6f0a")
+		(property "Sheetname" "RS485 and I2S"
+			(at 25.4 245.6684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "rs485_i2s.kicad_sch"
+			(at 25.4 272.3684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "13")
+				)
+			)
+		)
+	)
+	(text "RS485 port (RJ45) and I2S input header"
+		(exclude_from_sim no)
+		(at 27.94 251.46 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "0c9d9570-3b3c-543c-b629-1c1ba0521194")
+	)
+	(sheet
 		(at 279.4 200.66)
 		(size 88.9 25.4)
 		(exclude_from_sim no)
