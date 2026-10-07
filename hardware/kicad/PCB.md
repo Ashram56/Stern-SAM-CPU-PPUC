@@ -1,7 +1,7 @@
 # PCB placement draft (0.6)
 
 `sam_cpu/sam_cpu.kicad_pcb` has the board outline, the mounting holes, the connectors and a first placement of all
-443 parts, on **4 copper layers**, partly routed (see Routing below). It matches the schematic (KiCad schematic parity: 0 footprint
+450 parts, on **4 copper layers**, partly routed (see Routing below). It matches the schematic (KiCad schematic parity: 0 footprint
 errors) and has no courtyard overlaps.
 
 ![Overview](sam_cpu/pcb_overview.png)
@@ -15,9 +15,9 @@ backbox (same frame as `docs/mechanical/`). KiCad's grid and drill origins are s
 
 ## Outline
 
-**120.65 x 231.76 mm** (4.75 x 9.125 in), 55 % of the original 219.06 mm width. Height and the left edge are
-unchanged. (Draft 0.4 widened it to 142 mm below the Pi for two HUB75 panel headers; that extension went with the
-DMD interfaces in draft 0.6.) The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
+**120.65 x 231.76 mm** (4.75 x 9.125 in), 55 % of the original 219.06 mm width, widened to **142 mm from y 154
+down** (below the Pi) for the RS485 and line-in connectors. Height and the left edge are unchanged. (Draft 0.4 had the
+same extension for the HUB75 headers; draft 0.6 removed it with the DMD; draft 0.7 brings it back for the RJ45s.) The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
 hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 4 copper layers.
 
 ## Mounting holes
@@ -27,7 +27,7 @@ All on original backbox screw positions (`docs/mechanical/README.md`):
 | Hole | Type | Screw X, Y |
 |---|---|---|
 | MH6 | keyhole, opens upward, top-left | 8.24, 6.27 |
-| MH3 | keyhole, opens upward, bottom-left | 8.24, 215.17 |
+| MH3 | open keyhole (notch from the bottom edge), bottom-left | 8.24, 222.59 |
 | MH7 | round, left middle | 8.25, 116.84 |
 | MH5 | round, top | 109.20, 6.98 |
 | MH4 | round, bottom | 97.14, 222.86 |
@@ -56,8 +56,10 @@ pad (M4) until the real screw is measured.
 | J18 | GI dimmer header | 116.5, 193.0 | new | |
 | J19 | USB-C to the Pi, on the top edge | centre X 45.6 | new | 13 mm from the RP2354B USB pins |
 | J21 | Raspberry Pi 40-pin socket | 64.52, 147.23 | new | |
-| J27 | RS485, RJ45 (Amphenol 54602), plug opening on the right edge | courtyard 102.2-121.0, 152.3-168.7 | new | where the original DMD J5 was |
-| J28 | I2S input from a remote Pi, 2x3 header | courtyard 113.0-119.2, 170.4-179.1 | new | right edge, between J27 and J18 |
+| J27 | RS485 in, top-entry RJ45 (OST PJ012), isolated | courtyard 124.9-141.5, 155.0-172.6 | new | extension |
+| J29 | RS485 out, same, in parallel with J27 (optional) | courtyard 124.9-141.5, 173.6-191.2 | new | extension |
+| J28 | I2S input from a remote Pi, 2x3 header | courtyard 105.4-111.6, 170.4-179.1 | new | below the RS485 resistors |
+| J30 | line-in, switched 3.5 mm stereo jack (CUI SJ1-3535NG), opening on the right edge | courtyard 127.2-146.3, 201.0-210.3 | new | extension, below J29 |
 
 The KK-396 headers keep the original orientation: pin 1 at the bottom of the left-edge connectors and at the right
 end of the bottom ones, friction ramp toward the board centre. J3 stays in the bottom row; J2 and J1 form a second
@@ -93,9 +95,15 @@ board could lose about 10 mm of width.
 - The RTC and its CR2032 holder are at the left middle, reachable without removing the Pi.
 - The Pi was moved down 12 mm to leave room for the audio parts above its plug area. Only low
   parts (SMD, no electrolytics or TO-220) are placed under the Pi and under its USB-C / micro-HDMI plugs.
-- **RS485 / I2S** (draft 0.6): J27 (RJ45) on the right edge below the Pi's mounting hole MH10, in the spot the
-  original DMD connector J5 had; the THVD1450 U32 with its resistors, TVS D27 and termination jumper JP2 just left
-  of it, under the Pi's edge (all low SMD parts); J28 on the edge between J27 and J18. U31 (595) sits by J1, U30
+- **RS485 / I2S / line-in** (draft 0.7): the isolated transceiver U32 (ADM2682E, SOIC-16W) sits below MH10 and
+  straddles the isolation gap at x 114.5; its 1 k / pull resistors and VCC capacitors on the left (logic side), its
+  isoPower capacitors, TVS D27, R211 and JP2 on the right. J27 / J29 are stacked in the extension, J30 below them
+  facing the right edge. The cable side has its own GND_ISO zone on all four layers (x 116-142, y 154-181, then
+  x 122-142 down to y 197.5); GND / +3V3 stay 2 mm away. Keep every non-isolated track out of that area.
+- **MH3** (draft 0.7): Vincent saw the bottom-left keyhole sat too high. On the Stern drawing the top keyholes' screw
+  positions are level with the top round hole MH5, but the bottom ones are 7.4 mm (one slide) above the bottom round
+  hole MH4. MH3's screw position moved down 7.42 mm to y 222.59 (0.27 mm from MH4's row); its clearance circle would
+  cross the bottom edge there, so it is an open notch in the outline. U31 (595) sits by J1, U30
   (165) under J6 at the end of the switch chain.
 - This is a first pass made by a script: expect to tighten the U4 area, rotate parts for routing, and spread the
   dense resistor blocks once routing starts.
@@ -133,7 +141,10 @@ Do not rerun `place_pcb.py`: it overwrites the board. Edit in KiCad or with a ne
 Draft 0.6 (2026-10-07), also in place: `c12_board_remove_dmd.py` deletes the 28 DMD footprints, their tracks and
 the ground / power stubs that served only them, frees RP2354B GPIO20-36 and restores the 120.65 mm outline;
 `c15_board_rs485_i2s.py` updates 6 pad nets and places the 15 RS485 / I2S parts (no existing part moved), ripping
-the unlocked tracks that crossed their courtyards.
+the unlocked tracks that crossed their courtyards. Draft 0.7: `c18_board_isolated_rs485.py` restores the extension,
+moves MH3, replaces the page-13 parts (22 now: ADM2682E, J29, J30 and C128-C132 added) and adds the GND_ISO zone;
+it ripped 66 tracks / vias on 6 nets (the old DAC output nets, now split through J30, and tracks under J28) plus 39
+stubs left dangling.
 
 ## Routing (draft 0.5)
 
@@ -147,6 +158,6 @@ the unlocked tracks that crossed their courtyards.
 - Every SMD GND and +3V3 pad has its own via to its plane; 9 vias in the RP2354B exposed pad.
 - The rest is Freerouting 2.5 output (`tools/changes/route/`), not cleaned up: expect meanders and extra vias.
   Draft 0.5 left 35 connections open; removing the DMD interfaces (draft 0.6) took that to 20, and the new RS485 /
-  I2S parts are not routed yet (53 unconnected-item reports in DRC, the new nets included).
+  I2S / line-in parts are not routed yet (74 unconnected-item reports in DRC after draft 0.7, the new nets included).
 - Steps: `tools/changes/c05_layout_setup.py` (rules, classes, hand routes), `c07_gnd_fanout.py`, `c08_four_layers.py`,
   `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), Freerouting, and import the session.

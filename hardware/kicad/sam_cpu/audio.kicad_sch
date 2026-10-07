@@ -4430,16 +4430,6 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 134.62) (xy 137.16 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "88fb597d-a130-5fc9-bec7-149dca01282a")
-	)
-	(wire
-		(pts
 			(xy 180.34 91.44) (xy 200.66 91.44)
 		)
 		(stroke
@@ -4557,6 +4547,26 @@
 			(type default)
 		)
 		(uuid "99c191bd-1e7f-57cf-80f1-c04a0b18c26a")
+	)
+	(wire
+		(pts
+			(xy 88.9 132.08) (xy 101.6 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ca04bdf-185e-4d9b-aa08-d741d6810e33")
+	)
+	(wire
+		(pts
+			(xy 88.9 134.62) (xy 101.6 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9cd0802a-bdfb-4b33-b92b-680b82732cd8")
 	)
 	(wire
 		(pts
@@ -4700,16 +4710,6 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 132.08) (xy 134.62 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad894c02-8f56-5da1-b2f1-060506944284")
-	)
-	(wire
-		(pts
 			(xy 91.44 218.44) (xy 55.88 218.44)
 		)
 		(stroke
@@ -4850,16 +4850,6 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 132.08) (xy 134.62 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bec29a9b-67c4-5f71-bdfa-ae9a152225da")
-	)
-	(wire
-		(pts
 			(xy 25.4 185.42) (xy 25.4 187.96)
 		)
 		(stroke
@@ -4867,16 +4857,6 @@
 			(type default)
 		)
 		(uuid "c337ba52-4c77-50a5-b551-99217bb3aa30")
-	)
-	(wire
-		(pts
-			(xy 88.9 134.62) (xy 137.16 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4078b20-7769-53ff-b151-161d072a3d38")
 	)
 	(wire
 		(pts
@@ -5574,6 +5554,52 @@
 			)
 		)
 	)
+	(global_label "AUD_AMP_R"
+		(shape passive)
+		(at 137.16 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "849f9443-3df3-4cf7-8276-d28f2c2384a3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 122.41 91.44 180)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "AUD_DAC_R"
+		(shape passive)
+		(at 101.6 134.62 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9e509894-d5b2-42a7-8f2a-e53db291e536")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 116.35 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "I2S_LRCK"
 		(shape input)
 		(at 35.56 132.08 180)
@@ -5617,6 +5643,52 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+	)
+	(global_label "AUD_AMP_L"
+		(shape passive)
+		(at 134.62 55.88 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e0016b65-e5d2-4696-8de8-c7b15a6f07ae")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 119.87 55.88 180)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "AUD_DAC_L"
+		(shape passive)
+		(at 101.6 132.08 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fe5875d5-a3ec-45f5-91f5-87131329f5a9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 116.35 132.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 	)

@@ -27,7 +27,7 @@ continues, in square brackets.
 | 10 | GI dimmer | J18 GI dimmer header (the original DMD driver on J5 was removed, see below) | 10.2 |
 | 11 | Audio | PCM5102A DAC from Pi I2S; U23 TDA7297 bridge amplifier for left / right (J10, J22); (L + R) / 2 110 Hz low-pass (OPA1678) into U24 TDA7297 for the subwoofer (J24); all on +12 V; software mute | 8 |
 | 12 | Switch chain extensions | U30 7th 74HC165 (coin door memory protect); U31 extra 74HC595 first in the strobe chain (LED_STATUS, GI_SPARE). File name `dmd_panels.kicad_sch` kept from when the HD panel outputs lived here | 5.3, 9.2 |
-| 13 | RS485 and I2S | J27 RS485 port (RJ45) with a THVD1450 transceiver, SM712 TVS and JP2 termination jumper, wired to both the Pi UART3 and the RP2354B UART1 through 1 k; J28 I2S input header for a remote Pi, in parallel with J21 | new |
+| 13 | RS485 and I2S | Isolated RS485 port: ADM2682E (isoPower, 5 kV) with SM712 TVS, JP2 termination jumper and two top-entry RJ45s J27 / J29 on GND_ISO, wired to both the Pi UART3 and the RP2354B UART1 through 1 k; J28 I2S input header for a remote Pi, in parallel with J21; J30 switched 3.5 mm line-in jack between the DAC and the amplifiers | new |
 
 The prototype uses a Raspberry Pi 4 plugged into the 40-pin header J21. The Pi keeps its own HDMI output, so no
 high-speed signals are routed on this board. A CM4 is not planned for now.
@@ -35,7 +35,7 @@ high-speed signals are routed on this board. A CM4 is not planned for now.
 Connector references follow the original CPU/Sound board 520-5246-00 (J1, J2, J3, J5, J6, J9, J10, J11, J12,
 J13), so the cabinet harness labels still match. The harness connectors J1, J2, J3, J6, J12 and J13 use 3.96 mm
 KK-396 headers like the original board, so the existing harness plugs fit. New connectors start at J17: J17 external +5 V, J18 GI dimmer,
-J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header, J22 stereo speaker pairs, J23 external +12 V, J24 subwoofer, J27 RS485 (RJ45), J28 I2S input.
+J19 USB-C to the Pi, J20 SWD, J21 Raspberry Pi header, J22 stereo speaker pairs, J23 external +12 V, J24 subwoofer, J27 / J29 RS485 in / out (RJ45, isolated), J28 I2S input, J30 line-in (3.5 mm).
 J5 (original DMD) and J25 / J26 (HD panels) were removed in draft 0.6, so J5 is no longer fitted.
 
 Test points (TP1-TP22, 1.5 mm SMD pads): +5V, +3V3, +4V5, +12V and two GND on the power page; +1V1, RUN and
@@ -76,6 +76,14 @@ DE / RE) until one side drives. Only the side that is configured drives; the oth
 is how both boot. RJ45 pinout (DMX-over-RJ45 order): pin 1 A, pin 2 B, pins 7 / 8 GND, pins 3-6 not connected.
 JP2 fits the 120 R termination (fit it only at an end of the line). J28 (2x3, 2.54 mm): 1 I2S_BCK, 3 I2S_LRCK,
 5 I2S_DIN, even pins GND. I2S is clocked logic too, so keep that cable short.
+
+Draft 0.7 (same day, Vincent's review): the transceiver is now the isolated ADM2682E, like Stern's node boards. The
+whole cable side (A / B, the SM712, the termination, RJ45 pins 7 / 8) is on GND_ISO, powered by the chip's own
+isoPower converter, with its own copper zone 2 mm clear of GND. Two top-entry RJ45s in parallel: J27 in, J29 out
+(J29 can be left unfitted). J30 is a switched 3.5 mm stereo jack for the Pi 4's headphone output: with no plug the
+PCM5102A drives the amplifiers through the jack's normally-closed tip / ring contacts (nets AUD_DAC_L / R to
+AUD_AMP_L / R); a plug disconnects the DAC. The amplifier input dividers were sized for the DAC's 2.1 Vrms, so the
+Pi's lower analog level plays quieter.
 
 ## Checks
 
@@ -126,5 +134,7 @@ Since the two-panel DMD change, the sheets and the board are edited in place, ne
 panels sheet, and the board update (pad nets plus the 20 new footprints; no existing footprint moved). Draft 0.6:
 `c11_remove_dmd.py` (DMD parts out of pages 10 and 12, no-connect flags on GPIO20-36), `c13_rs485_i2s_sheet.py`
 (new page 13), `c14_mcu_rs485_labels.py` (RS485 labels on the RP2354B and J21), and on the board
-`c12_board_remove_dmd.py` and `c15_board_rs485_i2s.py`. They are not
+`c12_board_remove_dmd.py` and `c15_board_rs485_i2s.py`. Draft 0.7: `c16_rs485_isolated_sheet.py` (page 13 rewritten:
+ADM2682E, J29, J30), `c17_audio_line_in.py` (DAC output wires split for J30) and `c18_board_isolated_rs485.py`
+(extension, MH3, placement, GND_ISO zone). They are not
 idempotent: each one was run once on the previous state.

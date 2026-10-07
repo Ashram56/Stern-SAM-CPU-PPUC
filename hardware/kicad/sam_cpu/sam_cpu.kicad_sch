@@ -156,7 +156,7 @@
 			)
 		)
 	)
-	(text "RS485 port (RJ45) and I2S input header"
+	(text "Isolated RS485 port (2x RJ45), I2S input header, analog line-in"
 		(exclude_from_sim no)
 		(at 27.94 251.46 0)
 		(effects
