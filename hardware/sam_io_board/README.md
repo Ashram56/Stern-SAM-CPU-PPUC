@@ -11,7 +11,7 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 
 - `sam_io/`: the KiCad 10 project (10.0 file format). Open `sam_io.kicad_pro`.
 - `sam_io/sam_io.pdf`: the two schematic sheets, for reading without KiCad.
-- `sam_io/pcb_render.png`: top view of the board after the first rough placement.
+- `sam_io/pcb_render.png`: top view of the routed board; `sam_io/pcb_copper.png`: its copper (F.Cu red, B.Cu blue).
 - `original/`: the unmodified IO_16_8_1 v1.1.1 files this design was made from (KiCad 6), its PDF schematic,
   README and change log.
 - `tools/`: the scripts that made the changes, for the record (see the end of this file). From now on the
@@ -29,8 +29,12 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 | Power J5 (5 V in), AP2112 3.3 V, address DIP SW3 + ladder on GPIO28, LED on GPIO25 | | unchanged |
 | Special output (GPIO29 through SN74AHCT1G125 to J5 pin 5) | | unchanged (the SAM_IO firmware does not use it) |
 
-Every part that stays keeps its reference, its position on the board and its routing. The board outline
-(100 x 100 mm) and the four 5.5 mm mounting holes are unchanged, so it mounts like the other PPUC boards.
+Every part that stays keeps its reference, its position on the board and its routing.
+
+The board is **100 x 70 mm**, the size of the PPUC Opto_16 board (99.7 x 67.3 mm) plus 2.7 mm, because the
+address DIP switch SW3 sits that low on IO_16_8_1. The lower 30 mm of IO_16_8_1 held only the output stage.
+The four 5.5 mm mounting holes stay at the corners, 5 mm from the edges (the top two did not move, the
+bottom two moved up to y = 104 mm). They are not Opto_16's hole pattern.
 
 ## Connectors
 
@@ -97,21 +101,35 @@ The GPIOs match `src/IODevices/SamBus/SamBusPins.h` in io-boards exactly, so the
   new sheet.
 - The netlist was compared pin by pin with the original: every kept part keeps its nets, except the RP2040
   GPIO3-18 (now the bus) and GPIO19-24, 26, 27 (now unconnected).
-- DRC: no new violation besides the 62 unrouted connections of the new parts. The remaining items are the
-  original's (USB-C J4 pad to slot clearance, J2 / C8 courtyards, starved thermals on J4, U5 and C8, footprints
-  that differ from the KiCad 10 libraries).
+- DRC: fully routed (no unconnected item), no new violation. The remaining items are the original's (USB-C J4
+  pad to slot clearance, J2 / C8 courtyards, starved thermals on J4, U5 and C8, footprints that differ from the
+  KiCad 10 libraries). Design rules are unchanged: 0.2 mm tracks and clearance, 0.5 / 0.3 mm vias.
 - Schematic parity: no net differences. KiCad lists field differences (datasheet links, test point BOM flag)
   that one "Update PCB from Schematic" in KiCad clears.
 
 ## Open items
 
-- **Routing**: the new parts have a first rough placement only (J9 on the left edge where J6-J8 were, buffers
-  between J9 and the RP2040) and are not routed. The RP2040's GPIO3-18 fanout was removed with the input stages.
-- **Board size**: the board keeps the 100 x 100 mm IO_16_8_1 outline and holes. Without the output stage the
-  lower half is empty; it could shrink to about 100 x 70 mm if the PPUC mounting pattern is not needed.
+- **C31 via in pad**: there was no room for a GND via beside C31 (U7's 5 V decoupling), so its GND pad has
+  one. Ask for it to be filled or tented, or check the solder joint.
 - **References reused**: J9, Q1, R27-R30 and C30-C33 were IO_16_8_1 input / output parts and are now SAM bus
   parts (matching the CPU board's J9). Compare with `original/` by function, not by reference.
 - **Bench check**: bus timing against a real SAM IO board, as for the CPU board (ARCHITECTURE.md Q4).
+
+## Routing
+
+Two layers, as on IO_16_8_1. The parts that stayed keep their routing; the SAM bus parts sit on the left, where
+the input stage was:
+
+- J9 on the left edge, RN1-RN3 and R29 next to it, then U7 (data) above U8 (address and IOSTB), close to the
+  RP2040.
+- RP2040 to buffers, routed by hand (`tools/c08_bus_fanout.py`). The RP2040 and both buffers number their pins
+  anticlockwise, so a bus that keeps its bit order between them has to cross itself once. Each of the 13 lines
+  leaves the RP2040 on the top layer (reusing IO_16_8_1's GPIO fanout next to the chip), drops through a via
+  under its own buffer pin and crosses under the others on the bottom layer, then comes back up to the pin:
+  two vias per line. DIR, OE_N and NBRESET_DRV reuse IO_16_8_1's GPIO16-18 fanout down the right of the RP2040.
+- Buffers to J9, pull-ups and power: Freerouting 2.5, with every existing track locked, then a few touch-ups
+  (`tools/c09_route_fixes.py`).
+- GND is the pour on both layers, as before.
 
 ## Licence and change notice
 
@@ -128,7 +146,8 @@ Elements changed (TAPR OHL 4.2a):
 - `sam_io/sam_bus.kicad_sch`: new (from the SAM CPU replacement board's IO bus sheet).
 - `IO_16_8_1.kicad_pcb` -> `sam_io/sam_io.kicad_pcb`: IN16 / OUT8 footprints, their tracks and vias, the GNDPWR
   zone and the J6-J11 / fuse silkscreen removed; GND zone extended over the freed area; board name changed to
-  "PPUC SAM_IO"; SAM bus parts added (not routed); file upgraded to KiCad 10.
+  "PPUC SAM_IO"; SAM bus parts added and routed; outline cut to 100 x 70 mm, bottom mounting holes, logo and
+  board name moved up, copper below the new edge removed; file upgraded to KiCad 10.
 - `IO_16_8_1.kicad_pro` -> `sam_io/sam_io.kicad_pro`: renamed, upgraded to KiCad 10.
 - `logo.kicad_sym`, `IO_16_8_1.pretty`, `fp-lib-table`, `sym-lib-table`, `PPUC-Logo-PCB-230129.svg`: unchanged.
 
@@ -141,4 +160,7 @@ files to this folder (TAPR OHL 4.2d).
 `tools/c01_root_sheet.py` and `tools/c02_sam_bus_sheet.py` edited the schematic sheets.
 `tools/run.sh` rebuilt the board from the original with `c03_board_update.py` (remove / add footprints, KiCad 10
 Python), `c04_board_clean.py` (tracks, zones and silkscreen, on the file text) and `c05_drc_via_cleanup.py`
-(leftover vias reported by DRC). Do not rerun them over the current files.
+(leftover vias reported by DRC). `tools/run_route.sh` then made the 100 x 70 mm outline and the routing:
+`c06_outline_placement.py` (outline, holes, placement), `c07_trim_copper.py` (copper below the new edge),
+`c08_bus_fanout.py` (RP2040 side of the bus), two Freerouting passes (`route_mkdsn.py`, `route_import.py`),
+`c09_route_fixes.py` and `c10_silk.py`. Do not rerun them over the current files.
