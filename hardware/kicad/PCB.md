@@ -128,3 +128,18 @@ python3 tools/pcb_overview.py /tmp/fp.json <docs/mechanical positions CSV> sam_c
 ```
 
 Do not rerun `place_pcb.py`: it overwrites the board. Edit in KiCad or with a new change script.
+
+## Routing (draft 0.5)
+
+- **4 copper layers** (Vincent, 2026-10-07): F.Cu signals, In1.Cu solid GND plane, In2.Cu +3V3 plane, B.Cu signals.
+  GND pours on both outer layers. Two-layer autoroutes stalled at 39-170 open connections.
+- Rules (JLCPCB): 0.2 mm tracks / 0.15 mm clearance, 0.1 mm minimum for pad neck-downs, 0.6 / 0.3 mm vias.
+  Net classes: Power 0.25 mm (+3V3, +4V5, +1V1, VREF), Power_5V 0.5 mm, Power_HI 0.8 mm (+12 V and the input paths),
+  Speaker 1.0 mm.
+- Hand-routed and locked: the RP2354B core regulator (short LX loop, VIN cap, PGND into the exposed pad, FB on the
+  1.1 V rail) and a 1.5 mm +5 V trunk from the power mux under the Pi to J21 pins 2 / 4.
+- Every SMD GND and +3V3 pad has its own via to its plane; 9 vias in the RP2354B exposed pad.
+- The rest is Freerouting 2.5 output (`tools/changes/route/`), **35 connections still open** (mostly RP2354B escapes
+  and the DMD buffers) and not cleaned up: expect meanders and extra vias.
+- Steps: `tools/changes/c05_layout_setup.py` (rules, classes, hand routes), `c07_gnd_fanout.py`, `c08_four_layers.py`,
+  `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), Freerouting, and import the session.
