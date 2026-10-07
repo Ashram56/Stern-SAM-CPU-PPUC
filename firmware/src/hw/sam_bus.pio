@@ -1,0 +1,56 @@
+; PIO0 SM0: master of the SAM IO bus (CPU board J9 -> IO board J1).
+;
+; ARCHITECTURE.md 3.4, with the command word matched to the pin order on the
+; board (D0-D7 = GPIO0-7, A0-A3 = GPIO8-11):
+;   bits  7:0   D7-D0 (ignored on a read)
+;   bits 11:8   A3-A0
+;   bit  12     1 = read: STATUS / AUX_IN byte pushed to the RX FIFO
+;   bits 31:13  idle time after the cycle, in PIO cycles (19 bits)
+;
+; Side-set bit 0 = IOSTB (GPIO12, active low), bit 1 = SN74LVC8T245 DIR
+; (GPIO13, 1 = RP2354B drives J9). Clock divider 7 at 200 MHz: 35 ns per cycle.
+;   address + data set up before IOSTB falls   >= 4 cycles  (140 ns)
+;   IOSTB low                                    5 cycles  (175 ns)
+;   hold after IOSTB rises (latches clock here)  7 cycles  (245 ns)
+; Measured on the original board: IOSTB low ~100 ns, data held >= 200 ns, 650 ns
+; between writes (Tron io/bus/README.md 2). Every latch clocks on IOSTB rising.
+;
+; SPDX-License-Identifier: GPL-3.0-or-later
+
+.program sam_bus
+.side_set 2
+.wrap_target
+    pull block          side 0b11       ; idle: IOSTB high, 8T245 drives J9
+    out pins, 12        side 0b11       ; address + data
+    out x, 1            side 0b11       ; read flag
+    out y, 19           side 0b11       ; idle cycles after this access
+    jmp !x write        side 0b11
+read:
+    ; OUT PINDIRS writes all 12 OUT pins, so build 0xF00 (A0-A3 stay outputs,
+    ; D0-D7 become inputs) in ISR and move it to OSR.
+    mov isr, ~null      side 0b11
+    in null, 8          side 0b11
+    mov osr, isr        side 0b11
+    out pindirs, 12     side 0b11       ; release D0-D7 first
+    nop                 side 0b01       ; then turn the 8T245 around (IO board -> RP2354B)
+    nop                 side 0b00 [4]   ; IOSTB low: STATUS / AUX_IN buffer drives the bus
+    in pins, 8          side 0b00       ; sample at the end of the strobe
+    push noblock        side 0b01 [1]   ; IOSTB high, let the IO board 245 let go
+    mov osr, ~null      side 0b11 [1]   ; 8T245 drives J9 again
+    out pindirs, 12     side 0b11       ; RP2354B drives D0-D7 again
+    jmp delay           side 0b11
+write:
+    nop                 side 0b10 [4]   ; IOSTB low
+    nop                 side 0b11 [6]   ; IOSTB high: the latch clocks; hold data
+delay:
+    jmp y-- delay       side 0b11
+.wrap
+
+% c-sdk {
+static inline uint32_t sam_bus_write_cmd(uint8_t reg, uint8_t data, uint32_t idle_cycles) {
+    return (uint32_t)data | ((uint32_t)(reg & 0xF) << 8) | (idle_cycles << 13);
+}
+static inline uint32_t sam_bus_read_cmd(uint8_t reg, uint32_t idle_cycles) {
+    return ((uint32_t)(reg & 0xF) << 8) | (1u << 12) | (idle_cycles << 13);
+}
+%}

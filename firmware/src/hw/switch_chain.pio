@@ -1,0 +1,43 @@
+; PIO1 SM0: continuous scan of the 74HC165 input chain and 74HC595 strobe chain.
+;
+; One pass (ARCHITECTURE.md 5.4, "chain scan"):
+;   1. Report the strobe pattern this pass will shift out (one RX word).
+;   2. SW_LOAD_N low: the 165s capture all 56 inputs. Rising edge: the 595s
+;      latch what the previous pass shifted in (load and latch share GPIO17).
+;   3. Clock 56 bits: `in` from the 165 chain, `out` to the 595 chain. The
+;      first 24 bits out are zero padding, the last 32 come from the pattern
+;      word (its low 16 bits are what stays in the two 595s).
+;   4. Push the inputs: autopush after 32 bits, then a manual push of 24.
+;
+; So every pass yields 3 RX words: pattern, inputs 0-31, inputs 32-55 (top 24
+; bits). The inputs of pass N were captured while the pattern reported in
+; pass N-2 was driving the strobes. `pull noblock` reuses the last pattern
+; (kept in X) until core1 queues a new one, so re-latching changes nothing.
+;
+; Side-set bit 0 = SW_CLK (GPIO16), bit 1 = SW_LOAD_N (GPIO17).
+; IN pin = SW_DATA (GPIO18), OUT pin = STB_DATA (GPIO19). Shift in right
+; (first bit ends in bit 0), shift out left (MSB first).
+; Clock divider 4 at 200 MHz: 20 ns per cycle, 5 cycles per bit = 10 MHz,
+; one pass about 6 us.
+;
+; SPDX-License-Identifier: GPL-3.0-or-later
+
+.program switch_chain
+.side_set 2
+.wrap_target
+    pull noblock        side 0b10       ; next strobe pattern, or X = the current one
+    mov x, osr          side 0b10
+    mov isr, x          side 0b10
+    push block          side 0b00 [7]   ; report it; LOAD_N low: the 165s capture
+    set y, 23           side 0b10       ; LOAD_N high: the 595s latch the last pass
+lead:
+    mov pins, null      side 0b10 [1]   ; padding bits for the 595 chain
+    in pins, 1          side 0b10
+    jmp y-- lead        side 0b11 [1]   ; rising edge shifts both chains
+    set y, 31           side 0b10
+tail:
+    out pins, 1         side 0b10 [1]
+    in pins, 1          side 0b10
+    jmp y-- tail        side 0b11 [1]
+    push block          side 0b10       ; inputs 32-55
+.wrap
