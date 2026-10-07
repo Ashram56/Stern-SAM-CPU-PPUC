@@ -26,7 +26,7 @@
 #endif
 // Virtual PPUC boards this firmware answers for (bit n = board id n).
 #ifndef SAM_BOARD_MASK
-#define SAM_BOARD_MASK 0x07
+#define SAM_BOARD_MASK 0x03  // 0 = outputs, 1 = switches
 #endif
 // Display output before the host configures one (CONFIG_TOPIC_SAM_BOARD TYPE).
 #ifndef SAM_DEFAULT_DISPLAY

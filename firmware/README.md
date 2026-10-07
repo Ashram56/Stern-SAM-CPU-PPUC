@@ -26,7 +26,7 @@ Compile-time options (`-D...` on the cmake line):
 
 | Option | Default | Meaning |
 |---|---|---|
-| `SAM_BOARD_MASK` | `0x07` | PPUC board ids this firmware answers for |
+| `SAM_BOARD_MASK` | `0x03` | PPUC board ids this firmware answers for: 0 outputs, 1 switches |
 | `SAM_LINK_BAUD` | 115200 | UART0 baud rate (PPUC's `kBaudRate`) |
 | `SAM_DEFAULT_DISPLAY` | 0 | display before the host configures one: 0 none, 1 J5, 2 HUB75 |
 | `SAM_GATE_COILS_ON_INTERLOCKS` | 1 | drop coils while the 20 V / 50 V interlocks read open (STATUS bit 1 = present) |
@@ -96,12 +96,20 @@ with one PWM period per frame.
 
 ## PPUC integration
 
-The board answers for every id in `SAM_BOARD_MASK` (default 0, 1 and 2, e.g.
-one id per function so the YAML can keep a "coils", a "lamps" and a "switches"
-board). Coils, lamps and switches share one device table: their port ranges
-do not overlap, so it does not matter under which id a device is configured.
-When the switch token reaches one of its ids and the chain's next board is
-another of its ids, it sends that reply too, as the next node on RS485 would.
+The board shows up as two PPUC boards (`SAM_BOARD_MASK` = `0x03`):
+
+| Board id | Role | Devices in the game config |
+|---|---|---|
+| 0 | SAM outputs: one entry point for every coil, flasher, lamp and aux output, sent over the SAM bus | `PWM` (coils, flashers, `lamp` type), `LAMPS`, game-on solenoid |
+| 1 | SAM switches | `SWITCH_MATRIX`, `SWITCHES` |
+
+The DMD is not a PPUC device: frames arrive on their own SPI link (below).
+
+Internally coils, lamps and switches share one device table, since their
+port ranges do not overlap, so the ids only matter to the host. Other layouts
+work by changing the mask (bit n = id n), up to 8 ids. When the switch token
+reaches one of its ids and the chain's next board is another of its ids, it
+sends that reply too, as the next node on RS485 would.
 Version reports use board type `0x05`, which is a proposal and must be agreed
 with PPUC. Firmware update over the link is refused (`kUpdateUnsupported`):
 flash with picotool or SWD from the Pi.

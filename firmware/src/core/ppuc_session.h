@@ -110,7 +110,7 @@ class PpucSession {
   LinkWriter& tx_;
   SessionListener& listener_;
   ConfigApplier applier_;
-  uint8_t board_mask_ = 0x07;
+  uint8_t board_mask_ = 0x03;
   uint32_t build_id_ = 0;
 
   // Parser.
