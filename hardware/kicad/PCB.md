@@ -15,8 +15,9 @@ backbox (same frame as `docs/mechanical/`). KiCad's grid and drill origins are s
 
 ## Outline
 
-**120.65 x 231.76 mm** (4.75 x 9.125 in), 55 % of the original 219.06 mm width, widened to **142 mm from y 154
-down** (below the Pi) for the RS485 and line-in connectors. Height and the left edge are unchanged. (Draft 0.4 had the
+**120.65 x 236.76 mm**, 55 % of the original 219.06 mm width, widened to **142 mm from y 154 down** (below the Pi)
+for the RS485 and line-in connectors. The left edge is unchanged; the bottom edge is 5 mm lower than the original
+231.76 mm so the lowered MH3 keyhole fits (draft 0.7). (Draft 0.4 had the
 same extension for the HUB75 headers; draft 0.6 removed it with the DMD; draft 0.7 brings it back for the RJ45s.) The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
 hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 4 copper layers.
 
@@ -27,7 +28,7 @@ All on original backbox screw positions (`docs/mechanical/README.md`):
 | Hole | Type | Screw X, Y |
 |---|---|---|
 | MH6 | keyhole, opens upward, top-left | 8.24, 6.27 |
-| MH3 | open keyhole (notch from the bottom edge), bottom-left | 8.24, 222.59 |
+| MH3 | keyhole, opens upward, bottom-left (lowered 7.42 mm, draft 0.7) | 8.24, 222.59 |
 | MH7 | round, left middle | 8.25, 116.84 |
 | MH5 | round, top | 109.20, 6.98 |
 | MH4 | round, bottom | 97.14, 222.86 |
