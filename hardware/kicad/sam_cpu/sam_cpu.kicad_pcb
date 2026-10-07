@@ -9,6 +9,8 @@
 	(paper "A4")
 	(layers
 		(0 "F.Cu" signal)
+		(4 "In1.Cu" power)
+		(6 "In2.Cu" power)
 		(2 "B.Cu" signal)
 		(9 "F.Adhes" user "F.Adhesive")
 		(11 "B.Adhes" user "B.Adhesive")
@@ -101312,6 +101314,48 @@
 		(layer "B.Cu")
 		(uuid "7624a1d1-7e7b-47dd-bb8e-aa0c0c1e7c2e")
 		(name "GND_BOT")
+		(hatch edge 0.5)
+		(connect_pads
+			(clearance 0.25)
+		)
+		(min_thickness 0.2)
+		(fill
+			(thermal_gap 0.3)
+			(thermal_bridge_width 0.4)
+			(island_removal_mode 0)
+		)
+		(polygon
+			(pts
+				(xy 150.65 184) (xy 172 184) (xy 172 261.76) (xy 30 261.76) (xy 30 30) (xy 150.65 30)
+			)
+		)
+	)
+	(zone
+		(net "GND")
+		(layer "In1.Cu")
+		(uuid "96f67662-66bc-4654-a344-2257a4c61dfa")
+		(name "GND_PLANE")
+		(hatch edge 0.5)
+		(connect_pads
+			(clearance 0.25)
+		)
+		(min_thickness 0.2)
+		(fill
+			(thermal_gap 0.3)
+			(thermal_bridge_width 0.4)
+			(island_removal_mode 0)
+		)
+		(polygon
+			(pts
+				(xy 150.65 184) (xy 172 184) (xy 172 261.76) (xy 30 261.76) (xy 30 30) (xy 150.65 30)
+			)
+		)
+	)
+	(zone
+		(net "+3V3")
+		(layer "In2.Cu")
+		(uuid "3fb5cec1-6822-4c5f-bd7b-2c790e9be51e")
+		(name "3V3_PLANE")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0.25)
