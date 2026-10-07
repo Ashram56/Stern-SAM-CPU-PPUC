@@ -1,0 +1,23 @@
+; PIO1 SM1: SPI receiver for display frames from the Pi (Pi = master, mode 0).
+;
+; The RP2350's hardware SPI as a slave tops out near clk_peri / 12, too slow for
+; colour HD frames (dmd_two_panel_pin_proposal.md, "Max DMD frame rate").
+; This program samples MOSI on every SCK rising edge, 3 instructions per bit,
+; so it follows a Pi SPI clock up to about 50 MHz at 200 MHz (31.25 MHz is the
+; recommended setting). Bytes are pushed MSB first (autopush 8, shift left)
+; and a DMA channel moves them into the frame buffer.
+;
+; Chip select is handled by core0: a GPIO interrupt on FRAME_CS_N rising marks
+; the end of a frame and restarts this state machine, so a partial byte can
+; never shift the next frame out of alignment.
+;
+; IN base = FRAME_MOSI (GPIO40); `wait pin 2` = FRAME_SCK (GPIO42).
+;
+; SPDX-License-Identifier: GPL-3.0-or-later
+
+.program frame_rx
+.wrap_target
+    wait 0 pin 2
+    wait 1 pin 2
+    in pins, 1
+.wrap

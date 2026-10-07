@@ -1,0 +1,45 @@
+; PIO2: two HUB75 LED panels on a shared clock, latch and output enable.
+;
+; Pins (hardware/kicad/README.md, two-panel version): DMD_D0-D11 = GPIO20-31
+; (panel A R1 G1 B1 R2 G2 B2, then panel B), CLK = GPIO32, LAT = GPIO33,
+; OE = GPIO34 (low = on), row address A, B = GPIO35-36.
+;
+; Same pattern as pico-examples hub75, but free running from DMA: the data SM
+; shifts one row of one bit plane while the row SM shows the previous one, and
+; two IRQ flags hand over between them. Core0 only rebuilds the bit planes
+; when a new frame arrives.
+;
+; SPDX-License-Identifier: GPL-3.0-or-later
+
+; SM0. OUT pins = DMD_D0-D11, side-set = CLK. Two pixels per word:
+; bits 11:0 first pixel, bits 27:16 second pixel (shift right, autopull 32).
+.program hub75_data
+.side_set 1
+    pull block          side 0          ; once at start: pixel pairs per row - 1
+    mov isr, osr        side 0
+.wrap_target
+    mov x, isr          side 0
+pair:
+    out pins, 12        side 0
+    out null, 4         side 1          ; panels take data on CLK rising
+    out pins, 12        side 0
+    out null, 4         side 1
+    jmp x-- pair        side 0
+    irq set 6           side 0          ; row shifted
+    wait 1 irq 7        side 0          ; wait until the row SM has latched it
+.wrap
+
+; SM1. OUT pins = A, B (GPIO35-36), side-set bit 0 = LAT (GPIO33),
+; bit 1 = OE (GPIO34, high = dark). One word per row and plane, shift right:
+;   bits 1:0   row address
+;   bits 31:2  OE on-time in PIO cycles (bit-plane weight)
+.program hub75_row
+.side_set 2
+.wrap_target
+    wait 1 irq 6        side 0b10       ; dark until the next row is shifted
+    out pins, 2         side 0b11 [3]   ; row address, LAT high
+    out x, 30           side 0b10 [3]   ; LAT low
+    irq set 7           side 0b10       ; data SM may shift the next row
+on:
+    jmp x-- on          side 0b00       ; OE low: row lit
+.wrap
