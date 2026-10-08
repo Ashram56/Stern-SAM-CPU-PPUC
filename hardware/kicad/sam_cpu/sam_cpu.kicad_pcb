@@ -48844,7 +48844,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "unconnected-(J21-3V3-Pad1)")
+			(net "/MCU and Pi/PI_3V3")
 			(uuid "4190a2bd-7111-4bd0-ba2d-a5b32534fe45")
 		)
 		(pad "2" thru_hole circle
@@ -48988,7 +48988,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "unconnected-(J21-3V3-Pad1)")
+			(net "/MCU and Pi/PI_3V3")
 			(uuid "7b80f1c8-223c-4fd2-89e0-483bd20974a9")
 		)
 		(pad "18" thru_hole circle
@@ -146008,7 +146008,7 @@
 		(end 98.3628 179.426)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "05493ea5-fbbd-498f-ae47-51094565454a")
 	)
 	(segment
@@ -146016,7 +146016,7 @@
 		(end 99.1492 180.882)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "118ee82d-1d7c-46b7-9554-0471786d6c51")
 	)
 	(segment
@@ -146024,7 +146024,7 @@
 		(end 113.655 179.297)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "4cf261f5-f3f6-440d-877d-07d5e344501a")
 	)
 	(segment
@@ -146032,7 +146032,7 @@
 		(end 96.5856 178.332)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "6cf7185e-8ec2-43fa-8b70-133452b4c40e")
 	)
 	(segment
@@ -146040,7 +146040,7 @@
 		(end 113.655 180.022)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "7c8acc2d-7f40-48e0-b4c7-be6349eebf08")
 	)
 	(segment
@@ -146048,7 +146048,7 @@
 		(end 98.3628 180.096)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "9a7fc6b3-6752-4c76-b80f-54f9e80a244d")
 	)
 	(segment
@@ -146056,7 +146056,7 @@
 		(end 114.13 178.677)
 		(width 0.15)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "9d9d3567-8e44-435a-88be-8b3b22ce9d0f")
 	)
 	(segment
@@ -146064,7 +146064,7 @@
 		(end 95.6217 177.368)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "9f286b6d-3faa-4cd7-b4c3-2f402209251d")
 	)
 	(segment
@@ -146072,7 +146072,7 @@
 		(end 114.84 177.23)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "adf115ea-8da7-4b5b-b698-08d7367d60f0")
 	)
 	(segment
@@ -146080,7 +146080,7 @@
 		(end 112.794 180.882)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "c723cf9d-acbd-4018-b2a0-6ed3efd8b82d")
 	)
 	(segment
@@ -146088,7 +146088,7 @@
 		(end 97.2684 178.332)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "ca9c2dbc-58ff-4cf6-87a9-9967d2a29a30")
 	)
 	(segment
@@ -146096,7 +146096,7 @@
 		(end 95.6217 177.23)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "d50803b8-b594-45a2-9f06-e5463a8f6a3f")
 	)
 	(segment
@@ -146104,7 +146104,7 @@
 		(end 114.84 177.967)
 		(width 0.2)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "db052f27-a2c1-406f-b3fb-4d1c5a391e10")
 	)
 	(segment
@@ -146112,7 +146112,7 @@
 		(end 114.13 178.822)
 		(width 0.15)
 		(layer "B.Cu")
-		(net "unconnected-(J21-3V3-Pad1)")
+		(net "/MCU and Pi/PI_3V3")
 		(uuid "ef944d5b-9fed-4932-8413-b7686d97a2e9")
 	)
 	(segment

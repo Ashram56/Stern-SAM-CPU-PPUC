@@ -6118,9 +6118,112 @@
 		(at 40.64 147.32)
 		(uuid "d64c0ab8-d541-520b-8c84-b680880f3266")
 	)
-	(no_connect
-		(at 320.04 134.62)
-		(uuid "d6e6e606-daa1-5b72-99bd-6c657211b3ae")
+	(wire
+		(pts
+			(xy 320.04 134.62) (xy 320.04 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7599114-e311-4410-a90a-8563a3b7f682")
+	)
+	(wire
+		(pts
+			(xy 320.04 132.08) (xy 320.04 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1930bccf-cce8-4052-bec7-69916781b583")
+	)
+	(label "PI_3V3"
+		(at 320.04 129.54 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ea4f3a85-94ae-47fe-87b5-15a7ef9caffb")
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 320.04 132.08 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "431a75be-05c3-434d-a3e2-e2ee8ccf0983")
+		(property "Reference" "#FLG1303"
+			(at 316.23 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 314.96 132.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 320.04 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 320.04 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 320.04 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "66653051-b9d6-46da-82bb-95b531927974")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
+					(reference "#FLG1303")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(no_connect
 		(at 157.48 144.78)

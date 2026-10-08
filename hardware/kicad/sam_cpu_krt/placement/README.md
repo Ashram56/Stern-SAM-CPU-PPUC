@@ -36,9 +36,8 @@ Still open:
 
 - `GI_PWM` (U4 to the R185 area near U15): the end at (97.8, 119.95) is boxed in by neighbouring tracks. Three passes,
   including one allowed to rip the blocking nets, did not close it. It is one short track to add by hand.
-- `unconnected-(J21-3V3-Pad1)`: the schematic leaves the Pi header's two 3V3 pins (1 and 17) on one no-connect net,
-  so KiCad asks for them to be joined. The Pi ties them internally; fix it in the schematic (no-connect flags) rather
-  than on the board.
+- `PI_3V3`: the Pi header's two 3V3 pins (1 and 17). The schematic had them on a no-connect flag; they are now a
+  named net (`PI_3V3` label plus a PWR_FLAG, since the Pi drives it) and need one short track between the two pins.
 
 Power tracks still under their class width (requested width not reached in a tight spot; no track went below 0.2 mm):
 `Net-(JP1-B)` 26.6 mm at 0.2 instead of 0.8, `Net-(D1-A1)` 12.7 mm at 0.2 instead of 0.8, `+12V` 3.6 mm at 0.4,

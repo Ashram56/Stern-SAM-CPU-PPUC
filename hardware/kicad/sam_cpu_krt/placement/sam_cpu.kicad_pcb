@@ -48844,7 +48844,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "unconnected-(J21-3V3-Pad1)")
+			(net "/MCU and Pi/PI_3V3")
 			(uuid "4190a2bd-7111-4bd0-ba2d-a5b32534fe45")
 		)
 		(pad "2" thru_hole circle
@@ -48988,7 +48988,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "unconnected-(J21-3V3-Pad1)")
+			(net "/MCU and Pi/PI_3V3")
 			(uuid "7b80f1c8-223c-4fd2-89e0-483bd20974a9")
 		)
 		(pad "18" thru_hole circle
