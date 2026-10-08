@@ -166,7 +166,25 @@ stubs left dangling.
   1.1 V rail) and a 1.5 mm +5 V trunk from the power mux under the Pi to J21 pins 2 / 4.
 - Every SMD GND and +3V3 pad has its own via to its plane; 9 vias in the RP2354B exposed pad.
 - The rest is Freerouting 2.5 output (`tools/changes/route/`), not cleaned up: expect meanders and extra vias.
-  Draft 0.5 left 35 connections open; removing the DMD interfaces (draft 0.6) took that to 20, and the new RS485 /
-  I2S / line-in parts are not routed yet (74 unconnected-item reports in DRC after draft 0.7, the new nets included).
+  Draft 0.5 left 35 connections open; removing the DMD interfaces (draft 0.6) took that to 20.
+- **Draft 0.7 routing (cloud, 2026-10-07/08):** 37 connections open (DRC unconnected items; 124 at the start), no
+  clearance or short errors. The isolated RS485 side is routed on its own and no other net has copper inside the
+  GND_ISO area (`route/isochk.py`). New RS485 parts got plane vias (`route/fanout_missing.py`); the routing jammed
+  around the RP2354B was ripped (`route/ripreg.py`) and re-routed in 3-pass chunks.
+- **USB pair** (`tools/changes/c23_usb_bus_room.py`, Vincent: "Move parts, reroute"): U4 pins 66 / 67 were fenced in
+  by pin 64's +3V3 fan-out track and C12. C12 moved 1.6 mm left, pin 64 got its own via inside the pin row, R13 / R14
+  moved between J19 and C12 / L1 (R14 D+ left, R13 D- right), and the pair is hand-routed and locked from the pins
+  straight up to them; it passes 0.4 mm from L1's switching pad for about 2.5 mm. U7 moved 1.8 mm right and 1 mm down
+  to open a lane between J9 and U7 for the BD lines.
+- **JLCPCB rules:** `sam_cpu/sam_cpu.kicad_dru` (4-layer set from the project's jlcpcb_rules notes). DRC with it:
+  no errors from tracks, vias or holes except the keyhole slots MH3 / MH6 (10.4 / 11.8 mm, over the 6.3 mm drill
+  limit; JLCPCB mills them) and 7 starved thermals on GND pads. `route/via_spacing.py` pushes apart vias of
+  different nets closer than 0.5 mm hole to hole (5 pairs left, warnings, in tight spots), `route/edge_nudge.py`
+  keeps the J10 speaker track 0.3 mm from the edge.
+- Still open: BOOTSEL, about 12 bus lines between U4, U6 / U7 and RN1-RN3, XOUT to R16, a few long runs (STB_DATA,
+  SW_*, FRAME_CS_N, AMP_MUTE, GI_PWM, Pi SWCLK, the RS485 TXD), +5 V / +12 V segments (around U6 / U7 and the
+  amplifiers), AUD_DAC_L / R, and one GND_ISO pour island.
 - Steps: `tools/changes/c05_layout_setup.py` (rules, classes, hand routes), `c07_gnd_fanout.py`, `c08_four_layers.py`,
-  `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), Freerouting, and import the session.
+  `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), `route/mkiso.py r.dsn rA.dsn A` (isolated area as
+  keepout, iso nets in class ISO), `route/chunk2.sh rA.dsn rA.ses 3 --router.autorouter.ignore_net_classes=ISO`, and
+  import with `route/imp2.py` (keeps the zones). The isolated nets: `route/mkisoB.py`, Freerouting, `route/impiso.py`.
