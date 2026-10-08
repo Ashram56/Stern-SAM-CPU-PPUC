@@ -108,6 +108,48 @@ and the crystal away from U3 (`placement/candidate_krt_placer.png`), which the c
 lower crossing count does not make it usable. Each routing run took 14 to 22 minutes, three at a time on 4 cores.
 The board in this folder keeps the original placement.
 
+## Hand-routed RP2040 copper kept, KRT for the rest, at 0.2 mm
+
+`escape/` keeps the original board's hand-routed copper where KRT gets stuck, and lets KRT route everything else
+at the board's own 0.2 mm clearance with no net class change. What is kept (grey on the right below):
+
+- every track and via reached from a U3 pad that stays within 7 mm of U3's centre (the RP2040 escape from IO_16_8_1);
+- the whole SAM bus run from U3 to the buffers U7 and U8 (`BUS_*`, `NBRESET_DRV`). It was hand-routed by
+  `../tools/c08_bus_fanout.py` because the bit order has to flip through vias;
+- the whole QSPI flash connection (`/Q_*`, `Net-(U2-*)`).
+
+That is 367 of the original 1375 tracks and vias. `escape/keep_escape.py` picks them and `escape/run_escape.sh`
+runs the whole chain.
+
+![SAM_IO session board (left) and kept copper plus KRT (right)](escape/sam_io_vs_escape.png)
+
+| Kept from the original | Unconnected at 0.2 mm | Clearance |
+|---|---|---|
+| Nothing (this folder's settings at 0.2 mm) | 25 | 0 |
+| RP2040 escape, 4.5 / 5.5 / 7 mm around U3 | 32 / 17 / 17 | 0 |
+| Same at 7 mm + SAM bus run | 7 | 1 (0.196 mm) |
+| Same + QSPI flash (`escape/`) | **4** | **0** |
+
+Graded like the boards above (`escape/drc_own.rpt`, `escape/drc_jlc.rpt`):
+
+| | SAM_IO session | KRT at 0.15 mm (this folder) | Kept copper + KRT at 0.2 mm (`escape/`) |
+|---|---|---|---|
+| Unconnected (JLC rules) | 0 | 3 | 4 |
+| Clearance (JLC rules) | 0 | 0 | 0 |
+| Clearance (board's own 0.2 mm) | 0 | 222 | **0** |
+| Hole clearance (board's own 0.33 mm) | 6 | 11 | 7 |
+| Starved thermal reliefs | 4 | 11 | 12 |
+| Tracks / vias | 1086 / 289 | 1207 / 206 | 1355 / 191 |
+| KRT wall clock | | 18 min | 12.4 min (main pass 638 s, clean-up 106 s) |
+
+The 4 still open: GND at a small pour island on the top left and at a short GND track by the USB connector,
+`/nReset` (the reset button), and `Net-(U3-GPIO25)` (U3 pin 37 to the LED). Each needs a short track or via by
+hand. One GND track necks to 0.192 mm at a pad, which the board's own 0.2 mm minimum flags but JLC's 0.10 mm does
+not.
+
+KRT's own routes take long detours where the original runs straight, for example `/5V_IN` around the left edge.
+That costs track length (2672 mm in all against 2194 mm) but not DRC.
+
 ## How it was made
 
 `route/route_krt.sh` lists the commands in order: strip (`route/strip_routing.py`), refill the pour in KiCad
