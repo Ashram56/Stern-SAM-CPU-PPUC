@@ -1,7 +1,7 @@
 // SAM CPU board replacement, RP2354B firmware.
 //
-// core0: PPUC v2 link to the Pi (UART0), session and configuration, display
-//        frames. core1: SAM IO bus, switch chain, coils and lamps
+// core0: PPUC v2 link to the Pi (UART0), session and configuration.
+// core1: SAM IO bus, switch chain, coils and lamps
 //        (hw/realtime.cpp). See ../README.md.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
@@ -17,7 +17,6 @@
 #include "core/devices.h"
 #include "core/ppuc_session.h"
 #include "core/shared.h"
-#include "hw/display.h"
 #include "hw/link_uart.h"
 #include "hw/realtime.h"
 
@@ -26,11 +25,7 @@
 #endif
 // Virtual PPUC boards this firmware answers for (bit n = board id n).
 #ifndef SAM_BOARD_MASK
-#define SAM_BOARD_MASK 0x07
-#endif
-// Display output before the host configures one (CONFIG_TOPIC_SAM_BOARD TYPE).
-#ifndef SAM_DEFAULT_DISPLAY
-#define SAM_DEFAULT_DISPLAY 0
+#define SAM_BOARD_MASK 0x03  // 0 = outputs, 1 = switches
 #endif
 #ifndef SAM_BUILD_ID
 #define SAM_BUILD_ID 0
@@ -122,7 +117,6 @@ int main() {
 
   // 200 MHz comes from the board header (PLL_SYS_* in boards/sam_cpu_rp2354b.h).
   DevicesReset(g_devices);
-  g_devices.board.display = SAM_DEFAULT_DISPLAY;
 
   gpio_init(PIN_RP_IRQ_N);
   gpio_put(PIN_RP_IRQ_N, 1);
@@ -133,7 +127,6 @@ int main() {
   gpio_set_dir(PIN_AMP_MUTE, GPIO_OUT);
 
   RealtimeInit(&g_devices, &g_shared);
-  DisplayInit();
   PublishOutputs();
   PublishSwitchRefs();
   multicore_launch_core1(Core1Entry);
@@ -154,7 +147,6 @@ int main() {
   uint32_t heartbeat = g_shared.core1_heartbeat;
   uint32_t heartbeat_at = time_us_32();
   bool was_running = false;
-  uint8_t display = 0xFF;
 
   for (;;) {
     const uint32_t now = time_us_32();
@@ -179,16 +171,6 @@ int main() {
       PublishOutputs();
       PublishSwitchRefs();
     }
-
-    // Display mode: a configured mode stays until another one is configured,
-    // so a host restart does not blank the display.
-    if (g_devices.board.display != kDisplayNone && g_devices.board.display != display) {
-      display = g_devices.board.display;
-      DisplaySetMode(display);
-    } else if (display == 0xFF) {
-      display = kDisplayNone;
-    }
-    DisplayService();
 
     // Feed the watchdog only while core1 is alive.
     if (g_shared.core1_heartbeat != heartbeat) {

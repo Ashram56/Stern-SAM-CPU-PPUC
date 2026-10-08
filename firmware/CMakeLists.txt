@@ -22,21 +22,16 @@ add_executable(sam_cpu
   src/main.cpp
   src/core/coil_engine.cpp
   src/core/devices.cpp
-  src/core/dmd_frames.cpp
   src/core/io_scheduler.cpp
   src/core/lamp_engine.cpp
   src/core/ppuc_session.cpp
   src/core/switch_scanner.cpp
-  src/hw/display.cpp
   src/hw/link_uart.cpp
   src/hw/realtime.cpp
 )
 
 pico_generate_pio_header(sam_cpu ${CMAKE_CURRENT_LIST_DIR}/src/hw/sam_bus.pio)
 pico_generate_pio_header(sam_cpu ${CMAKE_CURRENT_LIST_DIR}/src/hw/switch_chain.pio)
-pico_generate_pio_header(sam_cpu ${CMAKE_CURRENT_LIST_DIR}/src/hw/frame_rx.pio)
-pico_generate_pio_header(sam_cpu ${CMAKE_CURRENT_LIST_DIR}/src/hw/dmd_j5.pio)
-pico_generate_pio_header(sam_cpu ${CMAKE_CURRENT_LIST_DIR}/src/hw/hub75.pio)
 
 target_compile_options(sam_cpu PRIVATE -Wall -Wextra -Wno-unused-parameter)
 target_compile_options(sam_cpu PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions -fno-rtti>)

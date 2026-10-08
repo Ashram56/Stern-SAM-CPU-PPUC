@@ -20,7 +20,6 @@ void DevicesReset(Devices& d) {
   d.board.coil_pwm_period_us = 12000; // ROM flipper hold: 1 ms on / 11 ms off
   d.board.gi_relay_min_ms = 100;
   d.board.host_timeout_ms = 50;
-  d.board.display = kDisplayNone;
   for (auto& n : d.next_board) n = 0xFF;
 }
 
@@ -200,10 +199,6 @@ bool ConfigApplier::Apply(uint8_t board, uint8_t topic, uint8_t index, uint8_t k
         case CONFIG_TOPIC_MAX_PULSE_TIME:
           if (value < 10 || value > 1000) return false;
           d_.board.host_timeout_ms = Clamp16(value);
-          return true;
-        case CONFIG_TOPIC_TYPE:
-          if (value > kDisplayHub75) return false;
-          d_.board.display = Clamp8(value);
           return true;
       }
       return false;

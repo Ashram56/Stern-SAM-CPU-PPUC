@@ -8,7 +8,6 @@
 
 #include "../src/core/coil_engine.h"
 #include "../src/core/devices.h"
-#include "../src/core/dmd_frames.h"
 #include "../src/core/io_scheduler.h"
 #include "../src/core/lamp_engine.h"
 #include "../src/core/ppuc_session.h"
@@ -383,75 +382,6 @@ static void TestSession() {
   CHECK(link.frames.size() == 2);
 }
 
-// ---- Display frames --------------------------------------------------------
-
-static void TestDmdFrames() {
-  using namespace dmd;
-  // Every grey level maps to the closest slot count out of 12.
-  uint8_t prev_slots = 0;
-  for (uint8_t g = 0; g < 16; ++g) {
-    const uint8_t m = J5PlaneMask(g);
-    uint8_t slots = 0;
-    for (uint8_t p = 0; p < kJ5Planes; ++p) {
-      if ((m >> p) & 1u) slots = static_cast<uint8_t>(slots + kJ5PlaneSlots[p]);
-    }
-    CHECK(slots >= prev_slots);
-    prev_slots = slots;
-  }
-  CHECK(J5PlaneMask(0) == 0 && J5PlaneMask(15) == 0x0F);
-
-  // 128x32 grey frame, pixel (5, 1) at level 15.
-  static uint8_t frame[kHeaderBytes + 128 * 32 / 2];
-  memset(frame, 0, sizeof(frame));
-  const uint8_t hdr[8] = {'S', 'D', kGray4, 0, 0, 128, 0, 32};
-  memcpy(frame, hdr, 8);
-  frame[kHeaderBytes + (1 * 128 + 5) / 2] = 0x0F;  // x = 5 is odd: low nibble
-  FrameHeader h;
-  CHECK(ParseHeader(frame, sizeof(frame), h));
-  FrameHeader h2;
-  CHECK(!ParseHeader(frame, sizeof(frame) - 1, h2));
-  ParseHeader(frame, sizeof(frame), h);
-  static uint32_t px[kJ5PixelWords];
-  BuildJ5Pixels(h, frame + kHeaderBytes, px);
-  for (uint8_t p = 0; p < kJ5Planes; ++p) {
-    CHECK(px[(1 * kJ5Planes + p) * 4 + 0] == (1u << 5));
-    CHECK(px[(0 * kJ5Planes + p) * 4 + 0] == 0);
-  }
-
-  // J5 steps: 128 row-planes x 4 steps, one frame = 32 x 12 slots.
-  static uint32_t steps[kJ5StepWords];
-  BuildJ5Steps(steps);
-  uint64_t cycles = 0;
-  for (size_t i = 0; i < kJ5StepWords; ++i) {
-    for (int k = 0; k < 2; ++k) {
-      const uint16_t st = static_cast<uint16_t>(steps[i] >> (16 * k));
-      cycles += 15 + 4u * (st >> 7);
-    }
-  }
-  const double frame_ms = cycles * kJ5CtrlCycleNs / 1e6;
-  CHECK(frame_ms > 15.8 && frame_ms < 16.1);  // 62.67 Hz
-  if (!(frame_ms > 15.8 && frame_ms < 16.1)) printf("  J5 frame: %.3f ms\n", frame_ms);
-
-  // HUB75: a red pixel at (130, 40) = panel B, bottom half, row 8 -> address 0,
-  // chain position 2 * 128 + 2.
-  static uint8_t rgb[kHeaderBytes + 256 * 64 * 3];
-  memset(rgb, 0, sizeof(rgb));
-  const uint8_t hdr2[8] = {'S', 'D', kRgb888, 0, 1, 0, 0, 64};
-  memcpy(rgb, hdr2, 8);
-  rgb[kHeaderBytes + (40 * 256 + 130) * 3] = 255;
-  CHECK(ParseHeader(rgb, sizeof(rgb), h));
-  static uint32_t hub[kHubPixelWords];
-  BuildHub75Pixels(h, rgb + kHeaderBytes, kDefaultTint, hub);
-  const size_t q = 2 * 128 + 2;
-  for (uint8_t p = 0; p < kHubPlanes; ++p) {
-    CHECK(hub[p * kHubWordsPerRow + q / 2] == (1u << 9));  // panel B R2, first of the pair
-  }
-  static uint32_t rows[kHubRows];
-  BuildHub75Rows(60, rows);
-  CHECK(rows[0] == (0u | (60u << 2)));
-  CHECK(rows[kHubPlanes + 5] == (1u | ((60u << 5) << 2)));
-}
-
 int main() {
   TestChainDecode();
   TestScanner();
@@ -459,7 +389,6 @@ int main() {
   TestScheduler();
   TestCoils();
   TestSession();
-  TestDmdFrames();
   printf("%d checks, %d failed\n", g_checks, g_failures);
   return g_failures ? 1 : 0;
 }

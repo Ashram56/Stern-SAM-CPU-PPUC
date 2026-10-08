@@ -61,8 +61,8 @@ constexpr uint8_t kLampPortLast = 80;
 constexpr uint8_t kLampLines = 10;
 // Aux latch outputs (ramp tubes and similar): port 200 + (strobe - 3) * 8 + bit,
 // where strobe is the reg 0xB bit (3-7) that latches the board and bit is the
-// AUX_DRV bit. Tron LE: left tube ESTB = bit 4 (R 205, G 204, B 203), right
-// tube DSTB = bit 5 (R 213, G 212, B 211).
+// AUX_DRV bit. Tron LE: left tube ESTB = bit 4 (R 213, G 212, B 211), right
+// tube DSTB = bit 5 (R 221, G 220, B 219).
 constexpr uint8_t kAuxLampPortFirst = 200;
 constexpr uint8_t kAuxLampPortLast = 239;
 constexpr uint8_t kNumLampPorts = 240;

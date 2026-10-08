@@ -1,6 +1,6 @@
 // State handed between the two cores.
 //
-// core0 runs the PPUC link, the session and the display; core1 runs the IO
+// core0 runs the PPUC link and the session; core1 runs the IO
 // bus, switch chain, coils and lamps (hw/realtime.cpp). Each block below has
 // exactly one writer and is copied whole under a sequence lock, so a reader
 // never sees half of an update.
