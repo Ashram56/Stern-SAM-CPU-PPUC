@@ -31,3 +31,15 @@ python3 "$P/route.py" "$B/r5.kicad_pcb" "$B/r6.kicad_pcb" $L $R --grid-step 0.05
 # 4. grade with the board's own rules (original .kicad_pro), zones refilled
 copypro r6
 kicad-cli pcb drc --refill-zones --save-board -o drc_krt.rpt "$B/r6.kicad_pcb"
+
+# 5. JLCPCB 4-layer check (../sam_cpu.kicad_dru from the project's JLCPCB rules, board minimums from its README):
+#    15 different-net via pairs under 0.5 mm hole to hole and 3 SW_LOAD_N stubs 0.25 mm from the MH11 hole.
+#    Rerouted with the project's min_hole_to_hole raised to 0.5 and min_hole_clearance to 0.26 (routing copy only).
+python3 "$P/route.py" "$B/r6.kicad_pcb" "$B/r9.kicad_pcb" $L $R --grid-step 0.05 --keepout --keepout-layer User.2 \
+  --nets "/Audio/AMP_STBY" "/IO bus/BA1" "/IO bus/BA3" "/MCU and Pi/MR_N" AUD_DAC_L BUS_A1 BUS_A2 BUS_D1 BUS_D2 BUS_D6 BUS_D7 \
+         FRAME_SCK "Net-(J1-Pin_8)" "Net-(J19-D+-PadA6)" "Net-(J19-D--PadA7)" "Net-(Q11-B)" "Net-(RN3-R2.2)" "Net-(U14-D1)" \
+         "Net-(U20-QE)" "Net-(U22-CAPM)" "Net-(U22-LDOO)" RP_IRQ_N RP_UART_RX STB_CHAIN SW_LOAD_N FRAME_MOSI GND \
+  --force-reroute --hole-to-hole-clearance 0.5 --power-nets GND --power-nets-widths 0.3
+python3 "$P/route.py" "$B/r9.kicad_pcb" "$B/r10.kicad_pcb" $L $R --grid-step 0.05 --keepout --keepout-layer User.2 \
+  --nets BUS_A1 SW_LOAD_N FRAME_MOSI GND --power-nets GND --power-nets-widths 0.3
+kicad-cli pcb drc --refill-zones --save-board -o drc_krt.rpt "$B/r10.kicad_pcb"   # with ../sam_cpu.kicad_pro and .kicad_dru

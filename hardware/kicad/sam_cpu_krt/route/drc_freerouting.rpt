@@ -1,20 +1,32 @@
-** Drc report for sam_cpu.kicad_pcb **
-** Created on 2026-10-07T21:30:51 **
-** Report includes: Errors, Warnings, Exclusions **
+** Drc report for jlc_fr.kicad_pcb **
+** Created on 2026-10-08T06:18:09 **
+** Report includes: Errors, Warnings **
 
-** Found 611 DRC violations **
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2850 mm)
-    Rule: board setup constraints edge; error
+** Found 634 DRC violations **
+[copper_edge_clearance]: Board edge clearance violation (rule 'JLC copper to routed edge' clearance 0.3000 mm; actual 0.2850 mm)
+    Rule: JLC copper to routed edge; error
     @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
     @(149.8650 mm, 66.6350 mm): Track [Net-(J10-Pin_1)] on B.Cu, length 15.9370 mm
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2850 mm)
-    Rule: board setup constraints edge; error
+[copper_edge_clearance]: Board edge clearance violation (rule 'JLC copper to routed edge' clearance 0.3000 mm; actual 0.2850 mm)
+    Rule: JLC copper to routed edge; error
     @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
     @(149.8650 mm, 50.6980 mm): Track [Net-(J10-Pin_1)] on B.Cu, length 0.3461 mm
-[copper_edge_clearance]: Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2850 mm)
-    Rule: board setup constraints edge; error
+[copper_edge_clearance]: Board edge clearance violation (rule 'JLC copper to routed edge' clearance 0.3000 mm; actual 0.2850 mm)
+    Rule: JLC copper to routed edge; error
     @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
     @(145.0000 mm, 71.5000 mm): Track [Net-(J10-Pin_1)] on B.Cu, length 6.8801 mm
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 11.8200 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 39.9800 mm): NPTH pad of MH6
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 10.4000 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 43.6900 mm): NPTH pad of MH6
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 11.8200 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 256.3000 mm): NPTH pad of MH3
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 10.4000 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 260.0100 mm): NPTH pad of MH3
 [starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; 1 spokes connected to isolated island)
     Local override; error
     @(30.0000 mm, 30.0000 mm): Zone 'GND_BOT' [GND] on B.Cu, priority 0
@@ -39,6 +51,18 @@
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
     @(55.9950 mm, 205.2550 mm): PTH pad 15 [GND] of SW3
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(79.9200 mm, 37.1250 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(79.9200 mm, 32.9450 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(71.2800 mm, 37.1250 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(71.2800 mm, 32.9450 mm): PTH pad SH [GND] of J19
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
@@ -59,6 +83,66 @@
     Rule: board setup constraints silk; warning
     @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
     @(151.3100 mm, 95.4400 mm): Reference field of J24
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4589 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(67.4500 mm, 53.8000 mm): Via [+3V3] on F.Cu - B.Cu
+    @(67.5443 mm, 53.0470 mm): Via [BUS_D6] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4695 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(103.0248 mm, 191.9498 mm): Via [+3V3] on F.Cu - B.Cu
+    @(102.5790 mm, 192.5770 mm): Via [MEM_PROTECT] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4915 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(95.1065 mm, 192.4440 mm): Via [Net-(U14-D1)] on F.Cu - B.Cu
+    @(95.7248 mm, 191.9498 mm): Via [+3V3] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4645 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(118.9950 mm, 211.8900 mm): Via [GND] on F.Cu - B.Cu
+    @(119.5980 mm, 211.4200 mm): Via [Net-(U20-QH)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4709 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(54.6700 mm, 69.1600 mm): Via [GND] on F.Cu - B.Cu
+    @(54.2556 mm, 69.8100 mm): Via [BUS_A0] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4883 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(124.6250 mm, 115.7075 mm): Via [GND] on F.Cu - B.Cu
+    @(124.7820 mm, 116.4800 mm): Via [AUD_AMP_R] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4814 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(136.9950 mm, 113.0575 mm): Via [GND] on F.Cu - B.Cu
+    @(137.0730 mm, 113.8350 mm): Via [Net-(U22-XSMT)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4723 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(118.9370 mm, 101.7700 mm): Via [Net-(U22-CAPM)] on F.Cu - B.Cu
+    @(118.5200 mm, 101.1200 mm): Via [GND] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4768 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(47.7000 mm, 242.9800 mm): Via [Net-(J3-Pin_2)] on F.Cu - B.Cu
+    @(48.4524 mm, 243.1730 mm): Via [Net-(U16-D3)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4559 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(107.2580 mm, 219.5990 mm): Via [Net-(U17-D7)] on F.Cu - B.Cu
+    @(107.1810 mm, 220.3510 mm): Via [Net-(U17-D4)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4616 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(61.4140 mm, 248.4280 mm): Via [Net-(U17-D1)] on F.Cu - B.Cu
+    @(61.3000 mm, 247.6750 mm): Via [Net-(J3-Pin_9)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4520 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(107.2580 mm, 219.5990 mm): Via [Net-(U17-D7)] on F.Cu - B.Cu
+    @(106.5060 mm, 219.6030 mm): Via [Net-(U16-D7)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4869 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(50.0464 mm, 80.4457 mm): Via [Net-(J9-Pin_4)] on F.Cu - B.Cu
+    @(50.8333 mm, 80.4390 mm): Via [Net-(J9-Pin_2)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4846 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(66.5924 mm, 93.5459 mm): Via [Net-(U18-D3)] on F.Cu - B.Cu
+    @(66.4777 mm, 94.3221 mm): Via [Net-(U18-D2)] on F.Cu - B.Cu
+[hole_to_hole]: Drilled hole too close to other hole (rule 'JLC hole to hole, different nets' min 0.5000 mm; actual 0.4580 mm)
+    Rule: JLC hole to hole, different nets; warning
+    @(64.2901 mm, 207.2410 mm): Via [Net-(U14-D2)] on F.Cu - B.Cu
+    @(65.0419 mm, 207.3380 mm): Via [Net-(U14-D1)] on F.Cu - B.Cu
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
     Local override; warning
     @(119.3750 mm, 60.0650 mm): Footprint R6
@@ -2253,7 +2337,7 @@
 [unconnected_items]: Missing connection between items
     Local override; error
     @(114.4400 mm, 100.0450 mm): Pad 1 [+12V] of C107 on F.Cu
-    @(117.5400 mm, 94.0000 mm): PTH pad 3 [+12V] of U24
+    @(117.5400 mm, 94.0000 mm): Track [+12V] on F.Cu, length 0.2888 mm
 [unconnected_items]: Missing connection between items
     Local override; error
     @(108.6660 mm, 126.4740 mm): Track [+12V] on B.Cu, length 33.8300 mm
@@ -2268,7 +2352,7 @@
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(55.4200 mm, 164.8100 mm): Pad 13 [Net-(U19-D2)] of U19 on F.Cu
+    @(55.4200 mm, 164.8100 mm): Track [Net-(U19-D2)] on F.Cu, length 1.3974 mm
     @(49.3500 mm, 182.5975 mm): Pad 2 [Net-(U19-D2)] of R51 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
@@ -2276,7 +2360,7 @@
     @(88.1983 mm, 58.2300 mm): Track [+5V] on F.Cu, length 3.2480 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(96.2350 mm, 64.5950 mm): Pad 1 [+5V] of C4 on F.Cu
+    @(96.2350 mm, 64.5950 mm): Track [+5V] on F.Cu, length 0.4008 mm
     @(93.5500 mm, 105.4400 mm): Track [+5V] on F.Cu, length 1.1600 mm
 [unconnected_items]: Missing connection between items
     Local override; error
@@ -2317,7 +2401,7 @@
 [unconnected_items]: Missing connection between items
     Local override; error
     @(68.4000 mm, 59.0000 mm): Pad 18 [SW_DATA] of U4 on F.Cu
-    @(89.8643 mm, 180.3500 mm): Track [SW_DATA] on B.Cu, length 1.0718 mm
+    @(89.7917 mm, 180.4230 mm): Track [SW_DATA] on B.Cu, length 0.1030 mm
 [unconnected_items]: Missing connection between items
     Local override; error
     @(50.2325 mm, 57.0700 mm): Pad 18 [/IO bus/BD4] of U6 on F.Cu
@@ -2373,7 +2457,7 @@
 [unconnected_items]: Missing connection between items
     Local override; error
     @(78.3000 mm, 57.4000 mm): Pad 47 [GI_PWM] of U4 on F.Cu
-    @(93.7000 mm, 128.7750 mm): Pad 1 [GI_PWM] of R183 on F.Cu
+    @(93.7000 mm, 132.3400 mm): Track [GI_PWM] on F.Cu, length 3.5650 mm
 [unconnected_items]: Missing connection between items
     Local override; error
     @(122.0000 mm, 122.1575 mm): Pad 1 [AMP_MUTE] of R203 on F.Cu

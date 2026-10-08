@@ -1,16 +1,24 @@
-** Drc report for r6_drc.kicad_pcb **
-** Created on 2026-10-08T03:58:59 **
+** Drc report for jlc_r10.kicad_pcb **
+** Created on 2026-10-08T07:25:05 **
 ** Report includes: Errors, Warnings **
 
-** Found 630 DRC violations **
-[starved_thermal]: Thermal relief connection to zone incomplete (layer In1.Cu; 1 spokes connected to isolated island)
-    Local override; error
-    @(30.0000 mm, 30.0000 mm): Zone 'GND_PLANE' [GND] on In1.Cu, priority 0
-    @(125.1600 mm, 94.0000 mm): PTH pad 9 [GND] of U24
+** Found 638 DRC violations **
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 11.8200 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 39.9800 mm): NPTH pad of MH6
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 10.4000 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 43.6900 mm): NPTH pad of MH6
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 11.8200 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 256.3000 mm): NPTH pad of MH3
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 10.4000 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 260.0100 mm): NPTH pad of MH3
 [starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(30.0000 mm, 30.0000 mm): Zone 'GND_BOT' [GND] on B.Cu, priority 0
-    @(42.7000 mm, 59.2100 mm): PTH pad 19 [GND] of J9
+    @(125.1600 mm, 94.0000 mm): PTH pad 9 [GND] of U24
 [starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(30.0000 mm, 30.0000 mm): Zone 'GND_BOT' [GND] on B.Cu, priority 0
@@ -38,10 +46,6 @@
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
-    @(52.9500 mm, 180.4475 mm): Pad 2 [GND] of C50 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
     @(91.6000 mm, 218.4150 mm): Pad 2 [GND] of C78 on F.Cu
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
@@ -59,6 +63,10 @@
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
     @(90.4200 mm, 204.2700 mm): Pad 15 [GND] of U16 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; 1 spokes connected to isolated island)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(55.9950 mm, 217.9550 mm): PTH pad 10 [GND] of SW3
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
@@ -67,6 +75,10 @@
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
     @(55.9950 mm, 202.7150 mm): PTH pad 16 [GND] of SW3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(49.3000 mm, 180.4475 mm): Pad 2 [GND] of C49 on F.Cu
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
@@ -87,6 +99,18 @@
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
     @(79.9200 mm, 37.1250 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(79.9200 mm, 37.1250 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(79.9200 mm, 32.9450 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(71.2800 mm, 37.1250 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(71.2800 mm, 32.9450 mm): PTH pad SH [GND] of J19
 [track_dangling]: Track has unconnected end
     Local override; warning
     @(151.0200 mm, 188.7200 mm): Track [Net-(U32-VISOIN)] on F.Cu, length 0.0283 mm
@@ -99,6 +123,9 @@
 [track_dangling]: Track has unconnected end
     Local override; warning
     @(83.0567 mm, 190.0000 mm): Track [+4V5] on In1.Cu, length 0.0433 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(57.6000 mm, 70.1500 mm): Via [BUS_A2] on F.Cu - B.Cu
 [via_dangling]: Via is not connected or connected on only one layer
     Local override; warning
     @(141.8200 mm, 251.4800 mm): Via [SW_LOAD_N] on F.Cu - B.Cu
@@ -125,10 +152,6 @@
     Rule: board setup constraints silk; warning
     @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
     @(151.3100 mm, 95.4400 mm): Reference field of J24
-[hole_to_hole]: Drilled hole too close to other hole (board setup constraints min 0.2500 mm; actual 0.2348 mm)
-    Rule: board setup constraints; warning
-    @(66.8550 mm, 65.7000 mm): Via [+1V1] on F.Cu - B.Cu
-    @(66.5000 mm, 65.3000 mm): Via [+1V1] on F.Cu - B.Cu
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
     Local override; warning
     @(119.3750 mm, 60.0650 mm): Footprint R6
@@ -2319,23 +2342,27 @@
     @(63.1250 mm, 242.4950 mm): Reference field of R135
     @(63.9500 mm, 241.7750 mm): Pad 2 [GND] of R128 on F.Cu
 
-** Found 5 unconnected pads **
+** Found 6 unconnected pads **
 [unconnected_items]: Missing connection between items
     Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
 [unconnected_items]: Missing connection between items
     Local override; error
+    @(125.1600 mm, 94.0000 mm): PTH pad 9 [GND] of U24
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
     @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
-    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(50.4500 mm, 93.0000 mm): Track [SW_LOAD_N] on F.Cu, length 0.0200 mm
+    @(66.6000 mm, 91.4500 mm): Track [SW_LOAD_N] on F.Cu, length 1.2021 mm
     @(68.4000 mm, 58.6000 mm): Pad 17 [SW_LOAD_N] of U4 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(57.6000 mm, 70.1500 mm): Track [BUS_A2] on F.Cu, length 1.2728 mm
+    @(68.4000 mm, 55.0000 mm): Pad 8 [BUS_A2] of U4 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
     @(78.3000 mm, 56.6000 mm): Pad 49 [FRAME_MOSI] of U4 on F.Cu
