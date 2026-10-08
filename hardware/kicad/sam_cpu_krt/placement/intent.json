@@ -1,0 +1,4 @@
+{"schema": 1, "kind": "floorplan-intent", "units": "mm",
+ "keepouts": [
+  {"name": "heatsink-bar", "rect": [89, 71, 137, 84], "sides": ["F", "B"], "note": "behind the U23 / U24 tabs, kept for the heatsink"}
+ ]}

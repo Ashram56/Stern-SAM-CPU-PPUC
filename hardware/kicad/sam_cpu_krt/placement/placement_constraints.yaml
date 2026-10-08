@@ -1,0 +1,36 @@
+# Placement intent for the SAM CPU PPUC board (KiCadRoutingTools clone).
+# Coordinates: KiCad board coordinates in mm (board corner at 30, 30; see ../sam_cpu/PCB.md for the board frame).
+# Used by the placement stage: every part under `fixed` is passed to place_optimize.py --lock.
+
+fixed:
+  why: harness connectors on the original SAM positions, mounting holes on the backbox screws, the Pi socket,
+       front-panel buttons and DIP switch, heatsinked amplifiers, the isolated RS485 side, the RP2354B with its
+       hand-placed regulator parts
+  connectors: [J1, J2, J3, J6, J9, J10, J11, J12, J13, J17, J18, J19, J20, J21, J22, J23, J24, J27, J28, J29, J30]
+  mounting_holes: [MH3, MH4, MH5, MH6, MH7, MH9, MH10, MH11, MH12]
+  user_parts: [SW1, SW2, SW3, BT1, JP1]
+  heatsink: [U23, U24]            # tabs on one heatsink bar at y 84-95
+  isolated_rs485: [U32, C128, C129, C130, C131, C132, D27, JP2, R211]
+  mcu: [U4]
+
+groups:              # schematic sheets; parts stay near their sheet's block (max displacement per candidate)
+  mcu_and_pi: {sheet: mcu.kicad_sch, near: U4}
+  io_bus: {sheet: io_bus.kicad_sch, near: [U6, U7, J9]}
+  power: {sheet: power.kicad_sch, near: J11}
+  audio: {sheet: audio.kicad_sch, near: [U22, U23, U24]}
+  switch_matrix: {sheets: [sw_rows_1, sw_rows_9, sw_columns, sw_dedicated_1, sw_dedicated_2], near: [J12, J6, J13, J2, J3, J1]}
+  rs485_i2s: {sheet: rs485_i2s.kicad_sch, near: [U32, J28]}
+
+proximity:
+  decoupling_cap_to_supply_pin_mm: 3      # checked after placement (board_score cluster_to_pin)
+  crystal: {part: Y1, load_caps: [C28, C29], near: U4, no_vias_under: true}
+  regulator_caps: {U4: [C12, C24, L1, R8, C11]}
+  series_and_pull_resistors: near the pin they serve
+
+keepouts:
+  heatsink_bar: {x: [89, 137], y: [71, 84]}     # behind U23 / U24 tabs, kept free for the heatsink
+  under_pi: {note: only low SMD parts (< 3 mm) under the Pi footprint}
+  gnd_iso: {polygon: GND_ISO zone outline + 2 mm, nets: isolated only}
+
+suggested_moves:
+  - swap U6 and U7 so the data buffer U6 sits above RN1 / RN2 (Freerouting thread's analysis: 11 crossings)
