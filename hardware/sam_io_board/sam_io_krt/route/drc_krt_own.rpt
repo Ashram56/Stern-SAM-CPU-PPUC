@@ -1,0 +1,1335 @@
+** Drc report for r2.kicad_pcb **
+** Created on 2026-10-08T07:23:41 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 353 DRC violations **
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(112.5000 mm, 78.4500 mm): Track [+3V3] on F.Cu, length 1.7678 mm
+    @(113.9105 mm, 80.0960 mm): Track [/485_TX] on F.Cu, length 0.4875 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1967 mm)
+    Local override; error
+    @(113.9105 mm, 80.8960 mm): Track [/485_DE] on F.Cu, length 0.4875 mm
+    @(113.4230 mm, 80.4960 mm): Track [/485_RX] on F.Cu, length 0.0233 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(118.7480 mm, 85.7335 mm): Track [Net-(J3-Pin_3)] on F.Cu, length 0.4875 mm
+    @(118.3500 mm, 85.7500 mm): Track [Net-(J3-Pin_1)] on F.Cu, length 0.5000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1863 mm)
+    Local override; error
+    @(118.3480 mm, 78.8585 mm): Pad 47 [Net-(U3-USB_DP)] of U3 on F.Cu
+    @(118.7000 mm, 78.3230 mm): Track [Net-(U3-USB_DM)] on F.Cu, length 2.3230 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(118.8000 mm, 86.6500 mm): Via [Net-(J3-Pin_3)] on F.Cu - B.Cu
+    @(119.5500 mm, 86.7000 mm): Track [BUS_DIR] on F.Cu, length 1.6263 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1750 mm)
+    Local override; error
+    @(119.3750 mm, 86.9250 mm): Track [/1V1] on B.Cu, length 0.5000 mm
+    @(118.8000 mm, 86.6500 mm): Via [Net-(J3-Pin_3)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1822 mm)
+    Local override; error
+    @(131.4000 mm, 77.3000 mm): Track [+3V3] on F.Cu, length 5.0205 mm
+    @(130.9855 mm, 76.2000 mm): Pad 1 [GND] of D3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1536 mm)
+    Local override; error
+    @(104.4000 mm, 77.1500 mm): Track [BUS_D6] on F.Cu, length 5.3033 mm
+    @(107.3500 mm, 79.6000 mm): Track [+3V3] on F.Cu, length 1.4000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1798 mm)
+    Local override; error
+    @(120.7855 mm, 82.8960 mm): Pad 34 [unconnected-(U3-GPIO22-Pad34)] of U3 on F.Cu
+    @(121.7000 mm, 83.0000 mm): Via [+3V3] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(120.7855 mm, 80.0960 mm): Pad 41 [/Out_Special] of U3 on F.Cu
+    @(121.0000 mm, 79.5000 mm): Via [+3V3] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1930 mm)
+    Local override; error
+    @(113.1000 mm, 70.5500 mm): Via [+3V3] on F.Cu - B.Cu
+    @(113.3040 mm, 71.3430 mm): Pad 7 [Net-(U2-IO3)] of U2 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1970 mm)
+    Local override; error
+    @(130.1000 mm, 76.8500 mm): Track [+3V3] on F.Cu, length 0.6364 mm
+    @(130.9855 mm, 76.2000 mm): Pad 1 [GND] of D3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(120.7855 mm, 83.6960 mm): Pad 32 [unconnected-(U3-GPIO21-Pad32)] of U3 on F.Cu
+    @(120.8000 mm, 83.3000 mm): Track [+3V3] on F.Cu, length 0.0150 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(120.7855 mm, 83.6960 mm): Pad 32 [unconnected-(U3-GPIO21-Pad32)] of U3 on F.Cu
+    @(121.4000 mm, 83.3000 mm): Track [+3V3] on F.Cu, length 0.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(121.0000 mm, 79.5000 mm): Track [+3V3] on F.Cu, length 0.2828 mm
+    @(120.7855 mm, 80.0960 mm): Pad 41 [/Out_Special] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(120.7855 mm, 80.0960 mm): Pad 41 [/Out_Special] of U3 on F.Cu
+    @(120.8000 mm, 79.7000 mm): Track [+3V3] on F.Cu, length 0.0150 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(119.9480 mm, 78.8585 mm): Pad 43 [/3V3A] of U3 on F.Cu
+    @(119.5500 mm, 77.9500 mm): Track [+3V3] on F.Cu, length 0.9000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(118.3480 mm, 78.8585 mm): Pad 47 [Net-(U3-USB_DP)] of U3 on F.Cu
+    @(117.5500 mm, 78.8500 mm): Track [+3V3] on F.Cu, length 0.4000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 83.6960 mm): Pad 11 [BUS_D5] of U3 on F.Cu
+    @(113.9000 mm, 83.3000 mm): Track [+3V3] on F.Cu, length 0.0112 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 83.6960 mm): Pad 11 [BUS_D5] of U3 on F.Cu
+    @(114.7500 mm, 83.3000 mm): Track [+3V3] on F.Cu, length 0.8500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 80.0960 mm): Pad 2 [/485_TX] of U3 on F.Cu
+    @(113.7500 mm, 79.7000 mm): Track [+3V3] on F.Cu, length 0.1500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(112.5000 mm, 78.4500 mm): Track [+3V3] on F.Cu, length 1.7678 mm
+    @(113.9105 mm, 80.0960 mm): Pad 2 [/485_TX] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9000 mm, 79.7000 mm): Track [+3V3] on F.Cu, length 0.0112 mm
+    @(113.9105 mm, 80.0960 mm): Pad 2 [/485_TX] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(116.3500 mm, 85.7500 mm): Track [GND] on F.Cu, length 0.5500 mm
+    @(116.7480 mm, 85.7335 mm): Pad 20 [Net-(U3-XIN)] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1993 mm)
+    Local override; error
+    @(116.3500 mm, 85.2000 mm): Track [GND] on F.Cu, length 0.7778 mm
+    @(116.7480 mm, 85.7335 mm): Pad 20 [Net-(U3-XIN)] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(116.7480 mm, 85.7335 mm): Pad 20 [Net-(U3-XIN)] of U3 on F.Cu
+    @(116.3480 mm, 85.7335 mm): Track [GND] on F.Cu, length 0.0166 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(120.7855 mm, 81.2960 mm): Pad 38 [unconnected-(U3-GPIO26_ADC0-Pad38)] of U3 on F.Cu
+    @(119.8500 mm, 81.2500 mm): Via [BUS_A2] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1903 mm)
+    Local override; error
+    @(119.8500 mm, 81.2500 mm): Via [BUS_A2] on F.Cu - B.Cu
+    @(119.3500 mm, 80.6500 mm): Track [+3V3] on B.Cu, length 0.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1772 mm)
+    Local override; error
+    @(123.4590 mm, 90.3990 mm): PTH pad 1 [Net-(J3-Pin_1)] of J3
+    @(124.8500 mm, 91.1000 mm): Track [BUS_A2] on F.Cu, length 1.6263 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1990 mm)
+    Local override; error
+    @(125.9990 mm, 90.3990 mm): PTH pad 2 [GND] of J3
+    @(124.8500 mm, 85.2000 mm): Track [BUS_A2] on F.Cu, length 5.9000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(117.3480 mm, 82.2960 mm): Pad 57 [GND] of U3 on F.Cu
+    @(115.6500 mm, 80.4000 mm): Track [BUS_A2] on F.Cu, length 3.4000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1814 mm)
+    Local override; error
+    @(119.0500 mm, 80.4000 mm): Track [BUS_A2] on F.Cu, length 1.1314 mm
+    @(117.3480 mm, 82.2960 mm): Pad 57 [GND] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1786 mm)
+    Local override; error
+    @(115.4500 mm, 80.6000 mm): Track [BUS_A2] on F.Cu, length 0.2828 mm
+    @(117.3480 mm, 82.2960 mm): Pad 57 [GND] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(115.1500 mm, 85.7500 mm): Track [BUS_A2] on F.Cu, length 1.0500 mm
+    @(115.5480 mm, 85.7335 mm): Pad 17 [BUS_A3] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1627 mm)
+    Local override; error
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+    @(114.8000 mm, 84.2500 mm): Via [BUS_D5] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(97.4000 mm, 81.6500 mm): Track [BUS_D4] on F.Cu, length 5.1619 mm
+    @(97.3500 mm, 82.4000 mm): Via [BUS_D5] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(99.4750 mm, 78.8500 mm): Via [BUS_D5] on F.Cu - B.Cu
+    @(100.1250 mm, 78.8625 mm): Pad 9 [BUS_D6] of U7 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1668 mm)
+    Local override; error
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+    @(114.5750 mm, 83.8750 mm): Track [BUS_D5] on F.Cu, length 0.2475 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+    @(114.4000 mm, 83.7000 mm): Track [BUS_D5] on F.Cu, length 0.5000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1631 mm)
+    Local override; error
+    @(114.5750 mm, 83.9000 mm): Track [BUS_D5] on F.Cu, length 0.0250 mm
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1669 mm)
+    Local override; error
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+    @(114.6000 mm, 83.9500 mm): Track [BUS_D5] on F.Cu, length 0.0250 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1631 mm)
+    Local override; error
+    @(114.6000 mm, 83.9250 mm): Track [BUS_D5] on F.Cu, length 0.0354 mm
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1669 mm)
+    Local override; error
+    @(114.6250 mm, 83.9750 mm): Track [BUS_D5] on F.Cu, length 0.0354 mm
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1770 mm)
+    Local override; error
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+    @(114.6250 mm, 84.0750 mm): Track [BUS_D5] on F.Cu, length 0.1000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1618 mm)
+    Local override; error
+    @(112.7000 mm, 84.6750 mm): Track [BUS_D5] on B.Cu, length 1.6750 mm
+    @(112.4000 mm, 84.2000 mm): Via [BUS_D7] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 84.8960 mm): Pad 14 [BUS_A0] of U3 on F.Cu
+    @(113.9000 mm, 84.5000 mm): Track [BUS_D7] on F.Cu, length 1.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1548 mm)
+    Local override; error
+    @(115.1480 mm, 85.7335 mm): Pad 16 [BUS_A2] of U3 on F.Cu
+    @(115.5500 mm, 86.2000 mm): Track [BUS_A3] on F.Cu, length 1.5556 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(115.9480 mm, 85.7335 mm): Pad 18 [BUS_IOSTB] of U3 on F.Cu
+    @(115.5500 mm, 85.7500 mm): Track [BUS_A3] on F.Cu, length 0.4500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1816 mm)
+    Local override; error
+    @(100.7000 mm, 96.0000 mm): Track [BUS_A1] on F.Cu, length 0.2828 mm
+    @(99.8625 mm, 95.5750 mm): Pad 4 [BUS_A2] of U8 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1816 mm)
+    Local override; error
+    @(99.8625 mm, 95.5750 mm): Pad 4 [BUS_A2] of U8 on F.Cu
+    @(101.4000 mm, 96.0000 mm): Track [BUS_A1] on F.Cu, length 0.7000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(101.6500 mm, 94.9500 mm): Via [BUS_A3] on F.Cu - B.Cu
+    @(110.9000 mm, 86.5000 mm): Track [BUS_A1] on F.Cu, length 13.4350 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1536 mm)
+    Local override; error
+    @(101.2000 mm, 77.1500 mm): Track [BUS_D6] on F.Cu, length 3.2000 mm
+    @(104.2000 mm, 76.4500 mm): Track [+3V3] on F.Cu, length 4.4548 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 84.4960 mm): Pad 13 [BUS_D7] of U3 on F.Cu
+    @(113.3000 mm, 84.1000 mm): Track [BUS_D6] on F.Cu, length 0.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1889 mm)
+    Local override; error
+    @(100.3000 mm, 78.0500 mm): Track [BUS_D6] on F.Cu, length 1.2728 mm
+    @(100.7750 mm, 78.8625 mm): Pad 10 [BUS_D7] of U7 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1750 mm)
+    Local override; error
+    @(100.7750 mm, 78.8625 mm): Pad 10 [BUS_D7] of U7 on F.Cu
+    @(100.3000 mm, 78.6500 mm): Track [BUS_D6] on F.Cu, length 0.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(100.6500 mm, 85.7000 mm): Track [BUS_D5] on F.Cu, length 11.0250 mm
+    @(107.6000 mm, 85.3500 mm): Track [BUS_A0] on F.Cu, length 0.7071 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(110.7500 mm, 85.3500 mm): Track [BUS_A0] on F.Cu, length 3.1500 mm
+    @(100.6500 mm, 85.7000 mm): Track [BUS_D5] on F.Cu, length 11.0250 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(100.6500 mm, 85.7000 mm): Track [BUS_D5] on F.Cu, length 11.0250 mm
+    @(111.2000 mm, 84.9000 mm): Track [BUS_A0] on F.Cu, length 0.6364 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1961 mm)
+    Local override; error
+    @(113.4500 mm, 82.9000 mm): Track [BUS_D4] on F.Cu, length 0.4500 mm
+    @(113.9000 mm, 83.3000 mm): Track [+3V3] on F.Cu, length 0.0112 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1779 mm)
+    Local override; error
+    @(113.4000 mm, 82.8500 mm): Track [BUS_D4] on F.Cu, length 0.0707 mm
+    @(113.9105 mm, 82.4960 mm): Pad 8 [BUS_D3] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1779 mm)
+    Local override; error
+    @(112.7500 mm, 82.8500 mm): Track [BUS_D4] on F.Cu, length 0.6500 mm
+    @(113.9105 mm, 82.4960 mm): Pad 8 [BUS_D3] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1836 mm)
+    Local override; error
+    @(110.9980 mm, 83.6930 mm): Pad 1 [+3V3] of C13 on F.Cu
+    @(110.6000 mm, 85.0000 mm): Track [BUS_D4] on F.Cu, length 3.0406 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(110.7500 mm, 85.3500 mm): Track [BUS_A0] on F.Cu, length 3.1500 mm
+    @(109.7000 mm, 85.0000 mm): Track [BUS_D4] on F.Cu, length 0.9000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(110.7500 mm, 85.3500 mm): Track [BUS_A0] on F.Cu, length 3.1500 mm
+    @(108.8000 mm, 84.1000 mm): Track [BUS_D4] on F.Cu, length 1.2728 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(108.9500 mm, 83.6500 mm): Track [+3V3] on F.Cu, length 1.0607 mm
+    @(106.2000 mm, 84.1000 mm): Track [BUS_D4] on F.Cu, length 2.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(115.4500 mm, 84.4000 mm): Track [BUS_A2] on F.Cu, length 3.8000 mm
+    @(114.9000 mm, 83.1500 mm): Via [+3V3] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1890 mm)
+    Local override; error
+    @(117.3560 mm, 44.1640 mm): Pad 3 [+3V3] of J2 on F.Cu
+    @(116.0000 mm, 43.1000 mm): Track [/485_RX] on F.Cu, length 2.7000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1531 mm)
+    Local override; error
+    @(108.7000 mm, 50.4000 mm): Track [/485_RX] on B.Cu, length 8.2024 mm
+    @(113.1000 mm, 47.5600 mm): PTH pad 2 [/B] of JP3
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1976 mm)
+    Local override; error
+    @(118.7000 mm, 43.1000 mm): Track [/485_RX] on F.Cu, length 0.9899 mm
+    @(118.3560 mm, 44.1640 mm): Pad 2 [/485_TX] of J2 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1640 mm)
+    Local override; error
+    @(126.5500 mm, 49.1250 mm): Track [GND] on F.Cu, length 0.4243 mm
+    @(126.1810 mm, 48.5420 mm): Pad 1 [Net-(J4-SHIELD)] of C22 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1732 mm)
+    Local override; error
+    @(113.3040 mm, 73.8830 mm): Pad 5 [Net-(U2-DI(IO0))] of U2 on F.Cu
+    @(114.4750 mm, 74.3750 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1713 mm)
+    Local override; error
+    @(115.5460 mm, 74.9020 mm): Pad 1 [/1V1] of C10 on F.Cu
+    @(115.1250 mm, 74.3750 mm): Track [GND] on F.Cu, length 0.6500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1713 mm)
+    Local override; error
+    @(115.5500 mm, 73.9500 mm): Track [GND] on F.Cu, length 0.6010 mm
+    @(115.5460 mm, 74.9020 mm): Pad 1 [/1V1] of C10 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1864 mm)
+    Local override; error
+    @(120.8000 mm, 74.8000 mm): Via [GND] on F.Cu - B.Cu
+    @(121.0158 mm, 75.4842 mm): Track [+3V3] on B.Cu, length 0.8262 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(111.2500 mm, 72.4000 mm): Track [+3V3] on B.Cu, length 2.6163 mm
+    @(111.7500 mm, 72.5000 mm): Track [GND] on B.Cu, length 3.9000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(111.2500 mm, 72.4000 mm): Track [+3V3] on B.Cu, length 2.6163 mm
+    @(112.1500 mm, 72.1000 mm): Track [GND] on B.Cu, length 0.5657 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(111.2500 mm, 72.4000 mm): Track [+3V3] on B.Cu, length 2.6163 mm
+    @(112.6000 mm, 72.1000 mm): Track [GND] on B.Cu, length 0.4500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(108.2500 mm, 79.0500 mm): Via [/485_RX] on F.Cu - B.Cu
+    @(107.3500 mm, 79.6000 mm): Track [+3V3] on F.Cu, length 1.4000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(110.3500 mm, 80.9500 mm): Via [BUS_D6] on F.Cu - B.Cu
+    @(112.1500 mm, 80.4000 mm): Track [/485_RX] on F.Cu, length 2.0500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(113.4000 mm, 80.5000 mm): Track [/485_RX] on F.Cu, length 1.1500 mm
+    @(112.9000 mm, 81.0500 mm): Via [/485_DE] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1831 mm)
+    Local override; error
+    @(109.5000 mm, 78.8500 mm): Track [+3V3] on F.Cu, length 2.6000 mm
+    @(109.2000 mm, 78.3500 mm): Via [/485_TX] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1873 mm)
+    Local override; error
+    @(113.9105 mm, 79.6960 mm): Pad 1 [+3V3] of U3 on F.Cu
+    @(113.4000 mm, 80.1000 mm): Track [/485_TX] on F.Cu, length 0.7071 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1884 mm)
+    Local override; error
+    @(126.4500 mm, 49.1500 mm): Track [GND] on F.Cu, length 0.3536 mm
+    @(126.1810 mm, 48.5420 mm): Pad 1 [Net-(J4-SHIELD)] of C22 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1884 mm)
+    Local override; error
+    @(126.5000 mm, 49.1500 mm): Track [GND] on F.Cu, length 0.0500 mm
+    @(126.1810 mm, 48.5420 mm): Pad 1 [Net-(J4-SHIELD)] of C22 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1967 mm)
+    Local override; error
+    @(113.4230 mm, 80.4960 mm): Track [/485_RX] on F.Cu, length 0.0233 mm
+    @(113.4230 mm, 80.0960 mm): Track [/485_TX] on F.Cu, length 0.0233 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1859 mm)
+    Local override; error
+    @(126.5250 mm, 49.1250 mm): Track [GND] on F.Cu, length 0.0354 mm
+    @(126.1810 mm, 48.5420 mm): Pad 1 [Net-(J4-SHIELD)] of C22 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1842 mm)
+    Local override; error
+    @(127.0250 mm, 47.4750 mm): Track [GND] on F.Cu, length 0.2475 mm
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1859 mm)
+    Local override; error
+    @(126.5500 mm, 49.1250 mm): Track [GND] on F.Cu, length 0.0250 mm
+    @(126.1810 mm, 48.5420 mm): Pad 1 [Net-(J4-SHIELD)] of C22 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1836 mm)
+    Local override; error
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+    @(127.1250 mm, 47.3750 mm): Track [GND] on F.Cu, length 0.0250 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1985 mm)
+    Local override; error
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+    @(127.1250 mm, 47.4000 mm): Track [GND] on F.Cu, length 0.1061 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1836 mm)
+    Local override; error
+    @(127.2250 mm, 47.2750 mm): Track [GND] on F.Cu, length 0.1414 mm
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1842 mm)
+    Local override; error
+    @(127.0500 mm, 47.4750 mm): Track [GND] on F.Cu, length 0.0250 mm
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1821 mm)
+    Local override; error
+    @(127.2750 mm, 47.1750 mm): Track [GND] on F.Cu, length 0.0707 mm
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1869 mm)
+    Local override; error
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+    @(127.2750 mm, 47.1250 mm): Track [GND] on F.Cu, length 0.0500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1821 mm)
+    Local override; error
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+    @(127.2250 mm, 47.2250 mm): Track [GND] on F.Cu, length 0.0500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1967 mm)
+    Local override; error
+    @(127.3250 mm, 46.9750 mm): Track [GND] on F.Cu, length 0.1000 mm
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1869 mm)
+    Local override; error
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+    @(127.3250 mm, 47.0750 mm): Track [GND] on F.Cu, length 0.0707 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1967 mm)
+    Local override; error
+    @(126.4900 mm, 46.2850 mm): PTH pad S1 [Net-(J4-SHIELD)] of J4
+    @(127.4500 mm, 46.8500 mm): Track [GND] on F.Cu, length 0.1768 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1520 mm)
+    Local override; error
+    @(115.6980 mm, 91.3970 mm): Pad 1 [Net-(C7-Pad2)] of Y1 on F.Cu
+    @(116.6000 mm, 92.3500 mm): Track [GND] on F.Cu, length 0.8000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1520 mm)
+    Local override; error
+    @(115.6980 mm, 91.3970 mm): Pad 1 [Net-(C7-Pad2)] of Y1 on F.Cu
+    @(116.6000 mm, 91.5500 mm): Track [GND] on F.Cu, length 0.4243 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(115.6980 mm, 91.3970 mm): Pad 1 [Net-(C7-Pad2)] of Y1 on F.Cu
+    @(114.7500 mm, 90.4000 mm): Track [GND] on F.Cu, length 1.9500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(114.7480 mm, 85.7335 mm): Pad 15 [BUS_A1] of U3 on F.Cu
+    @(114.1500 mm, 85.6500 mm): Via [GND] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1970 mm)
+    Local override; error
+    @(113.9980 mm, 91.3970 mm): Pad 4 [GND] of Y1 on F.Cu
+    @(113.6500 mm, 90.2000 mm): Via [Net-(U3-XIN)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1923 mm)
+    Local override; error
+    @(120.6000 mm, 76.9000 mm): Via [+3V3] on F.Cu - B.Cu
+    @(121.0972 mm, 77.2218 mm): Track [/3V3A] on F.Cu, length 0.7246 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(119.5500 mm, 77.9500 mm): Track [+3V3] on F.Cu, length 0.9000 mm
+    @(119.9480 mm, 78.3710 mm): Track [/3V3A] on F.Cu, length 1.6252 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1793 mm)
+    Local override; error
+    @(113.6500 mm, 89.5500 mm): Track [Net-(U3-XIN)] on F.Cu, length 4.3841 mm
+    @(115.6980 mm, 89.1970 mm): Pad 2 [GND] of Y1 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(117.1480 mm, 85.7335 mm): Pad 21 [Net-(U3-XOUT)] of U3 on F.Cu
+    @(116.7500 mm, 86.4500 mm): Track [Net-(U3-XIN)] on F.Cu, length 0.7000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1920 mm)
+    Local override; error
+    @(92.9500 mm, 95.3000 mm): Track [Net-(RN3-R3.2)] on F.Cu, length 1.2189 mm
+    @(94.1375 mm, 94.9250 mm): Pad 16 [Net-(RN3-R2.2)] of U8 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(97.4000 mm, 81.6500 mm): Track [BUS_D4] on F.Cu, length 5.1619 mm
+    @(98.0000 mm, 81.4500 mm): Via [BUS_D1] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(99.4750 mm, 80.7750 mm): Track [BUS_D5] on B.Cu, length 2.2981 mm
+    @(98.0000 mm, 81.4500 mm): Via [BUS_D1] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1955 mm)
+    Local override; error
+    @(81.7500 mm, 72.7500 mm): Track [Net-(J9-Pin_7)] on F.Cu, length 1.3435 mm
+    @(83.0400 mm, 73.0800 mm): PTH pad 6 [Net-(J9-Pin_6)] of J9
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(116.3500 mm, 92.6000 mm): Track [GND] on F.Cu, length 0.3536 mm
+    @(117.6000 mm, 93.0000 mm): Track [NBRESET_DRV] on F.Cu, length 7.1000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(117.6500 mm, 92.1500 mm): Track [GND] on F.Cu, length 0.2000 mm
+    @(122.5000 mm, 88.1000 mm): Track [NBRESET_DRV] on F.Cu, length 6.9296 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1867 mm)
+    Local override; error
+    @(121.6500 mm, 80.6000 mm): Via [/V_addr] on F.Cu - B.Cu
+    @(120.7855 mm, 80.8960 mm): Pad 39 [unconnected-(U3-GPIO27_ADC1-Pad39)] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(108.6000 mm, 70.8000 mm): Via [/485_DE] on F.Cu - B.Cu
+    @(108.6500 mm, 70.0500 mm): Track [/Q_nCS] on F.Cu, length 2.0506 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1848 mm)
+    Local override; error
+    @(114.7480 mm, 78.3710 mm): Track [/Q_nCS] on F.Cu, length 6.8561 mm
+    @(111.1500 mm, 75.6000 mm): Via [+3V3] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1516 mm)
+    Local override; error
+    @(99.9500 mm, 39.9500 mm): Track [GND] on F.Cu, length 0.1414 mm
+    @(105.9000 mm, 40.8500 mm): Track [/A] on F.Cu, length 5.8000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(100.0500 mm, 40.0500 mm): Track [GND] on F.Cu, length 6.2500 mm
+    @(107.4500 mm, 42.4000 mm): Track [/A] on F.Cu, length 2.1920 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1516 mm)
+    Local override; error
+    @(99.9500 mm, 39.9500 mm): Track [GND] on F.Cu, length 0.1414 mm
+    @(100.1000 mm, 40.8500 mm): Track [/A] on F.Cu, length 3.2527 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(119.5480 mm, 85.7335 mm): Pad 27 [BUS_DIR] of U3 on F.Cu
+    @(119.1500 mm, 85.7500 mm): Track [/nReset] on F.Cu, length 0.8500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1770 mm)
+    Local override; error
+    @(131.1270 mm, 103.8860 mm): Pad 1 [Net-(U4-+)] of R14 on F.Cu
+    @(130.4500 mm, 104.1500 mm): Track [Net-(U4--)] on F.Cu, length 0.9500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1770 mm)
+    Local override; error
+    @(129.0500 mm, 105.5500 mm): Track [Net-(U4--)] on F.Cu, length 1.9799 mm
+    @(131.1270 mm, 103.8860 mm): Pad 1 [Net-(U4-+)] of R14 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1590 mm)
+    Local override; error
+    @(93.5500 mm, 81.2500 mm): Via [+3V3] on F.Cu - B.Cu
+    @(94.1000 mm, 81.1500 mm): Track [BUS_DIR] on F.Cu, length 2.1213 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(93.5500 mm, 81.2500 mm): Via [+3V3] on F.Cu - B.Cu
+    @(94.1000 mm, 83.8000 mm): Track [BUS_DIR] on F.Cu, length 2.6500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1536 mm)
+    Local override; error
+    @(94.0500 mm, 76.5500 mm): Track [+3V3] on F.Cu, length 0.5000 mm
+    @(91.4500 mm, 78.6500 mm): Track [BUS_OE_N] on F.Cu, length 6.7175 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(117.8500 mm, 92.1500 mm): Track [GND] on F.Cu, length 1.6263 mm
+    @(118.5500 mm, 90.8500 mm): Track [BUS_OE_N] on F.Cu, length 0.3500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1729 mm)
+    Local override; error
+    @(121.1500 mm, 88.2500 mm): Track [BUS_OE_N] on F.Cu, length 3.6770 mm
+    @(119.1260 mm, 89.3800 mm): Pad 2 [GND] of C9 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1750 mm)
+    Local override; error
+    @(94.1375 mm, 96.2250 mm): Pad 18 [Net-(RN3-R4.2)] of U8 on F.Cu
+    @(93.9500 mm, 96.7000 mm): Track [BUS_OE_N] on F.Cu, length 0.7500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1750 mm)
+    Local override; error
+    @(94.1375 mm, 96.2250 mm): Pad 18 [Net-(RN3-R4.2)] of U8 on F.Cu
+    @(94.1500 mm, 96.9000 mm): Track [BUS_OE_N] on F.Cu, length 0.2828 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(94.9000 mm, 74.4000 mm): Via [Net-(RN2-R4.2)] on F.Cu - B.Cu
+    @(91.4500 mm, 78.6500 mm): Track [BUS_OE_N] on F.Cu, length 6.7175 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(96.0500 mm, 74.8500 mm): Via [Net-(RN2-R4.2)] on F.Cu - B.Cu
+    @(91.4500 mm, 78.6500 mm): Track [BUS_OE_N] on F.Cu, length 6.7175 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1889 mm)
+    Local override; error
+    @(98.8250 mm, 73.1375 mm): Pad 18 [Net-(RN1-R1.2)] of U7 on F.Cu
+    @(98.4000 mm, 74.8500 mm): Track [Net-(RN2-R4.2)] on F.Cu, length 1.5556 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(97.1500 mm, 76.5000 mm): Via [+3V3] on F.Cu - B.Cu
+    @(98.0000 mm, 77.0500 mm): Track [Net-(RN2-R2.2)] on F.Cu, length 3.6500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(94.2500 mm, 77.1500 mm): Via [Net-(RN2-R2.2)] on F.Cu - B.Cu
+    @(93.4000 mm, 77.2000 mm): Track [+3V3] on F.Cu, length 0.9192 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1750 mm)
+    Local override; error
+    @(96.2250 mm, 73.1375 mm): Pad 22 [BUS_OE_N] of U7 on F.Cu
+    @(95.5500 mm, 73.5500 mm): Via [+5V] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1844 mm)
+    Local override; error
+    @(112.6550 mm, 55.8150 mm): Pad 2 [Net-(JP2-B)] of R4 on F.Cu
+    @(112.4500 mm, 54.4500 mm): Track [+5V] on F.Cu, length 2.1920 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(97.9500 mm, 75.1500 mm): Track [+5V] on B.Cu, length 1.9799 mm
+    @(98.2000 mm, 74.1000 mm): Via [Net-(RN1-R2.2)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1934 mm)
+    Local override; error
+    @(130.6000 mm, 47.9500 mm): Track [/USB_D+] on F.Cu, length 0.6364 mm
+    @(130.5600 mm, 46.8500 mm): Pad A7 [/USB_D-] of J4 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1900 mm)
+    Local override; error
+    @(129.5600 mm, 46.8500 mm): Pad A8 [unconnected-(J4-SBU1-PadA8)] of J4 on F.Cu
+    @(130.0000 mm, 46.9000 mm): Track [/USB_D+] on F.Cu, length 0.6500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1934 mm)
+    Local override; error
+    @(129.5600 mm, 46.8500 mm): Pad A8 [unconnected-(J4-SBU1-PadA8)] of J4 on F.Cu
+    @(130.0000 mm, 47.5500 mm): Track [/USB_D+] on F.Cu, length 0.6364 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1934 mm)
+    Local override; error
+    @(131.0600 mm, 46.8500 mm): Pad A6 [/USB_D+] of J4 on F.Cu
+    @(131.3500 mm, 46.0000 mm): Track [/USB_D-] on F.Cu, length 0.2828 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1750 mm)
+    Local override; error
+    @(130.5500 mm, 46.0000 mm): Track [/USB_D-] on F.Cu, length 0.8000 mm
+    @(131.0600 mm, 46.8500 mm): Pad A6 [/USB_D+] of J4 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1734 mm)
+    Local override; error
+    @(133.8600 mm, 46.8500 mm): Pad B12 [GND] of J4 on F.Cu
+    @(133.5000 mm, 47.6000 mm): Track [Net-(D4-A)] on F.Cu, length 1.0500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1734 mm)
+    Local override; error
+    @(133.4000 mm, 47.5000 mm): Track [Net-(D4-A)] on F.Cu, length 0.1414 mm
+    @(133.8600 mm, 46.8500 mm): Pad B12 [GND] of J4 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1934 mm)
+    Local override; error
+    @(132.7000 mm, 45.8500 mm): Track [Net-(D4-A)] on F.Cu, length 0.4950 mm
+    @(132.5600 mm, 46.8500 mm): Pad B8 [unconnected-(J4-SBU2-PadB8)] of J4 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(130.5500 mm, 45.9000 mm): Via [/USB_D-] on F.Cu - B.Cu
+    @(129.6500 mm, 46.0000 mm): Track [Net-(D4-A)] on F.Cu, length 0.9899 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1750 mm)
+    Local override; error
+    @(128.7500 mm, 46.0000 mm): Track [Net-(D4-A)] on F.Cu, length 0.9000 mm
+    @(129.5600 mm, 46.8500 mm): Pad A8 [unconnected-(J4-SBU1-PadA8)] of J4 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1515 mm)
+    Local override; error
+    @(114.8000 mm, 44.6000 mm): Via [/485_RX] on F.Cu - B.Cu
+    @(113.4000 mm, 42.0000 mm): Track [GND] on B.Cu, length 2.7577 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1990 mm)
+    Local override; error
+    @(115.2510 mm, 65.1510 mm): Pad 5 [GND] of U1 on F.Cu
+    @(115.5500 mm, 65.9500 mm): Via [/485_TX] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(112.5250 mm, 77.1750 mm): Via [GND] on F.Cu - B.Cu
+    @(114.8000 mm, 80.2500 mm): Track [Net-(U2-IO2)] on B.Cu, length 7.9196 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(115.5500 mm, 78.8500 mm): Track [Net-(U2-IO2)] on F.Cu, length 0.7000 mm
+    @(115.9480 mm, 78.8585 mm): Pad 53 [Net-(U2-DI(IO0))] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(102.9000 mm, 75.7500 mm): Via [+3V3] on F.Cu - B.Cu
+    @(106.1000 mm, 75.2000 mm): Track [BUS_D2] on F.Cu, length 3.4500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(110.2500 mm, 78.2500 mm): Via [/485_DE] on F.Cu - B.Cu
+    @(114.8000 mm, 82.0000 mm): Track [BUS_D2] on B.Cu, length 6.3640 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1889 mm)
+    Local override; error
+    @(98.4500 mm, 77.3000 mm): Track [BUS_D2] on F.Cu, length 1.3435 mm
+    @(98.1750 mm, 78.8625 mm): Pad 6 [BUS_D3] of U7 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1536 mm)
+    Local override; error
+    @(100.3000 mm, 78.0500 mm): Track [BUS_D6] on F.Cu, length 1.2728 mm
+    @(100.6000 mm, 77.2500 mm): Track [BUS_D2] on F.Cu, length 1.2500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1536 mm)
+    Local override; error
+    @(102.6500 mm, 75.2000 mm): Track [BUS_D2] on F.Cu, length 2.8991 mm
+    @(101.2000 mm, 77.1500 mm): Track [BUS_D6] on F.Cu, length 3.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 82.4960 mm): Pad 8 [BUS_D3] of U3 on F.Cu
+    @(113.9000 mm, 82.1000 mm): Track [BUS_D2] on F.Cu, length 0.8500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(118.3000 mm, 79.7500 mm): Track [+3V3] on F.Cu, length 1.0607 mm
+    @(117.5500 mm, 79.8000 mm): Via [/1V1] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1722 mm)
+    Local override; error
+    @(117.3000 mm, 84.2000 mm): Via [GND] on F.Cu - B.Cu
+    @(117.9750 mm, 84.5750 mm): Via [/1V1] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1722 mm)
+    Local override; error
+    @(117.3000 mm, 84.2000 mm): Via [GND] on F.Cu - B.Cu
+    @(117.9750 mm, 84.5750 mm): Via [/1V1] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(118.3480 mm, 85.7335 mm): Pad 24 [Net-(J3-Pin_1)] of U3 on F.Cu
+    @(117.9500 mm, 84.6000 mm): Track [/1V1] on F.Cu, length 1.1250 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(117.1500 mm, 79.4000 mm): Track [/1V1] on F.Cu, length 0.5500 mm
+    @(117.5480 mm, 78.8585 mm): Pad 49 [+3V3] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1540 mm)
+    Local override; error
+    @(110.6000 mm, 85.0000 mm): Track [BUS_D4] on F.Cu, length 3.0406 mm
+    @(113.9105 mm, 82.4960 mm): Track [BUS_D3] on F.Cu, length 3.1565 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(97.3500 mm, 82.4000 mm): Via [BUS_D5] on F.Cu - B.Cu
+    @(110.3000 mm, 82.9500 mm): Track [BUS_D3] on B.Cu, length 13.3500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1590 mm)
+    Local override; error
+    @(95.7000 mm, 79.5500 mm): Track [BUS_D1] on B.Cu, length 0.0250 mm
+    @(96.2000 mm, 79.8000 mm): Via [BUS_D0] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(114.8000 mm, 81.2000 mm): Via [BUS_D0] on F.Cu - B.Cu
+    @(114.8000 mm, 82.0000 mm): Track [BUS_D2] on B.Cu, length 6.3640 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(113.9105 mm, 81.6960 mm): Track [BUS_D1] on F.Cu, length 15.6645 mm
+    @(113.9000 mm, 81.3000 mm): Track [BUS_D0] on F.Cu, length 0.8000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(118.5000 mm, 84.7500 mm): Track [Net-(J3-Pin_1)] on F.Cu, length 1.2021 mm
+    @(119.1500 mm, 84.9000 mm): Via [/nReset] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1818 mm)
+    Local override; error
+    @(118.4000 mm, 85.2000 mm): Track [Net-(J3-Pin_1)] on F.Cu, length 0.1000 mm
+    @(118.7480 mm, 85.7335 mm): Pad 25 [Net-(J3-Pin_3)] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1534 mm)
+    Local override; error
+    @(117.9750 mm, 84.5750 mm): Via [/1V1] on F.Cu - B.Cu
+    @(118.5000 mm, 85.0000 mm): Track [Net-(J3-Pin_1)] on F.Cu, length 0.2500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1818 mm)
+    Local override; error
+    @(118.7480 mm, 85.7335 mm): Pad 25 [Net-(J3-Pin_3)] of U3 on F.Cu
+    @(118.3500 mm, 85.2500 mm): Track [Net-(J3-Pin_1)] on F.Cu, length 0.0707 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(118.7480 mm, 85.7335 mm): Pad 25 [Net-(J3-Pin_3)] of U3 on F.Cu
+    @(118.3500 mm, 85.7500 mm): Track [Net-(J3-Pin_1)] on F.Cu, length 0.5000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(90.0500 mm, 70.0000 mm): Via [Net-(RN1-R2.2)] on F.Cu - B.Cu
+    @(90.8500 mm, 68.4000 mm): Track [Net-(RN2-R1.2)] on B.Cu, length 2.1213 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(84.9000 mm, 70.7500 mm): Via [Net-(J9-Pin_7)] on F.Cu - B.Cu
+    @(85.4500 mm, 70.4000 mm): Track [Net-(J9-Pin_2)] on F.Cu, length 1.8500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1828 mm)
+    Local override; error
+    @(86.0500 mm, 74.8500 mm): Track [Net-(J9-Pin_2)] on F.Cu, length 1.9092 mm
+    @(87.6000 mm, 75.4000 mm): Pad 3 [Net-(J9-Pin_4)] of RN2 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1606 mm)
+    Local override; error
+    @(115.8500 mm, 86.4000 mm): Track [BUS_IOSTB] on F.Cu, length 0.1000 mm
+    @(115.5500 mm, 85.7500 mm): Track [BUS_A3] on F.Cu, length 0.4500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(105.1500 mm, 94.5500 mm): Via [BUS_A3] on F.Cu - B.Cu
+    @(108.3500 mm, 94.0000 mm): Track [BUS_IOSTB] on B.Cu, length 7.2500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1606 mm)
+    Local override; error
+    @(115.9500 mm, 86.3000 mm): Track [BUS_IOSTB] on F.Cu, length 0.1414 mm
+    @(115.5500 mm, 85.7500 mm): Track [BUS_A3] on F.Cu, length 0.4500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(108.6000 mm, 70.8000 mm): Via [/485_DE] on F.Cu - B.Cu
+    @(108.7000 mm, 71.3500 mm): Track [Net-(U2-DO(IO1))] on B.Cu, length 1.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1590 mm)
+    Local override; error
+    @(108.6000 mm, 70.8000 mm): Via [/485_DE] on F.Cu - B.Cu
+    @(110.5500 mm, 73.2000 mm): Track [Net-(U2-DO(IO1))] on B.Cu, length 2.6163 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(120.7855 mm, 80.4960 mm): Pad 40 [/V_addr] of U3 on F.Cu
+    @(120.8000 mm, 80.1000 mm): Track [/Out_Special] on F.Cu, length 0.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(100.7500 mm, 74.3000 mm): Track [Net-(RN2-R2.2)] on F.Cu, length 3.8891 mm
+    @(100.1500 mm, 74.1000 mm): Via [Net-(RN2-R3.2)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(97.7500 mm, 77.1000 mm): Track [+3V3] on B.Cu, length 1.9092 mm
+    @(97.9500 mm, 76.3000 mm): Track [Net-(RN2-R3.2)] on B.Cu, length 0.2000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1536 mm)
+    Local override; error
+    @(99.7036 mm, 73.3964 mm): Track [+5V] on B.Cu, length 2.6500 mm
+    @(100.1500 mm, 74.1000 mm): Via [Net-(RN2-R3.2)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1743 mm)
+    Local override; error
+    @(97.7500 mm, 77.1000 mm): Track [+3V3] on B.Cu, length 1.9092 mm
+    @(100.1500 mm, 74.1000 mm): Track [Net-(RN2-R3.2)] on B.Cu, length 3.1113 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(90.0000 mm, 75.4000 mm): Via [Net-(RN2-R3.2)] on F.Cu - B.Cu
+    @(89.4500 mm, 75.8500 mm): Track [Net-(RN2-R2.2)] on B.Cu, length 1.1500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(97.1500 mm, 76.5000 mm): Via [+3V3] on F.Cu - B.Cu
+    @(97.7500 mm, 76.3000 mm): Track [Net-(RN2-R3.2)] on B.Cu, length 1.2728 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(96.0500 mm, 74.8500 mm): Via [Net-(RN2-R4.2)] on F.Cu - B.Cu
+    @(96.8500 mm, 75.4000 mm): Track [Net-(RN2-R3.2)] on B.Cu, length 6.8500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(120.0000 mm, 87.5500 mm): Via [/1V1] on F.Cu - B.Cu
+    @(119.4500 mm, 87.5000 mm): Track [Net-(J3-Pin_3)] on B.Cu, length 0.9500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1523 mm)
+    Local override; error
+    @(120.0000 mm, 87.5500 mm): Via [/1V1] on F.Cu - B.Cu
+    @(118.7000 mm, 86.7500 mm): Track [Net-(J3-Pin_3)] on B.Cu, length 1.0607 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(90.2000 mm, 85.9500 mm): Track [Net-(RN3-R1.2)] on F.Cu, length 1.4142 mm
+    @(90.0000 mm, 86.5500 mm): Via [Net-(RN3-R2.2)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1510 mm)
+    Local override; error
+    @(113.9000 mm, 71.8000 mm): Via [Net-(U2-IO3)] on F.Cu - B.Cu
+    @(112.4500 mm, 71.2000 mm): Track [+3V3] on B.Cu, length 5.5154 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(116.4500 mm, 77.6500 mm): Track [/1V1] on B.Cu, length 2.1920 mm
+    @(117.1500 mm, 77.5500 mm): Via [Net-(U2-IO3)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(79.9000 mm, 64.7500 mm): Track [Net-(J9-Pin_5)] on B.Cu, length 5.9500 mm
+    @(83.4000 mm, 65.1000 mm): Track [Net-(J9-Pin_1)] on B.Cu, length 5.3033 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)
+    Local override; error
+    @(79.9000 mm, 64.7500 mm): Track [Net-(J9-Pin_5)] on B.Cu, length 5.9500 mm
+    @(80.5000 mm, 68.0000 mm): Track [Net-(J9-Pin_1)] on B.Cu, length 4.1012 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1828 mm)
+    Local override; error
+    @(87.6000 mm, 69.3000 mm): Pad 1 [Net-(J9-Pin_1)] of RN1 on F.Cu
+    @(83.6000 mm, 66.3500 mm): Track [Net-(J9-Pin_3)] on F.Cu, length 5.3033 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1864 mm)
+    Local override; error
+    @(112.3500 mm, 72.7500 mm): Via [/Q_SCLK] on F.Cu - B.Cu
+    @(112.6000 mm, 72.1000 mm): Track [GND] on B.Cu, length 2.6517 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(116.7480 mm, 78.8585 mm): Track [Net-(U2-IO3)] on F.Cu, length 0.9065 mm
+    @(116.3500 mm, 78.8500 mm): Track [/Q_SCLK] on F.Cu, length 0.7000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1708 mm)
+    Local override; error
+    @(120.7855 mm, 81.2960 mm): Pad 38 [unconnected-(U3-GPIO26_ADC0-Pad38)] of U3 on F.Cu
+    @(121.3690 mm, 81.6000 mm): Track [Net-(U3-GPIO25)] on F.Cu, length 5.1310 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1708 mm)
+    Local override; error
+    @(120.7855 mm, 81.2960 mm): Pad 38 [unconnected-(U3-GPIO26_ADC0-Pad38)] of U3 on F.Cu
+    @(121.2730 mm, 81.6960 mm): Track [Net-(U3-GPIO25)] on F.Cu, length 0.1358 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1657 mm)
+    Local override; error
+    @(87.2000 mm, 85.8000 mm): Via [Net-(J9-Pin_18)] on F.Cu - B.Cu
+    @(85.6000 mm, 85.0000 mm): Track [Net-(J9-Pin_16)] on F.Cu, length 2.2627 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1701 mm)
+    Local override; error
+    @(129.0000 mm, 47.8500 mm): Track [Net-(J4-CC2)] on F.Cu, length 1.7678 mm
+    @(129.5500 mm, 48.0000 mm): Via [/USB_D+] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1701 mm)
+    Local override; error
+    @(117.6000 mm, 77.2000 mm): Track [Net-(U3-USB_DP)] on F.Cu, length 1.3000 mm
+    @(117.1500 mm, 77.5500 mm): Via [Net-(U2-IO3)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1701 mm)
+    Local override; error
+    @(129.0000 mm, 46.9000 mm): Track [Net-(J4-CC2)] on F.Cu, length 0.9500 mm
+    @(129.5500 mm, 48.0000 mm): Via [/USB_D+] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1863 mm)
+    Local override; error
+    @(118.7480 mm, 78.3710 mm): Track [Net-(U3-USB_DM)] on F.Cu, length 0.0679 mm
+    @(118.3480 mm, 78.8585 mm): Pad 47 [Net-(U3-USB_DP)] of U3 on F.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1701 mm)
+    Local override; error
+    @(118.3500 mm, 77.9500 mm): Track [Net-(U3-USB_DP)] on F.Cu, length 1.0607 mm
+    @(117.1500 mm, 77.5500 mm): Via [Net-(U2-IO3)] on F.Cu - B.Cu
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1863 mm)
+    Local override; error
+    @(116.7480 mm, 85.7335 mm): Pad 20 [Net-(U3-XIN)] of U3 on F.Cu
+    @(117.1000 mm, 86.2690 mm): Track [Net-(U3-XOUT)] on F.Cu, length 1.8810 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1863 mm)
+    Local override; error
+    @(116.7480 mm, 85.7335 mm): Pad 20 [Net-(U3-XIN)] of U3 on F.Cu
+    @(117.1480 mm, 86.2210 mm): Track [Net-(U3-XOUT)] on F.Cu, length 0.0679 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(116.7500 mm, 86.4500 mm): Track [Net-(U3-XIN)] on F.Cu, length 0.7000 mm
+    @(117.1480 mm, 85.7335 mm): Track [Net-(U3-XOUT)] on F.Cu, length 0.4875 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1900 mm)
+    Local override; error
+    @(131.5600 mm, 46.8500 mm): Pad B7 [/USB_D-] of J4 on F.Cu
+    @(132.0000 mm, 46.9000 mm): Track [Net-(J4-CC1)] on F.Cu, length 0.7500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(115.9480 mm, 78.8585 mm): Track [Net-(U2-DI(IO0))] on F.Cu, length 0.4875 mm
+    @(115.5500 mm, 78.8500 mm): Track [Net-(U2-IO2)] on F.Cu, length 0.7000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(117.5500 mm, 78.8500 mm): Track [+3V3] on F.Cu, length 0.4000 mm
+    @(118.3480 mm, 78.8585 mm): Track [Net-(U3-USB_DP)] on F.Cu, length 0.4875 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1505 mm)
+    Local override; error
+    @(118.3480 mm, 78.3710 mm): Track [Net-(U3-USB_DP)] on F.Cu, length 0.0710 mm
+    @(118.7480 mm, 78.3710 mm): Track [Net-(U3-USB_DM)] on F.Cu, length 0.0679 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(119.5500 mm, 77.9500 mm): Track [+3V3] on F.Cu, length 0.9000 mm
+    @(119.9480 mm, 78.8585 mm): Track [/3V3A] on F.Cu, length 0.4875 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1960 mm)
+    Local override; error
+    @(120.7855 mm, 80.4960 mm): Track [/V_addr] on F.Cu, length 0.4875 mm
+    @(120.8000 mm, 80.1000 mm): Track [/Out_Special] on F.Cu, length 0.6000 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(119.5500 mm, 86.2000 mm): Track [BUS_DIR] on F.Cu, length 0.5000 mm
+    @(119.9480 mm, 85.7335 mm): Track [BUS_OE_N] on F.Cu, length 0.4875 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(119.5480 mm, 85.7335 mm): Track [BUS_DIR] on F.Cu, length 0.4875 mm
+    @(119.1500 mm, 85.7500 mm): Track [/nReset] on F.Cu, length 0.8500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1986 mm)
+    Local override; error
+    @(115.9480 mm, 86.2210 mm): Track [BUS_IOSTB] on F.Cu, length 0.0790 mm
+    @(115.5500 mm, 85.7500 mm): Track [BUS_A3] on F.Cu, length 0.4500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(119.5500 mm, 86.2000 mm): Track [BUS_DIR] on F.Cu, length 0.5000 mm
+    @(119.9480 mm, 86.2210 mm): Track [BUS_OE_N] on F.Cu, length 1.7191 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1980 mm)
+    Local override; error
+    @(115.9480 mm, 85.7335 mm): Track [BUS_IOSTB] on F.Cu, length 0.4875 mm
+    @(115.5500 mm, 85.7500 mm): Track [BUS_A3] on F.Cu, length 0.4500 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1967 mm)
+    Local override; error
+    @(113.4230 mm, 80.4960 mm): Track [/485_RX] on F.Cu, length 0.0233 mm
+    @(113.4230 mm, 80.8960 mm): Track [/485_DE] on F.Cu, length 0.0731 mm
+[clearance]: Clearance violation ( clearance 0.2000 mm; actual 0.1967 mm)
+    Local override; error
+    @(113.9105 mm, 80.4960 mm): Track [/485_RX] on F.Cu, length 0.4875 mm
+    @(113.4230 mm, 80.0960 mm): Track [/485_TX] on F.Cu, length 0.0233 mm
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2548 mm)
+    Rule: board setup constraints hole; error
+    @(134.1600 mm, 46.8500 mm): Pad A1 [GND] of J4 on F.Cu
+    @(133.7000 mm, 45.7850 mm): NPTH pad of J4
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.1651 mm)
+    Rule: board setup constraints hole; error
+    @(133.8600 mm, 46.8500 mm): Pad B12 [GND] of J4 on F.Cu
+    @(133.7000 mm, 45.7850 mm): NPTH pad of J4
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2005 mm)
+    Rule: board setup constraints hole; error
+    @(133.3600 mm, 46.8500 mm): Pad A4 [Net-(D4-A)] of J4 on F.Cu
+    @(133.7000 mm, 45.7850 mm): NPTH pad of J4
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2005 mm)
+    Rule: board setup constraints hole; error
+    @(128.2600 mm, 46.8500 mm): Pad A9 [Net-(D4-A)] of J4 on F.Cu
+    @(127.9200 mm, 45.7850 mm): NPTH pad of J4
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2548 mm)
+    Rule: board setup constraints hole; error
+    @(127.4600 mm, 46.8500 mm): Pad A12 [GND] of J4 on F.Cu
+    @(127.9200 mm, 45.7850 mm): NPTH pad of J4
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.1651 mm)
+    Rule: board setup constraints hole; error
+    @(127.7600 mm, 46.8500 mm): Pad B1 [GND] of J4 on F.Cu
+    @(127.9200 mm, 45.7850 mm): NPTH pad of J4
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.3232 mm)
+    Rule: board setup constraints hole; error
+    @(113.3040 mm, 73.8830 mm): Pad 5 [Net-(U2-DI(IO0))] of U2 on F.Cu
+    @(114.4750 mm, 74.3750 mm): Via [GND] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.3000 mm)
+    Rule: board setup constraints hole; error
+    @(98.8250 mm, 78.8625 mm): Pad 7 [BUS_D4] of U7 on F.Cu
+    @(99.4750 mm, 78.8500 mm): Via [BUS_D5] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.3000 mm)
+    Rule: board setup constraints hole; error
+    @(100.1250 mm, 78.8625 mm): Pad 9 [BUS_D6] of U7 on F.Cu
+    @(99.4750 mm, 78.8500 mm): Via [BUS_D5] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.3127 mm)
+    Rule: board setup constraints hole; error
+    @(113.9105 mm, 84.0960 mm): Pad 12 [BUS_D6] of U3 on F.Cu
+    @(114.8000 mm, 84.2500 mm): Via [BUS_D5] on F.Cu - B.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.3250 mm)
+    Rule: board setup constraints hole; error
+    @(96.2250 mm, 73.1375 mm): Pad 22 [BUS_OE_N] of U7 on F.Cu
+    @(95.5500 mm, 73.5500 mm): Via [+5V] on F.Cu - B.Cu
+[courtyards_overlap]: Courtyards overlap
+    Rule: board setup constraints courtyard; error
+    @(117.8560 mm, 42.1640 mm): Footprint J2
+    @(116.1480 mm, 45.7820 mm): Footprint C8
+[footprint_type_mismatch]: Footprint component type doesn't match footprint pads (expected 'Through hole'; actual 'SMD')
+    Local override; error
+    @(130.8100 mm, 43.1800 mm): Footprint J4
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(127.7600 mm, 46.8500 mm): Pad B1 [GND] of J4 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(133.8600 mm, 46.8500 mm): Pad B12 [GND] of J4 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(130.5560 mm, 100.7055 mm): Pad 2 [GND] of U4 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(129.4770 mm, 103.8860 mm): Pad 2 [GND] of R14 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(130.9855 mm, 76.2000 mm): Pad 1 [GND] of D3 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(93.2000 mm, 78.6250 mm): Pad 2 [GND] of C30 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(121.8960 mm, 75.7750 mm): Pad 2 [GND] of C20 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(137.0385 mm, 59.1160 mm): Pad 3 [GND] of U5 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(132.2330 mm, 57.3205 mm): Pad 2 [GND] of U6 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(115.6680 mm, 45.7820 mm): Pad 2 [GND] of C8 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(113.9980 mm, 91.3970 mm): Pad 4 [GND] of Y1 on F.Cu
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(117.8500 mm, 92.1500 mm): Track [GND] on F.Cu, length 1.6263 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(117.8500 mm, 92.1500 mm): Track [GND] on F.Cu, length 2.6870 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(131.1344 mm, 77.3000 mm): Track [+3V3] on F.Cu, length 0.0156 mm
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_USB'
+    Local override; warning
+    @(130.8100 mm, 43.1800 mm): Footprint J4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(117.5780 mm, 75.4070 mm): Footprint R10
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(120.6260 mm, 76.0420 mm): Footprint C21
+[lib_footprint_issues]: The current configuration does not include the footprint library 'IO_16_8_1'
+    Local override; warning
+    @(80.0000 mm, 104.0000 mm): Footprint REF**
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(139.1920 mm, 55.8800 mm): Footprint C24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'IO_16_8_1'
+    Local override; warning
+    @(170.0000 mm, 104.0000 mm): Footprint REF**
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(127.7620 mm, 50.0380 mm): Footprint R25
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(126.1810 mm, 49.0220 mm): Footprint C22
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(122.4040 mm, 78.5900 mm): Footprint C17
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(93.6000 mm, 86.0000 mm): Footprint R28
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(104.3000 mm, 100.8000 mm): Footprint Q1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(116.5860 mm, 70.1040 mm): Footprint C4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(90.5000 mm, 102.5000 mm): Footprint TP4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(118.5940 mm, 75.4070 mm): Footprint R11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(130.5560 mm, 99.5680 mm): Footprint U4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(130.3020 mm, 103.8860 mm): Footprint R14
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_PinHeader_2.54mm'
+    Local override; warning
+    @(113.1000 mm, 52.6400 mm): Footprint JP1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'LED_SMD'
+    Local override; warning
+    @(130.0480 mm, 76.2000 mm): Footprint D3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(94.0000 mm, 102.5000 mm): Footprint TP5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_JST'
+    Local override; warning
+    @(117.8560 mm, 42.1640 mm): Footprint J2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(98.5000 mm, 76.0000 mm): Footprint U7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(112.4980 mm, 89.8880 mm): Footprint C6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'IO_16_8_1'
+    Local override; warning
+    @(170.0000 mm, 44.0000 mm): Footprint REF**
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(93.2000 mm, 79.4000 mm): Footprint C30
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(129.7940 mm, 97.0280 mm): Footprint C11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_IDC'
+    Local override; warning
+    @(80.5000 mm, 68.0000 mm): Footprint J9
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(112.5220 mm, 77.9780 mm): Footprint C12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(104.3000 mm, 103.4000 mm): Footprint R30
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(108.8440 mm, 54.6720 mm): Footprint D1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(121.8960 mm, 76.5500 mm): Footprint C20
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(118.1100 mm, 89.4080 mm): Footprint C14
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(117.0940 mm, 88.6460 mm): Footprint R12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(113.9890 mm, 55.5610 mm): Footprint R3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(118.5610 mm, 48.0680 mm): Footprint R97
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(135.1280 mm, 57.9120 mm): Footprint R26
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Button_Switch_SMD'
+    Local override; warning
+    @(130.3020 mm, 83.5660 mm): Footprint SW1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(141.0400 mm, 53.9100 mm): Footprint D16
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(119.6240 mm, 76.0420 mm): Footprint C16
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(107.4420 mm, 64.7700 mm): Footprint R9
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(130.3020 mm, 102.3620 mm): Footprint R13
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Button_Switch_SMD'
+    Local override; warning
+    @(122.9360 mm, 101.0920 mm): Footprint SW3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Button_Switch_SMD'
+    Local override; warning
+    @(130.4300 mm, 69.2460 mm): Footprint SW2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(128.0160 mm, 93.7260 mm): Footprint R22
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(88.5000 mm, 70.5000 mm): Footprint RN1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(133.5250 mm, 49.6840 mm): Footprint D4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_DFN_QFN'
+    Local override; warning
+    @(117.3480 mm, 82.2960 mm): Footprint U3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(86.0000 mm, 99.0000 mm): Footprint C33
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(97.5000 mm, 102.5000 mm): Footprint TP6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(138.1760 mm, 58.1660 mm): Footprint U5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(115.0620 mm, 102.1080 mm): Footprint R19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(130.5560 mm, 94.4880 mm): Footprint R17
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(110.7440 mm, 68.5800 mm): Footprint C5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(88.5000 mm, 90.5000 mm): Footprint R29
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(115.0620 mm, 98.0440 mm): Footprint R23
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(103.4480 mm, 54.5450 mm): Footprint C1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(146.9700 mm, 53.9270 mm): Footprint D6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(130.3020 mm, 78.2320 mm): Footprint R1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(118.5610 mm, 46.4820 mm): Footprint R96
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(88.5000 mm, 75.0000 mm): Footprint RN2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(123.4200 mm, 76.5500 mm): Footprint R15
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(91.6000 mm, 98.4000 mm): Footprint C32
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(87.0000 mm, 102.5000 mm): Footprint TP3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(115.5460 mm, 74.4220 mm): Footprint C10
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(129.7940 mm, 105.7910 mm): Footprint R16
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_PinSocket_2.54mm'
+    Local override; warning
+    @(123.4590 mm, 90.3990 mm): Footprint J3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'IO_16_8_1'
+    Local override; warning
+    @(80.0000 mm, 43.9640 mm): Footprint REF**
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_PinHeader_2.54mm'
+    Local override; warning
+    @(113.1000 mm, 50.1000 mm): Footprint JP2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_PinHeader_2.54mm'
+    Local override; warning
+    @(115.6400 mm, 47.5600 mm): Footprint JP3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(91.6000 mm, 96.2000 mm): Footprint R27
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(131.5720 mm, 49.5300 mm): Footprint R24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(123.6980 mm, 83.6540 mm): Footprint C15
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(126.4920 mm, 80.7720 mm): Footprint R21
+[lib_footprint_issues]: The current configuration does not include the footprint library 'IO_16_8_1'
+    Local override; warning
+    @(108.3180 mm, 43.5000 mm): Footprint J1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(104.7180 mm, 54.5140 mm): Footprint R2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(88.5000 mm, 87.0000 mm): Footprint RN3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(115.8240 mm, 106.1720 mm): Footprint R20
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(117.0940 mm, 63.2460 mm): Footprint C3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(107.4420 mm, 61.4680 mm): Footprint R8
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(132.0670 mm, 55.5560 mm): Footprint C23
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(116.5620 mm, 74.4220 mm): Footprint C19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(97.0000 mm, 94.6000 mm): Footprint U8
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(126.2380 mm, 67.5640 mm): Footprint R6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(132.2330 mm, 58.4580 mm): Footprint U6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(112.8460 mm, 44.5120 mm): Footprint R5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_Pin'
+    Local override; warning
+    @(123.6980 mm, 40.8940 mm): Footprint TP2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(111.8300 mm, 55.8150 mm): Footprint R4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(93.2000 mm, 72.6000 mm): Footprint C31
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(116.1480 mm, 45.7820 mm): Footprint C8
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(110.4900 mm, 59.6900 mm): Footprint C2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(109.7040 mm, 71.9780 mm): Footprint U2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(115.0620 mm, 100.3300 mm): Footprint R18
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(136.9060 mm, 51.8160 mm): Footprint D5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(110.5180 mm, 83.6930 mm): Footprint C13
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(129.5146 mm, 57.0738 mm): Footprint C27
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(112.7760 mm, 63.2460 mm): Footprint U1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_Pin'
+    Local override; warning
+    @(126.8730 mm, 77.7240 mm): Footprint TP1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(106.7000 mm, 54.6720 mm): Footprint D2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(126.4920 mm, 71.1200 mm): Footprint R7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(121.9900 mm, 52.6400 mm): Footprint C25
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Crystal'
+    Local override; warning
+    @(114.8480 mm, 90.2970 mm): Footprint Y1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'IO_16_8_1'
+    Local override; warning
+    @(159.7500 mm, 43.5000 mm): Footprint J5
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(119.1260 mm, 88.9000 mm): Footprint C9
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(117.0700 mm, 90.7740 mm): Footprint C7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(132.2070 mm, 61.3410 mm): Footprint C26
+
+** Found 3 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(112.4980 mm, 90.3680 mm): Pad 1 [GND] of C6 on F.Cu
+    @(113.9980 mm, 91.3970 mm): Pad 4 [GND] of Y1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(117.5480 mm, 85.7335 mm): Pad 22 [+3V3] of U3 on F.Cu
+    @(115.9088 mm, 82.1412 mm): Track [+3V3] on B.Cu, length 1.4266 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(118.1100 mm, 88.9280 mm): Pad 1 [+3V3] of C14 on F.Cu
+    @(117.5480 mm, 85.7335 mm): Pad 22 [+3V3] of U3 on F.Cu
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - PTH inside courtyard
+    - NPTH inside courtyard
+
+** End of Report **

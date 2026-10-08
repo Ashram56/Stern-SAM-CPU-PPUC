@@ -12,6 +12,8 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 - [`DESIGN.md`](DESIGN.md): detailed design notes (circuit, power, reset, bus timing, signal list, BOM, PCB,
   manufacturing, bring-up).
 - `sam_io/`: the KiCad 10 project (10.0 file format). Open `sam_io.kicad_pro`.
+- `sam_io_krt/`: an experiment, the same board stripped and routed again from scratch with KiCadRoutingTools,
+  with a side-by-side comparison. Not the board to build.
 - `sam_io/sam_io_bom.csv`: bill of materials, grouped by value and footprint.
 - `sam_io/sam_io.pdf`: the two schematic sheets, for reading without KiCad.
 - `sam_io/pcb_render.png`: top view of the routed board; `sam_io/pcb_copper.png`: its copper (F.Cu red, B.Cu blue).
@@ -28,7 +30,8 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 | Inputs (sheet IN16) | 16 inputs with 2N7002 level shifters, J6-J8 | **removed**: GPIO3-18 are the SAM bus |
 | SAM bus (new sheet "SAM bus") | | J9 2x10 header, SN74LVC8T245, 74AHCT541, 2N7002 for NBRESET |
 | RP2040, flash, crystal, USB-C J4, SWD J3, reset / boot buttons | | unchanged |
-| RS485 (ADM3483, J1, JP1-JP3 bias / termination), QWIIC J2 | | unchanged |
+| RS485 (ADM3483, J1, JP1-JP3 bias / termination) | | unchanged, except the 0 ohm R9 (RO to GPIO1) is now a track |
+| QWIIC J2, its pull-ups R96 / R97 and C8 | | **removed** (2026-10-08) |
 | Power J5 (5 V in), AP2112 3.3 V, address DIP SW3 + ladder on GPIO28, LED on GPIO25 | | unchanged |
 | Special output (GPIO29 through SN74AHCT1G125 to J5 pin 5) | | unchanged (the SAM_IO firmware does not use it) |
 
@@ -49,7 +52,6 @@ The kept connectors are the same parts as on IO_16_8_1:
 | J5 | 6-way RTM push-in terminal | 1, 3, 4 = +5 V in, 2, 6 = GND, 5 = special output (unchanged) |
 | J4 | USB-C | programming and debug |
 | J3 | 1x3 2.54 mm (not fitted) | SWD |
-| J2 | JST SH 4-way (not fitted) | QWIIC |
 | **J9** | **2x10 2.54 mm shrouded IDC header** | **SAM bus to the SAM IO board J1** |
 
 J9 is the only new connector. It has the SAM IO board J1 pinout pin for pin, the same as J9 on the SAM CPU
