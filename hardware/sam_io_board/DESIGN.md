@@ -74,7 +74,7 @@ and with the same routing:
 | Board address | SW3 4-way DIP, resistor ladder R13/R14/R18/R19/R22/R23, U4 LMV321 buffer, into GPIO28 (ADC) | read by the firmware at start-up |
 | Status LED | D3 on GPIO25 | |
 | Special output | U5 SN74AHCT1G125 from GPIO29 to J5 pin 5 | 5 V level, used by io-boards for a WS2812 string; SAM_IO keeps it |
-| QWIIC | J2 (not fitted) | |
+| QWIIC | removed (J2, R96, R97, C8) | GPIO0 / GPIO1 are only the RS485 TX / RX; R9 (0 ohm, RO to GPIO1) is a track |
 
 Removed: the 16 input stages (sheet IN16, J6-J8) and the 8 MOSFET outputs with their fuse and bulk capacitor (sheet
 OUT8, J9-J11, F2, C56). GPIO19-24, 26 and 27 were the outputs and are now unconnected.
@@ -253,7 +253,7 @@ schematic net for net.
   RP2040's QFN-56; the new parts are 0603, SOT-23 and 0.65 mm pitch TSSOP.
 - **J9** must be a shrouded (boxed) header so the ribbon can only go in one way. Check the cable: pin 1 to pin 1, with
   the SAM IO board's J1 key in the same orientation as on the original CPU board.
-- J2 (QWIIC) and J3 (SWD) are not fitted, as on IO_16_8_1.
+- J3 (SWD) is not fitted, as on IO_16_8_1. The QWIIC option (J2) was removed.
 
 ## 12. Bring-up and test
 
