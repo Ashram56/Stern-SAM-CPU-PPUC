@@ -128,9 +128,10 @@ runs the whole chain.
 | Nothing (this folder's settings at 0.2 mm) | 25 | 0 |
 | RP2040 escape, 4.5 / 5.5 / 7 mm around U3 | 32 / 17 / 17 | 0 |
 | Same at 7 mm + SAM bus run | 7 | 1 (0.196 mm) |
-| Same + QSPI flash (`escape/`) | **4** | **0** |
+| Same + QSPI flash | **4** | **0** |
+| Same + RS485 lines, after the QWIIC removal (`escape/` now) | **2** | **0** |
 
-Graded like the boards above (`escape/drc_own.rpt`, `escape/drc_jlc.rpt`):
+Graded like the boards above, before the QWIIC removal:
 
 | | SAM_IO session | KRT at 0.15 mm (this folder) | Kept copper + KRT at 0.2 mm (`escape/`) |
 |---|---|---|---|
@@ -150,6 +151,26 @@ not.
 The same chain with `--max-ripup 30` instead of 10, run natively on an 8-core WSL machine (KiCad 10.0.6), took
 556 s (main 483, clean-up 73) and left the same 4 open, with 2 hole-clearance items instead of 7. That board is
 not in this folder.
+
+### After the QWIIC removal (`escape/` now)
+
+The QWIIC connector J2, its pull-ups R96 / R97 and C8 were removed and the 0 ohm R9 became a track
+(`../tools/c11_*.py`). On this board KRT had routed `/485_RX` and `/485_TX` through J2 and the pull-ups, so the
+chain was run again from the updated `../sam_io` board. It also keeps that board's RS485 lines (`/485_*`) whole, 420
+tracks and vias in all:
+
+    KRT=... sh escape/run_escape.sh <out> 7 'BUS_(D[0-7]|A[0-3]|IOSTB|DIR|OE_N)|NBRESET_DRV|/Q_.*|Net-\(U2-.*|/485_.*'
+
+| | Board's own rules | JLC 2-layer rules |
+|---|---|---|
+| Unconnected | 2 (`/nReset` at U3 pin 26, `Net-(U3-GPIO25)` at U3 pin 37) | 2 |
+| Clearance | 0 | 0 |
+| Hole clearance | 2 | 4 (USB-C J4, as on the original) |
+| Starved thermal reliefs | 13 | 13 |
+| Tracks / vias | 934 / 172, 2314 mm | |
+| KRT wall clock | 478 s (main 395, clean-up 83) | |
+
+Without the RS485 lines kept, two runs (rip-up 10 and 30) both left 6 open, four of them `+3V3` at U3.
 
 KRT's own routes take long detours where the original runs straight, for example `/5V_IN` around the left edge.
 That costs track length (2672 mm in all against 2194 mm) but not DRC.

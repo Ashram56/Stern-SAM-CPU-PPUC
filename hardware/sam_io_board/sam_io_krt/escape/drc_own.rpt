@@ -1,50 +1,27 @@
 ** Drc report for r2.kicad_pcb **
-** Created on 2026-10-08T10:33:10 **
+** Created on 2026-10-08T13:31:09 **
 ** Report includes: Errors, Warnings, Exclusions **
 
-** Found 121 DRC violations **
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.3112 mm)
-    Rule: board setup constraints hole; error
-    @(94.2000 mm, 99.5500 mm): Track [Net-(RN3-R2.2)] on B.Cu, length 3.8891 mm
-    @(95.9198 mm, 97.0365 mm): Via [BUS_OE_N] on F.Cu - B.Cu
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2548 mm)
-    Rule: board setup constraints hole; error
-    @(134.1600 mm, 46.8500 mm): Pad A1 [GND] of J4 on F.Cu
-    @(133.7000 mm, 45.7850 mm): NPTH pad of J4
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.1651 mm)
+** Found 112 DRC violations **
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.1651 mm)
     Rule: board setup constraints hole; error
     @(133.8600 mm, 46.8500 mm): Pad B12 [GND] of J4 on F.Cu
     @(133.7000 mm, 45.7850 mm): NPTH pad of J4
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2005 mm)
-    Rule: board setup constraints hole; error
-    @(133.3600 mm, 46.8500 mm): Pad A4 [Net-(D4-A)] of J4 on F.Cu
-    @(133.7000 mm, 45.7850 mm): NPTH pad of J4
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2005 mm)
-    Rule: board setup constraints hole; error
-    @(128.2600 mm, 46.8500 mm): Pad A9 [Net-(D4-A)] of J4 on F.Cu
-    @(127.9200 mm, 45.7850 mm): NPTH pad of J4
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.2548 mm)
-    Rule: board setup constraints hole; error
-    @(127.4600 mm, 46.8500 mm): Pad A12 [GND] of J4 on F.Cu
-    @(127.9200 mm, 45.7850 mm): NPTH pad of J4
-[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.3300 mm; actual 0.1651 mm)
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2000 mm; actual 0.1651 mm)
     Rule: board setup constraints hole; error
     @(127.7600 mm, 46.8500 mm): Pad B1 [GND] of J4 on F.Cu
     @(127.9200 mm, 45.7850 mm): NPTH pad of J4
-[courtyards_overlap]: Courtyards overlap
-    Rule: board setup constraints courtyard; error
-    @(117.8560 mm, 42.1640 mm): Footprint J2
-    @(116.1480 mm, 45.7820 mm): Footprint C8
 [footprint_type_mismatch]: Footprint component type doesn't match footprint pads (expected 'Through hole'; actual 'SMD')
     Local override; error
     @(130.8100 mm, 43.1800 mm): Footprint J4
-[track_width]: Track width (board setup constraints min width 0.2000 mm; actual 0.1918 mm)
-    Rule: netclass 'Default'; error
-    @(112.1000 mm, 80.0920 mm): Track [/485_TX] on F.Cu, length 0.0123 mm
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
     @(134.1600 mm, 46.8500 mm): Pad A1 [GND] of J4 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(127.4600 mm, 46.8500 mm): Pad A12 [GND] of J4 on F.Cu
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
@@ -53,6 +30,10 @@
     Local override; error
     @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
     @(133.8600 mm, 46.8500 mm): Pad B12 [GND] of J4 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(93.6000 mm, 85.1750 mm): Pad 2 [GND] of R28 on F.Cu
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
@@ -64,7 +45,15 @@
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(112.5220 mm, 77.4980 mm): Pad 2 [GND] of C12 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
     @(118.1100 mm, 89.8880 mm): Pad 2 [GND] of C14 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
+    @(86.9500 mm, 99.0000 mm): Pad 2 [GND] of C33 on F.Cu
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
@@ -76,19 +65,13 @@
 [starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
     Local override; error
     @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
-    @(107.4420 mm, 60.6430 mm): Pad 1 [GND] of R8 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
     @(132.2330 mm, 57.3205 mm): Pad 2 [GND] of U6 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
-    @(115.6680 mm, 45.7820 mm): Pad 2 [GND] of C8 on F.Cu
-[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
-    Local override; error
-    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
-    @(109.7150 mm, 59.6900 mm): Pad 2 [GND] of C2 on F.Cu
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(113.0762 mm, 79.5482 mm): Track [+3V3] on F.Cu, length 0.0239 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(87.1500 mm, 94.4500 mm): Track [Net-(J9-Pin_15)] on B.Cu, length 0.2828 mm
 [via_dangling]: Via is not connected or connected on only one layer
     Local override; warning
     @(126.3000 mm, 81.8000 mm): Via [Net-(U3-GPIO25)] on F.Cu - B.Cu
@@ -143,9 +126,6 @@
 [lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
     Local override; warning
     @(94.0000 mm, 102.5000 mm): Footprint TP5
-[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_JST'
-    Local override; warning
-    @(117.8560 mm, 42.1640 mm): Footprint J2
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
     Local override; warning
     @(98.5000 mm, 76.0000 mm): Footprint U7
@@ -184,9 +164,6 @@
     @(113.9890 mm, 55.5610 mm): Footprint R3
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
     Local override; warning
-    @(118.5610 mm, 48.0680 mm): Footprint R97
-[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
-    Local override; warning
     @(135.1280 mm, 57.9120 mm): Footprint R26
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Button_Switch_SMD'
     Local override; warning
@@ -197,9 +174,6 @@
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
     Local override; warning
     @(119.6240 mm, 76.0420 mm): Footprint C16
-[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
-    Local override; warning
-    @(107.4420 mm, 64.7700 mm): Footprint R9
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
     Local override; warning
     @(130.3020 mm, 102.3620 mm): Footprint R13
@@ -254,9 +228,6 @@
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
     Local override; warning
     @(130.3020 mm, 78.2320 mm): Footprint R1
-[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
-    Local override; warning
-    @(118.5610 mm, 46.4820 mm): Footprint R96
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
     Local override; warning
     @(88.5000 mm, 75.0000 mm): Footprint RN2
@@ -340,9 +311,6 @@
     @(93.2000 mm, 72.6000 mm): Footprint C31
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
     Local override; warning
-    @(116.1480 mm, 45.7820 mm): Footprint C8
-[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
-    Local override; warning
     @(110.4900 mm, 59.6900 mm): Footprint C2
 [lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
     Local override; warning
@@ -387,18 +355,10 @@
     Local override; warning
     @(132.2070 mm, 61.3410 mm): Footprint C26
 
-** Found 4 unconnected pads **
+** Found 2 unconnected pads **
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(75.0000 mm, 39.0000 mm): Zone [GND] on F.Cu and B.Cu, priority 0
-    @(109.7150 mm, 59.6900 mm): Pad 2 [GND] of C2 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(122.4000 mm, 63.9000 mm): Track [GND] on B.Cu, length 2.3335 mm
-    @(117.0940 mm, 63.7260 mm): Pad 2 [GND] of C3 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(128.4500 mm, 86.6500 mm): Track [/nReset] on F.Cu, length 1.7678 mm
+    @(128.4500 mm, 80.4500 mm): Track [/nReset] on F.Cu, length 6.2000 mm
     @(119.1480 mm, 85.7335 mm): Pad 26 [/nReset] of U3 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
