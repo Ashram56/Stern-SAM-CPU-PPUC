@@ -22,7 +22,7 @@
 		)
 		(uuid "04dee7dd-7d40-5b21-98cc-3828cb2d2dea")
 	)
-	(text "Power: +5 V mux (external / J11), 3.3 V, 4.5 V, supply monitors"
+	(text "Power: +5 V mux, external +12 V, 3.3 V, 4.5 V, monitors"
 		(exclude_from_sim no)
 		(at 27.94 68.58 0)
 		(effects
@@ -44,7 +44,7 @@
 		)
 		(uuid "48940a54-79df-5847-a7b3-f44512f06c32")
 	)
-	(text "J5 original DMD driver and J18 GI dimmer header"
+	(text "J18 GI dimmer header"
 		(exclude_from_sim no)
 		(at 281.94 160.02 0)
 		(effects
@@ -99,7 +99,7 @@
 		)
 		(uuid "a96ea57b-b3f3-5486-b3d8-0ac915f3dc06")
 	)
-	(text "Audio: Pi I2S -> PCM5102A -> 2 x TDA2030A on +-12 V -> J10"
+	(text "Audio: PCM5102A, TDA7297 stereo + subwoofer (+12 V)"
 		(exclude_from_sim no)
 		(at 27.94 205.74 0)
 		(effects
@@ -109,6 +109,120 @@
 			(justify left top)
 		)
 		(uuid "b71aa25e-d7e8-52b6-9684-a321cd9df897")
+	)
+	(sheet
+		(at 25.4 246.38)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f92b9d4e-3163-5cd0-8a78-99a8cf4f6f0a")
+		(property "Sheetname" "RS485 and I2S"
+			(at 25.4 245.6684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "rs485_i2s.kicad_sch"
+			(at 25.4 272.3684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "13")
+				)
+			)
+		)
+	)
+	(text "Isolated RS485 port (2x RJ45), I2S input header, analog line-in"
+		(exclude_from_sim no)
+		(at 27.94 251.46 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "0c9d9570-3b3c-543c-b629-1c1ba0521194")
+	)
+	(sheet
+		(at 279.4 200.66)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "89a6077c-5515-50a9-b346-15159338c668")
+		(property "Sheetname" "Switch chain extensions"
+			(at 279.4 199.9484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "dmd_panels.kicad_sch"
+			(at 279.4 226.6484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
+					(page "12")
+				)
+			)
+		)
+	)
+	(text "Switch-chain extensions: 7th 74HC165, first 74HC595"
+		(exclude_from_sim no)
+		(at 281.94 205.74 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "93343ae3-a66c-5e98-9b10-9738172dfc80")
 	)
 	(text "Switch matrix returns 9-16: J12, LM339 front end, 74HC165"
 		(exclude_from_sim no)
@@ -470,7 +584,7 @@
 			(color 0 0 0 0)
 		)
 		(uuid "e5bcf56a-1356-5dfa-9e64-6b2f23d447fd")
-		(property "Sheetname" "Display and GI"
+		(property "Sheetname" "GI dimmer"
 			(at 279.4 154.2284 0)
 			(show_name no)
 			(do_not_autoplace no)

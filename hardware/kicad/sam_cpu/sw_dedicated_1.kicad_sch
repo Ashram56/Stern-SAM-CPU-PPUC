@@ -1924,7 +1924,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Per input (ARCHITECTURE.md 5.2-5.3): 1.5 k pull-up to +4.5 V (switch wetting current) and the original 39 k + 47 pF filter, plus 68 k to\nground so the 3.3 V 74HC165 sees 2.8 V (open) or 0 V (closed). Connector pin to D-number order follows the original drawing: check it with a meter.\nMemory protect (J2 pin 10) uses the same filter with the original 4.7 k pull-up and goes straight to RP2354B GPIO31."
+	(text "Per input (ARCHITECTURE.md 5.2-5.3): 1.5 k pull-up to +4.5 V (switch wetting current) and the original 39 k + 47 pF filter, plus 68 k to\nground so the 3.3 V 74HC165 sees 2.8 V (open) or 0 V (closed). Connector pin to D-number order follows the original drawing: check it with a meter.\nMemory protect (J2 pin 10) uses the same filter with the original 4.7 k pull-up and goes to input D0 of the 7th 74HC165 (U30, DMD panels sheet)."
 		(exclude_from_sim no)
 		(at 15.24 15.24 0)
 		(effects
