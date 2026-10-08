@@ -1,0 +1,2548 @@
+** Drc report for c4k_jlc.kicad_pcb **
+** Created on 2026-10-08T10:07:25 **
+** Report includes: Errors, Warnings **
+
+** Found 655 DRC violations **
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 11.8200 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 39.9800 mm): NPTH pad of MH6
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 10.4000 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 43.6900 mm): NPTH pad of MH6
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 11.8200 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 256.3000 mm): NPTH pad of MH3
+[drill_out_of_range]: Hole size out of range (rule 'JLC NPTH hole size' max hole 6.3000 mm; actual 10.4000 mm)
+    Rule: JLC NPTH hole size; error
+    @(38.2400 mm, 260.0100 mm): NPTH pad of MH3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; 3 spokes connected to isolated island)
+    Local override; error
+    @(30.0000 mm, 30.0000 mm): Zone 'GND_BOT' [GND] on B.Cu, priority 0
+    @(125.1600 mm, 94.0000 mm): PTH pad 9 [GND] of U24
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; 1 spokes connected to isolated island)
+    Local override; error
+    @(30.0000 mm, 30.0000 mm): Zone 'GND_BOT' [GND] on B.Cu, priority 0
+    @(65.8150 mm, 72.3550 mm): PTH pad 2 [GND] of J20
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; 1 spokes connected to isolated island)
+    Local override; error
+    @(30.0000 mm, 30.0000 mm): Zone 'GND_BOT' [GND] on B.Cu, priority 0
+    @(79.4500 mm, 251.7300 mm): PTH pad 10 [GND] of J3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(30.0000 mm, 30.0000 mm): Zone 'GND_BOT' [GND] on B.Cu, priority 0
+    @(55.9950 mm, 210.3350 mm): PTH pad 13 [GND] of SW3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(74.6550 mm, 98.3500 mm): Pad 12 [GND] of U11 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(130.2600 mm, 107.8500 mm): Pad 4 [GND] of U26 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(81.2750 mm, 69.2700 mm): Pad 2 [GND] of C26 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(48.5250 mm, 122.2700 mm): Pad 2 [GND] of C61 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(56.6900 mm, 195.4200 mm): Pad 8 [GND] of U30 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(52.8800 mm, 190.4700 mm): Pad 12 [GND] of U30 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(88.1200 mm, 198.8000 mm): Pad 2 [GND] of C74 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(119.4750 mm, 222.1725 mm): Pad 2 [GND] of Q14 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(68.5500 mm, 223.5950 mm): Pad 2 [GND] of C89 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(135.2700 mm, 217.3550 mm): Pad 2 [GND] of C36 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(123.2500 mm, 224.4450 mm): Pad 2 [GND] of C40 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(94.3000 mm, 218.5650 mm): Pad 2 [GND] of R104 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; 1 spokes connected to isolated island)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(79.4500 mm, 251.7300 mm): PTH pad 10 [GND] of J3
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(57.1750 mm, 227.3700 mm): Pad 2 [GND] of C86 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(139.8500 mm, 186.5550 mm): Pad 1 [GND] of U32 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(103.1250 mm, 214.4900 mm): Pad 2 [GND] of C71 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(71.3875 mm, 73.9450 mm): Pad 2 [GND] of U5 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(59.7675 mm, 67.2100 mm): Pad 11 [GND] of U6 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(54.0425 mm, 66.5600 mm): Pad 13 [GND] of U6 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(77.6200 mm, 70.3250 mm): Pad 2 [GND] of C17 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(78.8500 mm, 38.0400 mm): Pad A1 [GND] of J19 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(72.3500 mm, 38.0400 mm): Pad A12 [GND] of J19 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(72.3500 mm, 38.0400 mm): Pad B1 [GND] of J19 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(78.8500 mm, 38.0400 mm): Pad B12 [GND] of J19 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(78.0500 mm, 67.0450 mm): Pad 2 [GND] of C29 on F.Cu
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(151.5750 mm, 193.3500 mm): Pad 2 [GND_ISO] of C130 on F.Cu
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(79.9200 mm, 37.1250 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(79.9200 mm, 32.9450 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(71.2800 mm, 37.1250 mm): PTH pad SH [GND] of J19
+[annular_width]: Annular width (rule 'JLC PTH annular ring (recommended 0.25 mm)' min annular width 0.2500 mm; actual 0.2000 mm)
+    Rule: JLC PTH annular ring (recommended 0.25 mm); warning
+    @(71.2800 mm, 32.9450 mm): PTH pad SH [GND] of J19
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(112.9500 mm, 166.7750 mm): Via [RP_IRQ_N] on F.Cu - B.Cu
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(124.8000 mm, 75.5000 mm): Track [Net-(J10-Pin_3)] on B.Cu, length 0.8485 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(49.6000 mm, 194.7000 mm): Track [SW_CLK] on F.Cu, length 0.2000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(72.0571 mm, 110.8429 mm): Track [+4V5] on In2.Cu, length 0.0606 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(95.7000 mm, 163.7750 mm): Via [RP_UART_RX] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(146.2500 mm, 253.3200 mm): Via [STB_DATA] on F.Cu - B.Cu
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(67.9000 mm, 56.2000 mm): Track [BUS_IOSTB] on F.Cu, length 0.5000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(76.1000 mm, 51.8000 mm): Track [+3V3] on F.Cu, length 1.3000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(78.8000 mm, 52.5000 mm): Track [+3V3] on F.Cu, length 0.4243 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(78.8000 mm, 59.9000 mm): Track [+3V3] on F.Cu, length 0.4243 mm
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(60.9000 mm, 71.7500 mm): Via [BUS_D6] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(57.3500 mm, 58.6500 mm): Via [BUS_IOSTB] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(49.1000 mm, 78.2000 mm): Via [/IO bus/BD1] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(51.6000 mm, 74.7000 mm): Via [/IO bus/BD5] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(51.0000 mm, 73.2000 mm): Via [/IO bus/BD7] on F.Cu - B.Cu
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
+    @(150.8200 mm, 62.5400 mm): Reference field of J23
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
+    @(150.8200 mm, 50.5400 mm): Reference field of J17
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
+    @(150.4750 mm, 119.0250 mm): Segment of J30 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
+    @(154.4750 mm, 125.2650 mm): Segment of J30 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(150.6500 mm, 30.0000 mm): Segment on Edge.Cuts
+    @(151.3100 mm, 95.4400 mm): Reference field of J24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(118.3750 mm, 60.0650 mm): Footprint R6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(53.9775 mm, 171.6850 mm): Footprint D12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(83.5250 mm, 196.3750 mm): Footprint R173
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(151.5750 mm, 187.3250 mm): Footprint C132
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(56.8250 mm, 122.0450 mm): Footprint R69
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(126.5450 mm, 116.0575 mm): Footprint C104
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(52.5250 mm, 186.5975 mm): Footprint R51
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(86.5250 mm, 216.4150 mm): Footprint C76
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(48.2200 mm, 159.5750 mm): Footprint C53
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(84.6200 mm, 61.2000 mm): Footprint C18
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(87.1750 mm, 195.3750 mm): Footprint R174
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(53.5250 mm, 86.8375 mm): Footprint R24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(73.4250 mm, 177.5975 mm): Footprint R57
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(96.6450 mm, 51.8450 mm): Footprint U3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(59.8250 mm, 80.8375 mm): Footprint R26
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(49.2975 mm, 86.1662 mm): Footprint TP10
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(67.1750 mm, 65.2250 mm): Footprint R207
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(91.4750 mm, 215.4150 mm): Footprint C79
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(75.4500 mm, 45.4500 mm): Footprint C24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(103.4250 mm, 58.0650 mm): Footprint R3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(71.0750 mm, 113.0450 mm): Footprint R74
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(53.5250 mm, 226.5950 mm): Footprint C85
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(92.5250 mm, 190.9250 mm): Footprint R152
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(123.0400 mm, 221.8762 mm): Footprint TP15
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(79.3750 mm, 118.1950 mm): Footprint R86
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(54.3950 mm, 114.4750 mm): Footprint D24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(54.2975 mm, 174.7862 mm): Footprint TP18
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(53.5250 mm, 240.9250 mm): Footprint R131
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(109.4250 mm, 220.7150 mm): Footprint R114
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_THT'
+    Local override; warning
+    @(115.0000 mm, 94.0000 mm): Footprint U24
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(51.5250 mm, 251.0750 mm): Footprint R138
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(55.1750 mm, 236.7750 mm): Footprint R125
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(120.8350 mm, 109.3075 mm): Footprint C99
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(63.7750 mm, 185.4475 mm): Footprint R46
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(69.0750 mm, 178.4475 mm): Footprint R48
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(87.1750 mm, 188.9250 mm): Footprint R153
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(91.1750 mm, 186.0750 mm): Footprint R160
+[lib_footprint_issues]: The current configuration does not include the footprint library 'MountingHole'
+    Local override; warning
+    @(89.6500 mm, 178.5000 mm): Footprint MH9
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(78.7250 mm, 112.0450 mm): Footprint R75
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(72.2650 mm, 109.6850 mm): Footprint D21
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(126.5650 mm, 55.9450 mm): Footprint U1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(40.3750 mm, 198.3700 mm): Footprint C126
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(99.1250 mm, 220.7150 mm): Footprint R112
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(75.4250 mm, 240.9250 mm): Footprint R137
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(90.8250 mm, 222.5650 mm): Footprint R102
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(97.9350 mm, 66.5950 mm): Footprint C4
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(63.1250 mm, 111.0450 mm): Footprint R71
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(59.4850 mm, 109.6850 mm): Footprint D19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(58.1750 mm, 117.0450 mm): Footprint C62
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(98.8250 mm, 184.9250 mm): Footprint R154
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(147.7250 mm, 205.9550 mm): Footprint R211
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(118.1300 mm, 113.1150 mm): Footprint C114
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(54.5875 mm, 178.6850 mm): Footprint D11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(113.4900 mm, 112.3862 mm): Footprint TP22
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(71.7750 mm, 185.5975 mm): Footprint R56
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Button_Switch_SMD'
+    Local override; warning
+    @(68.2950 mm, 80.3550 mm): Footprint SW1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(144.3450 mm, 250.8450 mm): Footprint U31
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(83.6775 mm, 72.6062 mm): Footprint TP7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(97.6650 mm, 105.3950 mm): Footprint Q2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(93.8250 mm, 58.0650 mm): Footprint C9
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(64.0500 mm, 42.7300 mm): Footprint C22
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(116.4250 mm, 186.9250 mm): Footprint R158
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(80.9950 mm, 172.4575 mm): Footprint C47
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(75.9250 mm, 100.8250 mm): Footprint U11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(134.5250 mm, 241.0750 mm): Footprint R37
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(126.5250 mm, 243.2250 mm): Footprint R42
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(48.6825 mm, 82.1662 mm): Footprint TP12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_PinHeader_2.54mm'
+    Local override; warning
+    @(65.8150 mm, 69.8150 mm): Footprint J20
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(105.4250 mm, 221.5650 mm): Footprint R106
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Inductor_SMD'
+    Local override; warning
+    @(100.3625 mm, 112.7350 mm): Footprint FB1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(105.2800 mm, 108.9462 mm): Footprint TP2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(117.5250 mm, 118.0075 mm): Footprint R194
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(130.3100 mm, 111.1150 mm): Footprint C121
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(104.7750 mm, 192.0750 mm): Footprint R164
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(50.5250 mm, 182.7475 mm): Footprint R61
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(142.4750 mm, 244.9250 mm): Footprint R35
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(132.7350 mm, 105.9450 mm): Footprint U26
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(64.0800 mm, 58.2000 mm): Footprint C14
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(73.1750 mm, 90.9675 mm): Footprint R17
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(82.6200 mm, 58.0000 mm): Footprint C27
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(62.4750 mm, 239.7750 mm): Footprint R127
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(153.5250 mm, 193.9450 mm): Footprint C131
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(103.1250 mm, 224.8650 mm): Footprint R120
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(105.7750 mm, 61.0650 mm): Footprint R2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(107.4250 mm, 183.7750 mm): Footprint R151
+[lib_footprint_issues]: The current configuration does not include the footprint library 'LED_SMD'
+    Local override; warning
+    @(72.9100 mm, 88.7750 mm): Footprint D3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(96.1750 mm, 161.7750 mm): Footprint R19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(69.6550 mm, 106.6850 mm): Footprint D22
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(82.0500 mm, 69.2700 mm): Footprint C26
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(62.7750 mm, 117.3450 mm): Footprint R92
+[lib_footprint_issues]: The current configuration does not include the footprint library 'LED_SMD'
+    Local override; warning
+    @(98.4750 mm, 58.0650 mm): Footprint D2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(52.8250 mm, 118.3450 mm): Footprint R89
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(71.7750 mm, 242.9250 mm): Footprint R136
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(48.5250 mm, 123.0450 mm): Footprint C61
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(97.1250 mm, 213.4150 mm): Footprint C80
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(102.8250 mm, 162.7750 mm): Footprint R20
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(122.1750 mm, 125.1575 mm): Footprint R202
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(108.7450 mm, 67.1950 mm): Footprint C108
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(69.0900 mm, 194.5750 mm): Footprint C93
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TerminalBlock_Phoenix'
+    Local override; warning
+    @(144.5000 mm, 60.0000 mm): Footprint J23
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(124.9450 mm, 208.4450 mm): Footprint U20
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(47.1750 mm, 248.2250 mm): Footprint R95
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(100.7750 mm, 218.4150 mm): Footprint C81
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(140.8450 mm, 111.0575 mm): Footprint C106
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(138.7750 mm, 112.7075 mm): Footprint C116
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(76.3750 mm, 117.0450 mm): Footprint R76
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_Molex'
+    Local override; warning
+    @(105.8500 mm, 231.4100 mm): Footprint J2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(132.4750 mm, 186.1250 mm): Footprint R212
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_THT'
+    Local override; warning
+    @(92.0000 mm, 94.0000 mm): Footprint U23
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(121.1750 mm, 122.0075 mm): Footprint R195
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Jumper'
+    Local override; warning
+    @(99.2725 mm, 109.1350 mm): Footprint JP1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(86.1750 mm, 224.8650 mm): Footprint R117
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_PinHeader_2.54mm'
+    Local override; warning
+    @(137.2150 mm, 202.2150 mm): Footprint J28
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(118.5250 mm, 119.7075 mm): Footprint C109
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(86.1750 mm, 222.7150 mm): Footprint R109
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(69.0750 mm, 221.5950 mm): Footprint C92
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(54.8750 mm, 83.1662 mm): Footprint TP13
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(67.1250 mm, 250.0750 mm): Footprint R142
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(101.1250 mm, 61.0650 mm): Footprint R1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(132.1250 mm, 113.7075 mm): Footprint C115
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(109.4725 mm, 109.9462 mm): Footprint TP3
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(61.8475 mm, 48.2250 mm): Footprint C31
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(49.5250 mm, 119.3450 mm): Footprint R87
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(52.2450 mm, 192.9450 mm): Footprint U30
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(92.6825 mm, 114.1362 mm): Footprint TP6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(50.3850 mm, 74.3750 mm): Footprint RN2
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(79.7250 mm, 122.1950 mm): Footprint R85
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_Molex'
+    Local override; warning
+    @(115.0000 mm, 41.1800 mm): Footprint J10
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(112.0750 mm, 220.2650 mm): Footprint C75
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(58.4750 mm, 239.9250 mm): Footprint R134
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(116.4400 mm, 98.8200 mm): Footprint C107
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(129.2325 mm, 221.8762 mm): Footprint TP16
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(82.1750 mm, 217.4150 mm): Footprint C77
+[lib_footprint_issues]: The current configuration does not include the footprint library 'sam_cpu'
+    Local override; warning
+    @(38.2400 mm, 36.2700 mm): Footprint MH6
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(144.8250 mm, 238.7750 mm): Footprint R29
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(96.8250 mm, 216.2650 mm): Footprint C69
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(89.8250 mm, 193.3750 mm): Footprint R175
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(60.8250 mm, 122.1950 mm): Footprint R79
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(82.1750 mm, 220.5650 mm): Footprint R101
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(104.1250 mm, 189.0750 mm): Footprint R163
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(114.9750 mm, 221.3250 mm): Footprint Q18
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(55.0850 mm, 60.3950 mm): Footprint U7
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(137.5250 mm, 194.1250 mm): Footprint C129
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(64.0800 mm, 65.7000 mm): Footprint C25
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(66.1250 mm, 189.7475 mm): Footprint R65
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(122.8250 mm, 114.0075 mm): Footprint R196
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(128.4750 mm, 122.0075 mm): Footprint R197
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(74.3750 mm, 41.5250 mm): Footprint R14
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(103.1250 mm, 184.7750 mm): Footprint R149
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(60.4750 mm, 186.7475 mm): Footprint R64
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(131.0275 mm, 68.8962 mm): Footprint TP19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(110.7750 mm, 186.7750 mm): Footprint R150
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(48.1750 mm, 184.7475 mm): Footprint R62
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(54.8250 mm, 247.9250 mm): Footprint R133
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(107.0750 mm, 215.5650 mm): Footprint R107
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(88.1200 mm, 199.5750 mm): Footprint C74
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_TO_SOT_SMD'
+    Local override; warning
+    @(118.5250 mm, 221.2350 mm): Footprint Q14
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(146.1250 mm, 245.9250 mm): Footprint R36
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(74.1475 mm, 174.6850 mm): Footprint D15
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_SO'
+    Local override; warning
+    @(53.9450 mm, 164.4450 mm): Footprint U19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_Molex'
+    Local override; warning
+    @(40.0300 mm, 133.5100 mm): Footprint J12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(95.8250 mm, 187.7750 mm): Footprint R147
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(82.7500 mm, 53.4500 mm): Footprint C11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(136.1250 mm, 224.4450 mm): Footprint C41
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(63.4750 mm, 221.5950 mm): Footprint C88
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(51.1750 mm, 124.3450 mm): Footprint R88
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(73.7250 mm, 184.4475 mm): Footprint R49
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(67.7750 mm, 223.5950 mm): Footprint C89
+[lib_footprint_issues]: The current configuration does not include the footprint library 'MountingHole'
+    Local override; warning
+    @(147.6500 mm, 129.5000 mm): Footprint MH12
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(100.4250 mm, 215.4150 mm): Footprint C82
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(80.6200 mm, 45.4000 mm): Footprint C19
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(115.7450 mm, 107.3075 mm): Footprint C98
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(132.1950 mm, 116.0575 mm): Footprint C105
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(131.1250 mm, 122.1750 mm): Footprint R192
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(135.4250 mm, 187.1450 mm): Footprint C128
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(98.4750 mm, 187.0750 mm): Footprint R162
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TestPoint'
+    Local override; warning
+    @(118.2975 mm, 105.3862 mm): Footprint TP21
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(102.4750 mm, 164.7750 mm): Footprint R21
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(58.4750 mm, 175.4475 mm): Footprint R44
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(111.4250 mm, 184.0750 mm): Footprint R165
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(67.0450 mm, 181.4575 mm): Footprint C44
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(61.0800 mm, 52.3000 mm): Footprint C13
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(60.4750 mm, 251.0750 mm): Footprint R141
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(55.4750 mm, 118.1950 mm): Footprint R80
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(66.1250 mm, 120.1950 mm): Footprint R72
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(49.3950 mm, 114.4750 mm): Footprint D25
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(114.5250 mm, 122.1575 mm): Footprint R201
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(62.1750 mm, 71.4750 mm): Footprint R205
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(134.4950 mm, 217.3550 mm): Footprint C36
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Capacitor_SMD'
+    Local override; warning
+    @(122.4750 mm, 224.4450 mm): Footprint C40
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Diode_SMD'
+    Local override; warning
+    @(49.7850 mm, 174.8775 mm): Footprint D18
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Connector_Molex'
+    Local override; warning
+    @(88.4100 mm, 41.1800 mm): Footprint J11
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(126.1250 mm, 124.0075 mm): Footprint R198
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(61.7750 mm, 182.7475 mm): Footprint R66
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(95.1250 mm, 218.5650 mm): Footprint R104
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(128.8250 mm, 187.1250 mm): Footprint R210
+[lib_footprint_issues]: The current configuration does not include the footprint library 'TerminalBlock_Phoenix'
+    Local override; warning
+    @(144.5000 mm, 48.0000 mm): Footprint J17
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Resistor_SMD'
+    Local override; warning
+    @(107.7750 mm, 187.9250 mm): Footprint R157
+[lib_footprint_issues]: The current configuration does not include the footprint library 'Package_DFN_QFN'
+    Local override; warning
+    @(73.3500 mm, 56.0000 mm): Footprint U4
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(128.9025 mm, 99.5750 mm): Reference field of C101
+    @(129.2950 mm, 102.7450 mm): Reference field of U22
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(128.9025 mm, 99.5750 mm): Reference field of C101
+    @(128.4800 mm, 100.4350 mm): Segment of U22 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(118.2975 mm, 103.7382 mm): Reference field of TP21
+    @(117.3919 mm, 103.0850 mm): Segment of C100 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(118.2975 mm, 105.3862 mm): Circle of TP21 on F.Silkscreen
+    @(117.4250 mm, 107.3075 mm): Reference field of C98
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(117.8700 mm, 98.8200 mm): Reference field of C107
+    @(117.5325 mm, 101.1450 mm): Reference field of C100
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(119.1750 mm, 117.1375 mm): Reference field of C110
+    @(117.5250 mm, 116.5775 mm): Reference field of R194
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(117.2877 mm, 117.4850 mm): Segment of R194 on F.Silkscreen
+    @(119.1750 mm, 117.1375 mm): Reference field of C110
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(119.1750 mm, 117.1375 mm): Reference field of C110
+    @(118.5250 mm, 118.2775 mm): Reference field of C109
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(118.1300 mm, 114.7950 mm): Reference field of C114
+    @(119.3156 mm, 115.1975 mm): Segment of C110 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(122.1750 mm, 117.4275 mm): Reference field of R188
+    @(119.1750 mm, 117.1375 mm): Reference field of C110
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(122.8950 mm, 114.6275 mm): Reference field of C103
+    @(122.9750 mm, 113.7275 mm): Reference field of FB4
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(122.9750 mm, 113.7275 mm): Reference field of FB4
+    @(122.5877 mm, 113.4850 mm): Segment of R196 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(122.8250 mm, 112.5775 mm): Reference field of R196
+    @(123.3746 mm, 112.7375 mm): Segment of FB4 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(117.2877 mm, 118.5300 mm): Segment of R194 on F.Silkscreen
+    @(118.5250 mm, 118.2775 mm): Reference field of C109
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(117.3475 mm, 121.9202 mm): Segment of R203 on F.Silkscreen
+    @(117.0950 mm, 122.8575 mm): Reference field of R187
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(128.2550 mm, 112.7075 mm): Reference field of C111
+    @(128.0450 mm, 115.7075 mm): Reference field of C112
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(128.0450 mm, 115.7075 mm): Reference field of C112
+    @(130.1250 mm, 117.4275 mm): Reference field of R191
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(126.5450 mm, 117.4875 mm): Reference field of C104
+    @(128.0450 mm, 115.7075 mm): Reference field of C112
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(128.0450 mm, 115.7075 mm): Reference field of C112
+    @(125.8250 mm, 117.4275 mm): Reference field of R189
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(132.1950 mm, 114.6275 mm): Reference field of C105
+    @(133.9950 mm, 113.7075 mm): Reference field of R186
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(132.0544 mm, 116.5675 mm): Segment of C105 on F.Silkscreen
+    @(133.7750 mm, 116.5775 mm): Reference field of R199
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(127.5550 mm, 124.0075 mm): Reference field of R198
+    @(125.4750 mm, 122.2875 mm): Reference field of R190
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(126.5450 mm, 117.4875 mm): Reference field of C104
+    @(125.8250 mm, 117.4275 mm): Reference field of R189
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(132.1250 mm, 112.2775 mm): Reference field of C115
+    @(133.9950 mm, 113.7075 mm): Reference field of R186
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(139.4000 mm, 108.7950 mm): Reference field of C96
+    @(139.4150 mm, 111.0575 mm): Reference field of C106
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(126.5450 mm, 117.4875 mm): Reference field of C104
+    @(130.1250 mm, 117.4275 mm): Reference field of R191
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(122.8950 mm, 114.6275 mm): Reference field of C103
+    @(122.5877 mm, 114.5300 mm): Segment of R196 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(131.9900 mm, 111.1150 mm): Reference field of C121
+    @(132.1250 mm, 112.2775 mm): Reference field of C115
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(133.4900 mm, 108.4350 mm): Reference field of C97
+    @(134.7950 mm, 108.5050 mm): Segment of U26 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(127.5550 mm, 124.0075 mm): Reference field of R198
+    @(127.9525 mm, 121.7702 mm): Segment of R197 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(139.4150 mm, 111.0575 mm): Reference field of C106
+    @(139.2850 mm, 112.8481 mm): Segment of C116 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(147.6500 mm, 125.8500 mm): Reference field of MH12
+    @(150.4750 mm, 125.5650 mm): Segment of J30 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(89.0150 mm, 56.9244 mm): Segment of C10 on F.Silkscreen
+    @(88.5825 mm, 56.7550 mm): Reference field of C6
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(89.2975 mm, 107.4882 mm): Reference field of TP5
+    @(91.0450 mm, 107.4450 mm): Reference field of D4
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(99.2725 mm, 107.3350 mm): Reference field of JP1
+    @(98.4250 mm, 105.9550 mm): Segment of Q2 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(98.4250 mm, 106.9550 mm): Segment of Q2 on F.Silkscreen
+    @(99.2725 mm, 107.3350 mm): Reference field of JP1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(51.6175 mm, 172.6850 mm): Segment of D12 on F.Silkscreen
+    @(54.2975 mm, 173.1382 mm): Reference field of TP18
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(47.4250 mm, 173.8775 mm): Segment of D18 on F.Silkscreen
+    @(48.3950 mm, 175.8775 mm): Reference field of D17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(47.4250 mm, 175.8775 mm): Segment of D18 on F.Silkscreen
+    @(48.3950 mm, 175.8775 mm): Reference field of D17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(55.8250 mm, 180.0175 mm): Reference field of R43
+    @(52.2275 mm, 179.6850 mm): Segment of D11 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(55.5877 mm, 181.9700 mm): Segment of R43 on F.Silkscreen
+    @(57.1750 mm, 182.1675 mm): Reference field of R52
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(50.7623 mm, 182.2250 mm): Segment of R61 on F.Silkscreen
+    @(51.8250 mm, 182.1775 mm): Reference field of R63
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(46.0350 mm, 178.8775 mm): Segment of D17 on F.Silkscreen
+    @(48.5250 mm, 179.0175 mm): Reference field of C49
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(63.7750 mm, 184.0175 mm): Reference field of R46
+    @(61.7750 mm, 184.1775 mm): Reference field of R66
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(56.0050 mm, 169.5050 mm): Segment of U19 on F.Silkscreen
+    @(53.9775 mm, 169.6850 mm): Reference field of D12
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.3950 mm, 173.8875 mm): Reference field of C43
+    @(61.0075 mm, 173.6850 mm): Segment of D14 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(61.0075 mm, 173.6850 mm): Segment of D14 on F.Silkscreen
+    @(65.3675 mm, 174.6850 mm): Reference field of D13
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.5356 mm, 172.9675 mm): Segment of C43 on F.Silkscreen
+    @(63.3675 mm, 172.6850 mm): Reference field of D14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(58.4750 mm, 174.0175 mm): Reference field of R44
+    @(56.8450 mm, 172.7075 mm): Reference field of C54
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.3950 mm, 173.8875 mm): Reference field of C43
+    @(61.0075 mm, 173.6850 mm): Segment of D14 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(61.0075 mm, 175.6850 mm): Segment of D14 on F.Silkscreen
+    @(63.1250 mm, 176.0175 mm): Reference field of R45
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(61.0075 mm, 175.6850 mm): Segment of D14 on F.Silkscreen
+    @(65.3675 mm, 174.6850 mm): Reference field of D13
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(59.2377 mm, 179.1200 mm): Segment of R54 on F.Silkscreen
+    @(60.8250 mm, 179.1675 mm): Reference field of R53
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(67.5550 mm, 189.7475 mm): Reference field of R65
+    @(67.9950 mm, 188.7475 mm): Reference field of R67
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(69.0750 mm, 220.1650 mm): Reference field of C92
+    @(70.4250 mm, 220.0250 mm): Reference field of C91
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(68.2050 mm, 218.5950 mm): Reference field of C90
+    @(69.0750 mm, 220.1650 mm): Reference field of C92
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(84.9550 mm, 196.3750 mm): Reference field of R173
+    @(87.1750 mm, 196.8050 mm): Reference field of R174
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(83.9550 mm, 223.7150 mm): Reference field of R108
+    @(82.1750 mm, 221.9950 mm): Reference field of R101
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(90.8250 mm, 221.1350 mm): Reference field of R102
+    @(90.8250 mm, 221.1450 mm): Reference field of R110
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(109.4250 mm, 222.1450 mm): Reference field of R114
+    @(108.4250 mm, 222.4350 mm): Reference field of R122
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(86.1750 mm, 223.4350 mm): Reference field of R117
+    @(83.9550 mm, 223.7150 mm): Reference field of R108
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(107.0750 mm, 214.1350 mm): Reference field of R107
+    @(106.6344 mm, 213.7750 mm): Segment of C72 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(91.1750 mm, 215.8350 mm): Reference field of C68
+    @(91.3344 mm, 215.9250 mm): Segment of C79 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.1750 mm, 226.4000 mm): Segment of J2 on F.Silkscreen
+    @(89.8250 mm, 226.2950 mm): Reference field of R118
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.1750 mm, 226.4000 mm): Segment of J2 on F.Silkscreen
+    @(94.4750 mm, 226.1450 mm): Reference field of R111
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(67.7750 mm, 222.1650 mm): Reference field of C89
+    @(68.9344 mm, 222.1050 mm): Segment of C92 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(91.0950 mm, 190.9250 mm): Reference field of R152
+    @(92.8250 mm, 189.6550 mm): Reference field of R168
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(93.0450 mm, 191.2250 mm): Reference field of R169
+    @(92.8250 mm, 189.6550 mm): Reference field of R168
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(102.8877 mm, 187.4475 mm): Segment of R156 on F.Silkscreen
+    @(104.1250 mm, 187.6450 mm): Reference field of R163
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(98.4750 mm, 188.5050 mm): Reference field of R162
+    @(98.2377 mm, 188.2525 mm): Segment of R148 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(98.4750 mm, 187.3450 mm): Reference field of R148
+    @(98.7123 mm, 187.5975 mm): Segment of R162 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(98.4750 mm, 188.5050 mm): Reference field of R162
+    @(97.2550 mm, 187.7750 mm): Reference field of R147
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(98.4750 mm, 187.3450 mm): Reference field of R148
+    @(97.2550 mm, 187.7750 mm): Reference field of R147
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(93.0450 mm, 191.2250 mm): Reference field of R169
+    @(93.0475 mm, 191.1623 mm): Segment of R152 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(87.1750 mm, 194.6550 mm): Reference field of R167
+    @(88.3950 mm, 193.3750 mm): Reference field of R175
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(87.1750 mm, 194.6550 mm): Reference field of R167
+    @(87.4123 mm, 194.8525 mm): Segment of R174 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(88.0950 mm, 189.7750 mm): Reference field of R145
+    @(88.6050 mm, 188.9250 mm): Reference field of R153
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(88.0950 mm, 189.7750 mm): Reference field of R145
+    @(87.6975 mm, 188.6877 mm): Segment of R153 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(87.1750 mm, 194.6550 mm): Reference field of R167
+    @(84.9550 mm, 196.3750 mm): Reference field of R173
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(89.0025 mm, 190.0123 mm): Segment of R145 on F.Silkscreen
+    @(88.6050 mm, 188.9250 mm): Reference field of R153
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(105.5050 mm, 198.3450 mm): Reference field of C66
+    @(107.4250 mm, 197.6550 mm): Reference field of R172
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(101.9050 mm, 191.9250 mm): Reference field of R155
+    @(101.3450 mm, 193.2250 mm): Reference field of R171
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(101.3450 mm, 193.2250 mm): Reference field of R171
+    @(100.9975 mm, 191.6877 mm): Segment of R155 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(102.2525 mm, 193.4623 mm): Segment of R171 on F.Silkscreen
+    @(101.9050 mm, 191.9250 mm): Reference field of R155
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(109.2050 mm, 187.9250 mm): Reference field of R157
+    @(110.7750 mm, 188.2050 mm): Reference field of R150
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(103.1250 mm, 185.4950 mm): Reference field of R156
+    @(102.8877 mm, 185.2975 mm): Segment of R149 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(86.9550 mm, 186.2250 mm): Reference field of R166
+    @(89.1750 mm, 185.2050 mm): Reference field of R146
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(91.1750 mm, 184.6450 mm): Reference field of R160
+    @(89.1750 mm, 185.2050 mm): Reference field of R146
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(91.1750 mm, 184.6450 mm): Reference field of R160
+    @(89.4123 mm, 184.2975 mm): Segment of R146 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(90.9377 mm, 185.5525 mm): Segment of R160 on F.Silkscreen
+    @(89.1750 mm, 185.2050 mm): Reference field of R146
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(97.1250 mm, 211.9850 mm): Reference field of C80
+    @(97.4750 mm, 212.6950 mm): Reference field of C70
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(97.1250 mm, 211.9850 mm): Reference field of C80
+    @(97.6156 mm, 211.7750 mm): Segment of C70 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(105.4250 mm, 211.6950 mm): Reference field of C73
+    @(106.7750 mm, 211.8350 mm): Reference field of C72
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(60.4750 mm, 249.6450 mm): Reference field of R141
+    @(60.3950 mm, 248.2250 mm): Reference field of R96
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(66.7750 mm, 242.7950 mm): Reference field of R99
+    @(66.5377 mm, 242.2975 mm): Segment of R129 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(52.9550 mm, 251.0750 mm): Reference field of R138
+    @(53.7450 mm, 251.0750 mm): Reference field of R139
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(52.9550 mm, 251.0750 mm): Reference field of R138
+    @(53.3950 mm, 247.9250 mm): Reference field of R133
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(53.3950 mm, 247.9250 mm): Reference field of R133
+    @(53.7450 mm, 251.0750 mm): Reference field of R139
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.1250 mm, 240.3450 mm): Reference field of R128
+    @(62.4750 mm, 241.2050 mm): Reference field of R127
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(61.8877 mm, 241.2525 mm): Segment of R128 on F.Silkscreen
+    @(62.4750 mm, 241.2050 mm): Reference field of R127
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.1250 mm, 240.3450 mm): Reference field of R128
+    @(62.7123 mm, 240.2975 mm): Segment of R127 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(66.7750 mm, 240.3450 mm): Reference field of R129
+    @(67.0123 mm, 240.5975 mm): Segment of R143 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(66.7750 mm, 241.5050 mm): Reference field of R143
+    @(66.7750 mm, 240.3450 mm): Reference field of R129
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(68.9950 mm, 238.7750 mm): Reference field of R130
+    @(66.7750 mm, 240.3450 mm): Reference field of R129
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(66.7750 mm, 241.5050 mm): Reference field of R143
+    @(66.5377 mm, 241.2525 mm): Segment of R129 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(58.1250 mm, 245.7950 mm): Reference field of R98
+    @(56.4750 mm, 245.6550 mm): Reference field of R97
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(60.8250 mm, 245.2050 mm): Reference field of R126
+    @(58.1250 mm, 245.7950 mm): Reference field of R98
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(72.2950 mm, 184.4475 mm): Reference field of R49
+    @(73.2050 mm, 185.5975 mm): Reference field of R56
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.2050 mm, 185.5975 mm): Reference field of R56
+    @(73.2025 mm, 184.6848 mm): Segment of R49 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(74.0750 mm, 179.3175 mm): Reference field of R68
+    @(76.6950 mm, 178.8875 mm): Reference field of C45
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(79.5650 mm, 172.4575 mm): Reference field of C47
+    @(78.3750 mm, 174.0175 mm): Reference field of R50
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(72.2950 mm, 184.4475 mm): Reference field of R49
+    @(72.2975 mm, 185.3602 mm): Segment of R56 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(96.1750 mm, 163.2050 mm): Reference field of R19
+    @(96.7623 mm, 163.2525 mm): Segment of R18 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(71.7875 mm, 175.6850 mm): Segment of D15 on F.Silkscreen
+    @(73.4250 mm, 176.1675 mm): Reference field of R57
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(69.0750 mm, 179.8775 mm): Reference field of R48
+    @(68.9950 mm, 181.4475 mm): Reference field of R47
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(68.9150 mm, 174.4575 mm): Reference field of C46
+    @(68.3675 mm, 177.0450 mm): Segment of D13 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(56.6050 mm, 236.7750 mm): Reference field of R125
+    @(57.0450 mm, 239.9250 mm): Reference field of R134
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(50.7450 mm, 246.9250 mm): Reference field of R132
+    @(51.2550 mm, 246.0750 mm): Reference field of R140
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(51.2550 mm, 246.0750 mm): Reference field of R140
+    @(51.6525 mm, 247.1623 mm): Segment of R132 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(50.3475 mm, 245.8377 mm): Segment of R140 on F.Silkscreen
+    @(50.7450 mm, 246.9250 mm): Reference field of R132
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(76.3750 mm, 118.4750 mm): Reference field of R76
+    @(77.9450 mm, 118.1950 mm): Reference field of R86
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(78.2950 mm, 112.6250 mm): Reference field of C59
+    @(78.7250 mm, 113.4750 mm): Reference field of R75
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(78.9623 mm, 112.5675 mm): Segment of R75 on F.Silkscreen
+    @(78.2950 mm, 112.6250 mm): Reference field of C59
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.6500 mm, 58.2000 mm): Reference field of C14
+    @(63.0375 mm, 58.7450 mm): Reference field of C33
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.0925 mm, 58.4837 mm): Segment of C33 on F.Silkscreen
+    @(62.6500 mm, 58.2000 mm): Reference field of C14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(63.5700 mm, 58.3406 mm): Segment of C14 on F.Silkscreen
+    @(63.0375 mm, 58.7450 mm): Reference field of C33
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(75.4500 mm, 47.1300 mm): Reference field of C24
+    @(75.3900 mm, 49.7100 mm): Segment of L1 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(75.6525 mm, 42.2877 mm): Segment of R13 on F.Silkscreen
+    @(75.8050 mm, 41.5250 mm): Reference field of R14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(54.8750 mm, 81.5182 mm): Reference field of TP13
+    @(55.1750 mm, 81.2675 mm): Reference field of R25
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(48.6825 mm, 80.5182 mm): Reference field of TP12
+    @(51.4900 mm, 80.5182 mm): Reference field of TP11
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(54.8750 mm, 81.5182 mm): Reference field of TP13
+    @(51.4900 mm, 80.5182 mm): Reference field of TP11
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(45.9900 mm, 54.0000 mm): Segment of J9 on F.Silkscreen
+    @(45.7950 mm, 78.3750 mm): Reference field of RN1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(68.2950 mm, 76.6050 mm): Reference field of SW1
+    @(64.4350 mm, 76.2750 mm): Segment of J20 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(68.2950 mm, 76.6050 mm): Reference field of SW1
+    @(67.1950 mm, 71.0850 mm): Segment of J20 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(69.2975 mm, 84.6482 mm): Reference field of TP8
+    @(70.3950 mm, 85.9675 mm): Reference field of R9
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(69.2975 mm, 86.2962 mm): Circle of TP8 on F.Silkscreen
+    @(70.3950 mm, 85.9675 mm): Reference field of R9
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(63.5500 mm, 60.8400 mm): Reference field of C15
+    @(61.8550 mm, 62.5100 mm): Reference field of C32
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(52.6050 mm, 124.3450 mm): Reference field of R88
+    @(52.7450 mm, 123.1950 mm): Reference field of R78
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(69.9050 mm, 108.6850 mm): Segment of D21 on F.Silkscreen
+    @(74.5650 mm, 110.0550 mm): Reference field of C57
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(71.7750 mm, 114.7650 mm): Reference field of R82
+    @(71.0750 mm, 114.4750 mm): Reference field of R74
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(76.3750 mm, 118.4750 mm): Reference field of R76
+    @(74.4250 mm, 117.7650 mm): Reference field of R83
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(71.7750 mm, 114.7650 mm): Reference field of R82
+    @(73.2150 mm, 114.0550 mm): Reference field of C58
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(67.3450 mm, 115.4850 mm): Reference field of C56
+    @(67.4250 mm, 115.6150 mm): Reference field of R73
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(61.4850 mm, 109.6850 mm): Reference field of D19
+    @(61.5150 mm, 109.6850 mm): Segment of D20 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(61.4850 mm, 109.6850 mm): Reference field of D19
+    @(61.5150 mm, 107.6850 mm): Segment of D20 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(63.1250 mm, 117.9150 mm): Reference field of R91
+    @(63.0123 mm, 117.8675 mm): Segment of R92 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(63.1250 mm, 117.9150 mm): Reference field of R91
+    @(62.7750 mm, 118.7750 mm): Reference field of R92
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(64.6950 mm, 120.1950 mm): Reference field of R72
+    @(62.7750 mm, 118.7750 mm): Reference field of R92
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(62.8877 mm, 118.8225 mm): Segment of R91 on F.Silkscreen
+    @(62.7750 mm, 118.7750 mm): Reference field of R92
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(63.1250 mm, 112.4750 mm): Reference field of R71
+    @(64.9050 mm, 114.0450 mm): Reference field of R70
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(67.2950 mm, 107.6850 mm): Segment of D22 on F.Silkscreen
+    @(72.2650 mm, 107.6850 mm): Reference field of D21
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(72.6850 mm, 105.6850 mm): Segment of D23 on F.Silkscreen
+    @(72.2650 mm, 107.6850 mm): Reference field of D21
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(72.6850 mm, 107.6850 mm): Segment of D23 on F.Silkscreen
+    @(72.2650 mm, 107.6850 mm): Reference field of D21
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(49.3994 mm, 112.4950 mm): Segment of C8 on F.Silkscreen
+    @(54.3950 mm, 112.4750 mm): Reference field of D24
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(49.3994 mm, 112.4950 mm): Segment of C8 on F.Silkscreen
+    @(49.3950 mm, 112.4750 mm): Reference field of D25
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(51.3950 mm, 118.3450 mm): Reference field of R89
+    @(49.5250 mm, 117.9150 mm): Reference field of R87
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(54.3950 mm, 112.4750 mm): Reference field of D24
+    @(55.1550 mm, 112.4950 mm): Segment of C8 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(48.2877 mm, 117.7175 mm): Segment of R77 on F.Silkscreen
+    @(49.5250 mm, 117.9150 mm): Reference field of R87
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(47.0350 mm, 115.4750 mm): Segment of D25 on F.Silkscreen
+    @(48.5250 mm, 115.7650 mm): Reference field of R77
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(49.3950 mm, 112.4750 mm): Reference field of D25
+    @(48.3350 mm, 111.4306 mm): Segment of C8 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(72.9100 mm, 90.2050 mm): Reference field of D3
+    @(73.1750 mm, 89.5375 mm): Reference field of R17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(72.9100 mm, 90.2050 mm): Reference field of D3
+    @(72.9377 mm, 90.4450 mm): Segment of R17 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(82.0500 mm, 70.7000 mm): Reference field of C26
+    @(83.6775 mm, 70.9582 mm): Reference field of TP7
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(72.1100 mm, 89.5100 mm): Segment of D3 on F.Silkscreen
+    @(73.1750 mm, 89.5375 mm): Reference field of R17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.1750 mm, 89.5375 mm): Reference field of R17
+    @(74.3950 mm, 89.5100 mm): Segment of D3 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.1500 mm, 66.4400 mm): Reference field of Y1
+    @(74.2500 mm, 66.7000 mm): Reference field of R16
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(86.5250 mm, 217.8450 mm): Reference field of C76
+    @(85.8250 mm, 216.9850 mm): Reference field of C78
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(86.6656 mm, 216.9250 mm): Segment of C76 on F.Silkscreen
+    @(85.8250 mm, 216.9850 mm): Reference field of C78
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(127.5250 mm, 181.5450 mm): Reference field of R204
+    @(93.1900 mm, 181.1000 mm): Segment of J21 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(130.2550 mm, 187.1250 mm): Reference field of R210
+    @(131.0450 mm, 186.1250 mm): Reference field of R212
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(112.5750 mm, 221.3250 mm): Reference field of Q18
+    @(112.5850 mm, 220.4056 mm): Segment of C75 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(109.6623 mm, 220.1925 mm): Segment of R114 on F.Silkscreen
+    @(109.0750 mm, 220.1450 mm): Reference field of R115
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(109.0750 mm, 220.1450 mm): Reference field of R115
+    @(110.6450 mm, 220.2650 mm): Reference field of C75
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(116.1250 mm, 221.2350 mm): Reference field of Q14
+    @(116.5350 mm, 220.5650 mm): Segment of Q18 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(116.5350 mm, 222.0850 mm): Segment of Q18 on F.Silkscreen
+    @(116.1250 mm, 221.2350 mm): Reference field of Q14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(115.5350 mm, 220.5650 mm): Segment of Q18 on F.Silkscreen
+    @(116.1250 mm, 221.2350 mm): Reference field of Q14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(115.9750 mm, 219.6350 mm): Reference field of Q13
+    @(116.1250 mm, 221.2350 mm): Reference field of Q14
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(130.7750 mm, 221.2350 mm): Reference field of Q17
+    @(129.0750 mm, 220.6350 mm): Reference field of Q15
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(129.2325 mm, 220.2282 mm): Reference field of TP16
+    @(130.7750 mm, 221.2350 mm): Reference field of Q17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(94.4750 mm, 219.1350 mm): Reference field of R103
+    @(95.1250 mm, 219.9950 mm): Reference field of R104
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(94.4750 mm, 221.2850 mm): Reference field of R119
+    @(94.2377 mm, 221.0875 mm): Segment of R103 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(95.1250 mm, 219.9950 mm): Reference field of R104
+    @(94.2377 mm, 220.0425 mm): Segment of R103 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(94.4750 mm, 219.1350 mm): Reference field of R103
+    @(95.3623 mm, 219.0875 mm): Segment of R104 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(129.2325 mm, 220.2282 mm): Reference field of TP16
+    @(129.0750 mm, 220.6350 mm): Reference field of Q15
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(130.7750 mm, 223.0150 mm): Reference field of C42
+    @(130.7750 mm, 221.2350 mm): Reference field of Q17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(129.2325 mm, 221.8762 mm): Circle of TP16 on F.Silkscreen
+    @(130.7750 mm, 221.2350 mm): Reference field of Q17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(129.2325 mm, 220.2282 mm): Reference field of TP16
+    @(128.3150 mm, 219.7950 mm): Segment of Q15 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(152.0850 mm, 194.2656 mm): Segment of C130 on F.Silkscreen
+    @(151.8450 mm, 193.9450 mm): Reference field of C131
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(148.0150 mm, 197.8350 mm): Reference field of JP2
+    @(148.3600 mm, 197.5100 mm): Segment of U32 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(148.0150 mm, 197.8350 mm): Reference field of JP2
+    @(148.3600 mm, 196.0050 mm): Segment of U32 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(146.6350 mm, 201.4850 mm): Segment of JP2 on F.Silkscreen
+    @(147.7250 mm, 204.5250 mm): Reference field of R211
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(147.7250 mm, 204.5250 mm): Reference field of R211
+    @(146.6350 mm, 204.1350 mm): Segment of JP2 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(135.4150 mm, 207.7450 mm): Reference field of Q12
+    @(135.8350 mm, 203.4850 mm): Segment of J28 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(135.4150 mm, 207.7450 mm): Reference field of Q12
+    @(135.8350 mm, 208.6750 mm): Segment of J28 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(123.0400 mm, 220.2282 mm): Reference field of TP15
+    @(126.2325 mm, 220.2282 mm): Reference field of TP17
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(129.2325 mm, 220.2282 mm): Reference field of TP16
+    @(129.8350 mm, 219.7950 mm): Segment of Q15 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(129.2325 mm, 221.8762 mm): Circle of TP16 on F.Silkscreen
+    @(129.0750 mm, 220.6350 mm): Reference field of Q15
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(122.4750 mm, 223.0150 mm): Reference field of C40
+    @(123.0400 mm, 221.8762 mm): Circle of TP15 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(129.2325 mm, 220.2282 mm): Reference field of TP16
+    @(126.2325 mm, 220.2282 mm): Reference field of TP17
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(132.7350 mm, 102.5450 mm): Reference field of U26
+    @(134.1350 mm, 101.5750 mm): Pad 1 [+12V] of C117 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(118.5250 mm, 118.2775 mm): Reference field of C109
+    @(116.7000 mm, 118.0075 mm): Pad 1 [Net-(C110-Pad2)] of R194 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(119.1750 mm, 117.1375 mm): Reference field of C110
+    @(118.3500 mm, 118.0075 mm): Pad 2 [Net-(C112-Pad1)] of R194 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(118.5250 mm, 118.2775 mm): Reference field of C109
+    @(118.3500 mm, 118.0075 mm): Pad 2 [Net-(C112-Pad1)] of R194 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(122.9750 mm, 113.7275 mm): Reference field of FB4
+    @(122.0000 mm, 114.0075 mm): Pad 1 [Net-(C112-Pad1)] of R196 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(122.9750 mm, 113.7275 mm): Reference field of FB4
+    @(123.6500 mm, 114.0075 mm): Pad 2 [Net-(U26A-+)] of R196 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(117.0950 mm, 122.8575 mm): Reference field of R187
+    @(116.8250 mm, 122.9825 mm): Pad 2 [GND] of R203 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(118.2550 mm, 122.1575 mm): Reference field of R203
+    @(118.5250 mm, 122.0325 mm): Pad 2 [/Audio/AFL] of R187 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(117.0950 mm, 122.8575 mm): Reference field of R187
+    @(116.8250 mm, 121.3325 mm): Pad 1 [AMP_MUTE] of R203 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(128.0450 mm, 115.7075 mm): Reference field of C112
+    @(127.3200 mm, 116.0575 mm): Pad 1 [Net-(C104-Pad1)] of C104 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(133.7750 mm, 116.5775 mm): Reference field of R199
+    @(132.9700 mm, 116.0575 mm): Pad 2 [GND] of C105 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(125.4750 mm, 122.2875 mm): Reference field of R190
+    @(126.1250 mm, 123.1825 mm): Pad 1 [Net-(U26B-+)] of R198 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(129.2950 mm, 102.7450 mm): Reference field of U22
+    @(130.2600 mm, 104.0400 mm): Pad 1 [/Audio/SUB_OUT] of U26 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(130.1250 mm, 117.4275 mm): Reference field of R191
+    @(129.4750 mm, 116.4825 mm): Pad 1 [Net-(C112-Pad1)] of C112 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(118.1300 mm, 114.7950 mm): Reference field of C114
+    @(119.9500 mm, 115.7075 mm): Pad 1 [/Audio/AFR] of C110 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(122.8950 mm, 114.6275 mm): Reference field of C103
+    @(122.0000 mm, 114.0075 mm): Pad 1 [Net-(C112-Pad1)] of R196 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(122.8950 mm, 114.6275 mm): Reference field of C103
+    @(123.6500 mm, 114.0075 mm): Pad 2 [Net-(U26A-+)] of R196 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(122.8250 mm, 112.5775 mm): Reference field of R196
+    @(121.9125 mm, 112.1775 mm): Pad 2 [Net-(U22-AVDD)] of FB4 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(122.8250 mm, 112.5775 mm): Reference field of R196
+    @(124.0375 mm, 112.1775 mm): Pad 1 [+3V3] of FB4 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(131.9900 mm, 111.1150 mm): Reference field of C121
+    @(132.5400 mm, 110.1150 mm): Pad 1 [Net-(U22-LDOO)] of C97 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(132.1250 mm, 112.2775 mm): Reference field of C115
+    @(130.3100 mm, 112.0650 mm): Pad 2 [GND] of C121 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(132.1950 mm, 114.6275 mm): Reference field of C105
+    @(131.3500 mm, 113.7075 mm): Pad 1 [/Audio/SUB_OUT] of C115 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(132.1950 mm, 114.6275 mm): Reference field of C105
+    @(132.9000 mm, 113.7075 mm): Pad 2 [Net-(C115-Pad2)] of C115 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(133.4900 mm, 108.4350 mm): Reference field of C97
+    @(135.2100 mm, 107.8500 mm): Pad 5 [Net-(U26B-+)] of U26 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(121.1750 mm, 120.5775 mm): Reference field of R195
+    @(119.3000 mm, 119.7075 mm): Pad 2 [Net-(C109-Pad2)] of C109 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(127.5550 mm, 124.0075 mm): Reference field of R198
+    @(128.4750 mm, 122.8325 mm): Pad 2 [Net-(U26B-+)] of R197 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(139.4150 mm, 111.0575 mm): Reference field of C106
+    @(138.7750 mm, 111.9325 mm): Pad 2 [Net-(U24A-+)] of C116 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(118.1300 mm, 114.7950 mm): Reference field of C114
+    @(118.4000 mm, 115.7075 mm): Pad 2 [Net-(C110-Pad2)] of C110 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(117.5250 mm, 116.5775 mm): Reference field of R194
+    @(118.4000 mm, 115.7075 mm): Pad 2 [Net-(C110-Pad2)] of C110 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(118.3750 mm, 58.6350 mm): Reference field of R6
+    @(119.3750 mm, 56.6950 mm): Pad 1 [+12V] of C2 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(88.5825 mm, 56.7550 mm): Reference field of C6
+    @(89.5250 mm, 56.2900 mm): Pad 1 [VMON_12V] of C10 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(118.2550 mm, 122.1575 mm): Reference field of R203
+    @(118.5250 mm, 123.6825 mm): Pad 1 [AUD_AMP_L] of R187 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(48.3950 mm, 175.8775 mm): Reference field of D17
+    @(48.1350 mm, 174.8775 mm): Pad 1 [Net-(D18-K)] of D18 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(57.1750 mm, 182.1675 mm): Reference field of R52
+    @(56.6500 mm, 181.4475 mm): Pad 2 [Net-(D11-A)] of R43 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(51.8250 mm, 182.1775 mm): Reference field of R63
+    @(51.3500 mm, 182.7475 mm): Pad 1 [+4V5] of R61 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(48.5250 mm, 179.0175 mm): Reference field of C49
+    @(50.0450 mm, 177.8775 mm): Pad 2 [Net-(D17-A)] of D17 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.5250 mm, 184.1775 mm): Reference field of R61
+    @(49.0000 mm, 184.7475 mm): Pad 1 [Net-(D17-A)] of R62 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.1750 mm, 185.8775 mm): Reference field of C50
+    @(51.7000 mm, 186.5975 mm): Pad 2 [Net-(U19-D2)] of R51 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.1750 mm, 185.8775 mm): Reference field of C50
+    @(53.3500 mm, 186.5975 mm): Pad 1 [+3V3] of R51 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(58.4750 mm, 174.0175 mm): Reference field of R44
+    @(58.5250 mm, 173.6575 mm): Pad 1 [VREF] of C54 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.8250 mm, 179.1675 mm): Reference field of R53
+    @(60.3000 mm, 178.5975 mm): Pad 2 [Net-(U19-D3)] of R54 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.3950 mm, 173.8875 mm): Reference field of C43
+    @(61.7175 mm, 174.6850 mm): Pad 1 [Net-(D14-K)] of D14 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(82.1750 mm, 221.9950 mm): Reference field of R101
+    @(80.5250 mm, 222.7400 mm): Pad 2 [Net-(U17-D2)] of R100 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(82.1750 mm, 221.9950 mm): Reference field of R101
+    @(82.5250 mm, 222.8900 mm): Pad 1 [+4V5] of R108 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(91.1750 mm, 215.8350 mm): Reference field of C68
+    @(90.7000 mm, 215.4150 mm): Pad 1 [Net-(U16-D3)] of C79 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(91.1750 mm, 215.8350 mm): Reference field of C68
+    @(92.2500 mm, 215.4150 mm): Pad 2 [GND] of C79 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(67.7750 mm, 222.1650 mm): Reference field of C89
+    @(68.3000 mm, 221.5950 mm): Pad 1 [Net-(U15-D7)] of C92 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(92.8250 mm, 189.6550 mm): Reference field of R168
+    @(92.5250 mm, 190.1000 mm): Pad 2 [GND] of R152 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(93.0450 mm, 191.2250 mm): Reference field of R169
+    @(92.5250 mm, 190.1000 mm): Pad 2 [GND] of R152 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(104.1250 mm, 187.6450 mm): Reference field of R163
+    @(103.9500 mm, 186.9250 mm): Pad 2 [Net-(J13-Pin_6)] of R156 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.4750 mm, 188.5050 mm): Reference field of R162
+    @(99.3000 mm, 188.7750 mm): Pad 2 [Net-(U15-D1)] of R148 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(97.2550 mm, 187.7750 mm): Reference field of R147
+    @(97.6500 mm, 188.7750 mm): Pad 1 [Net-(J13-Pin_3)] of R148 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.4750 mm, 188.5050 mm): Reference field of R162
+    @(97.6500 mm, 188.7750 mm): Pad 1 [Net-(J13-Pin_3)] of R148 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(97.2550 mm, 187.7750 mm): Reference field of R147
+    @(97.6500 mm, 187.0750 mm): Pad 2 [Net-(J13-Pin_8)] of R162 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(92.8250 mm, 189.6550 mm): Reference field of R168
+    @(94.4750 mm, 190.4000 mm): Pad 2 [Net-(U14-D1)] of R169 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(104.1250 mm, 187.6450 mm): Reference field of R163
+    @(102.3000 mm, 186.9250 mm): Pad 1 [+4V5] of R156 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(88.3950 mm, 193.3750 mm): Reference field of R175
+    @(88.0000 mm, 195.3750 mm): Pad 1 [+3V3] of R174 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(87.1750 mm, 194.6550 mm): Reference field of R167
+    @(88.0000 mm, 195.3750 mm): Pad 1 [+3V3] of R174 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(88.0950 mm, 189.7750 mm): Reference field of R145
+    @(87.1750 mm, 189.7500 mm): Pad 2 [Net-(J13-Pin_5)] of R153 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(88.0950 mm, 189.7750 mm): Reference field of R145
+    @(87.1750 mm, 188.1000 mm): Pad 1 [+4V5] of R153 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(88.3950 mm, 193.3750 mm): Reference field of R175
+    @(88.0000 mm, 193.2250 mm): Pad 1 [Net-(U15-D7)] of R167 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(87.1750 mm, 194.6550 mm): Reference field of R167
+    @(86.3500 mm, 195.3750 mm): Pad 2 [Net-(U14-D6)] of R174 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(88.6050 mm, 188.9250 mm): Reference field of R153
+    @(89.5250 mm, 190.6000 mm): Pad 1 [Net-(J13-Pin_1)] of R145 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(88.6050 mm, 188.9250 mm): Reference field of R153
+    @(89.5250 mm, 188.9500 mm): Pad 2 [Net-(U15-D0)] of R145 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(93.0450 mm, 191.2250 mm): Reference field of R169
+    @(92.5250 mm, 191.7500 mm): Pad 1 [Net-(U15-D2)] of R152 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(101.3450 mm, 193.2250 mm): Reference field of R171
+    @(100.4750 mm, 192.7500 mm): Pad 2 [GND] of R155 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(101.9050 mm, 191.9250 mm): Reference field of R155
+    @(102.7750 mm, 192.4000 mm): Pad 2 [Net-(U14-D3)] of R171 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(101.9050 mm, 191.9250 mm): Reference field of R155
+    @(102.7750 mm, 194.0500 mm): Pad 1 [+3V3] of R171 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(103.1250 mm, 185.4950 mm): Reference field of R156
+    @(103.9500 mm, 184.7750 mm): Pad 2 [GND] of R149 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(109.2050 mm, 187.9250 mm): Reference field of R157
+    @(109.9500 mm, 186.7750 mm): Pad 2 [Net-(J13-Pin_4)] of R150 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(103.1250 mm, 185.4950 mm): Reference field of R156
+    @(102.3000 mm, 184.7750 mm): Pad 1 [Net-(U15-D1)] of R149 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(91.1750 mm, 184.6450 mm): Reference field of R160
+    @(90.0000 mm, 183.7750 mm): Pad 1 [Net-(U15-D0)] of R146 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(89.1750 mm, 185.2050 mm): Reference field of R146
+    @(90.3500 mm, 186.0750 mm): Pad 1 [Net-(J13-Pin_7)] of R160 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.4750 mm, 187.3450 mm): Reference field of R148
+    @(97.6500 mm, 187.0750 mm): Pad 2 [Net-(J13-Pin_8)] of R162 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.4750 mm, 187.3450 mm): Reference field of R148
+    @(99.3000 mm, 187.0750 mm): Pad 1 [+4V5] of R162 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(97.1250 mm, 211.9850 mm): Reference field of C80
+    @(96.7000 mm, 211.2650 mm): Pad 2 [GND] of C70 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(97.1250 mm, 211.9850 mm): Reference field of C80
+    @(98.2500 mm, 211.2650 mm): Pad 1 [Net-(U17-D4)] of C70 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.4750 mm, 249.6450 mm): Reference field of R141
+    @(61.8250 mm, 249.0500 mm): Pad 1 [+4V5] of R96 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.7750 mm, 242.7950 mm): Reference field of R99
+    @(67.6000 mm, 241.7750 mm): Pad 2 [Net-(J3-Pin_5)] of R129 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.7750 mm, 242.7950 mm): Reference field of R99
+    @(65.9500 mm, 241.7750 mm): Pad 1 [+4V5] of R129 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.4750 mm, 241.2050 mm): Reference field of R127
+    @(61.3000 mm, 241.7750 mm): Pad 1 [Net-(U16-D2)] of R128 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.4750 mm, 241.2050 mm): Reference field of R127
+    @(62.9500 mm, 241.7750 mm): Pad 2 [GND] of R128 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.1250 mm, 240.3450 mm): Reference field of R128
+    @(63.3000 mm, 239.7750 mm): Pad 1 [Net-(J3-Pin_4)] of R127 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.7750 mm, 241.5050 mm): Reference field of R143
+    @(65.9500 mm, 241.7750 mm): Pad 1 [+4V5] of R129 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.7750 mm, 240.3450 mm): Reference field of R129
+    @(65.9500 mm, 240.0750 mm): Pad 2 [GND] of R143 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.7750 mm, 240.3450 mm): Reference field of R129
+    @(67.6000 mm, 240.0750 mm): Pad 1 [Net-(U16-D7)] of R143 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(66.7750 mm, 241.5050 mm): Reference field of R143
+    @(67.6000 mm, 241.7750 mm): Pad 2 [Net-(J3-Pin_5)] of R129 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.1250 mm, 240.3450 mm): Reference field of R128
+    @(61.6500 mm, 239.7750 mm): Pad 2 [Net-(U16-D2)] of R127 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(69.0750 mm, 179.8775 mm): Reference field of R48
+    @(70.4250 mm, 180.6225 mm): Pad 2 [Net-(U8B-+)] of R47 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(73.2050 mm, 185.5975 mm): Reference field of R56
+    @(73.7250 mm, 185.2725 mm): Pad 1 [+4V5] of R49 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(72.2950 mm, 184.4475 mm): Reference field of R49
+    @(71.7750 mm, 184.7725 mm): Pad 1 [Net-(D15-A)] of R56 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(96.1750 mm, 163.2050 mm): Reference field of R19
+    @(95.7000 mm, 163.7750 mm): Pad 2 [RP_UART_RX] of R18 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(96.1750 mm, 163.2050 mm): Reference field of R19
+    @(97.3500 mm, 163.7750 mm): Pad 1 [Net-(J21-GPIO14/TXD)] of R18 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(102.8250 mm, 164.2050 mm): Reference field of R20
+    @(101.6500 mm, 164.7750 mm): Pad 2 [/MCU and Pi/BOOTSEL] of R21 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(102.8250 mm, 164.2050 mm): Reference field of R20
+    @(103.3000 mm, 164.7750 mm): Pad 1 [Net-(J21-GPIO27)] of R21 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(80.7250 mm, 176.1675 mm): Reference field of R59
+    @(79.2000 mm, 175.4475 mm): Pad 2 [Net-(U8C-+)] of R50 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(65.3675 mm, 174.6850 mm): Reference field of D13
+    @(65.0175 mm, 174.6850 mm): Pad 2 [Net-(D14-A)] of D14 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(63.3675 mm, 172.6850 mm): Reference field of D14
+    @(63.1700 mm, 172.4575 mm): Pad 1 [Net-(U8A-+)] of C43 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(51.2550 mm, 246.0750 mm): Reference field of R140
+    @(52.1750 mm, 247.7500 mm): Pad 1 [+4V5] of R132 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.7450 mm, 246.9250 mm): Reference field of R132
+    @(49.8250 mm, 246.9000 mm): Pad 2 [GND] of R140 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(51.2550 mm, 246.0750 mm): Reference field of R140
+    @(52.1750 mm, 246.1000 mm): Pad 2 [Net-(J3-Pin_6)] of R132 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(50.7450 mm, 246.9250 mm): Reference field of R132
+    @(49.8250 mm, 245.2500 mm): Pad 1 [Net-(U16-D6)] of R140 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(78.7250 mm, 113.4750 mm): Reference field of R75
+    @(77.5200 mm, 114.0550 mm): Pad 1 [Net-(U11A-+)] of C59 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(78.7250 mm, 113.4750 mm): Reference field of R75
+    @(79.0700 mm, 114.0550 mm): Pad 2 [GND] of C59 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.6500 mm, 58.2000 mm): Reference field of C14
+    @(61.3575 mm, 57.7950 mm): Pad 1 [+5V] of C33 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.4500 mm, 47.1300 mm): Reference field of C24
+    @(76.7000 mm, 47.9000 mm): Pad 2 [+1V1] of L1 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.8050 mm, 41.5250 mm): Reference field of R14
+    @(76.1750 mm, 41.7000 mm): Pad 1 [Net-(J19-D--PadA7)] of R13 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.7450 mm, 71.4750 mm): Reference field of R205
+    @(59.7675 mm, 72.4100 mm): Pad 3 [BUS_D7] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.7450 mm, 71.4750 mm): Reference field of R205
+    @(59.7675 mm, 71.7600 mm): Pad 4 [BUS_D6] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.7450 mm, 71.4750 mm): Reference field of R205
+    @(59.7675 mm, 71.1100 mm): Pad 5 [BUS_D5] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.7450 mm, 71.4750 mm): Reference field of R205
+    @(59.7675 mm, 73.0600 mm): Pad 2 [BUS_DIR] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(55.1750 mm, 73.5750 mm): Reference field of RN3
+    @(54.0425 mm, 73.7100 mm): Pad 24 [+5V] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(55.1750 mm, 73.5750 mm): Reference field of RN3
+    @(54.0425 mm, 73.0600 mm): Pad 23 [+5V] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(56.9050 mm, 74.9850 mm): Reference field of U6
+    @(56.0750 mm, 75.1750 mm): Pad 8 [/IO bus/BA3] of RN3 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.7450 mm, 71.4750 mm): Reference field of R205
+    @(59.7675 mm, 70.4600 mm): Pad 6 [BUS_D4] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(60.7450 mm, 71.4750 mm): Reference field of R205
+    @(59.7675 mm, 69.8100 mm): Pad 7 [BUS_D3] of U6 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(61.8550 mm, 62.5100 mm): Reference field of C32
+    @(62.7750 mm, 62.2700 mm): Pad 1 [+3V3] of C15 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(74.5650 mm, 110.0550 mm): Reference field of C57
+    @(73.9150 mm, 109.6850 mm): Pad 2 [Net-(D21-A)] of D21 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(78.2950 mm, 112.6250 mm): Reference field of C59
+    @(77.9000 mm, 112.0450 mm): Pad 2 [Net-(D21-A)] of R75 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(78.2950 mm, 112.6250 mm): Reference field of C59
+    @(79.5500 mm, 112.0450 mm): Pad 1 [+4V5] of R75 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(77.9450 mm, 118.1950 mm): Reference field of R86
+    @(77.2000 mm, 117.0450 mm): Pad 1 [Net-(D21-A)] of R76 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(74.4250 mm, 117.7650 mm): Reference field of R83
+    @(75.5500 mm, 117.0450 mm): Pad 2 [Net-(U10C-+)] of R76 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(76.3750 mm, 118.4750 mm): Reference field of R76
+    @(75.2500 mm, 119.1950 mm): Pad 2 [Net-(U18-D4)] of R83 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(61.4850 mm, 109.6850 mm): Reference field of D19
+    @(62.3000 mm, 111.0450 mm): Pad 2 [Net-(U18-D0)] of R71 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(61.4850 mm, 109.6850 mm): Reference field of D19
+    @(62.2250 mm, 108.6850 mm): Pad 1 [Net-(D20-K)] of D20 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(63.1250 mm, 117.9150 mm): Reference field of R91
+    @(61.9500 mm, 117.3450 mm): Pad 2 [Net-(U18-D7)] of R92 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(63.1250 mm, 117.9150 mm): Reference field of R91
+    @(63.6000 mm, 117.3450 mm): Pad 1 [+3V3] of R92 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.7750 mm, 118.7750 mm): Reference field of R92
+    @(63.9500 mm, 119.3450 mm): Pad 2 [Net-(U11D-+)] of R91 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(63.1250 mm, 112.4750 mm): Reference field of R71
+    @(63.4750 mm, 113.2200 mm): Pad 1 [Net-(D19-A)] of R70 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(72.2650 mm, 107.6850 mm): Reference field of D21
+    @(71.3050 mm, 106.6850 mm): Pad 2 [Net-(D22-A)] of D22 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(72.2650 mm, 107.6850 mm): Reference field of D21
+    @(73.3950 mm, 106.6850 mm): Pad 1 [Net-(D23-K)] of D23 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(49.5250 mm, 117.9150 mm): Reference field of R87
+    @(49.3500 mm, 117.1950 mm): Pad 2 [Net-(U18-D2)] of R77 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(64.6950 mm, 120.1950 mm): Reference field of R72
+    @(63.9500 mm, 119.3450 mm): Pad 2 [Net-(U11D-+)] of R91 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(62.7750 mm, 118.7750 mm): Reference field of R92
+    @(62.3000 mm, 119.3450 mm): Pad 1 [Net-(D26-A)] of R91 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(72.9100 mm, 90.2050 mm): Reference field of D3
+    @(72.3500 mm, 90.9675 mm): Pad 1 [Net-(D3-A)] of R17 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(72.9100 mm, 90.2050 mm): Reference field of D3
+    @(74.0000 mm, 90.9675 mm): Pad 2 [LED_STATUS] of R17 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.0450 mm, 104.6850 mm): Reference field of D23
+    @(74.6550 mm, 103.3000 mm): Pad 3 [+4V5] of U11 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.0450 mm, 104.6850 mm): Reference field of D23
+    @(75.9250 mm, 103.3000 mm): Pad 4 [VREF] of U11 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(73.1750 mm, 89.5375 mm): Reference field of R17
+    @(72.1225 mm, 88.7750 mm): Pad 2 [Net-(D3-A)] of D3 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(73.1750 mm, 89.5375 mm): Reference field of R17
+    @(73.6975 mm, 88.7750 mm): Pad 1 [GND] of D3 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(70.3950 mm, 85.9675 mm): Reference field of R9
+    @(69.2975 mm, 86.2962 mm): Pad 1 [Net-(U4-RUN)] of TP8 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.5250 mm, 217.8450 mm): Reference field of C76
+    @(85.0500 mm, 218.4150 mm): Pad 1 [Net-(U16-D2)] of C78 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.5250 mm, 217.8450 mm): Reference field of C76
+    @(86.6000 mm, 218.4150 mm): Pad 2 [GND] of C78 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(91.4750 mm, 213.9850 mm): Reference field of C79
+    @(90.8500 mm, 212.9200 mm): Pad 14 [Net-(U16-D3)] of U16 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(91.4750 mm, 213.9850 mm): Reference field of C79
+    @(92.1200 mm, 212.9200 mm): Pad 15 [GND] of U16 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(85.8250 mm, 216.9850 mm): Reference field of C78
+    @(85.7500 mm, 216.4150 mm): Pad 2 [GND] of C76 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(85.8250 mm, 216.9850 mm): Reference field of C78
+    @(87.3000 mm, 216.4150 mm): Pad 1 [Net-(U16-D0)] of C76 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(96.8250 mm, 217.6950 mm): Reference field of C69
+    @(95.9500 mm, 218.5650 mm): Pad 1 [Net-(U17-D3)] of R104 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(97.4750 mm, 212.6950 mm): Reference field of C70
+    @(97.9000 mm, 213.4150 mm): Pad 2 [GND] of C80 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(97.4750 mm, 212.6950 mm): Reference field of C70
+    @(96.3500 mm, 213.4150 mm): Pad 1 [Net-(U16-D4)] of C80 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(107.0750 mm, 214.1350 mm): Reference field of R107
+    @(107.5500 mm, 213.2650 mm): Pad 2 [GND] of C72 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(107.0750 mm, 214.1350 mm): Reference field of R107
+    @(106.0000 mm, 213.2650 mm): Pad 1 [Net-(U17-D6)] of C72 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(104.4250 mm, 216.9850 mm): Reference field of C83
+    @(103.1250 mm, 216.0400 mm): Pad 1 [Net-(U17-D5)] of C71 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(112.5750 mm, 221.3250 mm): Reference field of Q18
+    @(112.0750 mm, 221.0400 mm): Pad 1 [MEM_PROTECT] of C75 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(109.0750 mm, 220.1450 mm): Reference field of R115
+    @(108.6000 mm, 220.7150 mm): Pad 2 [Net-(J2-Pin_9)] of R114 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(116.1250 mm, 221.2350 mm): Reference field of Q14
+    @(115.9250 mm, 222.2625 mm): Pad 2 [GND] of Q18 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(109.0750 mm, 220.1450 mm): Reference field of R115
+    @(110.2500 mm, 220.7150 mm): Pad 1 [+4V5] of R114 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(94.4750 mm, 221.2850 mm): Reference field of R119
+    @(93.6500 mm, 220.5650 mm): Pad 1 [Net-(J2-Pin_4)] of R103 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(94.4750 mm, 219.1350 mm): Reference field of R103
+    @(95.9500 mm, 218.5650 mm): Pad 1 [Net-(U17-D3)] of R104 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(95.1250 mm, 219.9950 mm): Reference field of R104
+    @(93.6500 mm, 220.5650 mm): Pad 1 [Net-(J2-Pin_4)] of R103 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(94.4750 mm, 221.2850 mm): Reference field of R119
+    @(95.3000 mm, 220.5650 mm): Pad 2 [Net-(U17-D3)] of R103 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(95.1250 mm, 219.9950 mm): Reference field of R104
+    @(95.3000 mm, 220.5650 mm): Pad 2 [Net-(U17-D3)] of R103 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(94.4750 mm, 219.1350 mm): Reference field of R103
+    @(94.3000 mm, 218.5650 mm): Pad 2 [GND] of R104 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.9550 mm, 186.2250 mm): Reference field of R166
+    @(87.1750 mm, 188.1000 mm): Pad 1 [+4V5] of R153 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(130.7750 mm, 223.0150 mm): Reference field of C42
+    @(132.2250 mm, 222.1725 mm): Pad 1 [Net-(Q17-B)] of Q17 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(134.4950 mm, 215.9250 mm): Reference field of C36
+    @(132.8450 mm, 215.1300 mm): Pad 1 [Net-(J1-Pin_1)] of C35 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(127.0250 mm, 217.2350 mm): Reference field of Q16
+    @(128.1375 mm, 218.2350 mm): Pad 3 [Net-(J1-Pin_6)] of Q15 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(150.1450 mm, 187.3250 mm): Reference field of C132
+    @(149.1500 mm, 187.8250 mm): Pad 15 [Net-(U32-VISOIN)] of U32 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(150.1450 mm, 187.3250 mm): Reference field of C132
+    @(149.1500 mm, 186.5550 mm): Pad 16 [GND_ISO] of U32 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(150.1450 mm, 187.3250 mm): Reference field of C132
+    @(149.1500 mm, 189.0950 mm): Pad 14 [Net-(D27-A1)] of U32 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(151.8450 mm, 193.9450 mm): Reference field of C131
+    @(151.5750 mm, 194.9000 mm): Pad 1 [Net-(U32-VISOIN)] of C130 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(151.8450 mm, 193.9450 mm): Reference field of C131
+    @(151.5750 mm, 193.3500 mm): Pad 2 [GND_ISO] of C130 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(150.1450 mm, 194.1250 mm): Reference field of C130
+    @(149.1500 mm, 194.1750 mm): Pad 10 [Net-(U32-VISOIN)] of U32 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(150.1450 mm, 194.1250 mm): Reference field of C130
+    @(149.1500 mm, 192.9050 mm): Pad 11 [Net-(D27-A1)] of U32 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(129.0750 mm, 220.6350 mm): Reference field of Q15
+    @(129.2325 mm, 221.8762 mm): Pad 1 [SW_CLK] of TP16 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(122.4750 mm, 223.0150 mm): Reference field of C40
+    @(123.0400 mm, 221.8762 mm): Pad 1 [Net-(J1-Pin_3)] of TP15 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(150.1450 mm, 194.1250 mm): Reference field of C130
+    @(149.1500 mm, 195.4450 mm): Pad 9 [GND_ISO] of U32 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(124.8250 mm, 185.5450 mm): Reference field of R206
+    @(123.7000 mm, 185.1250 mm): Pad 2 [Net-(U32-DE)] of R208 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(124.8250 mm, 185.5450 mm): Reference field of R206
+    @(125.3500 mm, 185.1250 mm): Pad 1 [PI_RS485_DE] of R208 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(124.5250 mm, 186.5550 mm): Reference field of R208
+    @(124.0000 mm, 186.9750 mm): Pad 1 [PI_RS485_TX] of R206 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(124.5250 mm, 186.5550 mm): Reference field of R208
+    @(125.6500 mm, 186.9750 mm): Pad 2 [Net-(U32-TXD)] of R206 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(113.5250 mm, 223.0150 mm): Reference field of C37
+    @(114.0250 mm, 222.2625 mm): Pad 1 [Net-(Q18-B)] of Q18 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(115.9750 mm, 219.6350 mm): Reference field of Q13
+    @(114.9750 mm, 220.3875 mm): Pad 3 [Net-(J1-Pin_9)] of Q18 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(99.1250 mm, 219.2850 mm): Reference field of R112
+    @(100.0000 mm, 218.4150 mm): Pad 2 [GND] of C81 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(103.1250 mm, 223.4350 mm): Reference field of R120
+    @(102.7750 mm, 222.5400 mm): Pad 2 [GND] of R113 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(100.7750 mm, 219.8450 mm): Reference field of C81
+    @(99.9500 mm, 220.7150 mm): Pad 2 [Net-(U17-D6)] of R112 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.7750 mm, 221.4350 mm): Reference field of R121
+    @(99.9500 mm, 220.7150 mm): Pad 2 [Net-(U17-D6)] of R112 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.7750 mm, 223.1350 mm): Reference field of R105
+    @(99.6000 mm, 222.8650 mm): Pad 2 [Net-(U16-D0)] of R121 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.7750 mm, 221.4350 mm): Reference field of R121
+    @(98.3000 mm, 220.7150 mm): Pad 1 [Net-(J2-Pin_8)] of R112 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(98.7750 mm, 223.1350 mm): Reference field of R105
+    @(97.9500 mm, 222.8650 mm): Pad 1 [Net-(J3-Pin_1)] of R121 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(110.6450 mm, 220.2650 mm): Reference field of C75
+    @(110.2500 mm, 220.7150 mm): Pad 1 [+4V5] of R114 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(110.6450 mm, 220.2650 mm): Reference field of C75
+    @(109.9000 mm, 218.7150 mm): Pad 1 [Net-(J2-Pin_9)] of R115 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.1750 mm, 223.4350 mm): Reference field of R117
+    @(85.3500 mm, 222.7150 mm): Pad 1 [Net-(J2-Pin_7)] of R109 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.1750 mm, 223.4350 mm): Reference field of R117
+    @(87.0000 mm, 222.7150 mm): Pad 2 [Net-(U17-D5)] of R109 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.5250 mm, 222.2950 mm): Reference field of R116
+    @(85.3500 mm, 222.7150 mm): Pad 1 [Net-(J2-Pin_7)] of R109 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.1750 mm, 221.2850 mm): Reference field of R109
+    @(87.3500 mm, 220.8650 mm): Pad 1 [Net-(U17-D7)] of R116 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.1750 mm, 221.2850 mm): Reference field of R109
+    @(85.7000 mm, 220.8650 mm): Pad 2 [GND] of R116 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(86.5250 mm, 222.2950 mm): Reference field of R116
+    @(87.0000 mm, 222.7150 mm): Pad 2 [Net-(U17-D5)] of R109 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(146.1250 mm, 247.3550 mm): Reference field of R36
+    @(147.5200 mm, 248.3700 mm): Pad 2 [unconnected-(U31-QC-Pad2)] of U31 on F.Cu
+
+** Found 33 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(89.5000 mm, 56.3000 mm): Track [VMON_12V] on F.Cu, length 1.8385 mm
+    @(78.3000 mm, 53.0000 mm): Track [VMON_12V] on F.Cu, length 0.4500 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(78.8000 mm, 59.9000 mm): Track [+3V3] on F.Cu, length 0.4243 mm
+    @(78.6000 mm, 59.8000 mm): Track [+3V3] on F.Cu, length 0.3000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(30.0000 mm, 30.0000 mm): Zone 'GND_PLANE' [GND] on In1.Cu, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(30.0000 mm, 30.0000 mm): Zone 'GND_PLANE' [GND] on In1.Cu, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(71.3875 mm, 73.9450 mm): Pad 2 [GND] of U5 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(30.0000 mm, 30.0000 mm): Zone 'GND_PLANE' [GND] on In1.Cu, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(76.7500 mm, 51.0500 mm): Pad 62 [GND] of U4 on F.Cu
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(76.7500 mm, 51.0500 mm): Pad 62 [GND] of U4 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(125.2000 mm, 100.0000 mm): Track [GND] on In2.Cu, length 6.0000 mm
+    @(126.7200 mm, 99.8825 mm): Pad 3 [GND] of U22 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+    @(146.0000 mm, 184.0000 mm): Zone 'GND_ISO' [GND_ISO] on F.Cu, B.Cu and 2 more, priority 0
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.4000 mm, 56.6000 mm): Pad 12 [BUS_DIR] of U4 on F.Cu
+    @(59.7675 mm, 73.0600 mm): Pad 2 [BUS_DIR] of U6 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(146.2500 mm, 253.3200 mm): Via [STB_DATA] on F.Cu - B.Cu
+    @(68.4000 mm, 59.4000 mm): Track [STB_DATA] on F.Cu, length 0.4500 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(78.3000 mm, 54.2000 mm): Pad 55 [RP_UART_TX] of U4 on F.Cu
+    @(95.3500 mm, 161.7750 mm): Pad 2 [RP_UART_TX] of R19 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(124.1200 mm, 105.6075 mm): Pad 14 [I2S_DIN] of U22 on F.Cu
+    @(142.7800 mm, 179.7700 mm): Track [I2S_DIN] on B.Cu, length 0.0361 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(51.6000 mm, 74.7000 mm): Via [/IO bus/BD5] on F.Cu - B.Cu
+    @(54.0425 mm, 70.4600 mm): Pad 19 [/IO bus/BD5] of U6 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(51.2850 mm, 73.1750 mm): Pad 8 [/IO bus/BD7] of RN2 on F.Cu
+    @(54.0425 mm, 71.7600 mm): Pad 21 [/IO bus/BD7] of U6 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(54.0425 mm, 72.4100 mm): Pad 22 [BUS_OE_N] of U6 on F.Cu
+    @(60.2000 mm, 67.3000 mm): Track [BUS_OE_N] on In2.Cu, length 6.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(67.9000 mm, 56.2000 mm): Track [BUS_IOSTB] on F.Cu, length 0.5000 mm
+    @(57.3500 mm, 57.5500 mm): Track [BUS_IOSTB] on F.Cu, length 0.0202 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(68.4000 mm, 53.0000 mm): Track [BUS_D6] on F.Cu, length 0.4500 mm
+    @(60.9000 mm, 71.7500 mm): Track [BUS_D6] on F.Cu, length 0.0500 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(112.9500 mm, 166.7750 mm): Via [RP_IRQ_N] on F.Cu - B.Cu
+    @(78.3000 mm, 57.8000 mm): Track [RP_IRQ_N] on F.Cu, length 0.4500 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(78.3000 mm, 55.4000 mm): Pad 52 [FRAME_CS_N] of U4 on F.Cu
+    @(122.4600 mm, 179.7700 mm): PTH pad 24 [FRAME_CS_N] of J21
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(78.3000 mm, 55.0000 mm): Pad 53 [FRAME_SCK] of U4 on F.Cu
+    @(122.4600 mm, 177.2300 mm): PTH pad 23 [FRAME_SCK] of J21
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(95.7000 mm, 163.7750 mm): Via [RP_UART_RX] on F.Cu - B.Cu
+    @(78.3000 mm, 53.8000 mm): Track [RP_UART_RX] on F.Cu, length 0.4500 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(94.5200 mm, 177.2300 mm): PTH pad 1 [unconnected-(J21-3V3-Pad1)] of J21
+    @(114.8400 mm, 177.2300 mm): PTH pad 17 [unconnected-(J21-3V3-Pad1)] of J21
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(54.0425 mm, 67.8600 mm): Pad 15 [/IO bus/BD1] of U6 on F.Cu
+    @(48.9950 mm, 77.4750 mm): Pad 6 [/IO bus/BD1] of RN1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(48.1950 mm, 77.4750 mm): Pad 7 [/IO bus/BD2] of RN1 on F.Cu
+    @(54.0425 mm, 68.5100 mm): Pad 16 [/IO bus/BD2] of U6 on F.Cu
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
