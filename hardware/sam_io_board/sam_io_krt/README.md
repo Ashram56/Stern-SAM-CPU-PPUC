@@ -87,6 +87,27 @@ routed, while KRT routed all 93 nets from nothing.
 - **Layer balance.** KRT uses both layers about equally. The SAM_IO board keeps two thirds of its copper on
   F.Cu, so its bottom GND pour is less cut up.
 
+## Placement experiment
+
+Does moving parts into the empty right half help? Following the project's placement-then-routing plan, four
+KRT placer candidates (`place_optimize.py`, connectors, SWD header, DIP switch and holes locked; see
+`placement/placement_constraints.yaml`) and two hand-built ones (`placement/shift.py`: the RP2040 block moved
+rigidly 19 mm right, the buttons and LED 20 or 24 mm) were scored, and the best three were routed with the same
+KRT settings as above. Unconnected counts are KiCad DRC after routing. All figures: `placement/metrics.csv`.
+
+| Placement | HPWL | Airwire crossings | Unconnected at 0.2 mm | Unconnected at 0.15 mm |
+|---|---|---|---|---|
+| Original (this folder) | 1759 mm | 240 | 25 | **3** |
+| KRT placer, best of 4 | 1944 mm | 79 | 28 | |
+| RP2040 block moved right | 2117 mm | 242 | 23 | 6 |
+| Same, buttons further right | 2133 mm | 242 | 26 | 5 |
+
+No placement beat the original. Every open net is at the RP2040's own pins, so the limit is getting out of
+its 0.4 mm-pitch pads at 0.2 mm clearance, not space on the board. The KRT placer also pulled decoupling caps
+and the crystal away from U3 (`placement/candidate_krt_placer.png`), which the constraints rule out, so its
+lower crossing count does not make it usable. Each routing run took 14 to 22 minutes, three at a time on 4 cores.
+The board in this folder keeps the original placement.
+
 ## How it was made
 
 `route/route_krt.sh` lists the commands in order: strip (`route/strip_routing.py`), refill the pour in KiCad

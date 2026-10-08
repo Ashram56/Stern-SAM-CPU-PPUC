@@ -1,0 +1,5 @@
+placement,how,parts_moved,hpwl_mm,airwire_crossings,courtyard_overlap_mm2,unconnected_at_0.20mm,unconnected_at_0.15mm
+baseline,merged SAM_IO placement,0,1759,240,0.42,25,3
+p2,KRT place_optimize (15 mm max move; decaps grouped),91,1944,79,1.62,28,
+s8,RP2040 block +19 mm and buttons/LED +20 mm (shift.py 19 20),30,2117,242,0.42,23,6
+s9,RP2040 block +19 mm and buttons/LED +24 mm (shift.py 19 24),30,2133,242,0.42,26,5

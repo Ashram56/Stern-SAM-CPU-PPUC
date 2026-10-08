@@ -1,0 +1,22 @@
+# Placement intent for the SAM_IO KRT experiment (hardware/sam_io_board/sam_io_krt_placed).
+# Fixed parts are passed to KRT's place_optimize.py as --lock; mounting holes are frozen by the placer.
+board: {outline_mm: [100, 70], layers: 2, rules: JLCPCB 2-layer (sam_io.kicad_dru)}
+fixed:   # same connector positions as IO_16_8_1 / the merged SAM_IO board
+  J1:  {what: RS485 terminal (RTM),        at: [108.318, 43.5, 180]}
+  J5:  {what: power terminal (RTM),        at: [159.75, 43.5, 180]}
+  J4:  {what: USB-C,                       at: [130.81, 43.18, 180]}
+  J2:  {what: QWIIC (JST SH 4),            at: [117.856, 42.164, 180]}
+  J9:  {what: SAM bus 2x10 IDC,            at: [80.5, 68, 0]}
+  J3:  {what: SWD header,                  at: [123.459, 90.399, 90]}
+  SW3: {what: address DIP switch,          at: [122.936, 101.092, 180]}
+  mounting_holes: {at: [[80, 43.964], [170, 44], [80, 104], [170, 104]]}
+movable_with_care:
+  SW1, SW2: reset / boot buttons, may move inside the board (locked in candidate p3)
+groups:
+  decap: every decoupling cap moves rigidly with its IC (--group-by decap)
+proximity:
+  - decoupling caps stay with their IC (rigid decap groups)
+  - crystal Y1 and its load caps stay next to the RP2040 XIN/XOUT pins (checked on the render)
+  - 33 R arrays RN1-RN3 stay between J9 and the buffers
+keepouts: [mounting holes, connector bodies]
+scoring: [airwire length, airwire crossings, HPWL, courtyard overlap, parts off board]
