@@ -12,6 +12,8 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 - [`DESIGN.md`](DESIGN.md): detailed design notes (circuit, power, reset, bus timing, signal list, BOM, PCB,
   manufacturing, bring-up).
 - `sam_io/`: the KiCad 10 project (10.0 file format). Open `sam_io.kicad_pro`.
+- `sam_io_krt/`: an experiment, the same board stripped and routed again from scratch with KiCadRoutingTools,
+  with a side-by-side comparison. Not the board to build.
 - `sam_io/sam_io_bom.csv`: bill of materials, grouped by value and footprint.
 - `sam_io/sam_io.pdf`: the two schematic sheets, for reading without KiCad.
 - `sam_io/pcb_render.png`: top view of the routed board; `sam_io/pcb_copper.png`: its copper (F.Cu red, B.Cu blue).
