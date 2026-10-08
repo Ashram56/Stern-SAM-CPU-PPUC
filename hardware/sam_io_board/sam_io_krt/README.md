@@ -147,6 +147,10 @@ The 4 still open: GND at a small pour island on the top left and at a short GND 
 hand. One GND track necks to 0.192 mm at a pad, which the board's own 0.2 mm minimum flags but JLC's 0.10 mm does
 not.
 
+The same chain with `--max-ripup 30` instead of 10, run natively on an 8-core WSL machine (KiCad 10.0.6), took
+556 s (main 483, clean-up 73) and left the same 4 open, with 2 hole-clearance items instead of 7. That board is
+not in this folder.
+
 KRT's own routes take long detours where the original runs straight, for example `/5V_IN` around the left edge.
 That costs track length (2672 mm in all against 2194 mm) but not DRC.
 
