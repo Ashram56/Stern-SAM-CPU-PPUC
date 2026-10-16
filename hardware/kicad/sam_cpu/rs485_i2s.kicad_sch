@@ -8653,7 +8653,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_3.5mm_CUI_SJ1-3535NG_Horizontal"
+		(property "Footprint" "sam_cpu:Jack_3.5mm_PJ-393-7A_Horizontal"
 			(at 203.2 243.84 0)
 			(hide yes)
 			(show_name no)

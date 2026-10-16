@@ -60,7 +60,7 @@ pad (M4) until the real screw is measured.
 | J27 | RS485 in, side-entry RJ45 (CONNFLY DS1128-05-S8B8P), isolated, opening on the right edge | pin 1 155.10, 214.62 | new | extension (c27) |
 | J29 | RS485 out, same, in parallel with J27 (optional) | pin 1 155.10, 230.52 | new | extension (c27) |
 | J28 | I2S input from a remote Pi, 2x3 header | courtyard 105.4-111.6, 170.4-179.1 | new | below the RS485 resistors |
-| J30 | line-in, switched 3.5 mm stereo jack (CUI SJ1-3535NG), opening on the right edge | courtyard 105.8-124.9, 86.7-96.0 | new | right edge below J24, next to the amplifier inputs R187 / R190 |
+| J30 | line-in, switched 3.5 mm stereo jack (PJ-393-7A SMD, was CUI SJ1-3535NG), opening on the right edge | courtyard 105.8-124.9, 86.7-96.0 | new | right edge below J24, next to the amplifier inputs R187 / R190 |
 
 The KK-396 headers keep the original orientation: pin 1 at the bottom of the left-edge connectors and at the right
 end of the bottom ones, friction ramp toward the board centre. J3 stays in the bottom row; J2 and J1 form a second
@@ -208,4 +208,13 @@ script in `tools/changes/`, applied on top of b08cf77 in this order:
 - Result: 36 unconnected items (none on the isolated side), schematic parity as before, ERC clean.
 - U6 SN74LVC8T245 and U25 DS3231MZ stay: U6 has 40k in stock and its 5 V B side rules out the newer AXC parts;
   U25 has the most stock of any temperature-compensated RTC at JLCPCB (3,115).
-
+- `c29_board_c108_c118_35v_8x10.py`: C108 / C118 470 uF on +12 V -> 35 V 8x10 can (RV35V470M8X10, C48935389),
+  Vincent's card choice; +12V feed rebuilt at y 68.6, GND pads fanned out with `route/fanout_vias.py`.
+- `c30_dip_switch_dnp.py`: SW3, R168-R175, U14 and C93 marked DNP (not loaded) in the schematic and on the board.
+- `c31_sch_bigger_text.py`: schematic text 1.27 -> 1.6 mm.
+- `c32_j19_j30_stocked.py`: J19 HRO TYPE-C-31-M-12 -> SHOU HAN SH-U262-161N-4BVC11 (C22383468, same pattern, rear
+  shell slots 1.4 mm); J30 CUI SJ1-3535NG -> PJ-393-7A SMD switched stereo jack (C128990), footprint from the maker's
+  drawing, 0.2 mm lower so it clears R186. +12V passes under it on B.Cu, I2S_DIN / FRAME_SCK / AUD_AMP_L/R /
+  AUD_DAC_L hand-routed around its pads, then `route/fanout_vias.py ... GND J30:S`. Both footprints are in
+  `sam_cpu.pretty`. Check the tip / ring pins (4 / 3 per the drawing) against a sample before ordering in quantity.
+- Result after c32: still 36 unconnected items, no new DRC errors, schematic parity as before.
