@@ -93,9 +93,8 @@ Pi's lower analog level plays quieter.
 
 ## Open items before layout
 
-- **Power mux**: the doc names a TPS2121. KiCad has no symbol for it, so this draft uses two LTC4412 ideal-diode
-  controllers with AO3401A P-MOSFETs (external path always on, J11 path turned off by `EXT_PRESENT`). Swap back to a
-  TPS2121 with a checked custom symbol if preferred.
+- **Power mux**: the doc names a TPS2121; the board uses a TI TPS2117 (same family, 4 A, stocked at JLCPCB) in
+  priority mode: external +5 V (J17) on VIN1 while it is above about 4 V (R1 / R2 on PR1), else J11.
 - **RP2354B support parts** were checked against the RP2350 hardware design guide: 3.3 uH Abracon
   AOTA-B201610S3R3-101-T for L1 (mind its polarity dot), 4.7 uF on VREG_VIN and on the 1.1 V output, 33 R + 4.7 uF
   on VREG_AVDD, ABM8-272-T3 12 MHz crystal with 15 pF and 1 k, 27 R USB series resistors, 100 nF per supply pin.

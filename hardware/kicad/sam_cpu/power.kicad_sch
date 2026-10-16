@@ -11,6 +11,253 @@
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
 	)
 	(lib_symbols
+		(symbol "Power_Management:TPS2116DRL"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at -7.874 9.144 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "TPS2116DRL"
+				(at 0.508 -8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-583-8"
+				(at 0 -22.352 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps2116.pdf"
+				(at 0 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Description" "2 Channnels Power Mux with Manual and Priority Switchover, 1.6-5.5V Input Voltage, 2.5A Output Current, Ron 40 mOhm, SOT-583-8"
+				(at 0 -1.016 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "ki_keywords" "Texas-Instruments power-mux switchover"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOT?5?3*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(symbol "TPS2116DRL_0_1"
+				(rectangle
+					(start -7.62 7.62)
+					(end 7.62 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "TPS2116DRL_1_0"
+				(pin power_out line
+					(at 10.16 5.08 180)
+					(length 2.54)
+					(hide yes)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+			)
+			(symbol "TPS2116DRL_1_1"
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 10.16 5.08 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -10.16 5.08 0)
+					(length 2.54)
+					(name "VIN1"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -10.16 2.54 0)
+					(length 2.54)
+					(name "PR1"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -10.16 -2.54 0)
+					(length 2.54)
+					(name "MODE"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -10.16 -5.08 0)
+					(length 2.54)
+					(name "VIN2"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin open_collector line
+					(at 10.16 -5.08 180)
+					(length 2.54)
+					(name "ST"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Screw_Terminal_01x02"
 			(pin_names
 				(offset 1.016)
@@ -2328,212 +2575,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Power_Management:LTC4412xS6"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -6.35 8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "Value" "LTC4412xS6"
-				(at 6.35 8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:TSOT-23-6"
-				(at 16.51 -8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/4412fb.pdf"
-				(at 53.34 -5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "Description" "Low Loss PowerPath Controller, TSOT-23-6"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "ki_keywords" "ideal-diode or-ing"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "ki_fp_filters" "TSOT?23*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(symbol "LTC4412xS6_0_1"
-				(rectangle
-					(start -7.62 7.62)
-					(end 7.62 -7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "LTC4412xS6_1_1"
-				(pin power_in line
-					(at -10.16 2.54 0)
-					(length 2.54)
-					(name "VIN"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -10.16 -2.54 0)
-					(length 2.54)
-					(name "CTL"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-				(pin open_collector line
-					(at 10.16 -2.54 180)
-					(length 2.54)
-					(name "STAT"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 0 10.16 270)
-					(length 2.54)
-					(name "GATE"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 10.16 2.54 180)
-					(length 2.54)
-					(name "SENSE"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Regulator_Linear:NCP1117-3.3_SOT223"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2670,320 +2711,6 @@
 					(at -7.62 0 0)
 					(length 2.54)
 					(name "VI"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Transistor_FET:AO3401A"
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q"
-				(at 5.08 1.905 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "AO3401A"
-				(at 5.08 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 5.08 -1.905 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-						(italic yes)
-					)
-					(justify left)
-				)
-			)
-			(property "Datasheet" "http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf"
-				(at 5.08 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-					(justify left)
-				)
-			)
-			(property "Description" "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "ki_keywords" "P-Channel MOSFET"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.5 1.5)
-					)
-				)
-			)
-			(symbol "AO3401A_0_1"
-				(polyline
-					(pts
-						(xy 0.254 1.905) (xy 0.254 -1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 2.286) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0.508) (xy 0.762 -0.508)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.27) (xy 0.762 -2.286)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 1.651 0)
-					(radius 2.794)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 2.54) (xy 2.54 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.54 1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 2.54 -1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.794 -0.508) (xy 2.921 -0.381) (xy 3.683 -0.381) (xy 3.81 -0.254)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "AO3401A_1_1"
-				(pin input line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "G"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "S"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.5 1.5)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "D"
 						(effects
 							(font
 								(size 1.5 1.5)
@@ -3945,7 +3672,7 @@
 		)
 		(uuid "afc51bc0-ab63-5de9-a46c-9929726f9288")
 	)
-	(text "J11 keeps the original CPU board connector (IO board J16 harness) for +5 V and ground only: its +-12 V pins are not used.\nThe audio amplifiers run from an external +12 V supply on J23 (about 3 A at full volume). F1 + D5 blow the fuse on reverse polarity.\nU3 NCP1117 (as in the RP2350 hardware guide) is stable with ceramic capacitors. All regulator capacitors are 0805 or larger for low DC-bias derating.\nExternal +5 V on J17 has priority: U2 turns the J11 path off whenever +5V_EXT is present (EXT_PRESENT high).\nLTC4412 + AO3401A ideal diodes stand in for the TPS2121 of ARCHITECTURE.md 9.3 (library part, about 4 A per path).\nJP1 (bridged by default) disconnects the J11 +5 V completely; leaving J17 unplugged forces J11."
+	(text "J11 keeps the original CPU board connector (IO board J16 harness) for +5 V and ground only: its +-12 V pins are not used.\nThe audio amplifiers run from an external +12 V supply on J23 (about 3 A at full volume). F1 + D5 blow the fuse on reverse polarity.\nU3 NCP1117 (as in the RP2350 hardware guide) is stable with ceramic capacitors. All regulator capacitors are 0805 or larger for low DC-bias derating.\nExternal +5 V on J17 has priority: U1 TPS2117 (2:1 mux, 4 A) takes VIN1 while R1 / R2 hold PR1 above 1 V (VIN1 above about 4 V), else J11 on VIN2.\nThe TPS2117 replaces the TPS2121 of ARCHITECTURE.md 9.3 (JLCPCB stock); the KiCad TPS2116DRL symbol has the same pinout.\nJP1 (bridged by default) disconnects the J11 +5 V completely; leaving J17 unplugged forces J11."
 		(exclude_from_sim no)
 		(at 15.24 15.24 0)
 		(effects
@@ -3984,18 +3711,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1e13fd0a-71cf-5c11-9de4-dcaf84ea6301")
-	)
-	(junction
-		(at 111.76 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "42451858-f80b-56c7-ab01-c93c06ecca55")
-	)
-	(junction
-		(at 111.76 147.32)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6279d97e-1aeb-531e-852d-b4dd07160f06")
 	)
 	(junction
 		(at 91.44 76.2)
@@ -4040,20 +3755,12 @@
 		(uuid "ffe98b01-d2ec-55e4-abc5-93b341b3a428")
 	)
 	(no_connect
-		(at 132.08 152.4)
-		(uuid "1821c710-dd09-5caa-bb98-5f904b1869ec")
-	)
-	(no_connect
 		(at 30.48 149.86)
 		(uuid "e10c3f74-cfde-5ca3-9c20-7fd05859acb1")
 	)
 	(no_connect
 		(at 30.48 142.24)
 		(uuid "e19c390d-2ff1-58eb-8f64-ef5de93e06c0")
-	)
-	(no_connect
-		(at 132.08 81.28)
-		(uuid "e2c5958e-4d19-515c-b4e6-bbb503d849f4")
 	)
 	(wire
 		(pts
@@ -4134,16 +3841,6 @@
 			(type default)
 		)
 		(uuid "1163accd-8a72-5627-acb9-e39514a47858")
-	)
-	(wire
-		(pts
-			(xy 101.6 152.4) (xy 101.6 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1864e01b-5ede-570c-8e01-a944b7fdd0c6")
 	)
 	(wire
 		(pts
@@ -4277,16 +3974,6 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 132.08) (xy 121.92 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3dea2f5d-a37e-50ec-afc6-432fa083c3a5")
-	)
-	(wire
-		(pts
 			(xy 238.76 233.68) (xy 238.76 236.22)
 		)
 		(stroke
@@ -4327,16 +4014,6 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 203.2) (xy 177.8 200.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48222789-161f-5050-89db-cc9bc249cebc")
-	)
-	(wire
-		(pts
 			(xy 30.48 180.34) (xy 33.02 180.34)
 		)
 		(stroke
@@ -4354,26 +4031,6 @@
 			(type default)
 		)
 		(uuid "4c4d6c04-d6a2-5f71-b730-33eff9532480")
-	)
-	(wire
-		(pts
-			(xy 111.76 53.34) (xy 116.84 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4ca38fc4-0102-5d8f-ac0b-144b4d79ddd2")
-	)
-	(wire
-		(pts
-			(xy 127 53.34) (xy 129.54 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4dac276c-66a3-557c-9b26-ab0ba08d948d")
 	)
 	(wire
 		(pts
@@ -4467,26 +4124,6 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 76.2) (xy 111.76 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6250d05c-5554-5a52-998e-def5a9a92225")
-	)
-	(wire
-		(pts
-			(xy 111.76 147.32) (xy 111.76 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "63a84e62-d68d-5615-9e44-516bddc777f9")
-	)
-	(wire
-		(pts
 			(xy 63.5 68.58) (xy 63.5 71.12)
 		)
 		(stroke
@@ -4494,16 +4131,6 @@
 			(type default)
 		)
 		(uuid "641b0005-4b79-5e5f-8862-c430da2e30a3")
-	)
-	(wire
-		(pts
-			(xy 111.76 81.28) (xy 109.22 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a0a6d6c-0540-5fd5-a399-8155e8f07c76")
 	)
 	(wire
 		(pts
@@ -4667,16 +4294,6 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 60.96) (xy 121.92 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9158bae3-d84f-58da-af24-347e17b54440")
-	)
-	(wire
-		(pts
 			(xy 248.92 137.16) (xy 248.92 134.62)
 		)
 		(stroke
@@ -4684,16 +4301,6 @@
 			(type default)
 		)
 		(uuid "94901e3e-7dbf-54b0-b2fb-f25351ff20b3")
-	)
-	(wire
-		(pts
-			(xy 111.76 152.4) (xy 101.6 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9519f04b-2463-5cff-8766-d89418094a51")
 	)
 	(wire
 		(pts
@@ -4754,16 +4361,6 @@
 			(type default)
 		)
 		(uuid "a8aefa4e-5c91-5d22-a101-6281b69a4e10")
-	)
-	(wire
-		(pts
-			(xy 132.08 147.32) (xy 134.62 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a939ab4f-c31a-57f7-a394-08c22c3ac9f8")
 	)
 	(wire
 		(pts
@@ -4847,26 +4444,6 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 88.9) (xy 121.92 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c97012d1-aa0d-5893-866a-054f830c9208")
-	)
-	(wire
-		(pts
-			(xy 111.76 124.46) (xy 116.84 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d3571117-bd5a-5e69-beb8-faea141c6345")
-	)
-	(wire
-		(pts
 			(xy 91.44 114.3) (xy 91.44 116.84)
 		)
 		(stroke
@@ -4894,16 +4471,6 @@
 			(type default)
 		)
 		(uuid "dc18e218-4ba4-522e-8cd9-721b485ca4fd")
-	)
-	(wire
-		(pts
-			(xy 127 124.46) (xy 129.54 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dcfed393-8993-56f9-ba74-1df9a975c1e4")
 	)
 	(wire
 		(pts
@@ -4944,16 +4511,6 @@
 			(type default)
 		)
 		(uuid "f1212ecd-d354-5019-993a-c5db1de2bb57")
-	)
-	(wire
-		(pts
-			(xy 121.92 160.02) (xy 121.92 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5c4bf37-3445-55ef-9cef-97d4e109ba32")
 	)
 	(wire
 		(pts
@@ -6128,83 +5685,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 109.22 81.28 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1f5f8d95-9b66-57f1-b33d-e33856859e28")
-		(property "Reference" "#PWR01006"
-			(at 109.22 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 109.22 85.09 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 109.22 81.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 109.22 81.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 109.22 81.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "060baf37-cbc2-5020-9ebb-6d287261aabd")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#PWR01006")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 91.44 95.25 0)
 		(unit 1)
@@ -6237,7 +5717,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 89.662 95.25 90)
 			(hide yes)
 			(show_name no)
@@ -6438,83 +5918,6 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
 					(reference "#PWR01001")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 134.62 147.32 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "217f86f9-374b-5e3e-a7d9-3da1b3977ffb")
-		(property "Reference" "#PWR01012"
-			(at 134.62 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 134.62 143.764 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 134.62 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 134.62 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 134.62 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5a34e35f-bb6d-593c-b028-00581ccbfc18")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#PWR01012")
 					(unit 1)
 				)
 			)
@@ -7393,92 +6796,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3401A")
-		(at 121.92 127 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "36a498cc-1855-51aa-b219-0c9f9475b60f")
-		(property "Reference" "Q2"
-			(at 120.015 121.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AO3401A"
-			(at 121.92 121.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 123.825 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf"
-			(at 125.73 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"
-			(at 121.92 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6f8d50f0-8a92-5765-815e-4cf11359aa1c")
-		)
-		(pin "2"
-			(uuid "2b25fdff-f182-5ace-949b-2cd7973906be")
-		)
-		(pin "3"
-			(uuid "06b29dce-80a3-5bfd-ba16-9ff6d201d04f")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "Q2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 96.52 187.96 0)
 		(unit 1)
@@ -8334,92 +7651,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_FET:AO3401A")
-		(at 121.92 55.88 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "69ed91b8-7478-550b-8399-32a669aae52a")
-		(property "Reference" "Q1"
-			(at 120.015 50.8 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AO3401A"
-			(at 121.92 50.8 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 123.825 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf"
-			(at 125.73 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"
-			(at 121.92 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cfe83796-1c77-5c57-981d-e20244407b17")
-		)
-		(pin "2"
-			(uuid "b5bd2a31-e682-5058-aea5-674cbb025e89")
-		)
-		(pin "3"
-			(uuid "d4f259d4-f1e4-5698-8226-27496676e82e")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "Q1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 223.52 203.2 0)
 		(unit 1)
@@ -8578,174 +7809,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 177.8 203.2 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7a3b5884-6658-5471-995e-72d791285c34")
-		(property "Reference" "#FLG3"
-			(at 177.8 205.105 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 177.8 207.01 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 177.8 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 177.8 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 177.8 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4b639904-587d-5e7b-a593-df5c110385f4")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#FLG3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Power_Management:LTC4412xS6")
-		(at 121.92 78.74 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7a70cda5-241d-51f4-879c-205266f69d32")
-		(property "Reference" "U1"
-			(at 115.57 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "LTC4412"
-			(at 128.27 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:TSOT-23-6"
-			(at 138.43 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/4412fb.pdf"
-			(at 175.26 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Low Loss PowerPath Controller, TSOT-23-6"
-			(at 121.92 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "74fc40f1-eea1-5fdf-bf6a-5dd661afa5d9")
-		)
-		(pin "2"
-			(uuid "62bf11c3-b23c-53ad-9bd2-27ffe53a4878")
-		)
-		(pin "3"
-			(uuid "47bd8df7-8c14-5d45-af2c-df63a7786468")
-		)
-		(pin "4"
-			(uuid "cbd1f474-ecb5-59b0-a19c-16d3bf814f05")
-		)
-		(pin "5"
-			(uuid "97500a23-db34-553a-8547-68afff0459d1")
-		)
-		(pin "6"
-			(uuid "21f63612-530c-5cc8-9481-11563da24215")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "U1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:Polyfuse")
 		(at 55.88 175.26 90)
 		(unit 1)
@@ -8897,83 +7960,6 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
 					(reference "#PWR01049")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 129.54 53.34 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8a2db674-253f-54be-a6a8-7a4367ac9f49")
-		(property "Reference" "#PWR01004"
-			(at 129.54 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 129.54 49.784 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 129.54 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 129.54 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 129.54 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5120e174-1b04-5b42-9f13-2f8b1810349b")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#PWR01004")
 					(unit 1)
 				)
 			)
@@ -9303,83 +8289,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 129.54 124.46 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9863cbfb-4bfb-50d8-a00c-cfb7c8c5eddd")
-		(property "Reference" "#PWR01010"
-			(at 129.54 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 129.54 120.904 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 129.54 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 129.54 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 129.54 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2d05dd79-d474-53c2-81b4-cefcb252dd9b")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#PWR01010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 91.44 116.84 0)
 		(unit 1)
@@ -9636,7 +8545,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "33k"
 			(at 93.98 111.76 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10544,83 +9453,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 121.92 162.56 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b17f0fc5-a95f-53df-9e9d-9bd23c61143c")
-		(property "Reference" "#PWR01011"
-			(at 121.92 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 121.92 166.37 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 121.92 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 121.92 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 121.92 162.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "02cbc637-9097-53e3-98d1-9031efcdc2fc")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#PWR01011")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 317.5 90.17 0)
 		(unit 1)
@@ -10854,97 +9686,6 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
 					(reference "#PWR01017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Power_Management:LTC4412xS6")
-		(at 121.92 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b6bcb9b0-9b86-5168-a473-8f31c3a012f2")
-		(property "Reference" "U2"
-			(at 115.57 140.97 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "LTC4412"
-			(at 128.27 140.97 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:TSOT-23-6"
-			(at 138.43 158.75 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/4412fb.pdf"
-			(at 175.26 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Low Loss PowerPath Controller, TSOT-23-6"
-			(at 121.92 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aba15a04-e58c-5395-996c-faeb79e47e9e")
-		)
-		(pin "2"
-			(uuid "797031f1-c8a8-56bc-9a9b-95efb93ee1d0")
-		)
-		(pin "3"
-			(uuid "dba703f9-8b25-5a88-a873-b0a58cb882ad")
-		)
-		(pin "4"
-			(uuid "039b371c-cc8f-5081-8234-562094b95005")
-		)
-		(pin "5"
-			(uuid "ae4d8c2f-4b6d-515c-a989-17550576c281")
-		)
-		(pin "6"
-			(uuid "2ffe7eb6-d181-51b9-95b5-9ce6e1822f8e")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "U2")
 					(unit 1)
 				)
 			)
@@ -11483,83 +10224,6 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
 					(reference "TP5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 177.8 200.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c34e3f72-c8e4-506b-af82-7e18c8fa37c3")
-		(property "Reference" "#PWR01045"
-			(at 177.8 204.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 177.8 197.104 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 177.8 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 177.8 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 177.8 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "faf82971-b71a-58bb-ab3b-2ab9de809611")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#PWR01045")
 					(unit 1)
 				)
 			)
@@ -12730,6 +11394,187 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
 					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 101.6 99.06) (xy 101.6 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b90398d-bb8d-4579-af4b-759a19370f11")
+	)
+	(wire
+		(pts
+			(xy 101.6 78.74) (xy 111.76 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "412c2237-12db-4614-a095-fbec1b4b918f")
+	)
+	(wire
+		(pts
+			(xy 111.76 83.82) (xy 106.68 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b6f0b0a-1107-447a-969e-07e4748ef618")
+	)
+	(label "EXT_5V"
+		(at 106.68 83.82 180)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify right bottom)
+		)
+		(uuid "2fe35ab9-6436-454c-90cd-bb38df2d7fc0")
+	)
+	(label "EXT_5V"
+		(at 83.82 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left bottom)
+		)
+		(uuid "71cfbe04-cfe5-47c9-8eeb-a49d89fa1a1b")
+	)
+	(wire
+		(pts
+			(xy 111.76 86.36) (xy 106.68 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee134538-c0f0-49cb-8334-c9d05683c7da")
+	)
+	(label "J11_5V"
+		(at 106.68 86.36 180)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify right bottom)
+		)
+		(uuid "2ddf98a7-12d6-491e-bcd9-504581a0216d")
+	)
+	(label "J11_5V"
+		(at 111.76 147.32 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left bottom)
+		)
+		(uuid "c3038acd-caa9-4b36-9a21-38f21921ecd4")
+	)
+	(no_connect
+		(at 132.08 86.36)
+		(uuid "8e93095e-8551-412b-aec5-0ce9f3f25651")
+	)
+	(symbol
+		(lib_id "Power_Management:TPS2116DRL")
+		(at 121.92 81.28 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7a70cda5-241d-51f4-879c-205266f69d32")
+		(property "Reference" "U1"
+			(at 114.3 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Value" "TPS2117"
+			(at 125.73 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-583-8"
+			(at 121.92 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps2117.pdf"
+			(at 121.92 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Description" "2:1 power mux with priority, 1.6-5.5 V, 4 A, 20 mOhm, TPS2117DRLR (LCSC C22399676)"
+			(at 121.92 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "18297abc-2bd7-49c0-bc4f-be771a017969")
+		)
+		(pin "2"
+			(uuid "898996eb-1b1c-4a54-a8ea-239e217cd0e7")
+		)
+		(pin "3"
+			(uuid "68ac2ec9-45f8-48b6-933f-2395e6aca5ea")
+		)
+		(pin "4"
+			(uuid "2e8468b1-2cbc-4d9b-b93b-fe1d5c20555b")
+		)
+		(pin "5"
+			(uuid "e6f7f5f1-821e-4f23-b893-1a6e895520fe")
+		)
+		(pin "6"
+			(uuid "26c94a34-cd7b-443a-a915-63ebdf0346f7")
+		)
+		(pin "7"
+			(uuid "c7402449-168f-48e3-814f-0c7e429e9867")
+		)
+		(pin "8"
+			(uuid "1b88d503-1316-4545-9f10-4541247075c2")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
+					(reference "U1")
 					(unit 1)
 				)
 			)

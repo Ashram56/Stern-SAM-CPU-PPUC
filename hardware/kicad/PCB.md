@@ -218,3 +218,9 @@ script in `tools/changes/`, applied on top of b08cf77 in this order:
   AUD_DAC_L hand-routed around its pads, then `route/fanout_vias.py ... GND J30:S`. Both footprints are in
   `sam_cpu.pretty`. Check the tip / ring pins (4 / 3 per the drawing) against a sample before ordering in quantity.
 - Result after c32: still 36 unconnected items, no new DRC errors, schematic parity as before.
+- `c33_power_mux_tps2117_sch.py` / `c34_board_power_mux_tps2117.py`: power mux U1 / U2 (LTC4412, only a 77-piece
+  clone in stock) + Q1 / Q2 -> one TI TPS2117DRLR (C22399676, SOT-583-8), Vincent's card choice. Priority mode: VIN1 =
+  external +5 V (J17, net EXT_5V, MODE tied to it), VIN2 = J11 +5 V after JP1 (J11_5V); R1 100k / R2 33k on PR1 keep
+  VIN1 selected above about 4 V. U1 sits in the old Q1 / Q2 spot at (99.75, 103.85); R1 (now 0402) stands between F1
+  and the EXT_5V track, R2 east of U1, PR1 crosses under U1 on B.Cu. EXT_5V / J11_5V move to the Power_5V class
+  (0.2 mm, for the 0.5 mm pitch pins). Result: 36 unconnected items, no new DRC errors, parity as before, ERC clean.

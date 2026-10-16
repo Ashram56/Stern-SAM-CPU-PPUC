@@ -400,8 +400,8 @@
         "pattern": "+12V"
       },
       {
-        "netclass": "Power_HI",
-        "pattern": "Net-(D1-A1)"
+        "netclass": "Power_5V",
+        "pattern": "/Power/EXT_5V"
       },
       {
         "netclass": "Power_HI",
@@ -412,8 +412,8 @@
         "pattern": "Net-(JP1-A)"
       },
       {
-        "netclass": "Power_HI",
-        "pattern": "Net-(JP1-B)"
+        "netclass": "Power_5V",
+        "pattern": "/Power/J11_5V"
       },
       {
         "netclass": "Power_HI",
