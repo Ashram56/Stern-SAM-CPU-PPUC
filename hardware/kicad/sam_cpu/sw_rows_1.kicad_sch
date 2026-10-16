@@ -23,7 +23,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -33,7 +33,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -44,7 +44,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -55,7 +55,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -66,7 +66,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -77,7 +77,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -88,7 +88,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -99,14 +99,14 @@
 					(name "~{PL}"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -117,14 +117,14 @@
 					(name "CP"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -135,14 +135,14 @@
 					(name "D4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -153,14 +153,14 @@
 					(name "D5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -171,14 +171,14 @@
 					(name "D6"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -189,14 +189,14 @@
 					(name "D7"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "6"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -207,14 +207,14 @@
 					(name "~{Q7}"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "7"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -225,14 +225,14 @@
 					(name "GND"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "8"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -243,14 +243,14 @@
 					(name "Q7"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "9"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -261,14 +261,14 @@
 					(name "DS"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "10"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -279,14 +279,14 @@
 					(name "D0"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "11"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -297,14 +297,14 @@
 					(name "D1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "12"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -315,14 +315,14 @@
 					(name "D2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "13"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -333,14 +333,14 @@
 					(name "D3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "14"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -351,14 +351,14 @@
 					(name "~{CE}"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "15"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -369,14 +369,14 @@
 					(name "VCC"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "16"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -412,7 +412,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 					(justify left)
 				)
@@ -423,7 +423,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 					(justify left)
 				)
@@ -435,7 +435,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -446,7 +446,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -457,7 +457,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -467,7 +467,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -478,7 +478,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -489,7 +489,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -525,14 +525,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -543,14 +543,14 @@
 					(name "-"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -561,14 +561,14 @@
 					(name "+"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -606,14 +606,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -624,14 +624,14 @@
 					(name "-"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "6"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -642,14 +642,14 @@
 					(name "+"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "7"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -687,14 +687,14 @@
 					(name "-"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "10"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -705,14 +705,14 @@
 					(name "+"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "11"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -723,14 +723,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "13"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -768,14 +768,14 @@
 					(name "-"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "8"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -786,14 +786,14 @@
 					(name "+"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "9"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -804,14 +804,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "14"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -824,14 +824,14 @@
 					(name "V+"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -842,14 +842,137 @@
 					(name "V-"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "12"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -873,7 +996,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -883,7 +1006,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -894,7 +1017,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -905,7 +1028,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -916,7 +1039,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -927,7 +1050,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -938,7 +1061,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1070,14 +1193,14 @@
 					(name "Pin_1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1088,14 +1211,14 @@
 					(name "Pin_2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1106,14 +1229,14 @@
 					(name "Pin_3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1124,14 +1247,14 @@
 					(name "Pin_4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1142,14 +1265,14 @@
 					(name "Pin_5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1160,14 +1283,14 @@
 					(name "Pin_6"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "6"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1178,14 +1301,14 @@
 					(name "Pin_7"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "7"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1196,14 +1319,14 @@
 					(name "Pin_8"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "8"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1214,14 +1337,14 @@
 					(name "Pin_9"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "9"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1232,14 +1355,14 @@
 					(name "Pin_10"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "10"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1265,7 +1388,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 					(justify left)
 				)
@@ -1276,7 +1399,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 					(justify left)
 				)
@@ -1288,7 +1411,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1299,7 +1422,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1310,7 +1433,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1321,7 +1444,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1332,7 +1455,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1369,14 +1492,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1387,14 +1510,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1420,7 +1543,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1430,7 +1553,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1441,7 +1564,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1452,7 +1575,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1463,7 +1586,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1474,7 +1597,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1485,7 +1608,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1509,14 +1632,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1527,14 +1650,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1560,7 +1683,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1570,7 +1693,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1581,7 +1704,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1592,7 +1715,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1603,7 +1726,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1614,7 +1737,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1625,7 +1748,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1636,7 +1759,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1647,7 +1770,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1696,14 +1819,14 @@
 					(name "K"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1714,14 +1837,14 @@
 					(name "A"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1750,7 +1873,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1760,7 +1883,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1771,7 +1894,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1782,7 +1905,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1793,7 +1916,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1804,7 +1927,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1853,14 +1976,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -1889,7 +2012,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1899,7 +2022,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1910,7 +2033,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1921,7 +2044,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1932,7 +2055,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1943,7 +2066,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -1968,14 +2091,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -2004,7 +2127,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -2014,7 +2137,7 @@
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -2025,7 +2148,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -2036,7 +2159,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -2047,7 +2170,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -2058,7 +2181,7 @@
 				(hide yes)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.5 1.5)
 					)
 				)
 			)
@@ -2107,14 +2230,14 @@
 					(name ""
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.5 1.5)
 							)
 						)
 					)
@@ -2259,6 +2382,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6e7bee15-a4a4-5ed4-a16e-8421ad0246e7")
+	)
+	(junction
+		(at 210.82 228.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "70adaf07-ac1e-5c45-a060-b288ca342728")
 	)
 	(junction
 		(at 91.44 190.5)
@@ -3652,6 +3781,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 215.9) (xy 233.68 213.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf3d16fa-2b65-5a36-a532-bf74a9acf2b0")
+	)
+	(wire
+		(pts
 			(xy 86.36 101.6) (xy 93.98 101.6)
 		)
 		(stroke
@@ -3669,6 +3808,26 @@
 			(type default)
 		)
 		(uuid "c1541501-e4db-5099-acea-12e8a007d8ea")
+	)
+	(wire
+		(pts
+			(xy 210.82 228.6) (xy 210.82 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2cdc8b4-32b2-5fae-9efd-ccbdb802a3c3")
+	)
+	(wire
+		(pts
+			(xy 210.82 215.9) (xy 233.68 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4f973c3-687a-524c-9b72-faae063814e1")
 	)
 	(wire
 		(pts
@@ -4170,24 +4329,24 @@
 		)
 		(uuid "fed4eef8-ee23-5c56-9ba6-f60907a2284f")
 	)
-	(global_label "SW_DATA"
+	(global_label "CHAIN6"
 		(shape output)
 		(at 195.58 132.08 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.6 1.6)
 			)
 			(justify left)
 		)
 		(uuid "0b53fa19-3e7f-5863-8cf5-0bfddcd57ace")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.87 132.08 0)
+			(at 211.06 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4199,18 +4358,18 @@
 		(fields_autoplaced yes)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.6 1.6)
 			)
 			(justify left)
 		)
 		(uuid "3adae67c-7a13-5556-8a52-9a076c975f53")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 218.03 182.88 0)
+			(at 221.88 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4222,18 +4381,18 @@
 		(fields_autoplaced yes)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.6 1.6)
 			)
 			(justify left)
 		)
 		(uuid "5440d78f-ed20-58d8-976d-fa0200171891")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 214.22 187.96 0)
+			(at 217.08 187.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4245,18 +4404,18 @@
 		(fields_autoplaced yes)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.6 1.6)
 			)
 			(justify left)
 		)
 		(uuid "64018b87-2834-58e6-9884-462e37f19d83")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 221.84 228.6 0)
+			(at 224.04 228.6 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4268,18 +4427,18 @@
 		(fields_autoplaced yes)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.6 1.6)
 			)
 			(justify right)
 		)
 		(uuid "fea67fbc-a05b-5447-a9a5-26f6860e29c5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 149 132.08 180)
+			(at 146.14 132.08 180)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify right)
 			)
@@ -4302,7 +4461,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4313,7 +4472,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4325,7 +4484,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4336,7 +4495,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4347,7 +4506,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4384,7 +4543,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4394,7 +4553,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4405,7 +4564,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4416,7 +4575,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4427,7 +4586,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4461,7 +4620,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4471,7 +4630,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4482,7 +4641,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4493,7 +4652,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4504,7 +4663,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4537,7 +4696,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4547,7 +4706,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4558,7 +4717,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4569,7 +4728,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4580,7 +4739,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4616,7 +4775,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4627,7 +4786,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4639,7 +4798,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4650,7 +4809,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4661,7 +4820,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4698,7 +4857,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4708,7 +4867,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4719,7 +4878,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4730,7 +4889,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4741,7 +4900,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4775,7 +4934,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4785,7 +4944,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4796,7 +4955,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4807,7 +4966,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4818,7 +4977,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4851,7 +5010,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4862,7 +5021,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -4874,7 +5033,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4885,7 +5044,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4896,7 +5055,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4933,7 +5092,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4943,7 +5102,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4954,7 +5113,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4965,7 +5124,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -4976,7 +5135,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5010,7 +5169,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5020,7 +5179,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5031,7 +5190,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5042,7 +5201,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5053,7 +5212,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5086,7 +5245,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5096,7 +5255,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5107,7 +5266,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5118,7 +5277,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5129,7 +5288,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5165,7 +5324,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -5176,7 +5335,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -5188,7 +5347,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5199,7 +5358,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5210,7 +5369,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5247,7 +5406,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5257,7 +5416,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5268,7 +5427,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5279,7 +5438,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5290,7 +5449,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5324,7 +5483,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5334,7 +5493,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5345,7 +5504,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5356,7 +5515,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5367,7 +5526,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5400,7 +5559,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -5411,7 +5570,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -5423,7 +5582,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5434,7 +5593,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5445,7 +5604,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5459,37 +5618,37 @@
 			(uuid "fe68002d-99e2-5812-b80b-1b1d233f9c71")
 		)
 		(pin "2"
-			(uuid "ef3ec2ac-3e76-463d-a9a5-d76e19649649")
+			(uuid "6e15034f-a86f-4d60-9906-8d9d8a9e7a1a")
 		)
 		(pin "4"
-			(uuid "d58e274b-07b3-43df-987c-b5c6d69a67dd")
+			(uuid "8fb9e579-9bf4-460e-992a-b611bf027f67")
 		)
 		(pin "5"
-			(uuid "53c4123a-ce0f-4276-9164-58581ef4286a")
+			(uuid "b897ef61-df9e-4e7d-81c0-784fa8a809fb")
 		)
 		(pin "10"
-			(uuid "d53c49f8-eee1-4133-b81c-66d4888a238d")
+			(uuid "d599615b-a7db-467a-9d45-f52a35410177")
 		)
 		(pin "11"
-			(uuid "4663a3c3-b7c5-46d6-bc83-95183a4dc2ba")
+			(uuid "a93896c1-4fbb-4c14-9013-56ecdf855405")
 		)
 		(pin "13"
-			(uuid "046c483c-d8e3-4cf9-b288-afac1393a700")
+			(uuid "47276ed0-873f-4aed-bde1-44ab349010ff")
 		)
 		(pin "8"
-			(uuid "6367b2c4-7146-48ce-b2fe-66285c7f20cd")
+			(uuid "39d46d26-88c4-4309-89c5-57fd64805ff7")
 		)
 		(pin "9"
-			(uuid "e15e97ea-0126-40f5-a42f-b1fdbebc7585")
+			(uuid "b8694335-5765-4b06-ae26-12159e531be8")
 		)
 		(pin "14"
-			(uuid "c4af73bb-2d60-41d2-a8f7-3f9b30d68c36")
+			(uuid "7ebd347e-5766-4bbd-a0bb-623cf6fe8534")
 		)
 		(pin "3"
-			(uuid "3feb436d-d965-46c7-aa18-4f2f45b3b07e")
+			(uuid "cd96dea0-8f3e-4cab-84f8-be9835df6149")
 		)
 		(pin "12"
-			(uuid "7bae246e-426a-493d-a50e-9050a41d98d8")
+			(uuid "736f701b-4d80-49f7-acfc-e885b6d2c52a")
 		)
 		(instances
 			(project "sam_cpu"
@@ -5517,7 +5676,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5527,7 +5686,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5538,7 +5697,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5549,7 +5708,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5560,7 +5719,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5639,7 +5798,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5649,7 +5808,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5660,7 +5819,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5671,7 +5830,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5682,7 +5841,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5716,7 +5875,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5726,7 +5885,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5737,7 +5896,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5748,7 +5907,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5759,7 +5918,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5793,7 +5952,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5803,7 +5962,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5814,7 +5973,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5825,7 +5984,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5836,7 +5995,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5869,7 +6028,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5879,7 +6038,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5890,7 +6049,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5901,7 +6060,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5912,7 +6071,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5949,7 +6108,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5959,7 +6118,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5970,7 +6129,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5981,7 +6140,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -5992,7 +6151,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6053,7 +6212,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6063,7 +6222,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6074,7 +6233,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6085,7 +6244,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6096,7 +6255,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6130,7 +6289,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6140,7 +6299,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6151,7 +6310,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6162,7 +6321,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6173,7 +6332,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6184,6 +6343,82 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/5eeea8c2-b047-5ab4-84ef-a141605efbc1"
 					(reference "#PWR05022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 233.68 213.36 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3cc4f4aa-1533-52b3-af40-3a523abc867d")
+		(property "Reference" "TP18"
+			(at 233.68 206.502 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Value" "VREF"
+			(at 233.68 208.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 238.76 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 238.76 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 233.68 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "97081012-8e45-5694-969d-9ff69f4959ff")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/5eeea8c2-b047-5ab4-84ef-a141605efbc1"
+					(reference "TP18")
 					(unit 1)
 				)
 			)
@@ -6206,7 +6441,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -6217,7 +6452,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -6229,7 +6464,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6240,7 +6475,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6251,7 +6486,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6288,7 +6523,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6298,7 +6533,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6309,7 +6544,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6320,7 +6555,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6331,7 +6566,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6364,7 +6599,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6374,7 +6609,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6385,7 +6620,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6396,7 +6631,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6407,7 +6642,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6444,7 +6679,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6454,7 +6689,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6465,7 +6700,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6476,7 +6711,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6487,7 +6722,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6520,7 +6755,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6530,7 +6765,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6541,7 +6776,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6552,7 +6787,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6563,7 +6798,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6599,7 +6834,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6609,7 +6844,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6620,7 +6855,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6631,7 +6866,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6642,7 +6877,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6678,7 +6913,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -6689,7 +6924,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -6701,7 +6936,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6712,7 +6947,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6723,7 +6958,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6760,7 +6995,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6770,7 +7005,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6781,7 +7016,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6792,7 +7027,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6803,7 +7038,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6837,7 +7072,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6847,7 +7082,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6858,7 +7093,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6869,7 +7104,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6880,7 +7115,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6914,7 +7149,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6924,7 +7159,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6935,7 +7170,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6946,7 +7181,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6957,7 +7192,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -6991,7 +7226,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7001,7 +7236,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7012,7 +7247,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7023,7 +7258,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7034,7 +7269,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7068,7 +7303,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7078,7 +7313,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7089,7 +7324,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7100,7 +7335,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7111,7 +7346,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7145,7 +7380,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7155,7 +7390,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7166,7 +7401,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7177,7 +7412,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7188,7 +7423,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7221,7 +7456,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7232,7 +7467,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7244,7 +7479,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7255,7 +7490,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7266,7 +7501,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7280,37 +7515,37 @@
 			(uuid "618bd64d-9f1a-5927-b905-c527d0f2db1f")
 		)
 		(pin "2"
-			(uuid "0c0798c1-2d52-434c-892d-3b5429f92d98")
+			(uuid "dac215a0-49b4-450f-9c51-a827c0dbadd1")
 		)
 		(pin "4"
-			(uuid "95f28d7b-6641-45ee-8286-006bfcc0c667")
+			(uuid "e2faf67f-5bc8-4a33-9cf9-c35e09034367")
 		)
 		(pin "5"
-			(uuid "973073e6-a6a8-4d7f-b5e5-b2b6d8e83094")
+			(uuid "b9879659-1d7d-4f20-969b-fe5561b524a2")
 		)
 		(pin "1"
-			(uuid "b1f5090a-4afe-46e7-a51d-5eb947f79dfb")
+			(uuid "4405cff7-b969-4777-8eda-1bbf8bcdde43")
 		)
 		(pin "6"
-			(uuid "58b0bd07-fc5c-48fb-9dbe-bb6ba3b29c0f")
+			(uuid "04f11f10-3e33-4b73-9f5f-b23c7a1fb9cb")
 		)
 		(pin "7"
-			(uuid "d6188773-d05f-4e95-a943-ba4c9e0dc113")
+			(uuid "4d2d8d50-22bb-414b-8d4c-3b13359ab8ac")
 		)
 		(pin "8"
-			(uuid "1892081a-fd5a-43de-a8a5-b202938db07e")
+			(uuid "943094e3-82ee-4f1b-a10b-ae815a38491d")
 		)
 		(pin "9"
-			(uuid "1d91ab00-4370-44e1-a0bd-320d89ef54e2")
+			(uuid "e09eaf22-7df1-43c0-abbf-cefb217ed402")
 		)
 		(pin "14"
-			(uuid "3c10f69b-b7f6-4423-9348-7b9ed8ea9fcb")
+			(uuid "3b2a4b63-2996-49b4-8237-23496950df56")
 		)
 		(pin "3"
-			(uuid "28aa447a-4ae1-4830-a758-1b4f35def721")
+			(uuid "24ba6391-41c8-445d-898e-fcad824cad08")
 		)
 		(pin "12"
-			(uuid "6c8d08a4-e277-440b-9e75-6ea52fad214f")
+			(uuid "16242d85-0bfb-47a4-b15b-3776121ac369")
 		)
 		(instances
 			(project "sam_cpu"
@@ -7338,7 +7573,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7349,7 +7584,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7361,7 +7596,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7372,7 +7607,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7383,7 +7618,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7419,7 +7654,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7430,7 +7665,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7442,7 +7677,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7453,7 +7688,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7464,7 +7699,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7478,37 +7713,37 @@
 			(uuid "ee8a2b62-c1eb-57fb-95e7-8b03e8d90c54")
 		)
 		(pin "2"
-			(uuid "5623458a-6ffb-4bd2-b711-5a362d0d4187")
+			(uuid "6d07c863-004f-4a67-a8d1-135dc68c320a")
 		)
 		(pin "4"
-			(uuid "de71b3d2-8a96-4c39-ae47-1110ca441775")
+			(uuid "856ff57b-862b-411b-9933-e8021232c628")
 		)
 		(pin "5"
-			(uuid "312b033f-1074-4941-948a-fb1361ce37ed")
+			(uuid "99b9aa26-e674-4b20-bf3d-6dbcfe335a65")
 		)
 		(pin "1"
-			(uuid "96938b6b-dd3b-48a2-a8ef-05f24f32edf4")
+			(uuid "6ea8b2f0-4609-4e62-80c0-75356c555dfd")
 		)
 		(pin "6"
-			(uuid "ee5a546c-a7ad-4130-88a2-0fd5c307d39c")
+			(uuid "9bd40f05-d366-4b18-a991-bde9657ec982")
 		)
 		(pin "7"
-			(uuid "f79fcf72-5e71-4b20-a4ba-615fb71b0104")
+			(uuid "3a2a056f-d5c8-4cba-9aae-1539e0ee7885")
 		)
 		(pin "8"
-			(uuid "a9baf395-d5c6-472e-a17f-897886c0ee8b")
+			(uuid "adf3bbfa-b009-4454-9f73-c08d6b761f09")
 		)
 		(pin "9"
-			(uuid "1c8b85b0-997a-492f-ab85-18ad4a61d4c7")
+			(uuid "1f198928-498b-4919-a8b8-d35da6350e4c")
 		)
 		(pin "14"
-			(uuid "0afdcd4b-7bc5-4e74-b60c-e04a769a34bd")
+			(uuid "5d895702-a43d-4464-b1e7-98cb19b9a3ce")
 		)
 		(pin "3"
-			(uuid "36473ba2-c9ed-4fd5-a4a7-2244b6a1f4c4")
+			(uuid "da02c980-9d8f-4f2c-9f4e-71e564a30731")
 		)
 		(pin "12"
-			(uuid "adcd5ba4-787a-4a3d-8edc-c3cf73c9ca26")
+			(uuid "fac7cfeb-2651-4f7c-9004-968ad52db7aa")
 		)
 		(instances
 			(project "sam_cpu"
@@ -7536,7 +7771,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7546,7 +7781,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7557,7 +7792,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7568,7 +7803,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7579,7 +7814,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7616,7 +7851,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7626,7 +7861,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7637,7 +7872,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7648,7 +7883,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7659,7 +7894,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7692,7 +7927,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7703,7 +7938,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7715,7 +7950,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7726,7 +7961,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7737,7 +7972,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7773,7 +8008,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7784,7 +8019,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7796,7 +8031,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7807,7 +8042,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7818,7 +8053,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7854,7 +8089,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7865,7 +8100,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7877,7 +8112,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7888,7 +8123,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7899,7 +8134,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7935,7 +8170,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7946,7 +8181,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -7958,7 +8193,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7969,7 +8204,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7980,7 +8215,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -7991,40 +8226,40 @@
 			(uuid "d84e9108-7d36-5e93-8944-bae3340f06ae")
 		)
 		(pin "2"
-			(uuid "d4bc39b4-0c78-44e9-887d-a742bc0d5498")
+			(uuid "66a85b7c-3cd8-47a9-a6dc-3f5b5ec9fe5b")
 		)
 		(pin "4"
-			(uuid "f88aaf3c-e5f2-48aa-9121-07fdada32572")
+			(uuid "2c288f18-54fc-4435-a03e-3a3217a5df4d")
 		)
 		(pin "5"
-			(uuid "aa26bdbd-30e3-4219-a94b-b6caf9aefa0d")
+			(uuid "abc58e4b-b556-40b4-80f7-db45038107ce")
 		)
 		(pin "1"
-			(uuid "3e28f98a-1462-4845-81b2-2979bac2f4bf")
+			(uuid "7bfbea64-2956-4b2a-85c4-6059c698753f")
 		)
 		(pin "6"
-			(uuid "00d29c3e-61c6-47e5-9a12-53be6f936db2")
+			(uuid "8812a13a-9fb7-4410-a4bc-08b346ae9e88")
 		)
 		(pin "7"
-			(uuid "eba62776-1e8e-4af0-beb8-83b5e6a8a607")
+			(uuid "de7065d8-7a1f-4ad7-8c1f-514f0e614316")
 		)
 		(pin "10"
-			(uuid "60317d81-006d-4f59-954b-54d44327bd8c")
+			(uuid "9c7950f3-98c0-4ac8-a63b-b37e64e8dd76")
 		)
 		(pin "11"
-			(uuid "cc8d8fd3-c109-474e-a442-5383ab0bfd0b")
+			(uuid "1012b3bc-34c4-4c00-82a9-2fdf0abfccdf")
 		)
 		(pin "13"
-			(uuid "bcf1e3f9-c625-46d8-97c5-1cd75c3b2252")
+			(uuid "c79c3212-5273-4ca9-9527-5bb220d53d1c")
 		)
 		(pin "8"
-			(uuid "6372cb1e-f3d9-423c-aa18-73c15e15fe8c")
+			(uuid "30795a54-4549-4679-9891-c29271c31755")
 		)
 		(pin "9"
-			(uuid "dca17fa7-70cc-42eb-9b28-81306c446b57")
+			(uuid "1ece6a2e-8446-4ebe-9b3a-fc7a533cf96d")
 		)
 		(pin "14"
-			(uuid "4613a3e4-dd3d-4957-8791-15fb3dea78e6")
+			(uuid "7943a7f8-c6ea-48de-94d8-a933cd29ef16")
 		)
 		(instances
 			(project "sam_cpu"
@@ -8052,7 +8287,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8063,7 +8298,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8075,7 +8310,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8086,7 +8321,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8097,7 +8332,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8133,7 +8368,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8144,7 +8379,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8156,7 +8391,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8167,7 +8402,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8178,7 +8413,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8215,7 +8450,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8225,7 +8460,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8236,7 +8471,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8247,7 +8482,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8258,7 +8493,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8291,7 +8526,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8302,7 +8537,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8314,7 +8549,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8325,7 +8560,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8336,7 +8571,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8350,37 +8585,37 @@
 			(uuid "b6d4f0f4-8cdc-5e0c-ba13-a4e9fe4754c3")
 		)
 		(pin "1"
-			(uuid "21b7f966-476c-4c56-848d-c04918fea3ba")
+			(uuid "eba7aba0-3aaf-4d73-a74a-c19b2ff82114")
 		)
 		(pin "6"
-			(uuid "c80c1994-bcee-4d5f-adec-f385cdf04b2f")
+			(uuid "9b7be5e2-0b08-44b0-897a-d91fd2c314f7")
 		)
 		(pin "7"
-			(uuid "4925a499-60fe-47fb-9d74-11af39a1af95")
+			(uuid "6424ef2f-c642-43fb-94e2-e38241806c6a")
 		)
 		(pin "10"
-			(uuid "0db2ea94-5790-4608-8fa2-bcd360e4cf3c")
+			(uuid "4a69deb6-c027-4238-b440-7098d40ee366")
 		)
 		(pin "11"
-			(uuid "556236c8-973a-4c71-8eba-1806c4b6d0a1")
+			(uuid "13d6a1bd-584e-4c61-b1f8-155586b99699")
 		)
 		(pin "13"
-			(uuid "8c953da2-7047-4cd2-8f8e-1e0b79873e82")
+			(uuid "3fe39e74-f216-407b-b27c-abc61dcec104")
 		)
 		(pin "8"
-			(uuid "5e7110b9-c691-4437-b967-59188802999e")
+			(uuid "aab70879-c881-4cf2-9b03-5cdaa3d98eda")
 		)
 		(pin "9"
-			(uuid "e6b9a964-b9f0-4913-b8bb-6924a927377a")
+			(uuid "52727ed5-33f0-4027-b305-8dd5c734facf")
 		)
 		(pin "14"
-			(uuid "004b1473-5282-4065-a0f6-3e3c9c2a9034")
+			(uuid "6cfd4a6a-38ca-490a-be4c-8d891034a542")
 		)
 		(pin "3"
-			(uuid "903f98d4-1499-4101-a9dc-00b3d2b39061")
+			(uuid "57b7a57f-0971-4e9d-8b2e-e2ff4004b708")
 		)
 		(pin "12"
-			(uuid "1bd69558-bb80-436a-a965-516219e33314")
+			(uuid "0007a5cc-4e27-479d-b0f9-9668bae6dba2")
 		)
 		(instances
 			(project "sam_cpu"
@@ -8409,7 +8644,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8419,7 +8654,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8430,7 +8665,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8441,7 +8676,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8452,7 +8687,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8486,7 +8721,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8496,7 +8731,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8507,7 +8742,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8518,7 +8753,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8529,7 +8764,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8563,7 +8798,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8573,7 +8808,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8584,7 +8819,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8595,7 +8830,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8606,7 +8841,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8639,7 +8874,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8650,7 +8885,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8662,7 +8897,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8673,7 +8908,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8684,7 +8919,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8720,7 +8955,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8731,7 +8966,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8743,7 +8978,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8754,7 +8989,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8765,7 +9000,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8801,7 +9036,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8811,7 +9046,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8822,7 +9057,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8833,7 +9068,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8844,7 +9079,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8880,7 +9115,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8891,7 +9126,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8903,7 +9138,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8914,7 +9149,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8925,7 +9160,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8961,7 +9196,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8972,7 +9207,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -8984,7 +9219,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -8995,7 +9230,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9006,7 +9241,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9042,7 +9277,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9053,7 +9288,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9065,7 +9300,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9076,7 +9311,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9087,7 +9322,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9123,7 +9358,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9134,7 +9369,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9146,7 +9381,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9157,7 +9392,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9168,7 +9403,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9205,7 +9440,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9215,7 +9450,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9226,7 +9461,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9237,7 +9472,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9248,7 +9483,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9282,7 +9517,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9292,7 +9527,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9303,7 +9538,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9314,7 +9549,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9325,7 +9560,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9359,7 +9594,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9369,7 +9604,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9380,7 +9615,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9391,7 +9626,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9402,7 +9637,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9436,7 +9671,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9446,7 +9681,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9457,7 +9692,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9468,7 +9703,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9479,7 +9714,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9512,7 +9747,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9523,7 +9758,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9535,7 +9770,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9546,7 +9781,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9557,7 +9792,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9568,40 +9803,40 @@
 			(uuid "e023a1fb-69d0-5943-9560-df8048249924")
 		)
 		(pin "2"
-			(uuid "f9b476a8-8b32-4c58-ba7a-42b5a397b065")
+			(uuid "006351d5-f78b-44e3-80a7-471d6afc0e9e")
 		)
 		(pin "4"
-			(uuid "13ae9a67-0a84-4c3d-90d2-7bda234137cc")
+			(uuid "ad7253c7-567a-439b-8ec5-b19f8aa4a796")
 		)
 		(pin "5"
-			(uuid "cfca3445-f20a-4f4e-a5b2-9ea4dcbad944")
+			(uuid "0b135c84-d9c3-41ff-89fb-035fa8dcf185")
 		)
 		(pin "1"
-			(uuid "21a8c182-740a-4f13-9650-607f6807893e")
+			(uuid "5ff5d283-4b74-408e-9a46-bfa866b71348")
 		)
 		(pin "6"
-			(uuid "3581ebe3-2b19-411d-9cb8-e480b5b4c93e")
+			(uuid "10638425-a7e7-465e-95d8-791b86d00b0e")
 		)
 		(pin "7"
-			(uuid "a6f3ab9c-8f0f-402f-a6a5-4ce46e507960")
+			(uuid "16c302e8-eae7-4cbc-b4cf-9e163c284a4d")
 		)
 		(pin "10"
-			(uuid "14ac7bcf-192b-4a9b-938c-040dca02acde")
+			(uuid "46992477-a3e3-47f4-bbad-156f4573b342")
 		)
 		(pin "11"
-			(uuid "7cac53da-75c5-4669-95f2-908747846427")
+			(uuid "a7ffda52-d110-469e-8ea9-ef5ee02676ae")
 		)
 		(pin "13"
-			(uuid "77e6d7c1-4410-4354-b199-f4dd20fb32b6")
+			(uuid "26271990-1ac2-436b-ab0b-bb8cd4607a13")
 		)
 		(pin "8"
-			(uuid "8dafd68e-c5b7-4a5e-8d89-0839b5e15599")
+			(uuid "b61082e1-cfd2-4252-93e3-023fe3a32c28")
 		)
 		(pin "9"
-			(uuid "e51c1241-e3a3-462e-a2be-9e624beba674")
+			(uuid "fba1bf8f-157f-4def-9506-f0b615067f97")
 		)
 		(pin "14"
-			(uuid "1cf6cd0c-3dac-47e3-b335-8ebac390355c")
+			(uuid "918c7e63-a13f-4e8d-beb0-29012ae2ff9f")
 		)
 		(instances
 			(project "sam_cpu"
@@ -9630,7 +9865,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9640,7 +9875,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9651,7 +9886,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9662,7 +9897,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9673,7 +9908,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9707,7 +9942,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9717,7 +9952,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9728,7 +9963,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9739,7 +9974,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9750,7 +9985,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9783,7 +10018,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9794,7 +10029,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -9806,7 +10041,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9817,7 +10052,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9828,7 +10063,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9864,7 +10099,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9874,7 +10109,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9885,7 +10120,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9896,7 +10131,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9907,7 +10142,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9944,7 +10179,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9954,7 +10189,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9965,7 +10200,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9976,7 +10211,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -9987,7 +10222,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10020,7 +10255,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10031,7 +10266,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10043,7 +10278,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10054,7 +10289,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10065,7 +10300,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10101,7 +10336,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10112,7 +10347,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10124,7 +10359,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10135,7 +10370,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10146,7 +10381,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10182,7 +10417,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10193,7 +10428,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10205,7 +10440,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10216,7 +10451,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10227,7 +10462,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10241,37 +10476,37 @@
 			(uuid "3e341914-1fe2-5769-aaba-9c68c1789f35")
 		)
 		(pin "1"
-			(uuid "1d895bf5-2dc4-4090-8dac-c59fb876e37f")
+			(uuid "48ae99fa-e6e8-479f-8f10-e315a25f18e5")
 		)
 		(pin "6"
-			(uuid "7280c886-5346-4305-99ce-764fdbbf3123")
+			(uuid "455ca989-9041-43e9-8147-9ef6428dfbdf")
 		)
 		(pin "7"
-			(uuid "4603e292-9e96-4cdf-91be-db2ca57098da")
+			(uuid "41b5314a-40c7-4154-b0a1-69eeda82b1b4")
 		)
 		(pin "10"
-			(uuid "37f899c5-4f69-4d95-8840-d1ab2f5e5b67")
+			(uuid "248b0190-453a-4d0e-9766-c846a302c4f0")
 		)
 		(pin "11"
-			(uuid "efbec1b4-482c-4a56-8a2f-d83c9c284f80")
+			(uuid "29891d79-10a7-46c7-ad72-a22eb0f36bda")
 		)
 		(pin "13"
-			(uuid "2f4e23ce-34a7-475c-9b9d-d2056822e9d4")
+			(uuid "6fd33b38-70bd-4f5a-810a-2d19d3a5545a")
 		)
 		(pin "8"
-			(uuid "d1132d45-47b7-4e31-924f-64087d0a2f5a")
+			(uuid "67df0113-18dc-4b93-90dc-d07fc98d45e7")
 		)
 		(pin "9"
-			(uuid "2d3100fd-c88b-45f9-af68-64637a98bddc")
+			(uuid "117ab182-2e20-469c-b386-f1b2e3180735")
 		)
 		(pin "14"
-			(uuid "1f10d941-39f0-40fd-8753-19b8704df323")
+			(uuid "e9d8ade8-0667-4741-8540-90084e102213")
 		)
 		(pin "3"
-			(uuid "817a9d9b-644a-46c9-a28f-f31bfe4420c6")
+			(uuid "38c4d7b2-7551-44fa-8519-019884577b7f")
 		)
 		(pin "12"
-			(uuid "4e540506-ab57-4484-8e01-8cd18d328706")
+			(uuid "d5ea0290-6c37-49b0-ad5a-a7656182588b")
 		)
 		(instances
 			(project "sam_cpu"
@@ -10299,7 +10534,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10310,7 +10545,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10322,7 +10557,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10333,7 +10568,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10344,7 +10579,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10380,7 +10615,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10391,7 +10626,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10403,7 +10638,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10414,7 +10649,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10425,7 +10660,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10461,7 +10696,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10472,7 +10707,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10484,7 +10719,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10495,7 +10730,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10506,7 +10741,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10542,7 +10777,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10553,7 +10788,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10565,7 +10800,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10576,7 +10811,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10587,7 +10822,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10601,37 +10836,37 @@
 			(uuid "a8b5affb-0230-5054-bf62-2fa8d014cc7f")
 		)
 		(pin "2"
-			(uuid "c22e7a56-e8e0-426b-be34-f9205ee87e17")
+			(uuid "d772a2db-3919-4d4f-9dc8-94c854003a95")
 		)
 		(pin "4"
-			(uuid "e4e37717-7b6f-44e8-a21d-05bb4a7a6b3a")
+			(uuid "0e4c0718-ea91-452a-a6bb-abbfcf225263")
 		)
 		(pin "5"
-			(uuid "445102f8-bd14-4998-9c74-3bd33b98ad34")
+			(uuid "f714b51f-e668-4df4-a0fd-697d6881c900")
 		)
 		(pin "1"
-			(uuid "1d4d0bde-8377-438d-9e9e-c782f8f242f2")
+			(uuid "65d1aad7-94c9-4ff0-b1a8-363911d10d96")
 		)
 		(pin "6"
-			(uuid "2eed59c8-ca30-4808-bfcf-472a50822944")
+			(uuid "fcfb4267-c828-4160-bfdf-63102a652b98")
 		)
 		(pin "7"
-			(uuid "cd1f1859-d0fa-4b5e-bc43-a63e971b7e68")
+			(uuid "da5790e9-dce2-4b4a-aeab-7d621b02fa38")
 		)
 		(pin "10"
-			(uuid "64cc59cd-65f5-4f05-b883-dc8be44d0fe4")
+			(uuid "e7298410-10fd-41c2-9468-7ccefdfc42f9")
 		)
 		(pin "11"
-			(uuid "c78567bd-f38e-43bf-a033-452caa13dbe6")
+			(uuid "a3986a83-847b-42b8-a6e7-ad3d069dc8f7")
 		)
 		(pin "13"
-			(uuid "321816b4-b6e6-4458-8634-84abd3ee4bdb")
+			(uuid "49a0f409-207c-4114-80d9-ec228f074acd")
 		)
 		(pin "3"
-			(uuid "6804a3e3-3d60-4412-b9b3-2333dad88d95")
+			(uuid "dc1e8e7c-f31f-4744-afe6-bccc4735f71f")
 		)
 		(pin "12"
-			(uuid "bd2cfe84-fec2-4b2c-8604-0a63875e0d85")
+			(uuid "0b6e4519-978d-4b53-985f-9d95d1b7890f")
 		)
 		(instances
 			(project "sam_cpu"
@@ -10659,7 +10894,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10670,7 +10905,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10682,7 +10917,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10693,7 +10928,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10704,7 +10939,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10740,7 +10975,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10750,7 +10985,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10761,7 +10996,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10772,7 +11007,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10783,7 +11018,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10819,7 +11054,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10830,7 +11065,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -10842,7 +11077,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10853,7 +11088,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10864,7 +11099,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10900,7 +11135,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10910,7 +11145,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10921,7 +11156,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10932,7 +11167,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10943,7 +11178,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10979,7 +11214,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -10989,7 +11224,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11000,7 +11235,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11011,7 +11246,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11022,7 +11257,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11058,7 +11293,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11069,7 +11304,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11081,7 +11316,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11092,7 +11327,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11103,7 +11338,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11139,7 +11374,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11150,7 +11385,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11162,7 +11397,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11173,7 +11408,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11184,7 +11419,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11198,37 +11433,37 @@
 			(uuid "36b6fff3-c746-5ea5-aa3f-e3a65df24a69")
 		)
 		(pin "2"
-			(uuid "b99a70a0-6622-4cf5-b1b6-a8ecab96c107")
+			(uuid "3740eb51-2ade-4648-b1f0-8107106073f1")
 		)
 		(pin "4"
-			(uuid "f2330045-486a-4077-b385-e465c8b6f810")
+			(uuid "d1c6ae42-87a2-42e2-8828-a3af67a254fd")
 		)
 		(pin "5"
-			(uuid "72532546-1311-4fc2-bd0f-9fce0d03747f")
+			(uuid "dcd91b6c-30d3-46f0-8485-553266483643")
 		)
 		(pin "10"
-			(uuid "5e72ab00-a190-464b-be3d-4a8c540cd5d7")
+			(uuid "8b729a10-be56-422d-9f4e-082e2a122679")
 		)
 		(pin "11"
-			(uuid "45a9f899-8451-45dc-a882-cfbe695378ee")
+			(uuid "4ca98585-282e-4114-ab2c-7a83029f74d2")
 		)
 		(pin "13"
-			(uuid "1b1807d7-8870-4246-9ce5-c18b931c560a")
+			(uuid "05df1916-3bf6-49a7-9982-806dae72a465")
 		)
 		(pin "8"
-			(uuid "4a3dfc33-a7df-455c-bcf1-0bf9753d5158")
+			(uuid "acf4f280-9fc9-4bfc-bdda-404fdb0352d3")
 		)
 		(pin "9"
-			(uuid "dc06397b-dcf2-4e2d-8f83-a6b976416bf2")
+			(uuid "09efd50e-b176-49b9-a212-85eb3370aca7")
 		)
 		(pin "14"
-			(uuid "18133435-1d15-4b19-b833-087c4b7ee1ec")
+			(uuid "e4bdb41f-bcde-4b2e-8134-8d2723529304")
 		)
 		(pin "3"
-			(uuid "6629f9b3-ef27-4d11-b6e8-2df3ea25d52e")
+			(uuid "b1c8673e-97cd-4f71-8980-b4423bb5010f")
 		)
 		(pin "12"
-			(uuid "45feec7d-84b5-4daf-a3d8-e1c2ae6d8c33")
+			(uuid "2d366dd7-062f-409f-a4e8-70001e0ef18e")
 		)
 		(instances
 			(project "sam_cpu"
@@ -11256,7 +11491,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11267,7 +11502,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11279,7 +11514,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11290,7 +11525,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11301,7 +11536,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11338,7 +11573,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11348,7 +11583,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11359,7 +11594,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11370,7 +11605,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11381,7 +11616,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11415,7 +11650,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11425,7 +11660,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11436,7 +11671,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11447,7 +11682,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11458,7 +11693,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11491,7 +11726,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11501,7 +11736,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11512,7 +11747,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11523,7 +11758,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11534,7 +11769,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11571,7 +11806,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11581,7 +11816,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11592,7 +11827,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11603,7 +11838,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11614,7 +11849,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11648,7 +11883,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11658,7 +11893,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11669,7 +11904,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11680,7 +11915,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11691,7 +11926,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11724,7 +11959,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11735,7 +11970,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11747,7 +11982,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11758,7 +11993,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11769,7 +12004,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11805,7 +12040,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11815,7 +12050,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11826,7 +12061,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11837,7 +12072,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11848,7 +12083,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11885,7 +12120,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11895,7 +12130,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11906,7 +12141,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11917,7 +12152,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11928,7 +12163,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11961,7 +12196,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11972,7 +12207,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -11984,7 +12219,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -11995,7 +12230,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12006,7 +12241,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12020,37 +12255,37 @@
 			(uuid "40f29830-12c7-5fca-a65a-b5636827dfdb")
 		)
 		(pin "2"
-			(uuid "4e44fa3f-8218-48b8-a00c-4a69dd2cd8f8")
+			(uuid "2c3dd3d8-7ead-494f-902c-fb5771f51558")
 		)
 		(pin "4"
-			(uuid "d0573810-ffd1-48a8-95cb-5911989ae96c")
+			(uuid "bf4e3263-5954-4980-ae8a-507808e867f1")
 		)
 		(pin "5"
-			(uuid "9cc4d81e-e541-4d2b-a818-60b8feb709bc")
+			(uuid "7e7b5440-ce27-48ec-9b63-5f0c82c39e19")
 		)
 		(pin "1"
-			(uuid "69f57de1-74fe-4c3b-a55c-df1ef8a9bbdc")
+			(uuid "f971f98a-50a2-4d10-8fce-d051f13ef087")
 		)
 		(pin "6"
-			(uuid "4a1bf53a-9cfa-4d7e-a1c8-320e99e37b8e")
+			(uuid "490db5df-3b21-4d6b-91c9-eb9da1280343")
 		)
 		(pin "7"
-			(uuid "43f1ea03-e845-448a-a134-6b6aba1d2f14")
+			(uuid "1d507eb1-f3c8-4f57-b3d4-06d2b6e0f39e")
 		)
 		(pin "10"
-			(uuid "a2b8d04d-3490-4718-8211-424ddd557f87")
+			(uuid "fd8ea19b-e1dc-4e91-bd0e-2be107ecd764")
 		)
 		(pin "11"
-			(uuid "6071072f-6d86-4276-a981-fca9a19feebe")
+			(uuid "74d538ad-5ee6-4f45-9e15-1176677f88ad")
 		)
 		(pin "13"
-			(uuid "b0ca022b-988c-4028-9141-92562f7621f7")
+			(uuid "96762c5a-4ef9-45ad-850b-a362f0594520")
 		)
 		(pin "3"
-			(uuid "403feffc-b79a-4b03-9c0e-1520f7c72aa6")
+			(uuid "36102261-9851-42db-bd8f-8d2baa45460a")
 		)
 		(pin "12"
-			(uuid "faf42b4f-1ffd-41a0-95d3-b80d5cb44200")
+			(uuid "453db154-f7d8-48bb-9bba-9abb9bf2d917")
 		)
 		(instances
 			(project "sam_cpu"
@@ -12079,7 +12314,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12089,7 +12324,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12100,7 +12335,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12111,7 +12346,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12122,7 +12357,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12156,7 +12391,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12166,7 +12401,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12177,7 +12412,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12188,7 +12423,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12199,7 +12434,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12233,7 +12468,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12243,7 +12478,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12254,7 +12489,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12265,7 +12500,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12276,7 +12511,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12309,7 +12544,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12319,7 +12554,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12330,7 +12565,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12341,7 +12576,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12352,7 +12587,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12388,7 +12623,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -12399,7 +12634,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 				(justify left)
 			)
@@ -12411,7 +12646,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12422,7 +12657,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12433,7 +12668,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12469,7 +12704,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12479,7 +12714,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12490,7 +12725,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12501,7 +12736,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)
@@ -12512,7 +12747,7 @@
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.6 1.6)
 				)
 			)
 		)

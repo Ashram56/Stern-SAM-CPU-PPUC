@@ -1,0 +1,188 @@
+(footprint "BatteryHolder_Lianxin_XDCR-2032-603"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "CR2032 SMD holder, Lianxin XDCR-2032-603 (LCSC C7498148), pads per maker drawing")
+	(tags "battery CR2032 SMD")
+	(property "Reference" "REF**"
+		(at -5.5 -17.3 0)
+		(layer "F.SilkS")
+		(uuid "7b9bbcf9-8f8c-4246-bf98-3a935f85786a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "BatteryHolder_Lianxin_XDCR-2032-603"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "b8cdea73-415a-451c-b563-f2707ec75829")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "736547fe-7d76-4296-96f5-7cf7ffdfc501")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7f8490cf-5b8c-46d9-8031-0b11adb47349")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(sheetname "MCU and Pi")
+	(sheetfile "mcu.kicad_sch")
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -8.1 -12.4)
+		(end -8.1 12.4)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "e4fac025-6e2c-4b65-8e43-9a8da66abf99")
+	)
+	(fp_line
+		(start 8.1 -12.4)
+		(end 8.1 12.4)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "37a758fc-34cd-4c94-aea5-ea081f1499be")
+	)
+	(fp_line
+		(start -8.5 -16.5)
+		(end 8.5 -16.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "74096d4c-23f7-4271-8175-73ffc12883ff")
+	)
+	(fp_line
+		(start -8.5 16.5)
+		(end -8.5 -16.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "f93a7fa0-a422-4bae-8fc7-5d82afbb8427")
+	)
+	(fp_line
+		(start 8.5 -16.5)
+		(end 8.5 16.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "27480aa7-e89c-4e10-b39a-15812f31244e")
+	)
+	(fp_line
+		(start 8.5 16.5)
+		(end -8.5 16.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "8747fb27-5c9f-4829-8f5c-768dabbb6951")
+	)
+	(fp_line
+		(start -8 -14.3)
+		(end 8 -14.3)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "57ee7690-2969-4e5a-b2b6-2b15ac2a8eac")
+	)
+	(fp_line
+		(start -8 14.3)
+		(end -8 -14.3)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "d5dd545c-3e6c-4ed4-a4ea-1e4325ec9bd7")
+	)
+	(fp_line
+		(start 8 -14.3)
+		(end 8 14.3)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "5b9c9a4d-b9cc-4feb-9d98-3b4317d91a68")
+	)
+	(fp_line
+		(start 8 14.3)
+		(end -8 14.3)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "6c4adb7e-235c-44ca-8b84-48c945261dea")
+	)
+	(fp_text user "+"
+		(at 3.6 11.6 0)
+		(layer "F.SilkS")
+		(uuid "0d97a330-dd5b-4864-b07e-a303699b5cf2")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.2)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at 0 14.5)
+		(size 4.2 3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.1)
+		(thermal_bridge_angle 45)
+		(uuid "f5d365ee-843b-4867-8809-9ac2a0bade22")
+	)
+	(pad "2" smd roundrect
+		(at 0 -14.5)
+		(size 4.2 3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.1)
+		(thermal_bridge_angle 45)
+		(uuid "b8afb6ff-7f7f-436b-9dce-b23deaff6c96")
+	)
+	(embedded_fonts no)
+)

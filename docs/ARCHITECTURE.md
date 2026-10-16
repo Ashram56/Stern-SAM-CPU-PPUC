@@ -386,8 +386,15 @@ back past the LM339's 2.25 V threshold. The ROM allows 247 µs [doc]. Default he
 take 1 ms, the same full-scan time as the ROM. Shortening it means reducing those capacitors and checking on the bench.
 With 4 strobes (Q15) the same 1 ms gives 250 µs per strobe, exactly the original.
 
-A DMA channel copies the words into a ring in RAM. Dedicated switches are sampled on every strobe (every 125 µs), 8 times
-more often than the ROM reads them, which is what keeps the flipper buttons fast (section 3.5).
+A DMA channel copies the words into a ring in RAM.
+
+**Flipper latency (Vincent, 2026-10-06: chain scan chosen).** The state machine does not wait out the settle time: it
+re-reads the whole chain back to back, about 7 µs per pass at an 8 MHz shift clock, and re-shifts the same strobe pattern
+into the 595s on every pass (`pull noblock` keeps the last pattern until core0 queues the next one every 125 µs).
+Re-latching identical data leaves the strobes unchanged, and the matrix returns are taken from the last pass before each
+strobe change. Dedicated switches, flipper buttons and EOS included, are therefore seen within about 8 µs (plus about
+2 µs of 39 k / 47 pF input filter), against 1 ms for the ROM. Partial reads are not possible because the 165 load and
+the 595 latch share one pin (GPIO17), so every pass clocks all 56 bits.
 
 This follows the structure of PPUC's `SwitchMatrix.cpp` and `SwitchMatrixPIO/*.pio` [ppuc] (one SM walks the strobes, a
 second reads the returns, "two identical scans" filter), but PPUC's code reads at most 8 returns on direct GPIOs and caps at
