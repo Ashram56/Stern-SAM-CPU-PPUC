@@ -584,7 +584,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/43a8b780-4b79-558f-9340-d0bb0f0484ec")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -1776,7 +1776,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/7a32c1e3-5bec-5c8a-b432-df93efc80ff6")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -18787,7 +18787,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/11af79dc-f506-56dc-82b1-d9779fba1bf6")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.14058 -0.51)
@@ -27637,7 +27637,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/eb519237-f71b-5f43-98a6-14171113fbf3")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -47787,7 +47787,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/7d16b6e9-104c-5e38-a7ea-4fc6504d0268")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -56255,7 +56255,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/ac9cf8b8-fb92-5f49-9be0-29a07fe91232")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -60040,7 +60040,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/6f2db41a-e71f-502a-b818-8c768a8bf80e")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.06 -5.06)
@@ -65103,7 +65103,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/8ad9ebc9-7c7a-51f4-a80e-99829f7de0ed")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -76883,7 +76883,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/607064ad-b26a-5e6d-8c9f-68f1dae96273")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -82064,7 +82064,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/3d4e4cee-c033-50d6-8ba6-96c02fc5d228")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.237258 -0.5225)
@@ -86424,7 +86424,7 @@
 		(path "/75b8a098-dc9c-5d88-9005-e9f1a4e02e50/d9cc9dcd-dcaa-5d75-81a6-805d915d9b32")
 		(sheetname "Dedicated switches 17-24")
 		(sheetfile "sw_dedicated_2.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.38 -2.66)
