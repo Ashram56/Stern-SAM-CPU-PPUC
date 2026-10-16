@@ -1450,7 +1450,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Interface_UART:ADM2682E"
+		(symbol "sam_cpu:CA-IS2092VW"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1466,7 +1466,7 @@
 					)
 				)
 			)
-			(property "Value" "ADM2682E"
+			(property "Value" "CA-IS2092VW"
 				(at 7.62 13.97 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1487,7 +1487,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ADM2682E_2687E.pdf"
+			(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/CA-IS2092VW_2687E.pdf"
 				(at 0 18.415 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1498,7 +1498,7 @@
 					)
 				)
 			)
-			(property "Description" "Isolated RS485/RS422 Transceiver, Integrated Isolated DC-DC Converter, 16Mbps, SOIC-16W"
+			(property "Description" "Isolated RS485/RS422 transceiver with integrated isolated DC-DC, 0.5 Mbps, separate logic supply, SOIC-16W"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1531,7 +1531,7 @@
 					)
 				)
 			)
-			(symbol "ADM2682E_0_0"
+			(symbol "CA-IS2092VW_0_0"
 				(text "D"
 					(at 8.128 -1.27 0)
 					(effects
@@ -1549,7 +1549,7 @@
 					)
 				)
 			)
-			(symbol "ADM2682E_0_1"
+			(symbol "CA-IS2092VW_0_1"
 				(polyline
 					(pts
 						(xy -9.271 -7.62) (xy -7.62 -7.62) (xy -7.62 -5.969)
@@ -1658,7 +1658,7 @@
 					)
 				)
 			)
-			(symbol "ADM2682E_1_0"
+			(symbol "CA-IS2092VW_1_0"
 				(polyline
 					(pts
 						(xy -5.969 0) (xy -6.858 0)
@@ -2706,7 +2706,7 @@
 					)
 				)
 			)
-			(symbol "ADM2682E_1_1"
+			(symbol "CA-IS2092VW_1_1"
 				(rectangle
 					(start -12.7 12.7)
 					(end 12.7 -12.7)
@@ -2847,14 +2847,14 @@
 				(pin power_in line
 					(at -15.24 -10.16 0)
 					(length 2.54)
-					(name "GND1"
+					(name "GNDA"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "1"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2872,7 +2872,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2883,7 +2883,7 @@
 				(pin output line
 					(at -15.24 -5.08 0)
 					(length 2.54)
-					(name "RXD"
+					(name "RO"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2937,7 +2937,7 @@
 				(pin input line
 					(at -15.24 0 0)
 					(length 2.54)
-					(name "TXD"
+					(name "DI"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2956,7 +2956,7 @@
 					(at -15.24 10.16 0)
 					(length 2.54)
 					(hide yes)
-					(name "VCC"
+					(name "VCCL"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2975,7 +2975,7 @@
 					(at -15.24 -10.16 0)
 					(length 2.54)
 					(hide yes)
-					(name "GND1"
+					(name "GNDA"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2993,7 +2993,7 @@
 				(pin power_in line
 					(at 15.24 -10.16 180)
 					(length 2.54)
-					(name "GND2"
+					(name "GNDB"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3011,14 +3011,14 @@
 				(pin power_in line
 					(at 15.24 10.16 180)
 					(length 2.54)
-					(name "VISOOUT"
+					(name "VISO"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "10"
+					(number "16"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3026,10 +3026,10 @@
 						)
 					)
 				)
-				(pin output line
+				(pin no_connect line
 					(at 15.24 0 180)
 					(length 2.54)
-					(name "Y"
+					(name "NC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3044,17 +3044,17 @@
 						)
 					)
 				)
-				(pin output line
+				(pin input line
 					(at 15.24 -2.54 180)
 					(length 2.54)
-					(name "Z"
+					(name "SEL"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "12"
+					(number "10"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3062,7 +3062,7 @@
 						)
 					)
 				)
-				(pin input line
+				(pin bidirectional line
 					(at 15.24 -7.62 180)
 					(length 2.54)
 					(name "B"
@@ -3080,7 +3080,7 @@
 						)
 					)
 				)
-				(pin input line
+				(pin bidirectional line
 					(at 15.24 -5.08 180)
 					(length 2.54)
 					(name "A"
@@ -3090,7 +3090,7 @@
 							)
 						)
 					)
-					(number "14"
+					(number "12"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3108,7 +3108,7 @@
 							)
 						)
 					)
-					(number "15"
+					(number "14"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3120,14 +3120,14 @@
 					(at 15.24 -10.16 180)
 					(length 2.54)
 					(hide yes)
-					(name "GND2"
+					(name "GNDB"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "16"
+					(number "15"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3933,7 +3933,7 @@
 		)
 		(uuid "c0d04e29-7838-50f9-ac7e-23fc5772cfbf")
 	)
-	(text "Half-duplex RS485 on J27 / J29 (in parallel, top-entry RJ45: pin 1 A, pin 2 B, pins 7 / 8 GND_ISO). ADM2682E isolated\ntransceiver: the cable side (A / B, SM712 TVS, 120 R termination on JP2, RJ45 ground) is on GND_ISO, powered by the\nchip's own isoPower converter (VISO). Keep GND and GND_ISO copper apart under U32. DE / RE tied: receive by default.\nPi on J21: Pi UART3 (GPIO4 TX, GPIO5 RX, GPIO7 RTS = driver enable). Pi remote: RP2354B UART1 (GPIO20 TX, GPIO21 RX,\nGPIO22 driver enable). Both reach the transceiver through 1 k: only the configured side drives.\nJ28: I2S from a remote Pi to the PCM5102A (in parallel with J21 pins 12 / 35 / 40); keep that cable short.\nJ30: line-in (e.g. Pi 4 headphone out). No plug: DAC -> amplifiers through the jack contacts. Plug in: DAC cut off."
+	(text "Half-duplex RS485 on J27 / J29 (in parallel, top-entry RJ45: pin 1 A, pin 2 B, pins 7 / 8 GND_ISO). CA-IS2092VW isolated\ntransceiver: the cable side (A / B, SM712 TVS, 120 R termination on JP2, RJ45 ground) is on GND_ISO, powered by the\nchip's own isolated DC-DC (VISO 3.3 V, SEL open). Keep GND and GND_ISO copper apart under U32. DE / RE tied: receive by default.\nPi on J21: Pi UART3 (GPIO4 TX, GPIO5 RX, GPIO7 RTS = driver enable). Pi remote: RP2354B UART1 (GPIO20 TX, GPIO21 RX,\nGPIO22 driver enable). Both reach the transceiver through 1 k: only the configured side drives.\nJ28: I2S from a remote Pi to the PCM5102A (in parallel with J21 pins 12 / 35 / 40); keep that cable short.\nJ30: line-in (e.g. Pi 4 headphone out). No plug: DAC -> amplifiers through the jack contacts. Plug in: DAC cut off."
 		(exclude_from_sim no)
 		(at 15.24 15.24 0)
 		(effects
@@ -3993,12 +3993,6 @@
 		(uuid "656be0ce-8a10-5950-ad01-878dc9575d3d")
 	)
 	(junction
-		(at 143.51 106.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "65833b60-1aa9-58f4-b392-8f01c7965f3b")
-	)
-	(junction
 		(at 43.18 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4009,12 +4003,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6e9f9c3a-e8dd-55ee-b4a3-a2c75afb91bb")
-	)
-	(junction
-		(at 144.78 109.22)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6ff8431d-f62a-5a64-95f3-8128c5f4b757")
 	)
 	(junction
 		(at 43.18 132.08)
@@ -4089,6 +4077,14 @@
 	(no_connect
 		(at 259.08 142.24)
 		(uuid "ea5a45f1-b07d-5c0a-8500-46d2ce674742")
+	)
+	(no_connect
+		(at 142.24 101.6)
+		(uuid "e0c8f5e8-7278-4ca5-b000-767ab4431122")
+	)
+	(no_connect
+		(at 142.24 104.14)
+		(uuid "58252488-e5f7-4e54-9048-0cab2fa15ca8")
 	)
 	(wire
 		(pts
@@ -4272,16 +4268,6 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 101.6) (xy 143.51 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2b5f0f55-5d03-5b3c-b808-39a28dce0ad7")
-	)
-	(wire
-		(pts
 			(xy 144.78 99.06) (xy 142.24 99.06)
 		)
 		(stroke
@@ -4442,16 +4428,6 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 104.14) (xy 144.78 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50e4dcdb-ab0e-5fa3-b862-077a9692ed68")
-	)
-	(wire
-		(pts
 			(xy 142.24 111.76) (xy 144.78 111.76)
 		)
 		(stroke
@@ -4499,16 +4475,6 @@
 			(type default)
 		)
 		(uuid "5e302013-a3d5-56ce-a782-4a399e549199")
-	)
-	(wire
-		(pts
-			(xy 143.51 101.6) (xy 143.51 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6213704f-7e1f-5543-a95e-d1acd78324fa")
 	)
 	(wire
 		(pts
@@ -5029,16 +4995,6 @@
 			(type default)
 		)
 		(uuid "f1528fdc-b97c-5f10-8b62-c8feae90743b")
-	)
-	(wire
-		(pts
-			(xy 142.24 104.14) (xy 144.78 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f24eed79-1e5c-581d-86d7-74944a11cba0")
 	)
 	(wire
 		(pts
@@ -5753,7 +5709,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Interface_UART:ADM2682E")
+		(lib_id "sam_cpu:CA-IS2092VW")
 		(at 127 101.6 0)
 		(unit 1)
 		(body_style 1)
@@ -5773,7 +5729,7 @@
 				)
 			)
 		)
-		(property "Value" "ADM2682E"
+		(property "Value" "CA-IS2092VW"
 			(at 134.62 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8347,7 +8303,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_RJ:RJ45_OST_PJ012-8P8CX_Vertical"
+		(property "Footprint" "sam_cpu:RJ45_Connfly_DS1128-05-S8B8P_Horizontal"
 			(at 248.92 141.605 90)
 			(hide yes)
 			(show_name no)
@@ -8600,7 +8556,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_RJ:RJ45_OST_PJ012-8P8CX_Vertical"
+		(property "Footprint" "sam_cpu:RJ45_Connfly_DS1128-05-S8B8P_Horizontal"
 			(at 248.92 75.565 90)
 			(hide yes)
 			(show_name no)

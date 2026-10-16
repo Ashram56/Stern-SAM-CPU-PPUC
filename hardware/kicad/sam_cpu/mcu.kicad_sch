@@ -13612,7 +13612,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Battery:BatteryHolder_Keystone_3034_1x20mm"
+		(property "Footprint" "sam_cpu:BatteryHolder_Lianxin_XDCR-2032-603"
 			(at 45.72 257.556 90)
 			(hide yes)
 			(show_name no)

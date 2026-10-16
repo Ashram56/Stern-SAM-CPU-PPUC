@@ -57,8 +57,8 @@ pad (M4) until the real screw is measured.
 | J18 | GI dimmer header | 116.5, 193.0 | new | |
 | J19 | USB-C to the Pi, on the top edge | centre X 45.6 | new | 13 mm from the RP2354B USB pins |
 | J21 | Raspberry Pi 40-pin socket | 64.52, 147.23 | new | |
-| J27 | RS485 in, top-entry RJ45 (OST PJ012), isolated | courtyard 124.9-141.5, 155.0-172.6 | new | extension |
-| J29 | RS485 out, same, in parallel with J27 (optional) | courtyard 124.9-141.5, 173.6-191.2 | new | extension |
+| J27 | RS485 in, side-entry RJ45 (CONNFLY DS1128-05-S8B8P), isolated, opening on the right edge | pin 1 155.10, 214.62 | new | extension (c27) |
+| J29 | RS485 out, same, in parallel with J27 (optional) | pin 1 155.10, 230.52 | new | extension (c27) |
 | J28 | I2S input from a remote Pi, 2x3 header | courtyard 105.4-111.6, 170.4-179.1 | new | below the RS485 resistors |
 | J30 | line-in, switched 3.5 mm stereo jack (CUI SJ1-3535NG), opening on the right edge | courtyard 105.8-124.9, 86.7-96.0 | new | right edge below J24, next to the amplifier inputs R187 / R190 |
 
@@ -188,3 +188,24 @@ stubs left dangling.
   `c09_plane_fanout.py`, then export the DSN (`route/export4.py`), `route/mkiso.py r.dsn rA.dsn A` (isolated area as
   keepout, iso nets in class ISO), `route/chunk2.sh rA.dsn rA.ses 3 --router.autorouter.ignore_net_classes=ISO`, and
   import with `route/imp2.py` (keeps the zones). The isolated nets: `route/mkisoB.py`, Freerouting, `route/impiso.py`.
+
+## Stock-driven part swaps (2026-10-16)
+
+Vincent asked to replace parts JLCPCB does not stock or that are not recommended for new designs. Each step is a
+script in `tools/changes/`, applied on top of b08cf77 in this order:
+
+- `c24_u32_ca_is2092vw_sch.py` / `c25_board_u32_ca_is2092vw.py`: U32 ADM2682E -> Chipanalog CA-IS2092VW (C7422559),
+  same SOIC-16W, different pinout (schematic symbol `sam_cpu:CA-IS2092VW` in `sam_cpu.kicad_sym`). SEL floats, so
+  VISO is 3.3 V; Y/Z are gone (half duplex A/B only). Logic-side fan-out re-netted; cable side rerouted.
+- `c26_board_bt1_xdcr2032.py`: BT1 Keystone 3034 -> Lianxin XDCR-2032-603 SMD CR2032 holder (C7498148), same centre.
+  BT1+ rerouted to U25 pin 6 (`route/mkonly.py`, Freerouting, `route/imponly.py`).
+- `c27_board_rj45_side_entry.py`: J27/J29 OST PJ012 vertical -> CONNFLY DS1128-05-S8B8P side entry (C86577), both
+  opening on the right edge below D27. The GND_ISO area now reaches y 235 and GND / +3V3 start at y 237.
+- Isolated side rerouted with `route/mkonly.py` (A, B, VISO, GND_ISO; the non-isolated side is a keepout polygon),
+  then `route/fanout_vias.py ... GND_ISO U32:9 U32:15 C130:2 C131:2 C132:2 D27:3` for plane vias.
+- `c28_fp_library.py`: project footprint library `sam_cpu.pretty` + `fp-lib-table` for the BT1 and RJ45 footprints,
+  schematic Footprint fields updated, U32 logic nets renamed to the new pin names (RO / DI).
+- Result: 36 unconnected items (none on the isolated side), schematic parity as before, ERC clean.
+- U6 SN74LVC8T245 and U25 DS3231MZ stay: U6 has 40k in stock and its 5 V B side rules out the newer AXC parts;
+  U25 has the most stock of any temperature-compensated RTC at JLCPCB (3,115).
+

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "sam_cpu")(type "KiCad")(uri "${KIPRJMOD}/sam_cpu.kicad_sym")(options "")(descr "Project symbols"))
+)

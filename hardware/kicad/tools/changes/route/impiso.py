@@ -1,6 +1,6 @@
 import pcbnew, sys
 # board, iso ses, out: add the iso-net copper from the session to the board
-ISO = {'GND_ISO', 'Net-(D27-A1)', 'Net-(D27-A2)', 'Net-(JP2-A)', 'Net-(U32-VISOIN)'}
+ISO = {'GND_ISO', 'Net-(D27-A1)', 'Net-(D27-A2)', 'Net-(JP2-A)', 'Net-(U32-VISO)'}
 tmp = pcbnew.LoadBoard(sys.argv[1])
 keep = [z for z in tmp.Zones()]
 for z in keep: tmp.Remove(z)

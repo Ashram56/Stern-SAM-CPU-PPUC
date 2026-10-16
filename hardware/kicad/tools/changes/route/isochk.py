@@ -2,7 +2,7 @@ import pcbnew,sys
 b=pcbnew.LoadBoard(sys.argv[1])
 z=[b.GetArea(i) for i in range(b.GetAreaCount()) if b.GetArea(i).GetNetname()=='GND_ISO'][0]
 ol=z.Outline()
-ISO={'GND_ISO','Net-(D27-A1)','Net-(D27-A2)','Net-(JP2-A)','Net-(U32-VISOIN)'}
+ISO={'GND_ISO','Net-(D27-A1)','Net-(D27-A2)','Net-(JP2-A)','Net-(U32-VISO)'}
 bad=[];out=[]
 t=b.Tracks()
 for i in range(t.size()):

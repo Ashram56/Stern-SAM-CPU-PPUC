@@ -1,6 +1,6 @@
 """DSN that routes only the isolated nets: other nets removed, their copper near the iso area kept as keepouts."""
 import re, sys
-ISO = {'GND_ISO', 'Net-(D27-A1)', 'Net-(D27-A2)', 'Net-(JP2-A)', 'Net-(U32-VISOIN)'}
+ISO = {'GND_ISO', 'Net-(D27-A1)', 'Net-(D27-A2)', 'Net-(JP2-A)', 'Net-(U32-VISO)'}
 CLR = 200
 X0, Y0, Y1 = 135000, -240000, -170000
 s = open(sys.argv[1]).read()
