@@ -1,5 +1,13 @@
 # SAM_IO board: PPUC IO board for the Stern SAM IO power driver board
 
+> **Revision 0.2 (branch `claude/sam-io-rp2354-dedicated`): schematic only, the PCB is not updated yet.**
+> The RP2040 and its W25Q flash are replaced by an **RP2354B** (QFN-80, 2 MB internal flash), and a new sheet
+> "Dedicated switches" adds the SAM CPU board's harness connectors **J2, J3 and J13** (KK-396) with 17 input
+> stages: J3 D9-D16 (flippers, EOS), J13 D17-D24 (tilt, slam, ticket notch, D20, BACK, MINUS, PLUS, SELECT) and
+> the coin door memory protect on J2 pin 10. The coin slots (J2 D1-D8) are not routed. The SWD header J3 is
+> renamed J20. Details: [`DESIGN.md` section 0](DESIGN.md#0-revision-02-rp2354b-and-dedicated-switches). The
+> rest of this file still describes revision 0.1 (RP2040, routed PCB).
+
 A PPUC IO board (RP2040 on RS485) that drives a Stern SAM IO power driver board (520-5249-00) through its
 CPU connector J1. It is the hardware for the `SAM_IO` board type (`PPUC_BOARD_TYPE=5`) in the io-boards
 firmware (Ashram56/io-boards PR #1, `src/IODevices/SamBus/`): one board forwards every coil, flasher and lamp
@@ -98,6 +106,16 @@ The GPIOs match `src/IODevices/SamBus/SamBusPins.h` in io-boards exactly, so the
 | 25 | status LED (unchanged) | 18 | NBRESET_DRV (high = SAM IO board in reset) |
 | 28 | board id ladder, DIP SW3 (unchanged) | 29 | special output (unchanged) |
 | 19-24, 26, 27 | not connected (were Out_1-Out_8) | | |
+
+Revision 0.2 (RP2354B) keeps GPIO0-18, 25 and 29 as above and adds:
+
+| GPIO | Signal | GPIO | Signal |
+|---|---|---|---|
+| 19-24, 26, 27 | DED_D17-D24 (J13: tilt, slam, ticket notch, D20, BACK, MINUS, PLUS, SELECT) | 38 | MEM_PROTECT (J2 pin 10, coin door) |
+| 30-37 | DED_D9-D16 (J3: flipper buttons and EOS) | 40 (ADC0) | board id ladder, DIP SW3 (was GPIO28: the RP2354B's ADC is on GPIO40-47) |
+| 28, 39, 41-47 | not connected | | |
+
+All dedicated inputs are active low (switch closed = 0).
 
 ## Checks
 
