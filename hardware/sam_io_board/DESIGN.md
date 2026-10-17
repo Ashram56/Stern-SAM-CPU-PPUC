@@ -22,9 +22,8 @@ Contents:
 
 ## 0. Revision 0.2: RP2354B and dedicated switches
 
-Revision 0.2 (2026-10-17, branch `claude/sam-io-rp2354-dedicated`) changes the schematic. **The PCB
-(`sam_io.kicad_pcb`) is still revision 0.1** and has to be placed and routed again. Sections 1-12 below describe
-revision 0.1 unless they say otherwise.
+Revision 0.2 (2026-10-17, branch `claude/sam-io-rp2354-dedicated`) changes the schematic and the PCB (placed and
+routed, see "PCB" at the end of this section). Sections 1-12 below describe revision 0.1 unless they say otherwise.
 
 **MCU.** U3 is now an RP2354B (QFN-80, 10 x 10 mm, 48 GPIO, 2 MB flash in the package). The external flash U2 is
 gone; the QSPI pins are not connected, except QSPI_SS, which keeps R7 (10 k pull-up) and R6 + SW2 for BOOTSEL. The
@@ -74,6 +73,22 @@ this board.
 address-ladder block moved down on sheet 1 to make room for the taller symbol. ERC: no new errors; the one left
 (hidden +5V pin of a power symbol not driven, plus the +5V/VCC name warning) was there in revision 0.1. The
 netlist was compared with revision 0.1: every kept part keeps its nets, only U3's pins changed as listed.
+
+**PCB.** The outline grows down from 100 x 70 to 100 x 100 mm (bottom edge 30 mm lower, the two bottom mounting
+holes move with it). J3 and J13 sit along the new bottom edge with their input stages in columns above each pin
+(pull-up, series resistor, capacitor); J2 stands on the right edge, pin 1 at the top, with the MEM_PROTECT stage
+beside pin 10. U3 takes the RP2040's place; L1, C35, C36, C34 and R31 sit above and right of it, close to pins
+61-65, and its exposed pad has four GND vias. Both layers carry a GND pour, stitched with vias on a 5 mm grid.
+Revision 0.1's tracks outside the MCU area are kept; the new connections were routed with Freerouting 2.1, then by
+hand around U3 (SWCLK, DED_D19, VREG_PGND, and GND vias for the decoupling capacitors the pour could not reach).
+DRC: no unconnected item; the only errors are revision 0.1's (the USB-C J4 pads against its own NPTH holes, and its
+footprint type). The hole clearance rule is now 0.25 mm (was 0.33), because the router
+packs tracks at 0.25 mm from via holes; JLCPCB's published minimum is 0.254 mm, so ask them or widen those spots. Warnings left: 13 dangling vias (short stubs, harmless), silkscreen overlaps
+in the dense input stage rows (the reference texts want tidying in KiCad), and library differences inherited from
+revision 0.1. Schematic parity: only field differences (datasheet links, notes) and the logo and holes, as before.
+The scripts are in `tools/rev02/` (KiCad 10 Python): `board_update.py` (new outline, parts and placement from the
+netlist), `gnd_stitch.py`, `islands.py` (GND pour pieces not tied to the main pour), `gndlink.py`/`gndtrack.py`
+(tie them with a via or a track), `pathchk.py`/`addpath.py` (check and add hand-drawn tracks).
 
 ## 1. Purpose and system context
 

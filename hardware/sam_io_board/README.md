@@ -1,12 +1,13 @@
 # SAM_IO board: PPUC IO board for the Stern SAM IO power driver board
 
-> **Revision 0.2 (branch `claude/sam-io-rp2354-dedicated`): schematic only, the PCB is not updated yet.**
+> **Revision 0.2 (branch `claude/sam-io-rp2354-dedicated`): schematic and PCB (100 x 100 mm, placed and routed).**
 > The RP2040 and its W25Q flash are replaced by an **RP2354B** (QFN-80, 2 MB internal flash), and a new sheet
 > "Dedicated switches" adds the SAM CPU board's harness connectors **J2, J3 and J13** (KK-396) with 17 input
 > stages: J3 D9-D16 (flippers, EOS), J13 D17-D24 (tilt, slam, ticket notch, D20, BACK, MINUS, PLUS, SELECT) and
 > the coin door memory protect on J2 pin 10. The coin slots (J2 D1-D8) are not routed. The SWD header J3 is
 > renamed J20. Details: [`DESIGN.md` section 0](DESIGN.md#0-revision-02-rp2354b-and-dedicated-switches). The
-> rest of this file still describes revision 0.1 (RP2040, routed PCB).
+> renders `sam_io/pcb_render.png` and `sam_io/pcb_copper.png` show revision 0.2; the rest of this file still
+> describes revision 0.1 (RP2040, 100 x 70 mm PCB).
 
 A PPUC IO board (RP2040 on RS485) that drives a Stern SAM IO power driver board (520-5249-00) through its
 CPU connector J1. It is the hardware for the `SAM_IO` board type (`PPUC_BOARD_TYPE=5`) in the io-boards
