@@ -3087,16 +3087,6 @@
 	)
 	(wire
 		(pts
-			(xy 335.28 68.58) (xy 340.36 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2e768b55-c2b2-5780-8631-21dd9c208185")
-	)
-	(wire
-		(pts
 			(xy 325.12 60.96) (xy 325.12 58.42)
 		)
 		(stroke
@@ -3518,29 +3508,6 @@
 					(size 1.6 1.6)
 				)
 				(justify right)
-			)
-		)
-	)
-	(global_label "GI_SPARE"
-		(shape output)
-		(at 340.36 68.58 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.6 1.6)
-			)
-			(justify left)
-		)
-		(uuid "6a4e75e3-86ef-503e-8fba-51d0d0fb86a0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 357.44 68.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
 			)
 		)
 	)
@@ -5011,5 +4978,9 @@
 				)
 			)
 		)
+	)
+	(no_connect
+		(at 335.28 68.58)
+		(uuid "42be5bbb-1cbf-4567-89fd-1fd2908d4ba9")
 	)
 )
