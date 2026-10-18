@@ -1,12 +1,16 @@
 # SAM_IO board: PPUC IO board for the Stern SAM IO power driver board
 
-> **Revision 0.2 (branch `claude/sam-io-rp2354-dedicated`): schematic and PCB (100 x 100 mm, placed and routed).**
+> **Revision 0.2 (branch `claude/sam-io-rp2354-dedicated`): schematic and two routed PCB options.**
+> - `sam_io/`: 158 x 100 mm. J13, J3 and J2 sit on the original CPU board harness spots.
+> - `sam_io_100mm/`: 100 x 100 mm. J13 and J3 on the original spots, J2 moved inboard above J3. Same schematic.
+>
+> Both boards put the bottom-left corner on the CPU board's bottom-left corner, with the KK-396 ramps facing inward.
 > The RP2040 and its W25Q flash are replaced by an **RP2354B** (QFN-80, 2 MB internal flash), and a new sheet
 > "Dedicated switches" adds the SAM CPU board's harness connectors **J2, J3 and J13** (KK-396) with 17 input
 > stages: J3 D9-D16 (flippers, EOS), J13 D17-D24 (tilt, slam, ticket notch, D20, BACK, MINUS, PLUS, SELECT) and
 > the coin door memory protect on J2 pin 10. The coin slots (J2 D1-D8) are not routed. The SWD header J3 is
 > renamed J20. Details: [`DESIGN.md` section 0](DESIGN.md#0-revision-02-rp2354b-and-dedicated-switches). The
-> renders `sam_io/pcb_render.png` and `sam_io/pcb_copper.png` show revision 0.2; the rest of this file still
+> renders `sam_io/pcb_render.png` and `sam_io_100mm/pcb_render.png` show revision 0.2; the rest of this file still
 > describes revision 0.1 (RP2040, 100 x 70 mm PCB).
 
 A PPUC IO board (RP2040 on RS485) that drives a Stern SAM IO power driver board (520-5249-00) through its
@@ -21,6 +25,7 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 - [`DESIGN.md`](DESIGN.md): detailed design notes (circuit, power, reset, bus timing, signal list, BOM, PCB,
   manufacturing, bring-up).
 - `sam_io/`: the KiCad 10 project (10.0 file format). Open `sam_io.kicad_pro`.
+- `sam_io_100mm/`: the same project with the 100 x 100 mm board (J2 inboard).
 - `sam_io_krt/`: an experiment, the same board stripped and routed again from scratch with KiCadRoutingTools,
   with a side-by-side comparison. Not the board to build.
 - `sam_io/sam_io_bom.csv`: bill of materials, grouped by value and footprint.
