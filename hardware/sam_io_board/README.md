@@ -5,6 +5,8 @@
 > - `sam_io_100mm/`: 100 x 100 mm. J13 on the original spot, J3 3.5 mm lower than the original spot (toward the bottom edge, for room under J2), J2 moved inboard above J3. Same schematic.
 >
 > Both boards put the bottom-left corner on the CPU board's bottom-left corner, with the KK-396 ramps facing inward.
+> On both boards J9 stands on the left edge above J13, turned like the CPU board's J9 (pin 1 at the bottom, odd pins
+> and the key notch toward the board centre), so the IO board ribbon arrives from the same side as before.
 > The RP2040 and its W25Q flash are replaced by an **RP2354B** (QFN-80, 2 MB internal flash), and a new sheet
 > "Dedicated switches" adds the SAM CPU board's harness connectors **J2, J3 and J13** (KK-396) with 17 input
 > stages: J3 D9-D16 (flippers, EOS), J13 D17-D24 (tilt, slam, ticket notch, D20, BACK, MINUS, PLUS, SELECT) and
