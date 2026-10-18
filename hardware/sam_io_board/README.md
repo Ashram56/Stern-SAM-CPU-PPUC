@@ -2,7 +2,7 @@
 
 > **Revision 0.2 (branch `claude/sam-io-rp2354-dedicated`): schematic and two routed PCB options.**
 > - `sam_io/`: 158 x 100 mm. J13, J3 and J2 sit on the original CPU board harness spots.
-> - `sam_io_100mm/`: 100 x 100 mm. J13 and J3 on the original spots, J2 moved inboard above J3. Same schematic.
+> - `sam_io_100mm/`: 100 x 100 mm. J13 on the original spot, J3 3.5 mm lower than the original spot (toward the bottom edge, for room under J2), J2 moved inboard above J3. Same schematic.
 >
 > Both boards put the bottom-left corner on the CPU board's bottom-left corner, with the KK-396 ramps facing inward.
 > The RP2040 and its W25Q flash are replaced by an **RP2354B** (QFN-80, 2 MB internal flash), and a new sheet
