@@ -1,5 +1,20 @@
 # SAM_IO board: PPUC IO board for the Stern SAM IO power driver board
 
+> **Revision 0.2 (branch `claude/sam-io-rp2354-dedicated`): schematic and two routed PCB options.**
+> - `sam_io/`: 158 x 100 mm. J13, J3 and J2 sit on the original CPU board harness spots.
+> - `sam_io_100mm/`: 100 x 100 mm. J13 on the original spot, J3 3.5 mm lower than the original spot (toward the bottom edge, for room under J2), J2 moved inboard above J3. Same schematic.
+>
+> Both boards put the bottom-left corner on the CPU board's bottom-left corner, with the KK-396 ramps facing inward.
+> On both boards J9 stands on the left edge above J13, turned like the CPU board's J9 (pin 1 at the bottom, odd pins
+> and the key notch toward the board centre), so the IO board ribbon arrives from the same side as before.
+> The RP2040 and its W25Q flash are replaced by an **RP2354B** (QFN-80, 2 MB internal flash), and a new sheet
+> "Dedicated switches" adds the SAM CPU board's harness connectors **J2, J3 and J13** (KK-396) with 17 input
+> stages: J3 D9-D16 (flippers, EOS), J13 D17-D24 (tilt, slam, ticket notch, D20, BACK, MINUS, PLUS, SELECT) and
+> the coin door memory protect on J2 pin 10. The coin slots (J2 D1-D8) are not routed. The SWD header J3 is
+> renamed J20. Details: [`DESIGN.md` section 0](DESIGN.md#0-revision-02-rp2354b-and-dedicated-switches). The
+> renders `sam_io/pcb_render.png` and `sam_io_100mm/pcb_render.png` show revision 0.2; the rest of this file still
+> describes revision 0.1 (RP2040, 100 x 70 mm PCB).
+
 A PPUC IO board (RP2040 on RS485) that drives a Stern SAM IO power driver board (520-5249-00) through its
 CPU connector J1. It is the hardware for the `SAM_IO` board type (`PPUC_BOARD_TYPE=5`) in the io-boards
 firmware (Ashram56/io-boards PR #1, `src/IODevices/SamBus/`): one board forwards every coil, flasher and lamp
@@ -12,6 +27,7 @@ It is derived from the PPUC **IO_16_8_1** board, version 1.1.1, by foenich
 - [`DESIGN.md`](DESIGN.md): detailed design notes (circuit, power, reset, bus timing, signal list, BOM, PCB,
   manufacturing, bring-up).
 - `sam_io/`: the KiCad 10 project (10.0 file format). Open `sam_io.kicad_pro`.
+- `sam_io_100mm/`: the same project with the 100 x 100 mm board (J2 inboard).
 - `sam_io_krt/`: an experiment, the same board stripped and routed again from scratch with KiCadRoutingTools,
   with a side-by-side comparison. Not the board to build.
 - `sam_io/sam_io_bom.csv`: bill of materials, grouped by value and footprint.
@@ -98,6 +114,16 @@ The GPIOs match `src/IODevices/SamBus/SamBusPins.h` in io-boards exactly, so the
 | 25 | status LED (unchanged) | 18 | NBRESET_DRV (high = SAM IO board in reset) |
 | 28 | board id ladder, DIP SW3 (unchanged) | 29 | special output (unchanged) |
 | 19-24, 26, 27 | not connected (were Out_1-Out_8) | | |
+
+Revision 0.2 (RP2354B) keeps GPIO0-18, 25 and 29 as above and adds:
+
+| GPIO | Signal | GPIO | Signal |
+|---|---|---|---|
+| 19-24, 26, 27 | DED_D17-D24 (J13: tilt, slam, ticket notch, D20, BACK, MINUS, PLUS, SELECT) | 38 | MEM_PROTECT (J2 pin 10, coin door) |
+| 30-37 | DED_D9-D16 (J3: flipper buttons and EOS) | 40 (ADC0) | board id ladder, DIP SW3 (was GPIO28: the RP2354B's ADC is on GPIO40-47) |
+| 28, 39, 41-47 | not connected | | |
+
+All dedicated inputs are active low (switch closed = 0).
 
 ## Checks
 

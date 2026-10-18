@@ -6,6 +6,7 @@ This file describes how the SAM_IO board works and why it is built the way it is
 the licence notice and the open points.
 
 Contents:
+0. [Revision 0.2: RP2354B and dedicated switches](#0-revision-02-rp2354b-and-dedicated-switches)
 1. [Purpose and system context](#1-purpose-and-system-context)
 2. [Block diagram](#2-block-diagram)
 3. [What comes from IO_16_8_1](#3-what-comes-from-io_16_8_1)
@@ -18,6 +19,76 @@ Contents:
 10. [PCB](#10-pcb)
 11. [Manufacturing notes](#11-manufacturing-notes)
 12. [Bring-up and test](#12-bring-up-and-test)
+
+## 0. Revision 0.2: RP2354B and dedicated switches
+
+Revision 0.2 (2026-10-17, branch `claude/sam-io-rp2354-dedicated`) changes the schematic and the PCB (placed and
+routed, see "PCB" at the end of this section). Sections 1-12 below describe revision 0.1 unless they say otherwise.
+
+**MCU.** U3 is now an RP2354B (QFN-80, 10 x 10 mm, 48 GPIO, 2 MB flash in the package). The external flash U2 is
+gone; the QSPI pins are not connected, except QSPI_SS, which keeps R7 (10 k pull-up) and R6 + SW2 for BOOTSEL. The
+RP2350 core supply is a switching regulator, so the circuit around the chip follows the SAM CPU board schematic
+(`hardware/kicad/sam_cpu/mcu.kicad_sch`, draft PR #2), which was taken from the RP2350 minimal design:
+
+| Pin | Connection |
+|---|---|
+| VREG_VIN (64) | +3.3 V, C35 4.7 µF next to the pin |
+| VREG_LX (63) | L1 3.3 µH (2016 size, `L_Cenker_CKCS201610`) to DVDD; the RP2350 is sensitive to this inductor's type, polarity and placement |
+| VREG_FB (65), DVDD (10, 32, 51) | net 1V1: C36 4.7 µF at L1, C9, C10, C41 100 nF and C16 1 µF at the pins |
+| VREG_AVDD (61) | R31 33 R from +3.3 V, C34 4.7 µF |
+| VREG_PGND (62), GND pad (81) | GND |
+| IOVDD (8 pins), QSPI_IOVDD, USB_OTP_VDD | +3.3 V; the existing 100 nF caps plus C37-C40 |
+| ADC_AVDD (59) | 3V3A (R15 100 R + C20 10 µF), as before |
+| XIN, XOUT | Y1 12 MHz, C6/C7, R12 1 k, as before |
+
+Check the values against the RP2350 hardware design guide before ordering (the guide could not be downloaded from
+this environment; the values match the CPU board, which used it).
+
+**GPIO.** GPIO0-18 (RS485 and the SAM bus), GPIO25 (LED) and GPIO29 (special output) are unchanged, so
+`sam_bus.pio` and `SamBusPins.h` keep working. The board address ladder moves from GPIO28 to GPIO40, because
+the RP2354B's ADC inputs are GPIO40-47: the firmware's address pin has to follow. SW3 stays.
+
+| GPIO | Net | Harness |
+|---|---|---|
+| 19, 20, 21, 22, 23, 24, 26, 27 | DED_D17 ... DED_D24 | J13 pins 1, 3, 4, 5, 6, 7, 8, 9 |
+| 30 ... 37 | DED_D9 ... DED_D16 | J3 pins 1, 2, 4, 5, 6, 7, 8, 9 |
+| 38 | MEM_PROTECT | J2 pin 10 |
+| 28, 39, 41-47 | not connected | |
+
+**Dedicated switches (new sheet `dedicated_sw.kicad_sch`).** J2 (1x12), J3 (1x10) and J13 (1x10) are KK-396
+3.96 mm headers with the SAM CPU board's references and pin order (keys on J2 pin 5, J3 pin 3, J13 pin 2; GND on
+J2 11-12, J3 10, J13 10), so the machine's harness plugs in unchanged. The pin order comes from the CPU board
+schematic in this repository and still has to be checked with a meter on a real harness. Each routed input has
+a 1 k pull-up to +3.3 V (about 3.3 mA wetting current, close to the original 1.5 k to 4.5 V), then 10 k in series
+and 1 nF to GND at the GPIO (about 10 µs). No 5 V reaches the RP2354B, and the 10 k limits the current into its
+clamp diodes if a harness wire touches a higher voltage. With every input closed the pull-ups draw about 56 mA from
+the 3.3 V regulator (600 mA). Not routed: the coin slots D1-D8 on J2 (their pins have no-connect flags) and the key
+pins. As the Tron LE ROM names them (Tron-Legacy-LE-ROM-Decryption `rom_data/states/dedicated_switches.csv`): D9 L
+flipper button, D10 L EOS, D11 R flipper button, D12 R EOS, D13 UL flipper button, D17 tilt, D18 slam, D19 ticket
+notch, D21 BACK, D22 MINUS, D23 PLUS, D24 SELECT; D14-D16 and D20 vary per game. The start button is a matrix
+switch on SAM, not a dedicated one. The SAM CPU board's 8 DIP switches are not needed with PPUC and are not on
+this board.
+
+**Other.** The SWD header (not fitted) is renamed J3 -> J20, as on the CPU board, to free J3 for the harness. The
+address-ladder block moved down on sheet 1 to make room for the taller symbol. ERC: no new errors; the one left
+(hidden +5V pin of a power symbol not driven, plus the +5V/VCC name warning) was there in revision 0.1. The
+netlist was compared with revision 0.1: every kept part keeps its nets, only U3's pins changed as listed.
+
+**PCB.** The outline grows down from 100 x 70 to 100 x 100 mm (bottom edge 30 mm lower, the two bottom mounting
+holes move with it). J3 and J13 sit along the new bottom edge with their input stages in columns above each pin
+(pull-up, series resistor, capacitor); J2 stands on the right edge, pin 1 at the top, with the MEM_PROTECT stage
+beside pin 10. U3 takes the RP2040's place; L1, C35, C36, C34 and R31 sit above and right of it, close to pins
+61-65, and its exposed pad has four GND vias. Both layers carry a GND pour, stitched with vias on a 5 mm grid.
+Revision 0.1's tracks outside the MCU area are kept; the new connections were routed with Freerouting 2.1, then by
+hand around U3 (SWCLK, DED_D19, VREG_PGND, and GND vias for the decoupling capacitors the pour could not reach).
+DRC: no unconnected item; the only errors are revision 0.1's (the USB-C J4 pads against its own NPTH holes, and its
+footprint type). The hole clearance rule is now 0.25 mm (was 0.33), because the router
+packs tracks at 0.25 mm from via holes; JLCPCB's published minimum is 0.254 mm, so ask them or widen those spots. Warnings left: 13 dangling vias (short stubs, harmless), silkscreen overlaps
+in the dense input stage rows (the reference texts want tidying in KiCad), and library differences inherited from
+revision 0.1. Schematic parity: only field differences (datasheet links, notes) and the logo and holes, as before.
+The scripts are in `tools/rev02/` (KiCad 10 Python): `board_update.py` (new outline, parts and placement from the
+netlist), `gnd_stitch.py`, `islands.py` (GND pour pieces not tied to the main pour), `gndlink.py`/`gndtrack.py`
+(tie them with a via or a track), `pathchk.py`/`addpath.py` (check and add hand-drawn tracks).
 
 ## 1. Purpose and system context
 
