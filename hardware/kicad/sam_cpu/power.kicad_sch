@@ -11,6 +11,268 @@
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
 	)
 	(lib_symbols
+		(symbol "Jumper:SolderJumper_3_Open"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "JP"
+				(at -2.54 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Value" "SolderJumper_3_Open"
+				(at 0 2.794 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "Description" "Solder Jumper, 3-pole, open"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property private "KLC_S5.1" "This is a generic symbol, it has fp-filter, but no default footprint"
+				(at 0 -17.78 0)
+				(show_name yes)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property private "KLC_S3.3" "Graphical-Symbol: thickness is 6mm, fill is background"
+				(at 0 -20.32 0)
+				(show_name yes)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "ki_keywords" "Solder Jumper SPDT"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SolderJumper*Open*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.5 1.5)
+					)
+				)
+			)
+			(symbol "SolderJumper_3_Open_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -2.032 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 1.016) (xy -1.016 -1.016)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.016 -1.016)
+					(mid -2.0276 0)
+					(end -1.016 1.016)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -0.508 1.016)
+					(end 0.508 -1.016)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 1.016 1.016)
+					(mid 2.0276 0)
+					(end 1.016 -1.016)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.032 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SolderJumper_3_Open_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.5 1.5)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:L"
 			(pin_numbers
 				(hide yes)
@@ -14000,7 +14262,7 @@
 		)
 		(uuid "6152aac5-8198-421f-8ca1-9f0a31fdff0f")
 	)
-	(text "Pi 5.1 V buck (3 A) and Pi header 5 V jumpers JP3 / JP4"
+	(text "Pi 5.1 V buck (3 A) and Pi header 5 V jumper JP3"
 		(exclude_from_sim no)
 		(at 293.37 171.45 0)
 		(effects
@@ -14011,7 +14273,7 @@
 		)
 		(uuid "44bb5d26-6882-428a-a95e-4081531ca03a")
 	)
-	(text "JP3 / JP4 (open by default) feed J21 pins 2 / 4 (PI_5V):\nJP4: from the buck (Pi 4 / Pi 5, 5.18 V 3 A)\nJP3: from the board +5 V\nboth open: Jetson, or a Pi on its own USB-C. Never bridge both."
+	(text "JP3 (open by default) feeds J21 pins 2 / 4 (PI_5V) from one source:\n1-2: the buck (Pi 4 / Pi 5, 5.18 V 3 A)\n2-3: the board +5 V\nopen: Jetson, or a Pi on its own USB-C."
 		(exclude_from_sim no)
 		(at 293.37 222.25 0)
 		(effects
@@ -14827,16 +15089,6 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 363.22 203.2) (xy 401.32 203.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc734693-7e8c-437a-a4fd-7a028de474f7")
-	)
 	(label "PI_5V_BUCK"
 		(at 383.54 203.2 0)
 		(effects
@@ -15456,9 +15708,19 @@
 			)
 		)
 	)
+	(wire
+		(pts
+			(xy 363.22 203.2) (xy 388.62 203.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "64431fa3-2b54-4e0d-972e-e8d33faecec5")
+	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 401.32 220.98 90)
+		(lib_id "Jumper:SolderJumper_3_Open")
+		(at 391.16 220.98 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15466,124 +15728,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "85187751-f0e4-451c-af35-1b8ed6723a84")
-		(property "Reference" "JP4"
-			(at 395 215.9 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "BUCK"
-			(at 395 218.44 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 401.32 220.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 401.32 220.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Pi header 5 V from the buck (open by default)"
-			(at 401.32 220.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "88afb3a5-70dc-4258-8ebe-89f3f1290e8d")
-		)
-		(pin "2"
-			(uuid "c99edd54-883f-448d-83f1-5c479438fb13")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "JP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 401.32 203.2) (xy 401.32 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d88cf43c-1749-400a-8c48-2643047004d4")
-	)
-	(wire
-		(pts
-			(xy 401.32 226.06) (xy 401.32 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ea39c29-5bdd-42bd-b75b-03e106ccd9ef")
-	)
-	(wire
-		(pts
-			(xy 401.32 231.14) (xy 396.24 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "30bef3a6-3b26-4641-b952-4292d1c77bb7")
-	)
-	(junction
-		(at 396.24 231.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3b602fdb-d2cc-4dd1-84d5-b7ff6159f1a7")
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 391.16 228.6 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "02168b6c-0530-4b81-9556-e35801e98884")
+		(uuid "53617f0f-044c-4c8a-a4a3-d0422826da60")
 		(property "Reference" "JP3"
-			(at 391.16 222.25 0)
+			(at 391.16 215.9 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15592,8 +15739,8 @@
 				)
 			)
 		)
-		(property "Value" "BOARD"
-			(at 391.16 224.79 0)
+		(property "Value" "PI 5V"
+			(at 391.16 218.44 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15602,8 +15749,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 391.16 228.6 0)
+		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm"
+			(at 391.16 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15614,7 +15761,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 391.16 228.6 0)
+			(at 391.16 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15624,8 +15771,8 @@
 				)
 			)
 		)
-		(property "Description" "Pi header 5 V from the board +5 V (open by default)"
-			(at 391.16 228.6 0)
+		(property "Description" "Pi header 5 V: bridge 1-2 for the buck, 2-3 for the board +5 V, none for a Jetson (open by default)"
+			(at 391.16 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15636,10 +15783,13 @@
 			)
 		)
 		(pin "1"
-			(uuid "79e5847a-c994-4c28-adc6-4972b775eca8")
+			(uuid "72b0e8b9-5903-4614-83c5-2294405f4ea3")
 		)
 		(pin "2"
-			(uuid "63bfb602-6a4c-46c0-a4dd-6d76ac0b17e1")
+			(uuid "929a94e8-00cb-4da1-b87a-840a6c4a9029")
+		)
+		(pin "3"
+			(uuid "69b1a10c-f166-4688-840a-ecf8c5f9a28f")
 		)
 		(instances
 			(project "sam_cpu"
@@ -15652,17 +15802,37 @@
 	)
 	(wire
 		(pts
-			(xy 386.08 228.6) (xy 381 228.6)
+			(xy 386.08 220.98) (xy 381 220.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5a8bec52-e8e7-4241-b5cc-deffca419729")
+		(uuid "af02739c-e22c-4dc6-923d-2c040f09243e")
+	)
+	(label "PI_5V_BUCK"
+		(at 381 220.98 180)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify right bottom)
+		)
+		(uuid "81552644-15a3-4932-b311-f959dd315dd2")
+	)
+	(wire
+		(pts
+			(xy 396.24 220.98) (xy 401.32 220.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1220f480-5700-4c78-a4d9-d15993ad0d96")
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 381 228.6 0)
+		(at 401.32 220.98 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15670,9 +15840,9 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "02256bbe-14a9-424c-af9f-98f30034ab22")
-		(property "Reference" "#PWR01114"
-			(at 381 228.6 0)
+		(uuid "c2e14ea9-0324-4e32-aa7f-9dc25af05614")
+		(property "Reference" "#PWR01121"
+			(at 401.32 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15683,7 +15853,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 381 224.79 0)
+			(at 401.32 217.17 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15693,7 +15863,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 381 228.6 0)
+			(at 401.32 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15704,7 +15874,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 381 228.6 0)
+			(at 401.32 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15715,7 +15885,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 381 228.6 0)
+			(at 401.32 220.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15726,12 +15896,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a0ae5043-95d0-4637-8252-15eda0210bc3")
+			(uuid "fdc52474-e68c-4a80-a913-e3dab3ad95c2")
 		)
 		(instances
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#PWR01114")
+					(reference "#PWR01121")
 					(unit 1)
 				)
 			)
@@ -15739,17 +15909,17 @@
 	)
 	(wire
 		(pts
-			(xy 396.24 228.6) (xy 396.24 238.76)
+			(xy 391.16 224.79) (xy 391.16 238.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "36cfdf99-52ed-4f8c-b773-3b45bf1b08c6")
+		(uuid "cdbb6f1c-4223-4bbd-bd55-b52c7513ffe9")
 	)
 	(global_label "PI_5V"
 		(shape passive)
-		(at 396.24 238.76 270)
+		(at 391.16 238.76 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15757,9 +15927,9 @@
 			)
 			(justify right)
 		)
-		(uuid "2d14d8e4-3b3b-42c2-b49a-5f9670b257e8")
+		(uuid "8d932e26-f66b-442f-ad0a-d6085f98a8b7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 396.24 238.76 0)
+			(at 391.16 238.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15773,23 +15943,23 @@
 	)
 	(wire
 		(pts
-			(xy 396.24 236.22) (xy 386.08 236.22)
+			(xy 391.16 233.68) (xy 386.08 233.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a1206d24-8a90-46f2-9759-af0947f70e9c")
+		(uuid "6834d692-5854-41fd-a044-7bfc50746c21")
 	)
 	(junction
-		(at 396.24 236.22)
+		(at 391.16 233.68)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0ef71e68-a038-462a-a648-a36b7be12323")
+		(uuid "c307c84d-eb89-4221-bb6d-2d3f5f4b14ed")
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 386.08 236.22 180)
+		(at 386.08 233.68 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15797,9 +15967,9 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8d9660bd-8f62-413c-9b21-2e109884a790")
-		(property "Reference" "#FLG1115"
-			(at 386.08 236.22 0)
+		(uuid "114b398a-7bb3-4bce-9e5f-3fe8513de0c3")
+		(property "Reference" "#FLG1122"
+			(at 386.08 233.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15810,7 +15980,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 386.08 240.03 0)
+			(at 386.08 237.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15820,7 +15990,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 386.08 236.22 0)
+			(at 386.08 233.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15831,7 +16001,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 386.08 236.22 0)
+			(at 386.08 233.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15842,7 +16012,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 386.08 236.22 0)
+			(at 386.08 233.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15853,12 +16023,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "eaca19bb-6a1a-473f-b7e8-58f736b5451e")
+			(uuid "4fb8e65a-1d4e-4bef-a74f-6ab7ecd7d0a9")
 		)
 		(instances
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/febff99c-25e7-5ff2-ad94-91f07160e16c"
-					(reference "#FLG1115")
+					(reference "#FLG1122")
 					(unit 1)
 				)
 			)
