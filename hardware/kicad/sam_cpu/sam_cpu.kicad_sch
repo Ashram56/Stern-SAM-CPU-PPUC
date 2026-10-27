@@ -11,7 +11,7 @@
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
 	)
 	(lib_symbols)
-	(text "Dedicated switches D17-D24 (J13) and DIP switches"
+	(text "Dedicated switches D17-D24 (J13)"
 		(exclude_from_sim no)
 		(at 154.94 160.02 0)
 		(effects
@@ -43,17 +43,6 @@
 			(justify left top)
 		)
 		(uuid "48940a54-79df-5847-a7b3-f44512f06c32")
-	)
-	(text "J18 GI dimmer header"
-		(exclude_from_sim no)
-		(at 281.94 160.02 0)
-		(effects
-			(font
-				(size 1.6 1.6)
-			)
-			(justify left top)
-		)
-		(uuid "48d52621-74b5-51f4-b41f-1c2faa9945ba")
 	)
 	(text "J9: bus to the IO power driver board (IO board J1)"
 		(exclude_from_sim no)
@@ -564,52 +553,6 @@
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
 					(page "3")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 279.4 154.94)
-		(size 88.9 25.4)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0)
-		)
-		(uuid "e5bcf56a-1356-5dfa-9e64-6b2f23d447fd")
-		(property "Sheetname" "GI dimmer"
-			(at 279.4 154.2284 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 2 2)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "display_gi.kicad_sch"
-			(at 279.4 180.9284 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647"
-					(page "10")
 				)
 			)
 		)

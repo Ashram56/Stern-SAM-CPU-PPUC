@@ -16,15 +16,15 @@ continues, in square brackets.
 
 | Page | Sheet | Content | Architecture doc |
 |---|---|---|---|
-| 2 | Power | J11 (original connector, +5 V and ground only), J17 external +5 V, ideal-diode mux with external priority, J23 external +12 V for audio (polyfuse + TVS), NCP1117 3.3 V (ceramic-stable), +4.5 V switch supply, ADC supply monitors, rail test points | 9.3 |
-| 3 | MCU and Pi | RP2354B, crystal, core regulator parts, TPS3808 reset supervisor, RESET / BOOTSEL buttons, status LED, J21 Raspberry Pi 4 40-pin header (UART0, SPI0, I2S, RUN, BOOTSEL, IRQ), J19 USB-C to the Pi, J20 SWD, U25 DS3231MZ real-time clock on the Pi I2C1 with a CR2032 (BT1) | 4.2, 9.1, 9.2 |
+| 2 | Power | J11 (original connector: +5 V, ground, 12 V on pin 6), J17 external +5 V, ideal-diode mux with external priority, J23 external +12 V and J11 pin 6 through an ideal-diode OR (external priority) to the +12 V rail (polyfuse + TVS), TPS54302 buck for the Pi 5 V (a 3-pin header with one shunt picks board +5 V, buck or none for a Jetson), NCP1117 3.3 V (ceramic-stable), +4.5 V switch supply, ADC supply monitors, rail test points | 9.3 |
+| 3 | MCU and Pi | RP2354B, crystal, core regulator parts, TPS3808 reset supervisor, RESET / BOOTSEL buttons, status LED, J21 Raspberry Pi 4 40-pin header (UART0, SPI0, I2S, RUN, BOOTSEL, IRQ) (no USB: the Pi flashes the RP2354B over SWD on J21 pins 18 / 22, GPIO24 / GPIO25), U25 DS3231MZ real-time clock on the Pi I2C1 with a CR2032 (BT1) | 4.2, 9.1, 9.2 |
 | 4 | IO bus | J9 to IO board J1: SN74LVC8T245 data, 74AHCT541 address + IOSTB, 2N7002 open-drain NBRESET, 33 R series resistor packs | 3.1, 3.2 |
 | 5 | Switch columns | 74HC595 + 8 MMBT3904 strobe drivers, J1 switch columns | 5.3, 5.4 |
 | 6 | Switch rows 1-8 | J6, 8 returns: diode, 1 k to +4.5 V, 220 R + 100 nF, LM339 against 2.25 V (copy of the original), 74HC165, VREF divider | 5.2, 5.3 |
 | 7 | Switch rows 9-16 | J12, same circuit, 74HC165 | 5.2, 5.3 |
 | 8 | Dedicated switches 1-16 | J2, J3, input filters, 2 x 74HC165, coin door memory protect | 5.2, 5.3 |
-| 9 | Dedicated switches 17-24 | J13, input filters, 74HC165, 8 DIP switches with their 74HC165 | 5.2, 5.3 |
-| 10 | GI dimmer | J18 GI dimmer header (the original DMD driver on J5 was removed, see below) | 10.2 |
+| 9 | Dedicated switches 17-24 | J13, input filters, 74HC165 (DIP block removed) | 5.2, 5.3 |
+| 10 | (removed) | GI dimmer sheet removed in the second alternative | 10.2 |
 | 11 | Audio | PCM5102A DAC from Pi I2S; U23 TDA7297 bridge amplifier for left / right (J10, J22); (L + R) / 2 110 Hz low-pass (OPA1678) into U24 TDA7297 for the subwoofer (J24); all on +12 V; software mute | 8 |
 | 12 | Switch chain extensions | U30 7th 74HC165 (coin door memory protect); U31 extra 74HC595 first in the strobe chain (LED_STATUS, GI_SPARE). File name `dmd_panels.kicad_sch` kept from when the HD panel outputs lived here | 5.3, 9.2 |
 | 13 | RS485 and I2S | Isolated RS485 port: ADM2682E (isoPower, 5 kV) with SM712 TVS, JP2 termination jumper and two top-entry RJ45s J27 / J29 on GND_ISO, wired to both the Pi UART3 and the RP2354B UART1 through 1 k; J28 I2S input header for a remote Pi, in parallel with J21; J30 switched 3.5 mm line-in jack between the DAC and the amplifiers | new |

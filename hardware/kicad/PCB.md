@@ -224,3 +224,59 @@ script in `tools/changes/`, applied on top of b08cf77 in this order:
   VIN1 selected above about 4 V. U1 sits in the old Q1 / Q2 spot at (99.75, 103.85); R1 (now 0402) stands between F1
   and the EXT_5V track, R2 east of U1, PR1 crosses under U1 on B.Cu. EXT_5V / J11_5V move to the Power_5V class
   (0.2 mm, for the 0.5 mm pitch pins). Result: 36 unconnected items, no new DRC errors, parity as before, ERC clean.
+
+### Second alternative (branch claude/project-thread-ij88aa, 2026-10-17)
+
+Same RP2354B-on-board design and stack-up (F signal, In1 GND, In2 +3V3, B signal), with parts taken out to free
+routing space (Vincent's choices):
+- `c35_sch_trim_usb_gi_dip_swd.py` / `c36_board_trim_usb_gi_dip_swd.py`: USB-C J19 with R10-R14, the GI dimmer
+  sheet (J18, R183-R185), the J20 SWD header and the DIP block (SW3, R168-R175, C93, U14) are removed. The Pi flashes
+  the RP2354B over SWD on J21 pin 18 GPIO24 = SWDIO and pin 22 GPIO25 = SWCLK, as Raspberry Pi OpenOCD's
+  `interface/raspberrypi-swd.cfg` (`adapter gpio swdio 24`, `swclk 25`); a blank RP2354B flashes over SWD. U15's
+  serial input goes to GND, so the switch chain is 8 bits shorter (firmware: 48 bits, no DIP byte).
+- `c37_board_bus_arrays_by_j9.py`: RN1-RN3 and TP10-TP13 moved next to J9 (`movelib.py` moves named parts only).
+- All unlocked copper re-routed with Freerouting 2.5.0 in chunks, then hand fixes (EXT_5V under U1).
+- Result: 18 unconnected items (baseline 36), no DRC errors apart from starved thermals, schematic parity clean,
+  ERC clean. Still open:
+  - U4 left-side escape to U6 / U7: BUS_A0, BUS_A1, BUS_D0, BUS_D1, BUS_D6, SW_CLK, SW_LOAD_N, BOOTSEL (8).
+    The +3V3 plane vias of U4 pins 5 and 76 and the inner +1V1 ring block these lanes.
+  - Power fragments: +5V (C6-C33, U1 VOUT / TP1, near R197) 4, +12V (C3, R197) 2.
+  - D18-A, D21-A, and 2 GND_ISO zone islands.
+- USB-C back as a backup flashing path (2026-10-18, Vincent: "start from a board with USB-C fitted ... placement
+  only, DeepPCB routes it"): `c38_sch_restore_usb.py` restores J19 and R10-R14 on the MCU sheet as at e6c37a8 and
+  names the pair USB_D+ / USB_D- (U4 to R13 / R14) and USB_C_D+ / USB_C_D- (R13 / R14 to J19).
+  `c39_board_restore_usb.py` places J19, R13, R14 at their e6c37a8 spots (top edge above U4) and R10-R12 in a column
+  left of J19 (their old spot is now D3 / SW2), 1 mm or more between courtyards, unrouted. Netclass USB: 0.2 mm
+  tracks, 0.15 mm gap differential pair (about 90 ohm on F.Cu over In1 with the JLC04161H-7628 stack; check with
+  JLCPCB's calculator), plus a `sam_cpu.kicad_dru` rule (gap 0.13-0.2 mm, 3 mm uncoupled, 0.5 mm skew). The J20 SWD
+  header, the GI dimmer and the DIP block stay removed; SW1 RESET and SW2 BOOTSEL were never removed.
+  Result: 28 unconnected items (the 18 above + 10 for USB-C), no new DRC errors, ERC clean.
+- DeepPCB dropped U4 pins 66 / 67 as unreachable (a coupled 0.2 / 0.15 mm pair can't leave a 0.4 mm pitch QFN).
+  `c40_board_usb_pin_escape.py` removes the unlocked +1V1 stub from pin 65 to L1 that ran beside pin 66 (pin 65
+  keeps the locked inner ring; L1 / C24 are now one +1V1 open for the router). `c41_board_usb_pair_from_e6c37a8.py`
+  brings back the hand-routed, locked USB pair of e6c37a8 (U4 to R13 / R14 to J19), renamed to the c38 nets. USB is
+  full speed only on the RP2354B, so the class is 0.2 mm tracks with 0.2 mm gap (the pin pitch, about 100 ohm), clearance
+  0.15 mm, and the rule allows 8 mm uncoupled and 2 mm skew per pair. Result: 23 unconnected items, the pair complete.
+- Clean +12 V rail and Pi 5 V (2026-10-27, Vincent: a clean 12 V rail, then "le pont pour l'alim 5V en cas
+  d'utilisation d'un Jetson", option A: before the DeepPCB run). `c42_sch_12v_or_pi_buck.py` (power sheet):
+  J23 (EXT_12V) and J11 pin 6 (IO_12V, the IO board's 12 V, unused so far) feed an ideal-diode OR, one LTC4412
+  (U33 / U34, TSOT-23-6, C514442) and one P-FET DMP3013SFV (Q19 / Q20, PowerDI3333, 30 V 11 mOhm) per input, into F1
+  and the +12V rail. EXT_12V has priority: R213 47k / R214 10k pull U34 CTL high and turn the J11 path off while
+  J23 is above about 5 V (CTL above 0.9 V). The Pi gets its own buck: U35 TPS54302 (C311983), L2 10 uH FXL0630, 2 x 22 uF out,
+  R215 100k / R216 13k for 5.18 V, on PI_5V_BUCK. JP3, a 3-pin header with one jumper shunt, picks the Pi header 5 V
+  (PI_5V, J21 pins 2 and 4, on the middle pin): 1-2 for the board +5 V as before, 2-3 for a Pi 4 / Pi 5 from the buck,
+  no shunt for a Jetson or a Pi powered on its own USB-C. One shunt cannot join both sources. The header is a
+  right-angle 1x3 2.54 mm PZ254R-11-03P (LCSC C492411, shunt C100114, about 3 A), about 2.5 mm high so it fits the
+  Pi area keep-low limit; the Pi has to come off to move the shunt (c46 / c47; c42 / c43 first had two solder
+  jumpers JP3 / JP4, which could both be bridged, then c44 / c45 one three-pad solder jumper). The MCU sheet's +5V symbol on J21 becomes the PI_5V label.
+  `c43_board_12v_or_pi_buck.py` (board): the OR sits by J23 (raw x 124.6-137.3, y 49.5-61.4), the buck under the
+  Pi at x 127-136.4, y 127-157 (L2 is 3.0 mm high: the Pi area keep-low limit), JP3 lies below the buck, pads on y 159.5 (pin 1
+  +5V at x 135.29, pin 2 PI_5V at 132.75, pin 3 PI_5V_BUCK at 130.21, pins and shunt toward +y): the +5V trunk to
+  J21 is cut on x 109 between y 155.3 and 157.3, and two B.Cu tracks (+5V on y 155.3, PI_5V on y 157.3) join it to
+  pins 1 and 2 through short F.Cu tails; the buck output bus on x 131.275 runs on into pin 3. No new part inside the DeepPCB cut. All their copper is hand-routed (no router),
+  net classes Power_12V 0.8 mm / 0.2 mm (the PowerDI3333 gate pad is 0.23 mm from a source pad) and Power_PI 1.2 mm.
+  Result: 23 unconnected items as before, no new DRC errors, schematic parity unchanged.
+- DeepPCB revision 44 of the v6 cut (2026-10-27, unfinished 30 min run), taken net by net (`tools/changes/route/take_nets.py`):
+  each net DeepPCB closed and we had open was tried alone on this board and kept only when the DRC errors did not
+  grow. Kept: J19 CC1, CC2 and VBUS (A4). Skipped, each colliding with our copper (6 to 43 errors): D21-A, SW_CLK,
+  SW_LOAD_N, BUS_A1, BUS_D1, BUS_D6, +1V1, +12V, +5V. Result: 19 unconnected items (23 before), no new DRC errors.
