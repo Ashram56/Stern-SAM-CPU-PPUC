@@ -16,7 +16,7 @@ continues, in square brackets.
 
 | Page | Sheet | Content | Architecture doc |
 |---|---|---|---|
-| 2 | Power | J11 (original connector: +5 V, ground, 12 V on pin 6), J17 external +5 V, ideal-diode mux with external priority, J23 external +12 V and J11 pin 6 through an ideal-diode OR (external priority) to the +12 V rail (polyfuse + TVS), TPS54302 buck for the Pi 5 V (one three-pad solder jumper picks buck, board +5 V or none for a Jetson), NCP1117 3.3 V (ceramic-stable), +4.5 V switch supply, ADC supply monitors, rail test points | 9.3 |
+| 2 | Power | J11 (original connector: +5 V, ground, 12 V on pin 6), J17 external +5 V, ideal-diode mux with external priority, J23 external +12 V and J11 pin 6 through an ideal-diode OR (external priority) to the +12 V rail (polyfuse + TVS), TPS54302 buck for the Pi 5 V (a 3-pin header with one shunt picks board +5 V, buck or none for a Jetson), NCP1117 3.3 V (ceramic-stable), +4.5 V switch supply, ADC supply monitors, rail test points | 9.3 |
 | 3 | MCU and Pi | RP2354B, crystal, core regulator parts, TPS3808 reset supervisor, RESET / BOOTSEL buttons, status LED, J21 Raspberry Pi 4 40-pin header (UART0, SPI0, I2S, RUN, BOOTSEL, IRQ) (no USB: the Pi flashes the RP2354B over SWD on J21 pins 18 / 22, GPIO24 / GPIO25), U25 DS3231MZ real-time clock on the Pi I2C1 with a CR2032 (BT1) | 4.2, 9.1, 9.2 |
 | 4 | IO bus | J9 to IO board J1: SN74LVC8T245 data, 74AHCT541 address + IOSTB, 2N7002 open-drain NBRESET, 33 R series resistor packs | 3.1, 3.2 |
 | 5 | Switch columns | 74HC595 + 8 MMBT3904 strobe drivers, J1 switch columns | 5.3, 5.4 |
