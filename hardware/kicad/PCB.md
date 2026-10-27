@@ -257,3 +257,17 @@ routing space (Vincent's choices):
   brings back the hand-routed, locked USB pair of e6c37a8 (U4 to R13 / R14 to J19), renamed to the c38 nets. USB is
   full speed only on the RP2354B, so the class is 0.2 mm tracks with 0.2 mm gap (the pin pitch, about 100 ohm), clearance
   0.15 mm, and the rule allows 8 mm uncoupled and 2 mm skew per pair. Result: 23 unconnected items, the pair complete.
+- Clean +12 V rail and Pi 5 V (2026-10-27, Vincent: a clean 12 V rail, then "le pont pour l'alim 5V en cas
+  d'utilisation d'un Jetson", option A: before the DeepPCB run). `c42_sch_12v_or_pi_buck.py` (power sheet):
+  J23 (EXT_12V) and J11 pin 6 (IO_12V, the IO board's 12 V, unused so far) feed an ideal-diode OR, one LTC4412
+  (U33 / U34, TSOT-23-6, C514442) and one P-FET DMP3013SFV (Q19 / Q20, PowerDI3333, 30 V 11 mOhm) per input, into F1
+  and the +12V rail. EXT_12V has priority: R213 47k / R214 10k pull U34 CTL high and turn the J11 path off while
+  J23 is above about 5 V (CTL above 0.9 V). The Pi gets its own buck: U35 TPS54302 (C311983), L2 10 uH FXL0630, 2 x 22 uF out,
+  R215 100k / R216 13k for 5.18 V, on PI_5V_BUCK. Two open solder jumpers pick the Pi header 5 V (PI_5V, J21 pins 2
+  and 4): JP4 BUCK for a Pi 4 / Pi 5 from the buck, JP3 BOARD for the board +5 V as before, both open for a Jetson
+  or a Pi powered on its own USB-C. Never bridge both. The MCU sheet's +5V symbol on J21 becomes the PI_5V label.
+  `c43_board_12v_or_pi_buck.py` (board): the OR sits by J23 (raw x 124.6-137.3, y 49.5-61.4), the buck under the
+  Pi at x 127-136.4, y 127-157 (L2 is 3.0 mm high: the Pi area keep-low limit), JP3 cuts the locked +5V trunk to J21
+  at (106.5, 112), and PI_5V from JP4 joins the trunk on B.Cu y 155.3. All their copper is hand-routed (no router),
+  net classes Power_12V 0.8 mm / 0.2 mm (the PowerDI3333 gate pad is 0.23 mm from a source pad) and Power_PI 1.2 mm.
+  Result: 23 unconnected items as before, no new DRC errors, schematic parity unchanged.

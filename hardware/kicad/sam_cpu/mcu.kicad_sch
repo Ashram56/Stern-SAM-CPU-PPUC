@@ -8884,83 +8884,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 330.2 132.08 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1d97d2cf-c7f2-53ec-a164-9c98a729b64d")
-		(property "Reference" "#PWR02056"
-			(at 330.2 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 330.2 128.524 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 330.2 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 330.2 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 330.2 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "370a79da-4d9e-5186-b585-78aec5c50e8e")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
-					(reference "#PWR02056")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+1V1")
 		(at 203.2 63.5 0)
 		(unit 1)
@@ -19011,5 +18934,29 @@
 			(justify left bottom)
 		)
 		(uuid "45a825a1-eee2-4afe-b7c0-6d13837fbc24")
+	)
+	(global_label "PI_5V"
+		(shape passive)
+		(at 330.2 132.08 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left)
+		)
+		(uuid "4da20596-1b30-4784-bef4-5ea2bc823d8d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 330.2 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+				(justify left)
+			)
+		)
 	)
 )
