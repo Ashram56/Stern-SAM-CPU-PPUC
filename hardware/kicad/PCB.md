@@ -280,3 +280,8 @@ routing space (Vincent's choices):
   each net DeepPCB closed and we had open was tried alone on this board and kept only when the DRC errors did not
   grow. Kept: J19 CC1, CC2 and VBUS (A4). Skipped, each colliding with our copper (6 to 43 errors): D21-A, SW_CLK,
   SW_LOAD_N, BUS_A1, BUS_D1, BUS_D6, +1V1, +12V, +5V. Result: 19 unconnected items (23 before), no new DRC errors.
+- `c48_board_u6_5v_decoupling.py` (2026-10-31, placement review): C32, U6's +5V 100 nF, stayed by the GND pins when
+  U6 was turned 180 degrees (c21) and reached pin 24 through about 25 mm of track. It now sits right below pin 24,
+  between U6 and RN3, with its own GND via; the old branch and its via are gone. No new DRC item, 19 open as before.
+  Still open from the same review: C25 / C26 (+1V1, no plane) are 8-10 mm from U4 pins 10 / 32, and the free spots by
+  those pins are taken by the bus escapes.
