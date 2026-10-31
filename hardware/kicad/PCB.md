@@ -302,3 +302,9 @@ routing space (Vincent's choices):
     (150.65, 184); its pads and body are 2.4 mm away, so it stays.
   Result: 19 unconnected items as before, no new DRC errors, ERC 0, schematic parity unchanged (pre-existing field
   and BOM-flag mismatches only).
+- `c51_0603_to_0805.py` (2026-10-31, targeted repairability pass, Vincent chose "targeted" over a full re-placement):
+  every 0603 R / C whose 0805 footprint fits in place (same centre, rotation and copper) became 0805. DRC decided
+  which fit (swap all, put back one part per new copper / courtyard / mask error, repeat): 78 of 301 (53 R, 25 C),
+  listed in `tools/changes/c51_0805_refs.txt`. The other 223 sit too close to a neighbour, mostly the switch input
+  arrays by J1 / J2 / J3 / J13, the audio block and U4's decoupling; widening those gaps needs parts moved and
+  rerouted. 19 unconnected items as before, no new DRC error, ERC 0, schematic parity unchanged.
