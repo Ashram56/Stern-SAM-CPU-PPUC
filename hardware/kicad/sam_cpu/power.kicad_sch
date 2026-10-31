@@ -7306,7 +7306,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 89.662 95.25 90)
 			(hide yes)
 			(show_name no)
@@ -7328,7 +7328,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, 0603WAF1003T5E (LCSC C25803)"
 			(at 91.44 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -7802,7 +7802,7 @@
 				)
 			)
 		)
-		(property "Description" "Polarized capacitor"
+		(property "Description" "Polarized capacitor, 100 uF 35 V solid polymer 6.3 x 7.5 mm, APAQ 350AVEP101M0608 (LCSC C3035877)"
 			(at 157.48 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -8326,7 +8326,7 @@
 				)
 			)
 		)
-		(property "Value" "3A"
+		(property "Value" "6A"
 			(at 48.26 139.954 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8336,7 +8336,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
+		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
 			(at 48.26 138.938 90)
 			(hide yes)
 			(show_name no)
@@ -8358,7 +8358,7 @@
 				)
 			)
 		)
-		(property "Description" "Ferrite bead, small symbol"
+		(property "Description" "Ferrite bead 120 R at 100 MHz, 6 A, 20 mOhm max, Vishay ILHB1206ER121V (LCSC C124704)"
 			(at 48.26 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -9371,7 +9371,7 @@
 				)
 			)
 		)
-		(property "Description" "Polarized capacitor"
+		(property "Description" "Polarized capacitor, 100 uF 35 V solid polymer 6.3 x 7.5 mm, APAQ 350AVEP101M0608 (LCSC C3035877)"
 			(at 248.92 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -14763,7 +14763,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, 25 V X7R 1206 (LCSC C14860)"
+		(property "Description" "Unpolarized capacitor, 50 V X7R 1206 CGA1206X7R106K500NT (LCSC C6119989)"
 			(at 302.26 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -14927,7 +14927,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, 25 V X7R 1206 (LCSC C14860)"
+		(property "Description" "Unpolarized capacitor, 50 V X7R 1206 CGA1206X7R106K500NT (LCSC C6119989)"
 			(at 312.42 204.47 0)
 			(hide yes)
 			(show_name no)

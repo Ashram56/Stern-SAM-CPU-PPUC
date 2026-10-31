@@ -8137,7 +8137,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "Unpolarized capacitor, 50 V X7R 0603 CL10B224KB8NNNC (LCSC C64705)"
 			(at 166.37 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -8457,7 +8457,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "Unpolarized capacitor, 50 V X5R 0805 GRM21BR61H106KE43L (LCSC C440198)"
 			(at 160.02 201.93 0)
 			(hide yes)
 			(show_name no)

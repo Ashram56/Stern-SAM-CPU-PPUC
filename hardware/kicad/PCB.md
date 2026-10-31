@@ -285,3 +285,20 @@ routing space (Vincent's choices):
   between U6 and RN3, with its own GND via; the old branch and its via are gone. No new DRC item, 19 open as before.
   Still open from the same review: C25 / C26 (+1V1, no plane) are 8-10 mm from U4 pins 10 / 32, and the free spots by
   those pins are taken by the bus escapes.
+- `c49_sch_power_reset_derating.py` / `c50_board_power_reset_derating.py` (2026-10-31, repairability and derating
+  review, Vincent chose "apply all"):
+  - R217 (new, 10k 0805, C17414) pulls MR_N of U5 (TPS3808) up to +3V3. Without it the Pi's default pull-down on
+    GPIO22, through R20 1k, holds MR_N near 1.2 V while the Pi boots, between the TPS3808 input thresholds. It sits
+    left of U5 at (68.0, 74.6), on the MR_N track, with a +3V3 via to In2.
+  - R1 (TPS2117 PR1 divider) 0402 -> 0603 (C25803), moved out of its 0.03 mm gap between F1, D1 and U1 to (96.6, 104.54)
+    below F1, rotated 90: PR1 from U1 pin 4 along y 103.11, EXT_5V to the via at (98.33, 104.446).
+  - FB1 3 A 0805 -> 6 A 1206 ferrite ILHB1206ER121V (C124704, 20 mOhm max): a Pi 4 on the board +5V (JP3 1-2) can draw
+    3 A by itself. Centred at (103.38, 108.735).
+  - R211 (RS485 120 R termination) 0603 -> 1206 (C17909, 250 mW for a shorted line), centred at (148.3, 206.3).
+  - Part only: C133 / C134 10 uF 50 V X7R 1206 (C6119989; C13585 is out of stock), C114 10 uF 50 V X5R 0805 (C440198),
+    C112 220 nF 50 V 0603 (C64705), C4 / C8 100 uF 35 V solid polymer APAQ 350AVEP101M0608 (C3035877, same 6.3 mm
+    can; no 6.3 x 7.7 wet part rated over 2000 h was found at LCSC).
+  - U32 was listed as 0.35 mm from the board edge: that is only its courtyard corner against the notch corner at
+    (150.65, 184); its pads and body are 2.4 mm away, so it stays.
+  Result: 19 unconnected items as before, no new DRC errors, ERC 0, schematic parity unchanged (pre-existing field
+  and BOM-flag mismatches only).

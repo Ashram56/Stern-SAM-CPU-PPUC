@@ -6725,7 +6725,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 196.342 80.01 90)
 			(hide yes)
 			(show_name no)
@@ -6747,7 +6747,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, 250 mW 1206W4F1200T5E (LCSC C17909): survives a shorted RS485 line"
 			(at 198.12 80.01 0)
 			(hide yes)
 			(show_name no)
