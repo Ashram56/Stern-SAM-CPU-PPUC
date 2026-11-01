@@ -334,3 +334,9 @@ routing space (Vincent's choices):
   (26 unconnected items, was 19). R216 moved 1 mm up and 0.5 mm left (clear of U35 and R215), GND via left of the
   pad; the buck input loop C133 / C134 / C137 stays tight (TPS54302 layout guidance). No new DRC error apart
   from the dangling ends left for rerouting.
+- `c57_freerouting/` (2026-11-01): Freerouting 2.5 (Java 25) closed 6 of the connections c56 opened, on F.Cu / B.Cu
+  only, 45 / 90 degree tracks: +12V at C108 / C118, +5V at C4, RP_UART_TX, EXT_5V. Only those nets were exported
+  (mk.py = route/mkonly.py, box x 80-135 y 48-90, all existing copper protected, inner layers kept out);
+  imp_new.py adds the new copper from the .ses. The 14.9 mm EXT_5V segment is 0.48 mm wide (0.5 left 0.006 mm
+  short of the 0.2 mm clearance to C4). 20 unconnected items (was 26). Still open here: C4 +5V to U1, VMON_5V,
+  and C3 +12V / +5V by C6 (already open before c56). No new DRC error.
