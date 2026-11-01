@@ -308,14 +308,8 @@ routing space (Vincent's choices):
   listed in `tools/changes/c51_0805_refs.txt`. The other 223 sit too close to a neighbour, mostly the switch input
   arrays by J1 / J2 / J3 / J13, the audio block and U4's decoupling; widening those gaps needs parts moved and
   rerouted. 19 unconnected items as before, no new DRC error, ERC 0, schematic parity unchanged.
-- `c52_u4_1v1_inward.py` / `c53_bus_reroute.py` (2026-11-01, bus reroute, Vincent chose "reroute the bus"):
-  Freerouting could not close the open bus nets, even with the whole U6/U7 to U4 corridor ripped or In2 opened:
-  the +1V1 link inside U4 (y 51.9, x 69.6, 0.6 mm from the pin rows) left no room for a via behind the pads.
-  c52 moves it to y 52.7 / x 70.8 (0.75 mm from the exposed pad). c53 rips BUS_D0..D7, BUS_A0..A3 and BUS_IOSTB and
-  lays D0..D7 and A0..A3 again from `c53_bus_routes.json`, made by a grid router (0.05 mm grid, F.Cu / B.Cu, 0.2 mm
-  tracks, 0.6 / 0.3 vias, other copper kept with its clearance, failed nets retried first); U6's pin 11 GND via
-  moves 0.12 mm for hole-to-hole. BUS_D0, D1, D6, A0 and A1 now connect; BUS_IOSTB, which the reroute displaced,
-  is open. Result: 15 unconnected items instead of 19, no new DRC error, schematic parity unchanged.
-  Still open there: BUS_IOSTB, SW_CLK, SW_LOAD_N (U4 pins 11, 16, 17, boxed in by the BUS_DIR, +3V3 and SW_DATA vias
-  at x 69.3) and BOOTSEL. Moving U4 does not help by itself: its decoupling ring sits 0.12 to 0.39 mm from it on
-  three sides (2.9 mm free below).
+- `c52_u4_1v1_inward.py` (2026-11-01): the +1V1 link inside U4 ran at y 51.9 / x 69.6, 0.6 mm from the pin rows,
+  and left no room for a via behind the pads; it now runs at y 52.7 / x 70.8 (0.75 mm from the exposed pad), which
+  frees that room for hand routing of the bus. 19 unconnected items as before, no new DRC error.
+  An automatic reroute of the bus on top of it (c53, b163863) closed 4 nets but with any-angle, unbundled tracks;
+  Vincent rejected it and it was reverted. The remaining bus, SW_CLK, SW_LOAD_N and BOOTSEL nets are routed by hand.
