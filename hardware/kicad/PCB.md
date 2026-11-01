@@ -327,3 +327,10 @@ routing space (Vincent's choices):
     the TPS54302 buck loop (kept tight on purpose), the electrolytics C4 / C108 / C118 (moving C108 down needs the
     SWCLK and J10 tracks rerouted), R205 / R207 / R209 by U32, R1 by F1, JP1 by FB1.
   - 19 unconnected items as before (BOOTSEL now U4 to R15 only), no new DRC error, ERC unchanged, parity unchanged.
+- `c56_electrolytics_buck_fb.py` (2026-11-01): C4 / C108 / C118 spread in their row (Vincent chose the simple
+  spread, no rotation): gaps 1.55 / 1.85 mm (were 0.07 / 0.06). The row is boxed in by R3-R7 / C9 / D2 above and
+  the U23 / U24 heatsink keep-out below; C4 stops at the J11 pin 1 / EXT_5V tracks. Their stubs and the copper
+  under the new pads are ripped for hand routing: +5V, +12V (C108, C118), VMON_5V, RP_UART_TX, RP_IRQ_N
+  (26 unconnected items, was 19). R216 moved 1 mm up and 0.5 mm left (clear of U35 and R215), GND via left of the
+  pad; the buck input loop C133 / C134 / C137 stays tight (TPS54302 layout guidance). No new DRC error apart
+  from the dangling ends left for rerouting.
