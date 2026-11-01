@@ -5960,7 +5960,7 @@
 		)
 		(uuid "4ace861d-af0f-57bf-a12c-32df2a2d7de1")
 	)
-	(text "GPIO map: ARCHITECTURE.md 9.2. PIO0 bus on GPIO0-15, PIO1 switch chain on GPIO16-20, GPIO20-22: RS485 port (UART1 TX / RX, driver enable, page 13); GPIO23-36 unassigned. Pi UART3 (GPIO4 / 5, RTS on GPIO7) reaches the same port.\nFrames from the Pi on SPI1 (GPIO40-42), UART0 on GPIO44-45, ADC monitors on GPIO46-47, GPIO43 spare. Coin door and status LED moved onto the switch chain. USB-C J19 (backup flashing path); the Pi also flashes the RP2354B over SWD on J21 (pin 18 GPIO24 = SWDIO, pin 22 GPIO25 = SWCLK, as raspberrypi-swd.cfg) and drives RUN and BOOTSEL.\nCore supply from the internal switching regulator: VREG_LX -> L1 -> DVDD (1.1 V); VREG_AVDD through 33 R / 4.7 uF. Check against the RP2350 hardware guide.\nRaspberry Pi 4 on the 40-pin header J21 (HDMI stays on the Pi). The Pi is powered from the board +5 V: never plug the Pi USB-C supply at the same time.\nU25 DS3231MZ real-time clock on the Pi I2C1 bus (Linux: dtoverlay=i2c-rtc,ds3231), backed by a CR2032 in BT1."
+	(text "GPIO map: ARCHITECTURE.md 9.2. PIO0 bus on GPIO0-15, PIO1 switch chain on GPIO16-20, GPIO20-22: RS485 port (UART1 TX / RX, driver enable, page 13); GPIO23-36 unassigned. Pi UART3 (GPIO4 / 5, RTS on GPIO7) reaches the same port.\nFrames from the Pi on SPI1 (GPIO40-42), UART0 on GPIO44-45, ADC monitors on GPIO46-47, GPIO43 spare. Coin door and status LED moved onto the switch chain. USB-C J19 (backup flashing path); the Pi also flashes the RP2354B over SWD on J21 (pin 18 GPIO24 = SWDIO, pin 22 GPIO25 = SWCLK, as raspberrypi-swd.cfg) and drives RUN (BOOTSEL only from SW2: R21 removed, GPIO27 free).\nCore supply from the internal switching regulator: VREG_LX -> L1 -> DVDD (1.1 V); VREG_AVDD through 33 R / 4.7 uF. Check against the RP2350 hardware guide.\nRaspberry Pi 4 on the 40-pin header J21 (HDMI stays on the Pi). The Pi is powered from the board +5 V: never plug the Pi USB-C supply at the same time.\nU25 DS3231MZ real-time clock on the Pi I2C1 bus (Linux: dtoverlay=i2c-rtc,ds3231), backed by a CR2032 in BT1."
 		(exclude_from_sim no)
 		(at 15.24 15.24 0)
 		(effects
@@ -7003,16 +7003,6 @@
 	)
 	(wire
 		(pts
-			(xy 345.44 185.42) (xy 370.84 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a33a7ce0-c004-5863-913f-469e5289b156")
-	)
-	(wire
-		(pts
 			(xy 220.98 43.18) (xy 220.98 40.64)
 		)
 		(stroke
@@ -7810,16 +7800,6 @@
 			(justify right bottom)
 		)
 		(uuid "9787b20f-2ba8-50f9-8e62-5bce9473bf18")
-	)
-	(label "BOOTSEL"
-		(at 378.46 185.42 0)
-		(effects
-			(font
-				(size 1.6 1.6)
-			)
-			(justify left bottom)
-		)
-		(uuid "c08e7e8f-b30c-5559-a9d2-df7e1ffa2fc7")
 	)
 	(global_label "FRAME_CS_N"
 		(shape bidirectional)
@@ -8961,85 +8941,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 374.65 185.42 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2619a4b4-828c-5195-9cbd-e7689acd1d86")
-		(property "Reference" "R21"
-			(at 374.65 182.626 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 374.65 188.214 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 374.65 187.198 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 374.65 185.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 374.65 185.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0ebb1581-b66f-5a0a-8e56-ec76cac50e72")
-		)
-		(pin "2"
-			(uuid "5e65dbcb-07da-5675-8e6d-aa86ba9d5bff")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/d360c6c3-40d3-5528-aec0-e616a30a2847"
-					(reference "R21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 243.84 53.34 0)
 		(unit 1)
@@ -9617,7 +9518,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 298.1452 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -10375,7 +10276,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 252.4252 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -12890,7 +12791,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 282.9052 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -13516,7 +13417,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 290.5252 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -19126,5 +19027,9 @@
 			(type default)
 		)
 		(uuid "1e025c9b-2cb9-4580-9913-0a1faaaa2114")
+	)
+	(no_connect
+		(at 345.44 185.42)
+		(uuid "5a98edbb-4ffd-48c0-969b-bb428f8dfc55")
 	)
 )

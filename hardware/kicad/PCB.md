@@ -313,3 +313,17 @@ routing space (Vincent's choices):
   frees that room for hand routing of the bus. 19 unconnected items as before, no new DRC error.
   An automatic reroute of the bus on top of it (c53, b163863) closed 4 nets but with any-angle, unbundled tracks;
   Vincent rejected it and it was reverted. The remaining bus, SW_CLK, SW_LOAD_N and BOOTSEL nets are routed by hand.
+- `c54_repair_spacing.py` + `c55_sch_remove_r21.py` (2026-11-01, repairability spacing review, base ba9e07e):
+  - BOOTSEL: R15 sits next to U4 pin 75 (68.97, 45.6) so the trace to the button stays behind 1k instead of
+    hanging on the internal flash chip select; SW2 moved to the free area above U4 (55.25, 41.0), routed to R15
+    with 90 degree tracks. R21 (Pi GPIO27 to BOOTSEL) removed from schematic and board: the Pi flashes and
+    recovers the RP2354B over SWD; J21 pad 13 is a no-connect. U4 pin 75 to R15 is left for hand routing.
+  - Pin 68 (+3V3) lost its own via: vertical, then joins pin 69's track.
+  - Spread around U4: C12 up 1.35 mm, C13 / C22 / C23 up and left (1.5 mm from U4), C11 / R8 / C21 right.
+    33 more tight passives moved 0.3-1 mm (`c54_moves.json`, searched, each kept only if DRC added no error);
+    parts carry their private GND / +3V3 via stubs, other tracks get an axis-aligned jog (`c54_movelib.py`).
+  - 12 more 0603 parts became 0805 (`c54_0805_refs.txt`, c51 search on the moved board).
+  - Courtyard gaps under 0.25 mm: 69 -> 46 pairs. Left: 0805 resistor rows at 0.2 mm (switch input arrays),
+    the TPS54302 buck loop (kept tight on purpose), the electrolytics C4 / C108 / C118 (moving C108 down needs the
+    SWCLK and J10 tracks rerouted), R205 / R207 / R209 by U32, R1 by F1, JP1 by FB1.
+  - 19 unconnected items as before (BOOTSEL now U4 to R15 only), no new DRC error, ERC unchanged, parity unchanged.
