@@ -4,7 +4,8 @@ Usage: mkonly.py in.dsn out.dsn "net1,net2" x0 y0 x1 y1 ["x,y x,y ...|x,y ..."]
 The optional last argument lists polygons (mm) the routed nets must stay out of, e.g. the non-isolated side."""
 import re, sys
 ISO = set(sys.argv[3].split(','))
-CLR = 200
+import os
+CLR = int(os.environ.get("CLR", "200"))   # keepout growth (um); 0 lets the router apply its own clearance
 bx0, by0, bx1, by1 = (float(v) * 1000 for v in sys.argv[4:8])
 X0, X1, Y0, Y1 = bx0, bx1, -by1, -by0
 s = open(sys.argv[1]).read()

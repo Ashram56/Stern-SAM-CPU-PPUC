@@ -6018,7 +6018,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 150.8252 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -6922,7 +6922,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 26.3652 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -7159,7 +7159,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 144.78 151.4348 0)
 			(hide yes)
 			(show_name no)
@@ -8137,7 +8137,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "Unpolarized capacitor, 50 V X7R 0603 CL10B224KB8NNNC (LCSC C64705)"
 			(at 166.37 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -8457,7 +8457,7 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "Unpolarized capacitor, 50 V X5R 0805 GRM21BR61H106KE43L (LCSC C440198)"
 			(at 160.02 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -13096,7 +13096,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 310.8452 215.9 0)
 			(hide yes)
 			(show_name no)
@@ -13931,7 +13931,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 176.2252 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -14478,7 +14478,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 33.9852 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -14559,7 +14559,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 165.862 229.87 90)
 			(hide yes)
 			(show_name no)
