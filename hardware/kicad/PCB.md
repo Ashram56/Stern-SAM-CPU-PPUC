@@ -15,8 +15,10 @@ backbox (same frame as `docs/mechanical/`). KiCad's grid and drill origins are s
 
 ## Outline
 
-**120.65 x 236.76 mm**, 55 % of the original 219.06 mm width, widened to **142 mm from y 154 down** (below the Pi)
-for the RS485 and line-in connectors. The left edge is unchanged; the bottom edge is 5 mm lower than the original
+**142 x 236.76 mm** with a notch on the right edge (x 120.65-142, y 96.5-154 from the top-left corner) where
+the face-down Pi's USB / Ethernet jacks hang off the board. Up to draft 0.7 the board was 120.65 mm wide above the
+Pi and 142 mm below it (RS485 and line-in connectors); c58 (2026-11-01) widened the part above the Pi too, for
+routing room. The left edge is unchanged; the bottom edge is 5 mm lower than the original
 231.76 mm so the lowered MH3 keyhole fits (draft 0.7). (Draft 0.4 had the
 same extension for the HUB75 headers; draft 0.6 removed it with the DMD; draft 0.7 brings it back for the RJ45s.) The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
 hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 4 copper layers.
@@ -340,3 +342,19 @@ routing space (Vincent's choices):
   imp_new.py adds the new copper from the .ses. The 14.9 mm EXT_5V segment is 0.48 mm wide (0.5 left 0.006 mm
   short of the 0.2 mm clearance to C4). 20 unconnected items (was 26). Still open here: C4 +5V to U1, VMON_5V,
   and C3 +12V / +5V by C6 (already open before c56). No new DRC error.
+- `c58_widen_right.py` + `c58_krt/` (2026-11-01): board widened above the Pi to the 142 mm of the lower part
+  (Edge.Cuts x 172 in KiCad coordinates), with a notch left for the Pi's USB / Ethernet jacks (KiCad x 150.65-172,
+  y 126.5-184). J17 / J23 / J22 / J24 / J30 follow the right edge (+21.35 mm), the 12 V OR stage moves 10 mm
+  right as a block, C108 / C118 spread further, TP19 / TP20 sit above J30. Routing with KiCadRoutingTools, F.Cu /
+  B.Cu only (record and order in `c58_krt/README.md`):
+  - The ripped power, J10, J30 audio and VMON nets rerouted; audio DAC tracks 90 / 87 mm, at least 10.6 mm from the
+    buck switch node.
+  - The +3V3 vias of U4 pins 5, 76, 24, 29 moved under the package (tented, between the pad rows and the exposed
+    pad), and the 24 bus-side U4 nets refanned and rerouted in bus mode: BUS_D0-D7 / A0-A3 leave U4 as an ordered
+    45 degree bundle to U6 / U7; BOOTSEL, A0, A1, D0, D1, D6 are now routed.
+  - SW_CLK, SW_LOAD_N, SW_DATA, STB_DATA, RP_RS485_RX / DE keep their previous tracks (KRT routed them in
+    400-500 mm detours); the pieces that crossed the new bus were cut.
+  - 15 unconnected items (was 20). Left for hand routing at U4: SW_CLK, SW_LOAD_N, SW_DATA, STB_DATA, BUS_IOSTB,
+    RP_RS485_RX. Elsewhere, as before: 3 GND_ISO islands, +12V at C3 / R197, +5V at U1, +1V1, D18, D21.
+  - To tidy by hand: BUS_OE_N takes a 145 mm route around U6 (53 mm before), some B.Cu bus tracks wiggle near U7,
+    and one clearance error (RP_RS485_TX against a NBRESET_DRV via) remains. Schematic parity unchanged.
