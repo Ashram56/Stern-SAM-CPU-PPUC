@@ -15,9 +15,11 @@ backbox (same frame as `docs/mechanical/`). KiCad's grid and drill origins are s
 
 ## Outline
 
-**120.65 x 236.76 mm**, 55 % of the original 219.06 mm width, widened to **142 mm from y 154 down** (below the Pi)
-for the RS485 and line-in connectors. The left edge is unchanged; the bottom edge is 5 mm lower than the original
-231.76 mm so the lowered MH3 keyhole fits (draft 0.7). (Draft 0.4 had the
+**142 x 231.76 mm** with a notch on the right edge (x 120.65-142, y 96.5-154 from the top-left corner) where
+the face-down Pi's USB / Ethernet jacks hang off the board. Up to draft 0.7 the board was 120.65 mm wide above the
+Pi and 142 mm below it (RS485 and line-in connectors); c58 (2026-11-01) widened the part above the Pi too, for
+routing room. The left and bottom edges are the original ones (draft 0.7 had moved the bottom edge 5 mm down for a lowered MH3;
+c59 / c60 undid both). (Draft 0.4 had the
 same extension for the HUB75 headers; draft 0.6 removed it with the DMD; draft 0.7 brings it back for the RJ45s.) The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
 hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 4 copper layers.
 
@@ -28,7 +30,7 @@ All on original backbox screw positions (`docs/mechanical/README.md`):
 | Hole | Type | Screw X, Y |
 |---|---|---|
 | MH6 | keyhole, opens upward, top-left | 8.24, 6.27 |
-| MH3 | keyhole, opens upward, bottom-left (lowered 7.42 mm, draft 0.7) | 8.24, 222.59 |
+| MH3 | keyhole, opens upward, bottom-left (back to the Stern position, c59) | 8.24, 215.17 |
 | MH7 | round, left middle | 8.25, 116.84 |
 | MH5 | round, top | 109.20, 6.98 |
 | MH4 | round, bottom | 97.14, 222.86 |
@@ -109,7 +111,7 @@ board could lose about 10 mm of width.
   next to U4 (column between U7 and J20, x 31.4-33.0). The bus, USB and RS485 nets were ripped for re-routing
   (`c22_board_rp_fanout.py`). BUS_DIR and BUS_OE_N still cross the address lines (fixed pins on both sides): one via
   each.
-- **MH3** (draft 0.7): Vincent saw the bottom-left keyhole sat too high. On the Stern drawing the top keyholes' screw
+- **MH3** (draft 0.7, undone by c59 on 2026-11-11): Vincent saw the bottom-left keyhole sat too high. On the Stern drawing the top keyholes' screw
   positions are level with the top round hole MH5, but the bottom ones are 7.4 mm (one slide) above the bottom round
   hole MH4. MH3's screw position moved down 7.42 mm to y 222.59 (0.27 mm from MH4's row); its clearance circle would
   cross the bottom edge there, so it is an open notch in the outline. U31 (595) sits by J1, U30
@@ -224,3 +226,144 @@ script in `tools/changes/`, applied on top of b08cf77 in this order:
   VIN1 selected above about 4 V. U1 sits in the old Q1 / Q2 spot at (99.75, 103.85); R1 (now 0402) stands between F1
   and the EXT_5V track, R2 east of U1, PR1 crosses under U1 on B.Cu. EXT_5V / J11_5V move to the Power_5V class
   (0.2 mm, for the 0.5 mm pitch pins). Result: 36 unconnected items, no new DRC errors, parity as before, ERC clean.
+
+### Second alternative (branch claude/project-thread-ij88aa, 2026-10-17)
+
+Same RP2354B-on-board design and stack-up (F signal, In1 GND, In2 +3V3, B signal), with parts taken out to free
+routing space (Vincent's choices):
+- `c35_sch_trim_usb_gi_dip_swd.py` / `c36_board_trim_usb_gi_dip_swd.py`: USB-C J19 with R10-R14, the GI dimmer
+  sheet (J18, R183-R185), the J20 SWD header and the DIP block (SW3, R168-R175, C93, U14) are removed. The Pi flashes
+  the RP2354B over SWD on J21 pin 18 GPIO24 = SWDIO and pin 22 GPIO25 = SWCLK, as Raspberry Pi OpenOCD's
+  `interface/raspberrypi-swd.cfg` (`adapter gpio swdio 24`, `swclk 25`); a blank RP2354B flashes over SWD. U15's
+  serial input goes to GND, so the switch chain is 8 bits shorter (firmware: 48 bits, no DIP byte).
+- `c37_board_bus_arrays_by_j9.py`: RN1-RN3 and TP10-TP13 moved next to J9 (`movelib.py` moves named parts only).
+- All unlocked copper re-routed with Freerouting 2.5.0 in chunks, then hand fixes (EXT_5V under U1).
+- Result: 18 unconnected items (baseline 36), no DRC errors apart from starved thermals, schematic parity clean,
+  ERC clean. Still open:
+  - U4 left-side escape to U6 / U7: BUS_A0, BUS_A1, BUS_D0, BUS_D1, BUS_D6, SW_CLK, SW_LOAD_N, BOOTSEL (8).
+    The +3V3 plane vias of U4 pins 5 and 76 and the inner +1V1 ring block these lanes.
+  - Power fragments: +5V (C6-C33, U1 VOUT / TP1, near R197) 4, +12V (C3, R197) 2.
+  - D18-A, D21-A, and 2 GND_ISO zone islands.
+- USB-C back as a backup flashing path (2026-10-18, Vincent: "start from a board with USB-C fitted ... placement
+  only, DeepPCB routes it"): `c38_sch_restore_usb.py` restores J19 and R10-R14 on the MCU sheet as at e6c37a8 and
+  names the pair USB_D+ / USB_D- (U4 to R13 / R14) and USB_C_D+ / USB_C_D- (R13 / R14 to J19).
+  `c39_board_restore_usb.py` places J19, R13, R14 at their e6c37a8 spots (top edge above U4) and R10-R12 in a column
+  left of J19 (their old spot is now D3 / SW2), 1 mm or more between courtyards, unrouted. Netclass USB: 0.2 mm
+  tracks, 0.15 mm gap differential pair (about 90 ohm on F.Cu over In1 with the JLC04161H-7628 stack; check with
+  JLCPCB's calculator), plus a `sam_cpu.kicad_dru` rule (gap 0.13-0.2 mm, 3 mm uncoupled, 0.5 mm skew). The J20 SWD
+  header, the GI dimmer and the DIP block stay removed; SW1 RESET and SW2 BOOTSEL were never removed.
+  Result: 28 unconnected items (the 18 above + 10 for USB-C), no new DRC errors, ERC clean.
+- DeepPCB dropped U4 pins 66 / 67 as unreachable (a coupled 0.2 / 0.15 mm pair can't leave a 0.4 mm pitch QFN).
+  `c40_board_usb_pin_escape.py` removes the unlocked +1V1 stub from pin 65 to L1 that ran beside pin 66 (pin 65
+  keeps the locked inner ring; L1 / C24 are now one +1V1 open for the router). `c41_board_usb_pair_from_e6c37a8.py`
+  brings back the hand-routed, locked USB pair of e6c37a8 (U4 to R13 / R14 to J19), renamed to the c38 nets. USB is
+  full speed only on the RP2354B, so the class is 0.2 mm tracks with 0.2 mm gap (the pin pitch, about 100 ohm), clearance
+  0.15 mm, and the rule allows 8 mm uncoupled and 2 mm skew per pair. Result: 23 unconnected items, the pair complete.
+- Clean +12 V rail and Pi 5 V (2026-10-27, Vincent: a clean 12 V rail, then "le pont pour l'alim 5V en cas
+  d'utilisation d'un Jetson", option A: before the DeepPCB run). `c42_sch_12v_or_pi_buck.py` (power sheet):
+  J23 (EXT_12V) and J11 pin 6 (IO_12V, the IO board's 12 V, unused so far) feed an ideal-diode OR, one LTC4412
+  (U33 / U34, TSOT-23-6, C514442) and one P-FET DMP3013SFV (Q19 / Q20, PowerDI3333, 30 V 11 mOhm) per input, into F1
+  and the +12V rail. EXT_12V has priority: R213 47k / R214 10k pull U34 CTL high and turn the J11 path off while
+  J23 is above about 5 V (CTL above 0.9 V). The Pi gets its own buck: U35 TPS54302 (C311983), L2 10 uH FXL0630, 2 x 22 uF out,
+  R215 100k / R216 13k for 5.18 V, on PI_5V_BUCK. JP3, a 3-pin header with one jumper shunt, picks the Pi header 5 V
+  (PI_5V, J21 pins 2 and 4, on the middle pin): 1-2 for the board +5 V as before, 2-3 for a Pi 4 / Pi 5 from the buck,
+  no shunt for a Jetson or a Pi powered on its own USB-C. One shunt cannot join both sources. The header is a
+  right-angle 1x3 2.54 mm PZ254R-11-03P (LCSC C492411, shunt C100114, about 3 A), about 2.5 mm high so it fits the
+  Pi area keep-low limit; the Pi has to come off to move the shunt (c46 / c47; c42 / c43 first had two solder
+  jumpers JP3 / JP4, which could both be bridged, then c44 / c45 one three-pad solder jumper). The MCU sheet's +5V symbol on J21 becomes the PI_5V label.
+  `c43_board_12v_or_pi_buck.py` (board): the OR sits by J23 (raw x 124.6-137.3, y 49.5-61.4), the buck under the
+  Pi at x 127-136.4, y 127-157 (L2 is 3.0 mm high: the Pi area keep-low limit), JP3 lies below the buck, pads on y 159.5 (pin 1
+  +5V at x 135.29, pin 2 PI_5V at 132.75, pin 3 PI_5V_BUCK at 130.21, pins and shunt toward +y): the +5V trunk to
+  J21 is cut on x 109 between y 155.3 and 157.3, and two B.Cu tracks (+5V on y 155.3, PI_5V on y 157.3) join it to
+  pins 1 and 2 through short F.Cu tails; the buck output bus on x 131.275 runs on into pin 3. No new part inside the DeepPCB cut. All their copper is hand-routed (no router),
+  net classes Power_12V 0.8 mm / 0.2 mm (the PowerDI3333 gate pad is 0.23 mm from a source pad) and Power_PI 1.2 mm.
+  Result: 23 unconnected items as before, no new DRC errors, schematic parity unchanged.
+- DeepPCB revision 44 of the v6 cut (2026-10-27, unfinished 30 min run), taken net by net (`tools/changes/route/take_nets.py`):
+  each net DeepPCB closed and we had open was tried alone on this board and kept only when the DRC errors did not
+  grow. Kept: J19 CC1, CC2 and VBUS (A4). Skipped, each colliding with our copper (6 to 43 errors): D21-A, SW_CLK,
+  SW_LOAD_N, BUS_A1, BUS_D1, BUS_D6, +1V1, +12V, +5V. Result: 19 unconnected items (23 before), no new DRC errors.
+- `c48_board_u6_5v_decoupling.py` (2026-10-31, placement review): C32, U6's +5V 100 nF, stayed by the GND pins when
+  U6 was turned 180 degrees (c21) and reached pin 24 through about 25 mm of track. It now sits right below pin 24,
+  between U6 and RN3, with its own GND via; the old branch and its via are gone. No new DRC item, 19 open as before.
+  Still open from the same review: C25 / C26 (+1V1, no plane) are 8-10 mm from U4 pins 10 / 32, and the free spots by
+  those pins are taken by the bus escapes.
+- `c49_sch_power_reset_derating.py` / `c50_board_power_reset_derating.py` (2026-10-31, repairability and derating
+  review, Vincent chose "apply all"):
+  - R217 (new, 10k 0805, C17414) pulls MR_N of U5 (TPS3808) up to +3V3. Without it the Pi's default pull-down on
+    GPIO22, through R20 1k, holds MR_N near 1.2 V while the Pi boots, between the TPS3808 input thresholds. It sits
+    left of U5 at (68.0, 74.6), on the MR_N track, with a +3V3 via to In2.
+  - R1 (TPS2117 PR1 divider) 0402 -> 0603 (C25803), moved out of its 0.03 mm gap between F1, D1 and U1 to (96.6, 104.54)
+    below F1, rotated 90: PR1 from U1 pin 4 along y 103.11, EXT_5V to the via at (98.33, 104.446).
+  - FB1 3 A 0805 -> 6 A 1206 ferrite ILHB1206ER121V (C124704, 20 mOhm max): a Pi 4 on the board +5V (JP3 1-2) can draw
+    3 A by itself. Centred at (103.38, 108.735).
+  - R211 (RS485 120 R termination) 0603 -> 1206 (C17909, 250 mW for a shorted line), centred at (148.3, 206.3).
+  - Part only: C133 / C134 10 uF 50 V X7R 1206 (C6119989; C13585 is out of stock), C114 10 uF 50 V X5R 0805 (C440198),
+    C112 220 nF 50 V 0603 (C64705), C4 / C8 100 uF 35 V solid polymer APAQ 350AVEP101M0608 (C3035877, same 6.3 mm
+    can; no 6.3 x 7.7 wet part rated over 2000 h was found at LCSC).
+  - U32 was listed as 0.35 mm from the board edge: that is only its courtyard corner against the notch corner at
+    (150.65, 184); its pads and body are 2.4 mm away, so it stays.
+  Result: 19 unconnected items as before, no new DRC errors, ERC 0, schematic parity unchanged (pre-existing field
+  and BOM-flag mismatches only).
+- `c51_0603_to_0805.py` (2026-10-31, targeted repairability pass, Vincent chose "targeted" over a full re-placement):
+  every 0603 R / C whose 0805 footprint fits in place (same centre, rotation and copper) became 0805. DRC decided
+  which fit (swap all, put back one part per new copper / courtyard / mask error, repeat): 78 of 301 (53 R, 25 C),
+  listed in `tools/changes/c51_0805_refs.txt`. The other 223 sit too close to a neighbour, mostly the switch input
+  arrays by J1 / J2 / J3 / J13, the audio block and U4's decoupling; widening those gaps needs parts moved and
+  rerouted. 19 unconnected items as before, no new DRC error, ERC 0, schematic parity unchanged.
+- `c52_u4_1v1_inward.py` (2026-11-01): the +1V1 link inside U4 ran at y 51.9 / x 69.6, 0.6 mm from the pin rows,
+  and left no room for a via behind the pads; it now runs at y 52.7 / x 70.8 (0.75 mm from the exposed pad), which
+  frees that room for hand routing of the bus. 19 unconnected items as before, no new DRC error.
+  An automatic reroute of the bus on top of it (c53, b163863) closed 4 nets but with any-angle, unbundled tracks;
+  Vincent rejected it and it was reverted. The remaining bus, SW_CLK, SW_LOAD_N and BOOTSEL nets are routed by hand.
+- `c54_repair_spacing.py` + `c55_sch_remove_r21.py` (2026-11-01, repairability spacing review, base ba9e07e):
+  - BOOTSEL: R15 sits next to U4 pin 75 (68.97, 45.6) so the trace to the button stays behind 1k instead of
+    hanging on the internal flash chip select; SW2 moved to the free area above U4 (55.25, 41.0), routed to R15
+    with 90 degree tracks. R21 (Pi GPIO27 to BOOTSEL) removed from schematic and board: the Pi flashes and
+    recovers the RP2354B over SWD; J21 pad 13 is a no-connect. U4 pin 75 to R15 is left for hand routing.
+  - Pin 68 (+3V3) lost its own via: vertical, then joins pin 69's track.
+  - Spread around U4: C12 up 1.35 mm, C13 / C22 / C23 up and left (1.5 mm from U4), C11 / R8 / C21 right.
+    33 more tight passives moved 0.3-1 mm (`c54_moves.json`, searched, each kept only if DRC added no error);
+    parts carry their private GND / +3V3 via stubs, other tracks get an axis-aligned jog (`c54_movelib.py`).
+  - 12 more 0603 parts became 0805 (`c54_0805_refs.txt`, c51 search on the moved board).
+  - Courtyard gaps under 0.25 mm: 69 -> 46 pairs. Left: 0805 resistor rows at 0.2 mm (switch input arrays),
+    the TPS54302 buck loop (kept tight on purpose), the electrolytics C4 / C108 / C118 (moving C108 down needs the
+    SWCLK and J10 tracks rerouted), R205 / R207 / R209 by U32, R1 by F1, JP1 by FB1.
+  - 19 unconnected items as before (BOOTSEL now U4 to R15 only), no new DRC error, ERC unchanged, parity unchanged.
+- `c56_electrolytics_buck_fb.py` (2026-11-01): C4 / C108 / C118 spread in their row (Vincent chose the simple
+  spread, no rotation): gaps 1.55 / 1.85 mm (were 0.07 / 0.06). The row is boxed in by R3-R7 / C9 / D2 above and
+  the U23 / U24 heatsink keep-out below; C4 stops at the J11 pin 1 / EXT_5V tracks. Their stubs and the copper
+  under the new pads are ripped for hand routing: +5V, +12V (C108, C118), VMON_5V, RP_UART_TX, RP_IRQ_N
+  (26 unconnected items, was 19). R216 moved 1 mm up and 0.5 mm left (clear of U35 and R215), GND via left of the
+  pad; the buck input loop C133 / C134 / C137 stays tight (TPS54302 layout guidance). No new DRC error apart
+  from the dangling ends left for rerouting.
+- `c57_freerouting/` (2026-11-01): Freerouting 2.5 (Java 25) closed 6 of the connections c56 opened, on F.Cu / B.Cu
+  only, 45 / 90 degree tracks: +12V at C108 / C118, +5V at C4, RP_UART_TX, EXT_5V. Only those nets were exported
+  (mk.py = route/mkonly.py, box x 80-135 y 48-90, all existing copper protected, inner layers kept out);
+  imp_new.py adds the new copper from the .ses. The 14.9 mm EXT_5V segment is 0.48 mm wide (0.5 left 0.006 mm
+  short of the 0.2 mm clearance to C4). 20 unconnected items (was 26). Still open here: C4 +5V to U1, VMON_5V,
+  and C3 +12V / +5V by C6 (already open before c56). No new DRC error.
+- `c58_widen_right.py` + `c58_krt/` (2026-11-01): board widened above the Pi to the 142 mm of the lower part
+  (Edge.Cuts x 172 in KiCad coordinates), with a notch left for the Pi's USB / Ethernet jacks (KiCad x 150.65-172,
+  y 126.5-184). J17 / J23 / J22 / J24 / J30 follow the right edge (+21.35 mm), the 12 V OR stage moves 10 mm
+  right as a block, C108 / C118 spread further, TP19 / TP20 sit above J30. Routing with KiCadRoutingTools, F.Cu /
+  B.Cu only (record and order in `c58_krt/README.md`):
+  - The ripped power, J10, J30 audio and VMON nets rerouted; audio DAC tracks 90 / 87 mm, at least 10.6 mm from the
+    buck switch node.
+  - The +3V3 vias of U4 pins 5, 76, 24, 29 moved under the package (tented, between the pad rows and the exposed
+    pad), and the 24 bus-side U4 nets refanned and rerouted in bus mode: BUS_D0-D7 / A0-A3 leave U4 as an ordered
+    45 degree bundle to U6 / U7; BOOTSEL, A0, A1, D0, D1, D6 are now routed.
+  - SW_CLK, SW_LOAD_N, SW_DATA, STB_DATA, RP_RS485_RX / DE keep their previous tracks (KRT routed them in
+    400-500 mm detours); the pieces that crossed the new bus were cut.
+  - 15 unconnected items (was 20). Left for hand routing at U4: SW_CLK, SW_LOAD_N, SW_DATA, STB_DATA, BUS_IOSTB,
+    RP_RS485_RX. Elsewhere, as before: 3 GND_ISO islands, +12V at C3 / R197, +5V at U1, +1V1, D18, D21.
+  - To tidy by hand: BUS_OE_N takes a 145 mm route around U6 (53 mm before), some B.Cu bus tracks wiggle near U7,
+    and one clearance error (RP_RS485_TX against a NBRESET_DRV via) remains. Schematic parity unchanged.
+- `c59_mh3_original.py` (2026-11-11): MH3 back to the Stern 520-5246-00 position (screw at the slot top y 215.17,
+  clearance circle y 222.59). Vincent's scan of a Stern-compatible mounting plate has its bottom keyholes exactly
+  there (within the 0.5 mm of the scan), so the draft 0.7 move (7.42 mm down) would have put the backbox screw on
+  solid board. The bottom screws are therefore not level with the round hole MH4 (y 222.86), unlike the top ones
+  (MH6 6.27, MH5 6.98). Reference text moved below the circle. 15 unconnected items as before, no new DRC error.
+- `c60_height_original.py` (2026-11-11): bottom edge back to the original 231.76 mm (Vincent's choice). The 5 mm
+  draft 0.7 added for the lowered MH3 held no pads, courtyards, tracks or vias; Edge.Cuts and the GND / +3V3 zones
+  move up. 15 unconnected items as before, no new DRC error. Top render:
+  /mnt/project-files/hardware/sam_cpu_alt2/carte_231_76.png.
