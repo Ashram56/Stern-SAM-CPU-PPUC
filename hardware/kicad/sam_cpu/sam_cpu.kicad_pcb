@@ -91601,9 +91601,9 @@
 		(locked yes)
 		(layer "F.Cu")
 		(uuid "fe31801f-75cd-487c-b043-9e988a083759")
-		(at 38.24 252.59)
+		(at 38.24 245.17)
 		(property "Reference" "MH3"
-			(at 7 0 0)
+			(at 0 14.43 0)
 			(layer "F.SilkS")
 			(uuid "32187340-9954-4561-b061-81e0239e7d07")
 			(effects

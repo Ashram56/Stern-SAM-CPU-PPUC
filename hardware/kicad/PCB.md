@@ -30,7 +30,7 @@ All on original backbox screw positions (`docs/mechanical/README.md`):
 | Hole | Type | Screw X, Y |
 |---|---|---|
 | MH6 | keyhole, opens upward, top-left | 8.24, 6.27 |
-| MH3 | keyhole, opens upward, bottom-left (lowered 7.42 mm, draft 0.7) | 8.24, 222.59 |
+| MH3 | keyhole, opens upward, bottom-left (back to the Stern position, c59) | 8.24, 215.17 |
 | MH7 | round, left middle | 8.25, 116.84 |
 | MH5 | round, top | 109.20, 6.98 |
 | MH4 | round, bottom | 97.14, 222.86 |
@@ -358,3 +358,9 @@ routing space (Vincent's choices):
     RP_RS485_RX. Elsewhere, as before: 3 GND_ISO islands, +12V at C3 / R197, +5V at U1, +1V1, D18, D21.
   - To tidy by hand: BUS_OE_N takes a 145 mm route around U6 (53 mm before), some B.Cu bus tracks wiggle near U7,
     and one clearance error (RP_RS485_TX against a NBRESET_DRV via) remains. Schematic parity unchanged.
+- `c59_mh3_original.py` (2026-11-11): MH3 back to the Stern 520-5246-00 position (screw at the slot top y 215.17,
+  clearance circle y 222.59). Vincent's scan of a Stern-compatible mounting plate has its bottom keyholes exactly
+  there (within the 0.5 mm of the scan), so the draft 0.7 move (7.42 mm down) would have put the backbox screw on
+  solid board. The bottom screws are therefore not level with the round hole MH4 (y 222.86), unlike the top ones
+  (MH6 6.27, MH5 6.98). Reference text moved below the circle. 15 unconnected items as before, no new DRC error.
+  The board keeps the 5 mm added at the bottom for the lowered MH3.
