@@ -88,7 +88,7 @@
 		)
 		(uuid "a96ea57b-b3f3-5486-b3d8-0ac915f3dc06")
 	)
-	(text "Audio: PCM5102A, TDA7297 stereo + subwoofer (+12 V)"
+	(text "Audio: TAS5805M stereo + subwoofer, line-in ADC (+12 V)"
 		(exclude_from_sim no)
 		(at 27.94 205.74 0)
 		(effects

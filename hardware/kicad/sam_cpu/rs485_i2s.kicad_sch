@@ -3933,7 +3933,7 @@
 		)
 		(uuid "c0d04e29-7838-50f9-ac7e-23fc5772cfbf")
 	)
-	(text "Half-duplex RS485 on J27 / J29 (in parallel, top-entry RJ45: pin 1 A, pin 2 B, pins 7 / 8 GND_ISO). CA-IS2092VW isolated\ntransceiver: the cable side (A / B, SM712 TVS, 120 R termination on JP2, RJ45 ground) is on GND_ISO, powered by the\nchip's own isolated DC-DC (VISO 3.3 V, SEL open). Keep GND and GND_ISO copper apart under U32. DE / RE tied: receive by default.\nPi on J21: Pi UART3 (GPIO4 TX, GPIO5 RX, GPIO7 RTS = driver enable). Pi remote: RP2354B UART1 (GPIO20 TX, GPIO21 RX,\nGPIO22 driver enable). Both reach the transceiver through 1 k: only the configured side drives.\nJ28: I2S from a remote Pi to the PCM5102A (in parallel with J21 pins 12 / 35 / 40); keep that cable short.\nJ30: line-in (e.g. Pi 4 headphone out). No plug: DAC -> amplifiers through the jack contacts. Plug in: DAC cut off."
+	(text "Half-duplex RS485 on J27 / J29 (in parallel, top-entry RJ45: pin 1 A, pin 2 B, pins 7 / 8 GND_ISO). CA-IS2092VW isolated\ntransceiver: the cable side (A / B, SM712 TVS, 120 R termination on JP2, RJ45 ground) is on GND_ISO, powered by the\nchip's own isolated DC-DC (VISO 3.3 V, SEL open). Keep GND and GND_ISO copper apart under U32. DE / RE tied: receive by default.\nPi on J21: Pi UART3 (GPIO4 TX, GPIO5 RX, GPIO7 RTS = driver enable). Pi remote: RP2354B UART1 (GPIO20 TX, GPIO21 RX,\nGPIO22 driver enable). Both reach the transceiver through 1 k: only the configured side drives.\nJ28: I2S from a remote Pi to the PCM5102A (in parallel with J21 pins 12 / 35 / 40); keep that cable short.\nJ30: line-in for a host without I2S (mini PC). Tip / ring -> PCM1808 ADC (audio sheet); TN = LINE_DET: a plug selects the ADC as I2S source."
 		(exclude_from_sim no)
 		(at 15.24 15.24 0)
 		(effects
@@ -4135,16 +4135,6 @@
 			(type default)
 		)
 		(uuid "10edc232-c408-541c-9155-35601e2796bc")
-	)
-	(wire
-		(pts
-			(xy 208.28 246.38) (xy 213.36 246.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "11b8b6c1-76dc-5e64-9bae-2503daf5e3e9")
 	)
 	(wire
 		(pts
@@ -5006,7 +4996,7 @@
 		)
 		(uuid "f27b4c14-5851-5e42-8706-99b8c52aeee0")
 	)
-	(global_label "AUD_DAC_L"
+	(global_label "LINE_DET"
 		(shape passive)
 		(at 213.36 251.46 0)
 		(fields_autoplaced yes)
@@ -5121,7 +5111,7 @@
 			)
 		)
 	)
-	(global_label "AUD_AMP_L"
+	(global_label "LINEIN_L"
 		(shape passive)
 		(at 213.36 248.92 0)
 		(fields_autoplaced yes)
@@ -5144,7 +5134,7 @@
 			)
 		)
 	)
-	(global_label "AUD_AMP_R"
+	(global_label "LINEIN_R"
 		(shape passive)
 		(at 213.36 243.84 0)
 		(fields_autoplaced yes)
@@ -5157,29 +5147,6 @@
 		(uuid "7a082c6d-d68b-5cb6-a7f3-7c3e639e9b82")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 232.04 243.84 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "AUD_DAC_R"
-		(shape passive)
-		(at 213.36 246.38 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.6 1.6)
-			)
-			(justify left)
-		)
-		(uuid "7a107187-aa64-54ab-9f05-a1a2fe349d42")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 232.04 246.38 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8863,5 +8830,9 @@
 				)
 			)
 		)
+	)
+	(no_connect
+		(at 208.28 246.38)
+		(uuid "b5652077-53d6-47d9-bb95-c3489c2595f3")
 	)
 )
