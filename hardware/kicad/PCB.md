@@ -15,11 +15,11 @@ backbox (same frame as `docs/mechanical/`). KiCad's grid and drill origins are s
 
 ## Outline
 
-**142 x 236.76 mm** with a notch on the right edge (x 120.65-142, y 96.5-154 from the top-left corner) where
+**142 x 231.76 mm** with a notch on the right edge (x 120.65-142, y 96.5-154 from the top-left corner) where
 the face-down Pi's USB / Ethernet jacks hang off the board. Up to draft 0.7 the board was 120.65 mm wide above the
 Pi and 142 mm below it (RS485 and line-in connectors); c58 (2026-11-01) widened the part above the Pi too, for
-routing room. The left edge is unchanged; the bottom edge is 5 mm lower than the original
-231.76 mm so the lowered MH3 keyhole fits (draft 0.7). (Draft 0.4 had the
+routing room. The left and bottom edges are the original ones (draft 0.7 had moved the bottom edge 5 mm down for a lowered MH3;
+c59 / c60 undid both). (Draft 0.4 had the
 same extension for the HUB75 headers; draft 0.6 removed it with the DMD; draft 0.7 brings it back for the RJ45s.) The width is set by three things: the Pi's USB/Ethernet end must hang past the right edge, the round
 hole MH5 at X 109.2 is kept, and the J2 + J1 row needs about 88 mm. 4 copper layers.
 
@@ -363,4 +363,7 @@ routing space (Vincent's choices):
   there (within the 0.5 mm of the scan), so the draft 0.7 move (7.42 mm down) would have put the backbox screw on
   solid board. The bottom screws are therefore not level with the round hole MH4 (y 222.86), unlike the top ones
   (MH6 6.27, MH5 6.98). Reference text moved below the circle. 15 unconnected items as before, no new DRC error.
-  The board keeps the 5 mm added at the bottom for the lowered MH3.
+- `c60_height_original.py` (2026-11-11): bottom edge back to the original 231.76 mm (Vincent's choice). The 5 mm
+  draft 0.7 added for the lowered MH3 held no pads, courtyards, tracks or vias; Edge.Cuts and the GND / +3V3 zones
+  move up. 15 unconnected items as before, no new DRC error. Top render:
+  /mnt/project-files/hardware/sam_cpu_alt2/carte_231_76.png.
