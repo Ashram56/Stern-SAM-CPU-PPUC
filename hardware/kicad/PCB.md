@@ -111,7 +111,7 @@ board could lose about 10 mm of width.
   next to U4 (column between U7 and J20, x 31.4-33.0). The bus, USB and RS485 nets were ripped for re-routing
   (`c22_board_rp_fanout.py`). BUS_DIR and BUS_OE_N still cross the address lines (fixed pins on both sides): one via
   each.
-- **MH3** (draft 0.7): Vincent saw the bottom-left keyhole sat too high. On the Stern drawing the top keyholes' screw
+- **MH3** (draft 0.7, undone by c59 on 2026-11-11): Vincent saw the bottom-left keyhole sat too high. On the Stern drawing the top keyholes' screw
   positions are level with the top round hole MH5, but the bottom ones are 7.4 mm (one slide) above the bottom round
   hole MH4. MH3's screw position moved down 7.42 mm to y 222.59 (0.27 mm from MH4's row); its clearance circle would
   cross the bottom edge there, so it is an open notch in the outline. U31 (595) sits by J1, U30
