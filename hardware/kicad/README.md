@@ -128,6 +128,14 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   LINE_DET and MUX_SEL were re-routed by hand. The decoupling and bootstrap capacitors against the TAS5805M stay at
   0.5 mm on purpose (data sheet 9.1.2). C150 (VDD) and C153 (Y2) reach their pins through the +3V3 plane.
 
+- **Track cleanup over the whole board** (c68, 2026-11-12, asked by Vincent after an odd hook on LINE_DET): 78
+  segments lying under another one removed, about 120 staircases and small detours straightened (same corridor, no
+  via added or moved), the 14 acute corners and 27 double-backs removed, 10 segments off 45 degrees redrawn, the
+  EXT_12V snake between R213 and U33 replaced by four segments. 5677 segments before, 5261 after. Left as they are:
+  7 segments off 45 degrees by less than 0.03 mm (vias that are off the grid), about 230 segments under 0.1 mm
+  inside pads and vias, 90 degree corners, and the long routes of the lamp matrix and bus areas, which go round
+  real obstacles. Scripts: `tools/changes/c68_track_cleanup/`.
+
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
