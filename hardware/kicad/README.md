@@ -120,6 +120,14 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   of this package). Thermal vias stay at 0.2 mm drill, 1.2 mm pitch, as TI draws them, and connect to the planes
   without thermal relief (section 9.1.3.2.1).
 
+- **Use without a Pi and spacing** (c67, Vincent 2026-11-12): R199 / R200 / R201 100k pull I2S_BCK / I2S_LRCK /
+  I2S_DIN to GND (U26 inputs no longer float), R202 10k + C160 100 nF between LINE_DET and the U26 select pin (new
+  net MUX_SEL). On the board the five new parts and C146 to C153, FB4, R198 were placed by hand with 1.5 mm between
+  courtyards (4 mm to connectors): FB4 / C147 west of U22, C148 / C152 above it, C151 / C150 / R198 east, C160 and
+  R202 west of U26, C146 south of U26, C153 south of Y2, pull-downs and C149 in a row at y 123.5. ADC_VCC, ADC_VREF,
+  LINE_DET and MUX_SEL were re-routed by hand. The decoupling and bootstrap capacitors against the TAS5805M stay at
+  0.5 mm on purpose (data sheet 9.1.2). C150 (VDD) and C153 (Y2) reach their pins through the +3V3 plane.
+
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
