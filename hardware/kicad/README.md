@@ -50,6 +50,7 @@ page; VREF; DAC left / right outputs, subwoofer filter output and GND on the aud
 | 20-22 | RP_RS485_TX, RP_RS485_RX (UART1), RP_RS485_DE: the RS485 port when the Pi is remote |
 | 23-36 | unassigned (no-connect flags; were the DMD outputs) |
 | 37 | RP_IRQ_N |
+| 35 | AMP_PDN (low = TAS5805M shutdown / reset; input = run, R190 pull-up) |
 | 38-39 | AMP_SDA, AMP_SCL (I2C1 to the two TAS5805M, 0x2C / 0x2D; GPIO39 was AMP_MUTE) |
 | 40-42 | FRAME_MOSI, FRAME_CS_N, FRAME_SCK (SPI1, frames from the Pi) |
 | 43 | spare |
@@ -94,12 +95,13 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
 
 - **I2C only to the RP2354B**: GPIO38 AMP_SDA, GPIO39 AMP_SCL (pull-ups R188 / R189), addresses 0x2C (U23) and
   0x2D (U24). The firmware loads the DSP coefficients (equalizer, crossover) at boot and can change them later.
-- **PDN by RC** (c64): R190 10 k to +3V3 and C158 1 uF, so both amplifiers leave shutdown about 10 ms after power
-  up. The firmware resets them over I2C (register 0x01) and puts them in deep sleep / Hi-Z through register 0x03
-  (DEVICE_CTRL2) to mute. GPIO35 / GPIO36 are free again.
+- **PDN** (c64, c66): R190 10 k pull-up to +3V3 and C158 100 nF, plus GPIO35 (Vincent's choice, 2026-11-12). With
+  GPIO35 as an input the amplifiers leave shutdown 1 ms after power up; GPIO35 low is a hard reset / shutdown (use it if
+  the I2C bus locks up). The firmware also resets over I2C (register 0x01) and mutes with deep sleep / Hi-Z through
+  register 0x03 (DEVICE_CTRL2). The route runs on In2 for 26 mm under slow nets only. GPIO36 stays free.
 - **Line in** (no Pi fitted, external mini PC): J30's plug switch LINE_DET drives only U26 (74HC157). With a plug,
   U26 passes the PCM1808 ADC (U22, master, Y2 12.288 MHz) instead of the Pi / J28 I2S. The TAS5805M mutes by itself
-  when its I2S clocks change. LINE_DET is not wired to the RP2354B.
+  when its I2S clocks change. LINE_DET is not wired to the RP2354B; the firmware can read the amplifiers' clock status over I2C.
 - **Mux channel order** (c65): A/B1 = LRCK, A/B2 = BCK, A/B3 = DIN (so the ADC clocks do not cross under U26).
 
 ## Checks

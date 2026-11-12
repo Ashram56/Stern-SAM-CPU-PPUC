@@ -19058,8 +19058,38 @@
 		(at 208.28 190.5)
 		(uuid "4b0490ab-2072-405a-941d-2835da164f75")
 	)
-	(no_connect
-		(at 208.28 187.96)
-		(uuid "46255885-7b36-4a96-8212-82a8a6c24d3c")
+	(wire
+		(pts
+			(xy 208.28 187.96) (xy 213.36 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "042cc7f9-b5e1-4a6f-9267-b299827e9afe")
+	)
+	(global_label "AMP_PDN"
+		(shape output)
+		(at 213.36 187.96 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left)
+		)
+		(uuid "5dcde05f-4d1a-4310-8d53-022f666ac972")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 226.61 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+				(justify left)
+			)
+		)
 	)
 )

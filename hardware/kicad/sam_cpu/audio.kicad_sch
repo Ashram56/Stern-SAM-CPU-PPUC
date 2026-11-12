@@ -13379,7 +13379,7 @@
 		)
 		(uuid "d2030e59-6288-40d8-a54d-4e94cbb2616a")
 	)
-	(text "Amplifier control: RP2354B I2C1 (GPIO38 SDA / GPIO39 SCL), PDN by RC"
+	(text "Amplifier control: RP2354B I2C1 (GPIO38 SDA / GPIO39 SCL), PDN (GPIO35 + RC)"
 		(exclude_from_sim no)
 		(at 16.51 153.67 0)
 		(effects
@@ -13390,7 +13390,7 @@
 		)
 		(uuid "87502783-f8d5-4d3d-aae5-d2e9a3652b23")
 	)
-	(text "AMP_PDN rises 10 ms after +3V3 (10k / 1 uF). The RP2354B resets both amplifiers\nover I2C (0x01), keeps them in deep sleep until configured, then loads the PPC3 configuration over I2C\n(mode, 768 kHz switching, crossover, limiter): no sound without firmware."
+	(text "AMP_PDN rises 1 ms after +3V3 (10k / 100 nF) while GPIO35 is an input. GPIO35 low = hard reset /\nshutdown; the RP2354B also resets over I2C (0x01), keeps them in deep sleep until configured, then loads the PPC3 configuration over I2C\n(mode, 768 kHz switching, crossover, limiter): no sound without firmware."
 		(exclude_from_sim no)
 		(at 16.51 160.02 0)
 		(effects
@@ -19714,7 +19714,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "100nF"
 			(at 132.08 184.15 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19747,7 +19747,7 @@
 				)
 			)
 		)
-		(property "Description" "Capacitor 1 uF 50 V X7R 0805, CL21B105KBFNNNE (LCSC C28323)"
+		(property "Description" "Capacitor 100 nF 50 V X7R 0805, CC0805KRX7R9BB104 (LCSC C49678)"
 			(at 129.54 182.88 0)
 			(hide yes)
 			(show_name no)
