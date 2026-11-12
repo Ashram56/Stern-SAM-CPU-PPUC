@@ -144,6 +144,13 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   the outer side of the pad row), and the J11_5V loop from U1.6 to JP1.2 round x 110.5, which needs the two B.Cu
   tracks at y 107.3 and y 108.2 moved first. Scripts: `tools/changes/c69_via_cleanup/`.
 
+- **J11 5 V input, U1.6 to JP1.2** (c70, Vincent 2026-11-12): this link carries the whole +5V load when the board
+  is fed from J11 (up to 3 A with the Pi on JP3 1-2). The 34 mm, 0.5 mm loop round x 110.5 (about 35 mOhm, four
+  vias) is replaced by 4.5 mm: 0.3 mm from the pin to the via at (99.5, 105.44), 0.8 mm on B.Cu under the +5V
+  track to a new 0.8 / 0.4 via at (99.92, 107.75), 0.8 mm on F.Cu into JP1.2 (about 6 mOhm). To open the way on
+  B.Cu, +4V5 dips to y 108.475 between x 98.4 and x 101.7 and the J11 pin 1 feed to FB1 runs at y 109.25
+  (Power_HI clearance 0.25 mm). Script: `tools/changes/c69_via_cleanup/c70_j11_5v.py`.
+
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
