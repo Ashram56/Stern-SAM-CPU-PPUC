@@ -114,6 +114,12 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   without a Pi, LINE_DET goes straight from the jack contact to U26, 0.2 mm thermal vias in the TAS5805M footprint,
   0.5 mm courtyard gaps in the audio block, no voltage / part number fields on the audio parts.
 
+- **Footprint** (c67b, 2026-11-12, checked against the TAS5805M data sheet SLASEH5D, package PWP0028M): U23 / U24
+  use `TSSOP-28-1EP_4.4x9.7mm_P0.65mm_EP3.4x9.7mm_Mask3.1x4.05mm_ThermalVias` (the KiCad footprint drawn from this
+  data sheet) instead of the PWP0028V one (LM5176, 2.94 x 5.62 mm mask opening, longer than the 4.05 mm thermal pad
+  of this package). Thermal vias stay at 0.2 mm drill, 1.2 mm pitch, as TI draws them, and connect to the planes
+  without thermal relief (section 9.1.3.2.1).
+
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
