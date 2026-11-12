@@ -13379,7 +13379,7 @@
 		)
 		(uuid "d2030e59-6288-40d8-a54d-4e94cbb2616a")
 	)
-	(text "Amplifier control: RP2354B I2C1 (GPIO38 SDA / GPIO39 SCL), PDN (GPIO36)"
+	(text "Amplifier control: RP2354B I2C1 (GPIO38 SDA / GPIO39 SCL), PDN by RC"
 		(exclude_from_sim no)
 		(at 16.51 153.67 0)
 		(effects
@@ -13390,7 +13390,7 @@
 		)
 		(uuid "87502783-f8d5-4d3d-aae5-d2e9a3652b23")
 	)
-	(text "AMP_PDN low (100k pull-down, RP2354B at reset): both amplifiers off.\nThe RP2354B raises AMP_PDN, then loads the PPC3 configuration over I2C\n(mode, 768 kHz switching, crossover, limiter): no sound without firmware."
+	(text "AMP_PDN rises 10 ms after +3V3 (10k / 1 uF). The RP2354B resets both amplifiers\nover I2C (0x01), keeps them in deep sleep until configured, then loads the PPC3 configuration over I2C\n(mode, 768 kHz switching, crossover, limiter): no sound without firmware."
 		(exclude_from_sim no)
 		(at 16.51 160.02 0)
 		(effects
@@ -13807,7 +13807,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "10k"
 			(at 139.7 181.61 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13840,7 +13840,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 100k 1% 0805, 0805W8F1003T5E (LCSC C17407)"
+		(property "Description" "Resistor 10k 1% 0805, 0805W8F1002T5E (LCSC C17414)"
 			(at 137.16 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -13875,107 +13875,6 @@
 			(type default)
 		)
 		(uuid "e47ad86e-1b21-4512-8ddd-897aede44fef")
-	)
-	(global_label "AMP_PDN"
-		(shape input)
-		(at 137.16 173.99 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.6 1.6)
-			)
-			(justify left)
-		)
-		(uuid "b8ebeb6b-9426-4748-be02-278ac55b4316")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 137.16 160.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-				(justify left)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 137.16 184.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a6cc59bf-9c2a-4a78-8e18-5281b9160bce")
-		(property "Reference" "#PWR10051"
-			(at 137.16 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 137.16 186.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 137.16 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 137.16 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\""
-			(at 137.16 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.6 1.6)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6aa419fe-53a8-491e-a055-521fe94a8699")
-		)
-		(instances
-			(project "sam_cpu"
-				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/a37597f6-5aec-507d-b794-5c4f395391ec"
-					(reference "#PWR10051")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(rectangle
 		(start 15.24 30.48)
@@ -14255,7 +14154,7 @@
 		)
 		(uuid "da499e1b-3acd-44df-b825-f1ce37743fb6")
 	)
-	(global_label "I2S_BCK"
+	(global_label "I2S_LRCK"
 		(shape input)
 		(at 43.18 73.66 180)
 		(fields_autoplaced yes)
@@ -14289,7 +14188,7 @@
 		)
 		(uuid "15e319aa-5de2-491b-a178-b05f41b590b6")
 	)
-	(label "ADC_BCK"
+	(label "ADC_LRCK"
 		(at 58.42 76.2 180)
 		(effects
 			(font
@@ -14309,7 +14208,7 @@
 		)
 		(uuid "7623e811-7332-4903-bb4c-d7400478605d")
 	)
-	(global_label "I2S_LRCK"
+	(global_label "I2S_BCK"
 		(shape input)
 		(at 43.18 81.28 180)
 		(fields_autoplaced yes)
@@ -14343,7 +14242,7 @@
 		)
 		(uuid "99be41ba-1e6e-4a51-9854-bf5702e0c3c8")
 	)
-	(label "ADC_LRCK"
+	(label "ADC_BCK"
 		(at 58.42 83.82 180)
 		(effects
 			(font
@@ -14591,7 +14490,7 @@
 		)
 		(uuid "89300ca5-d1be-43fa-849d-14c95398f840")
 	)
-	(label "MUX_BCK"
+	(label "MUX_LRCK"
 		(at 93.98 73.66 0)
 		(effects
 			(font
@@ -14611,7 +14510,7 @@
 		)
 		(uuid "b93812ab-ab14-4a9b-8b53-b23208b82ac3")
 	)
-	(label "MUX_LRCK"
+	(label "MUX_BCK"
 		(at 93.98 81.28 0)
 		(effects
 			(font
@@ -19681,5 +19580,308 @@
 			(justify left top)
 		)
 		(uuid "58581482-4557-44fd-abdc-cc7b2841e9a4")
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 137.16 173.99 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1a32045d-695a-4d07-b963-d4e3e45746ac")
+		(property "Reference" "#PWR10901"
+			(at 137.16 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 137.16 170.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 137.16 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 137.16 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 137.16 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a776567f-a8a3-4a12-a0a1-b26448b26e55")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/a37597f6-5aec-507d-b794-5c4f395391ec"
+					(reference "#PWR10901")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 137.16 184.15) (xy 137.16 186.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "869730d7-c55b-45ac-803a-d00586098101")
+	)
+	(global_label "AMP_PDN"
+		(shape input)
+		(at 137.16 186.69 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify right)
+		)
+		(uuid "4cc8efa5-14de-4ecf-9a26-e7cb27673971")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 137.16 199.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+				(justify right)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 129.54 182.88 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "00523bbd-7589-4cb3-84d5-c8155bbf7696")
+		(property "Reference" "C158"
+			(at 132.08 181.61 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1uF"
+			(at 132.08 184.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 129.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Description" "Capacitor 1 uF 50 V X7R 0805, CL21B105KBFNNNE (LCSC C28323)"
+			(at 129.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a1d5aba3-b4e2-4e88-ad1f-0e97e94b913c")
+		)
+		(pin "2"
+			(uuid "4989de22-f51a-4a62-b04a-374ddcdf9e7b")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/a37597f6-5aec-507d-b794-5c4f395391ec"
+					(reference "C158")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 129.54 179.07) (xy 129.54 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00dc1607-a1fa-4e3c-859c-101155d3cd49")
+	)
+	(global_label "AMP_PDN"
+		(shape input)
+		(at 129.54 176.53 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left)
+		)
+		(uuid "9a29c275-cd26-4046-aa69-7e6109fdca6e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 129.54 163.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+				(justify left)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 129.54 186.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "772d5b24-4e22-4c6f-8c91-650bec82ea01")
+		(property "Reference" "#PWR10902"
+			(at 129.54 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 129.54 189.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 129.54 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\""
+			(at 129.54 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ce8f253c-81a8-40b9-b57e-edc8ca9bf2c1")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/a37597f6-5aec-507d-b794-5c4f395391ec"
+					(reference "#PWR10902")
+					(unit 1)
+				)
+			)
+		)
 	)
 )

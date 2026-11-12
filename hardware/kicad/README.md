@@ -49,7 +49,8 @@ page; VREF; DAC left / right outputs, subwoofer filter output and GND on the aud
 | 0-19 | unchanged (GPIO17 = SW_LOAD_N, now also the 74HC595 latch) |
 | 20-22 | RP_RS485_TX, RP_RS485_RX (UART1), RP_RS485_DE: the RS485 port when the Pi is remote |
 | 23-36 | unassigned (no-connect flags; were the DMD outputs) |
-| 37-39 | RP_IRQ_N, GI_PWM, AMP_MUTE |
+| 37 | RP_IRQ_N |
+| 38-39 | AMP_SDA, AMP_SCL (I2C1 to the two TAS5805M, 0x2C / 0x2D; GPIO39 was AMP_MUTE) |
 | 40-42 | FRAME_MOSI, FRAME_CS_N, FRAME_SCK (SPI1, frames from the Pi) |
 | 43 | spare |
 | 44-45 | RP_UART_TX / RX (UART0 to the Pi) |
@@ -84,6 +85,22 @@ isoPower converter, with its own copper zone 2 mm clear of GND. Two top-entry RJ
 PCM5102A drives the amplifiers through the jack's normally-closed tip / ring contacts (nets AUD_DAC_L / R to
 AUD_AMP_L / R); a plug disconnects the DAC. The amplifier input dividers were sized for the DAC's 2.1 Vrms, so the
 Pi's lower analog level plays quieter.
+
+## Audio option B: TAS5805M (2026-11-12)
+
+The analog chain (PCM5102A, OPA1678, two TDA7297) is replaced by two TI TAS5805M class D amplifiers with I2S input
+and an internal DSP (c62 schematic, c63 placement, c64 / c65 and the hand routing on this branch). U23 drives the
+left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8 ohm speakers.
+
+- **I2C only to the RP2354B**: GPIO38 AMP_SDA, GPIO39 AMP_SCL (pull-ups R188 / R189), addresses 0x2C (U23) and
+  0x2D (U24). The firmware loads the DSP coefficients (equalizer, crossover) at boot and can change them later.
+- **PDN by RC** (c64): R190 10 k to +3V3 and C158 1 uF, so both amplifiers leave shutdown about 10 ms after power
+  up. The firmware resets them over I2C (register 0x01) and puts them in deep sleep / Hi-Z through register 0x03
+  (DEVICE_CTRL2) to mute. GPIO35 / GPIO36 are free again.
+- **Line in** (no Pi fitted, external mini PC): J30's plug switch LINE_DET drives only U26 (74HC157). With a plug,
+  U26 passes the PCM1808 ADC (U22, master, Y2 12.288 MHz) instead of the Pi / J28 I2S. The TAS5805M mutes by itself
+  when its I2S clocks change. LINE_DET is not wired to the RP2354B.
+- **Mux channel order** (c65): A/B1 = LRCK, A/B2 = BCK, A/B3 = DIN (so the ADC clocks do not cross under U26).
 
 ## Checks
 
