@@ -136,6 +136,14 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   inside pads and vias, 90 degree corners, and the long routes of the lamp matrix and bus areas, which go round
   real obstacles. Scripts: `tools/changes/c68_track_cleanup/`.
 
+- **Vias and layer changes** (c69, 2026-11-12, asked by Vincent): the LINE_DET via now sits level with R198.2;
+  EXT_12V to R213 is 0.3 mm (divider only) with its via in line; J11_5V no longer hops to the front and back
+  through two vias next to TP1; 30 vias that a track reached and left at less than 90 degrees were slid along
+  their track; 18 chains that changed layer for no reason stay on one layer. 1187 vias before, 1157 after, 5060
+  segments. Left: 68 vias of the same kind that are held by their neighbours (mostly IC fan-outs whose via is on
+  the outer side of the pad row), and the J11_5V loop from U1.6 to JP1.2 round x 110.5, which needs the two B.Cu
+  tracks at y 107.3 and y 108.2 moved first. Scripts: `tools/changes/c69_via_cleanup/`.
+
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
