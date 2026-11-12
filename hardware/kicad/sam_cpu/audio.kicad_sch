@@ -10728,7 +10728,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "015fb084-f360-4d19-bdd7-e0d5f287e032")
-		(property "Reference" "C119"
+		(property "Reference" "C159"
 			(at 172.72 204.47 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10792,7 +10792,7 @@
 		(instances
 			(project "sam_cpu"
 				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/a37597f6-5aec-507d-b794-5c4f395391ec"
-					(reference "C119")
+					(reference "C159")
 					(unit 1)
 				)
 			)

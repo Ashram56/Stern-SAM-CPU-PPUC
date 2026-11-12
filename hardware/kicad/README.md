@@ -104,6 +104,16 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   when its I2S clocks change. LINE_DET is not wired to the RP2354B; the firmware can read the amplifiers' clock status over I2C.
 - **Mux channel order** (c65): A/B1 = LRCK, A/B2 = BCK, A/B3 = DIN (so the ADC clocks do not cross under U26).
 
+- **Review of the stage** (2026-11-12, on b560bbc): the +12 V feed of the amplifiers is now a ring on B.Cu (new
+  1.2 mm link at y 100.37 between the x 115.2 trunk and the x 130.4 trunk; the x 115.2 trunk is 1.5 mm), so U24 is
+  15 mm from the feed instead of 85 mm. The three I2S tracks change layer west of C120 to let the link pass. Output
+  tracks between the pins and the bootstrap capacitors are 0.6 to 0.8 mm (0.4 mm only in the pin escape), each
+  22 uF has two ground vias, the four SPK / SUB vias at the inductors are joined at their centre. The U24 DVDD
+  capacitor is now **C159**: it had taken the reference C119 of the DS3231 decoupling capacitor (MCU sheet), which
+  had disappeared from the board and is back at (72.0, 133.4). Open points (not changed): I2S inputs of U26 float
+  without a Pi, LINE_DET goes straight from the jack contact to U26, 0.2 mm thermal vias in the TAS5805M footprint,
+  0.5 mm courtyard gaps in the audio block, no voltage / part number fields on the audio parts.
+
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
