@@ -3511,7 +3511,7 @@
 			)
 		)
 	)
-	(global_label "MEM_PROTECT"
+	(global_label "DED8"
 		(shape input)
 		(at 307.34 170.18 180)
 		(fields_autoplaced yes)

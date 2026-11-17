@@ -151,6 +151,29 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   B.Cu, +4V5 dips to y 108.475 between x 98.4 and x 101.7 and the J11 pin 1 feed to FB1 runs at y 109.25
   (Power_HI clearance 0.25 mm). Script: `tools/changes/c69_via_cleanup/c70_j11_5v.py`.
 
+- **J10 and J2 pinouts** (c71, 2026-11-17, functional review against the original board, asked by Vincent):
+  - **J10**: pin 1 L+, pin 2 L-, pin 3 R+, pin 4 R- (was L+, R+, L-, R-). The original harness has the backbox
+    speakers on pins 1 / 2 and the cabinet speaker on pins 3 / 4, so each pair now sees one bridge output, as on
+    J22. Only the pad nets of pins 2 and 3 changed; their two tracks were rerouted (1.0 mm, one hop to the back).
+  - **J2**: pin 1 is GND and pin 12 is TAMPIN (coin door memory protect, 4.7 k pull-up R93), as on the original
+    board; D-1 to D-8 stay on pins 2, 3, 4, 6, 7, 8, 9, 10 and pin 11 stays GND. The copper of pins 2 to 10 did
+    not move, so the shift-register bits are: U17 D0 = TAMPIN, U17 D1-D7 = D-1 to D-7, U30 D0 = D-8 (net `DED8`,
+    was `MEM_PROTECT`; R117 is now 1.5 k like the other dedicated pull-ups). The firmware maps them
+    (`firmware/src/core/switch_chain.h`).
+  - J6 / J12 keep pin 1 on D0 of U19 / U18 while the original has return 1 on pin 9: the firmware bit-reverses
+    each return byte (Vincent's choice, no PCB change).
+  - ERC 0; DRC 0 unconnected, the same 6 starved-thermal errors as before, schematic parity 0.
+    Scripts: `tools/changes/c71_review_connectors/`.
+- **Mounting holes restored** (c72, 2026-11-17): the nine board-only hole footprints (keyholes MH3 / MH6, round M4
+  MH4 / MH5 / MH7, Pi standoffs MH9-MH12) had been removed by c63's "footprints gone from the schematic" sweep,
+  so the boards from 5a1ae7c to 724b80a (and the fab files e8b8d23 / 724b80a) had no mounting holes. They are back
+  at their positions (blocks copied from 5a1ae7c~1). Tracks routed across them in the meantime were moved: the
+  four speaker tracks go round the MH5 pad (SPK_L_N north at y 31.5, the other three south), SW_LOAD_N dips south
+  of MH11, the I2S_BCK via by MH12 moved 0.33 mm up. DRC: 0 unconnected, parity 0, the 6 starved thermals and the
+  4 known keyhole slot-size reports. c73: the speaker detours were widened so no track is closer than 5.5 mm to the centre
+  of MH5 on either side (9 mm M4 washer). Any future script that removes footprints missing from the schematic must
+  skip `board_only` footprints. Scripts: `tools/changes/c72_mounting_holes/`.
+
 ## Checks
 
 - ERC (KiCad 10.0.6, `kicad-cli sch erc`): 0 errors, 0 warnings (draft 0.6).
@@ -166,14 +189,14 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   on VREG_AVDD, ABM8-272-T3 12 MHz crystal with 15 pF and 1 k, 27 R USB series resistors, 100 nF per supply pin.
   The guide uses 0402; this board uses 0603 for 100 nF and 0805 / 1206 for every regulator capacitor so their value
   holds under DC bias.
-- **Audio**: TDA7297 outputs are bridged, so no speaker wire may touch ground. J10 pins 3 / 4 (ground on the
-  original board) now carry left - / right -: check the harness keeps the two speaker returns separate. At 12 V
+- **Audio**: TDA7297 outputs are bridged, so no speaker wire may touch ground. J10 pins 2 / 4 (ground on the
+  original board) carry left - / right - (c71): check the harness keeps the two speaker returns separate. At 12 V
   expect about 6 W per bridge into 8 ohm (the TDA7297 is rated 2 x 15 W at 18 V / 8 ohm); check the speaker
   impedances before using 4 ohm. U23 and U24 need a heatsink (keep-out drawn on the board). The datasheet pin list
   was not reachable from here: confirm pins 1 / 2 and 14 / 15 output polarity (symbol: pin 1 and pin 15 = +).
-- **Pin orders to confirm with a meter** on a real board or harness: J6 / J12 return order, J2 / J3 / J13 dedicated
-  input order, J1 strobe order.
-- **Memory protect**: J2 pin 10 (coin door) is now read through U30, the 7th 74HC165.
+- **Pin orders to confirm with a meter** on a real board or harness: J3 / J13 dedicated input order, J1 strobe
+  order. J2, J6 and J12 were checked against the original CPU schematic and the cabinet wiring (c71).
+- **Memory protect**: TAMPIN on J2 pin 12 (coin door) is read on U17 D0; J2 pin 10 (D-8) is read through U30.
 - **Audio gain** and **LM339 / switch filter values** are starting points for the bench.
 - **Part numbers**: footprints are JLCPCB-friendly packages (0603 passives, SOIC / TSSOP logic, SOT-23), but no LCSC
   numbers are filled in yet. They come with the BOM for layout.
