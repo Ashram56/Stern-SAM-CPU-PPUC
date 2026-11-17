@@ -1,0 +1,3180 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "3e510349-b70d-5db3-af62-7712cdeda1ac")
+	(paper "A3")
+	(title_block
+		(title "Aux port (IO J2 data + ASTB, IO J3 strobes): 5 V logic, read directly by the PIO")
+		(date "2026-11-17")
+		(rev "0.1")
+		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
+	)
+	(lib_symbols
+		(symbol "Connector_Generic:Conn_01x10"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x10"
+				(at 0 -15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x10_1_1"
+				(rectangle
+					(start -1.27 11.43)
+					(end 1.27 -13.97)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 10.287)
+					(end 0 10.033)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 7.747)
+					(end 0 7.493)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -10.033)
+					(end 0 -10.287)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -12.573)
+					(end 0 -12.827)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 10.16 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 7.62 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -12.7 0)
+					(length 3.81)
+					(name "Pin_10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Connector_Generic:Conn_01x12"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x12"
+				(at 0 -17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x12, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x12_1_1"
+				(rectangle
+					(start -1.27 13.97)
+					(end 1.27 -16.51)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 12.827)
+					(end 0 12.573)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 10.287)
+					(end 0 10.033)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 7.747)
+					(end 0 7.493)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -10.033)
+					(end 0 -10.287)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -12.573)
+					(end 0 -12.827)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -15.113)
+					(end 0 -15.367)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 12.7 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 10.16 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 7.62 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -12.7 0)
+					(length 3.81)
+					(name "Pin_11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -15.24 0)
+					(length 3.81)
+					(name "Pin_12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(text "IO J2: 8 data bits + ASTB on pins 1-3, 5-10 (key 4), 100 R + 470 pF on the IO board. IO J3: strobes on 9-12 (12-pin, key 4).\nIO J3 pins 1-8 are AUX_IN inputs of the IO board: left open here. Strobes last 300 ns: GPIO direct, 4.7 k series (5 V tolerant)."
+		(exclude_from_sim no)
+		(at 15.24 12.7 0)
+		(effects
+			(font
+				(size 1.5 1.5)
+			)
+			(justify left top)
+		)
+		(uuid "545f6988-5335-5aaf-9fe7-13a74a139acb")
+	)
+	(text "IO board connectors"
+		(exclude_from_sim no)
+		(at 16.51 27.94 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "e8dd14b9-045e-58c3-84dc-11cc224b9f70")
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x10")
+		(at 35.56 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cfe212a1-572b-5661-b709-e48da16397e9")
+		(property "Reference" "J10"
+			(at 35.56 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "IO J2 aux out"
+			(at 35.56 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Molex:Molex_KK-396_A-41791-0010_1x10_P3.96mm_Vertical"
+			(at 35.56 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 35.56 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 35.56 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "83542843-dd2f-579c-bb19-1a1ad2227218")
+		)
+		(pin "2"
+			(uuid "68810ce6-c4a3-54f5-b3cd-74c0dcd56bca")
+		)
+		(pin "3"
+			(uuid "963c7ede-c88a-5823-a7fd-44e7b65cf8b4")
+		)
+		(pin "4"
+			(uuid "74159804-e875-544b-ab8e-b93164b99605")
+		)
+		(pin "5"
+			(uuid "6fad8328-7317-5ba9-a6b5-adfbea11a4ea")
+		)
+		(pin "6"
+			(uuid "afdbd769-6897-57a3-bbdf-8fa884dc9de3")
+		)
+		(pin "7"
+			(uuid "f547cee4-9ed4-560c-aa6c-14e7344fdb4b")
+		)
+		(pin "8"
+			(uuid "cd7b9478-6074-587f-b169-e8dfe4d1239a")
+		)
+		(pin "9"
+			(uuid "8995e6c9-625f-51b6-9c9c-7bc9fbe29a5e")
+		)
+		(pin "10"
+			(uuid "4a00c5b0-576f-5df1-b763-3a92f1f1e31c")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "J10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x12")
+		(at 55.88 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3ba3a83f-2265-569f-af2b-c65bb892b463")
+		(property "Reference" "J11"
+			(at 55.88 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "IO J3 aux strobes"
+			(at 55.88 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Molex:Molex_KK-396_A-41791-0012_1x12_P3.96mm_Vertical"
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x12, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 55.88 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "32cdf494-0feb-5b9d-b47c-5984e625e6b3")
+		)
+		(pin "2"
+			(uuid "6ec12ebb-13da-59ed-84a6-59cd8a646683")
+		)
+		(pin "3"
+			(uuid "ccbe3a98-77f3-585b-b07b-a787c6b95d32")
+		)
+		(pin "4"
+			(uuid "7f2177fc-baa0-565a-8b05-d392f8d47910")
+		)
+		(pin "5"
+			(uuid "a8908e27-80db-5c85-a3e4-a53290ba6d44")
+		)
+		(pin "6"
+			(uuid "44a49392-e5c7-5fdb-b762-98f462431764")
+		)
+		(pin "7"
+			(uuid "1c486841-a427-5a57-bebe-be24dfa53ea3")
+		)
+		(pin "8"
+			(uuid "2681f561-d890-5e2a-8ae8-61f6121a80c6")
+		)
+		(pin "9"
+			(uuid "78e08ae2-3b47-5b93-bf59-4af3a414b991")
+		)
+		(pin "10"
+			(uuid "5484d831-e919-56b3-a47d-c579df2d92ee")
+		)
+		(pin "11"
+			(uuid "71880268-6b03-533a-b1b5-eb927b65fa54")
+		)
+		(pin "12"
+			(uuid "abf30dea-541e-5b76-82bd-8b3838a2ca86")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "J11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 30.48 35.56)
+			(xy 27.94 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98f1416c-533d-5ab3-a696-6694f00ad6c2")
+	)
+	(wire
+		(pts
+			(xy 30.48 38.1)
+			(xy 27.94 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0690926c-e5a4-5a39-857f-4fdce44bb41d")
+	)
+	(wire
+		(pts
+			(xy 30.48 40.64)
+			(xy 27.94 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71cb62c7-9bb3-5b56-b125-f5465da9dc24")
+	)
+	(wire
+		(pts
+			(xy 30.48 45.72)
+			(xy 27.94 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7d2e8de-1d6f-540c-9a19-1921aad93197")
+	)
+	(wire
+		(pts
+			(xy 30.48 48.26)
+			(xy 27.94 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe285b1f-e9c0-5345-923c-e25bebbe493b")
+	)
+	(wire
+		(pts
+			(xy 30.48 50.8)
+			(xy 27.94 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a20bd07f-e526-52fb-8ff2-4b0cc2a6fbc5")
+	)
+	(wire
+		(pts
+			(xy 30.48 53.34)
+			(xy 27.94 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ee5c415-56a5-5163-9c01-aef967b8b5cf")
+	)
+	(wire
+		(pts
+			(xy 30.48 55.88)
+			(xy 27.94 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fbc92c71-c573-54dc-b690-bd266970fc39")
+	)
+	(wire
+		(pts
+			(xy 30.48 58.42)
+			(xy 27.94 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bdb2a21-bf1d-51e4-9360-3494123776d0")
+	)
+	(wire
+		(pts
+			(xy 50.8 53.34)
+			(xy 48.26 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "92a205bd-83da-5cfe-9b61-6dddad435bc4")
+	)
+	(wire
+		(pts
+			(xy 50.8 55.88)
+			(xy 48.26 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd30d838-f850-5974-a101-671371ad3a09")
+	)
+	(wire
+		(pts
+			(xy 50.8 58.42)
+			(xy 48.26 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8adcc14-7afb-59cc-ae3e-9f5ecda6275d")
+	)
+	(wire
+		(pts
+			(xy 50.8 60.96)
+			(xy 48.26 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0021d779-8749-51f6-88c7-a647b77097ac")
+	)
+	(no_connect
+		(at 30.48 43.18)
+		(uuid "a77b320c-a792-5b07-b452-dd04ea0dd660")
+	)
+	(no_connect
+		(at 50.8 33.02)
+		(uuid "01b6f2a9-d540-5a16-a673-3d69ae38e336")
+	)
+	(no_connect
+		(at 50.8 35.56)
+		(uuid "603525a0-ecce-5df9-a86d-9af40f291c81")
+	)
+	(no_connect
+		(at 50.8 38.1)
+		(uuid "8de894d0-4117-5410-98c0-15da072bf679")
+	)
+	(no_connect
+		(at 50.8 40.64)
+		(uuid "a8e0e60d-4c2a-55ac-9815-3c31d0cd5236")
+	)
+	(no_connect
+		(at 50.8 43.18)
+		(uuid "864c4f6c-c0f8-559d-b848-e9031a3c88f7")
+	)
+	(no_connect
+		(at 50.8 45.72)
+		(uuid "c8255ec4-69c3-5dfa-aee1-a234bcae5219")
+	)
+	(no_connect
+		(at 50.8 48.26)
+		(uuid "fade719d-d1db-5f9f-8ef6-0718450a6ebe")
+	)
+	(no_connect
+		(at 50.8 50.8)
+		(uuid "22f801c2-c38a-5a51-9707-af726807371b")
+	)
+	(label "AUXO_P1"
+		(at 27.94 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ef03884c-3deb-54f7-84d2-f7ae880412d0")
+	)
+	(label "AUXO_P2"
+		(at 27.94 38.1 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "462321b5-7102-5966-bcba-cb931343b5f3")
+	)
+	(label "AUXO_P3"
+		(at 27.94 40.64 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8dc96d4e-47a3-5a7f-a742-a55c34e95901")
+	)
+	(label "AUXO_P5"
+		(at 27.94 45.72 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f94e0e42-027e-52c8-bd0a-db43dce8c43e")
+	)
+	(label "AUXO_P6"
+		(at 27.94 48.26 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "241a27c0-c137-5f2c-93bd-f1c2d9560bce")
+	)
+	(label "AUXO_P7"
+		(at 27.94 50.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cf43ed6b-39c8-5ded-afc4-e0789843e0f8")
+	)
+	(label "AUXO_P8"
+		(at 27.94 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "65e8b317-a35b-5bd0-95bc-dd61222c6162")
+	)
+	(label "AUXO_P9"
+		(at 27.94 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "69e171d3-83c0-5095-9671-4959aab90c70")
+	)
+	(label "AUXO_P10"
+		(at 27.94 58.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6f8e3aa5-fa19-5d6a-b6f8-e9c89e2dd230")
+	)
+	(label "AUXS_P9"
+		(at 48.26 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a4477314-874c-54b0-b92f-7b7832367bae")
+	)
+	(label "AUXS_P10"
+		(at 48.26 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "59242ad5-c5da-5fcd-9c02-22728d448e0b")
+	)
+	(label "AUXS_P11"
+		(at 48.26 58.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5e265844-725d-52fd-9982-fcc15687f082")
+	)
+	(label "AUXS_P12"
+		(at 48.26 60.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a4f375b8-57b5-57eb-b6b1-cd23b5bee9b9")
+	)
+	(text "AUXO_P1"
+		(exclude_from_sim no)
+		(at 64.77 30.48 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "3e1604fe-a4c0-53a4-a579-714353535fa9")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 81.28 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14349355-1780-547c-82ea-f627c2d17bfa")
+		(property "Reference" "R171"
+			(at 81.28 32.766 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 81.28 38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 81.28 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 81.28 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 81.28 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "65cd8f3e-cacc-5a28-9091-9c382f45a2b4")
+		)
+		(pin "2"
+			(uuid "b0e6eb33-8d3d-5af4-8ff0-97e432ed765b")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R171")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 77.47 35.56)
+			(xy 74.93 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c27a677-7f49-541d-b70a-2e04f610f34d")
+	)
+	(wire
+		(pts
+			(xy 85.09 35.56)
+			(xy 87.63 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "882f37c4-15eb-5778-ad18-c8484fba3234")
+	)
+	(label "AUXO_P1"
+		(at 74.93 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bafabaf1-9642-5a6a-9dca-cc7d8ba4de9d")
+	)
+	(global_label "G_AUXO_P1"
+		(shape passive)
+		(at 87.63 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "311046bf-2b63-5d73-8aa9-8faf44426eb8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 87.63 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P2"
+		(exclude_from_sim no)
+		(at 107.95 30.48 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "8efacf00-98a2-5894-ba2f-039499b55668")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 124.46 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "651b94d8-7a9d-5924-8df7-0c9ebf22fed5")
+		(property "Reference" "R172"
+			(at 124.46 32.766 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 124.46 38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 124.46 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 124.46 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 124.46 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bc5949aa-2a77-5ec8-b63a-543050297291")
+		)
+		(pin "2"
+			(uuid "cb86c582-5756-5c26-9091-f097b5fdb97a")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R172")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 120.65 35.56)
+			(xy 118.11 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "024f5f02-54d4-5b30-978d-86edc8b85c9d")
+	)
+	(wire
+		(pts
+			(xy 128.27 35.56)
+			(xy 130.81 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b3076b3-95ec-5c2f-ba4d-571cecdc0f26")
+	)
+	(label "AUXO_P2"
+		(at 118.11 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0fb685e0-a07b-5a26-95dc-d425dd90bafb")
+	)
+	(global_label "G_AUXO_P2"
+		(shape passive)
+		(at 130.81 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cb346660-6f81-557d-a565-8461b4f283e6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 130.81 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P3"
+		(exclude_from_sim no)
+		(at 151.13 30.48 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "b1467151-b78c-5461-b2a3-7f7809b71026")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 167.64 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3eac01dd-8249-5f13-a13c-0a4861fa4c5b")
+		(property "Reference" "R173"
+			(at 167.64 32.766 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 167.64 38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 167.64 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 167.64 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 167.64 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c8bfddf2-cc96-570b-843b-a668ad7ed65f")
+		)
+		(pin "2"
+			(uuid "c0334f4e-51a9-5c36-b37a-0dfa7bcb30b9")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R173")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 163.83 35.56)
+			(xy 161.29 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc730fbe-d13d-5309-8f1c-9b17f3c8400f")
+	)
+	(wire
+		(pts
+			(xy 171.45 35.56)
+			(xy 173.99 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8baee84-8e0b-5c2b-a664-42697ce35ae4")
+	)
+	(label "AUXO_P3"
+		(at 161.29 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3c20a232-ff59-5cd4-8695-8a7806108542")
+	)
+	(global_label "G_AUXO_P3"
+		(shape passive)
+		(at 173.99 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d1865fa1-53a3-5ea8-a38d-6e30e9c7e142")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 173.99 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P5"
+		(exclude_from_sim no)
+		(at 196.85 30.48 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "97ddf7fa-fc70-5147-b73b-b35f02edf83d")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 213.36 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "195abe33-934f-5abf-8e0b-aad4cb646254")
+		(property "Reference" "R174"
+			(at 213.36 32.766 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 213.36 38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 213.36 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 213.36 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 213.36 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e867fd34-e6c5-5cb4-b371-1335908f26bf")
+		)
+		(pin "2"
+			(uuid "4f3732ba-7c7f-5a37-9ddf-6a1a7fec6ccd")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R174")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 209.55 35.56)
+			(xy 207.01 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c45f8879-6dbb-5f53-af72-95c1c9d28c02")
+	)
+	(wire
+		(pts
+			(xy 217.17 35.56)
+			(xy 219.71 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb9fa160-a172-5b7e-a99a-90e431e82491")
+	)
+	(label "AUXO_P5"
+		(at 207.01 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c8f719a8-364c-5432-a4ea-28c0523ea388")
+	)
+	(global_label "G_AUXO_P5"
+		(shape passive)
+		(at 219.71 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fda5cb7d-00ea-563f-be0e-0be388e5d27a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 219.71 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P6"
+		(exclude_from_sim no)
+		(at 240.03 30.48 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "bddacca3-6a03-5801-9756-c6e0f0ba1b76")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 256.54 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4549aded-c016-55b3-b98e-6a890b3b74be")
+		(property "Reference" "R175"
+			(at 256.54 32.766 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 256.54 38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 256.54 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 256.54 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 256.54 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7b278851-cf67-5a21-b7d8-ed63baf22834")
+		)
+		(pin "2"
+			(uuid "fe26cb1a-92a5-55d2-b5ca-579c222b8c3e")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R175")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 252.73 35.56)
+			(xy 250.19 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b085a66c-96a0-50a9-8f32-4ad049c23389")
+	)
+	(wire
+		(pts
+			(xy 260.35 35.56)
+			(xy 262.89 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5da9cb8c-65b2-5b55-b3d3-fbc4497a77f8")
+	)
+	(label "AUXO_P6"
+		(at 250.19 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7ee5f178-10a4-5f5c-8ef1-f7d6169ee58b")
+	)
+	(global_label "G_AUXO_P6"
+		(shape passive)
+		(at 262.89 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "75930871-61c1-5c00-a3fc-c970dd244664")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 262.89 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P7"
+		(exclude_from_sim no)
+		(at 283.21 30.48 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "d775c7c3-697d-5b05-a084-3401706db811")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 299.72 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3a529e07-aae5-5d72-bd4b-5895180c3986")
+		(property "Reference" "R176"
+			(at 299.72 32.766 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 299.72 38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 299.72 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 299.72 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 299.72 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8fd5f8e8-8da9-533a-9714-e07ad4a18b76")
+		)
+		(pin "2"
+			(uuid "eda16d00-3b6a-5474-947c-a593be1f7686")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R176")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 295.91 35.56)
+			(xy 293.37 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff9b6185-11f2-5410-a136-ffb55ffa4ee8")
+	)
+	(wire
+		(pts
+			(xy 303.53 35.56)
+			(xy 306.07 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aec04c20-6937-5a91-976f-01711334cd17")
+	)
+	(label "AUXO_P7"
+		(at 293.37 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8342fb4c-f1b5-5c60-944d-3294434a76f4")
+	)
+	(global_label "G_AUXO_P7"
+		(shape passive)
+		(at 306.07 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ee7224a8-9942-5fca-8522-54c69c8565a9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 306.07 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P8"
+		(exclude_from_sim no)
+		(at 328.93 30.48 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "0dbb3bbd-1e25-538e-b9e3-6ce779fc7158")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 345.44 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "550213a9-5dbe-5f87-8d6c-5e2e358543ed")
+		(property "Reference" "R177"
+			(at 345.44 32.766 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 345.44 38.354 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 345.44 37.338 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 345.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 345.44 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c6d370e8-da1e-5f7e-850a-44c67a8f53de")
+		)
+		(pin "2"
+			(uuid "f345356c-71a5-574d-8f43-19a57a5d1bb1")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R177")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 341.63 35.56)
+			(xy 339.09 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bef5847-a441-5865-9d0d-5cad293b5764")
+	)
+	(wire
+		(pts
+			(xy 349.25 35.56)
+			(xy 351.79 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59cb63c9-0ca8-5257-86e4-82114973afb7")
+	)
+	(label "AUXO_P8"
+		(at 339.09 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9f7c1b7e-f3d5-5149-a4e3-9fb29b2723ca")
+	)
+	(global_label "G_AUXO_P8"
+		(shape passive)
+		(at 351.79 35.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9fb67c1c-b078-5d1a-920d-4654661f7209")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 351.79 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P9"
+		(exclude_from_sim no)
+		(at 16.51 73.66 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "1c13008c-a7b3-50a1-8109-d921a67870d0")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 33.02 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "57db7721-418a-51db-98e2-2eb800bd7e16")
+		(property "Reference" "R178"
+			(at 33.02 75.946 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 33.02 81.534 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 33.02 80.518 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 33.02 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e90a7161-cdc5-5631-bfd4-c3b619fac4b1")
+		)
+		(pin "2"
+			(uuid "c1c77042-93bd-58a4-bbbb-3b5fe6a77b04")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R178")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 29.21 78.74)
+			(xy 26.67 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a26062a5-dbbc-5c52-a065-df69de6dbc64")
+	)
+	(wire
+		(pts
+			(xy 36.83 78.74)
+			(xy 39.37 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "24d01281-dfc1-5a9f-ba31-20dbc5b2fe04")
+	)
+	(label "AUXO_P9"
+		(at 26.67 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2165394e-884d-5939-a830-a66279221416")
+	)
+	(global_label "G_AUXO_P9"
+		(shape passive)
+		(at 39.37 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6035c104-1f37-5c0c-8435-a26215773b31")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 39.37 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXO_P10"
+		(exclude_from_sim no)
+		(at 58.42 73.66 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "2bb0864e-209f-57e8-9433-fb64c7405251")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 76.2 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4930f348-5960-525b-be37-28ec1032cd15")
+		(property "Reference" "R179"
+			(at 76.2 75.946 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 76.2 81.534 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 76.2 80.518 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 76.2 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 76.2 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "45895198-07ba-5bd8-b7e1-e3fe53028b94")
+		)
+		(pin "2"
+			(uuid "14f52aa7-0a10-528a-bb6a-ea93f1dbb06c")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R179")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 72.39 78.74)
+			(xy 69.85 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5e7deb0-134f-52ef-a349-11bcb2f82d1d")
+	)
+	(wire
+		(pts
+			(xy 80.01 78.74)
+			(xy 82.55 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76df3f90-567c-5654-a2a2-f69ec3ba5059")
+	)
+	(label "AUXO_P10"
+		(at 69.85 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "29b0c147-f801-50d1-9707-1c0b7beb5af6")
+	)
+	(global_label "G_AUXO_P10"
+		(shape passive)
+		(at 82.55 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4f06623b-59ba-57ba-97c9-511331c60dc4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 82.55 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXS_P9"
+		(exclude_from_sim no)
+		(at 105.41 73.66 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "50ea9848-4fab-564b-bddf-00ed0f5f6628")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 121.92 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "89848b42-00bf-5d6a-8402-34f732d561e8")
+		(property "Reference" "R180"
+			(at 121.92 75.946 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 121.92 81.534 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 121.92 80.518 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 121.92 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 121.92 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e3eafb09-2172-52e1-966c-7fe4ded89fa4")
+		)
+		(pin "2"
+			(uuid "878a41d9-0703-5819-aa1b-3fc5daac8ed4")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R180")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 118.11 78.74)
+			(xy 115.57 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5451709c-205b-550f-a5a7-fdcc4f4dc23c")
+	)
+	(wire
+		(pts
+			(xy 125.73 78.74)
+			(xy 128.27 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2befc5f-8727-5a5c-bd88-8618ca7f0cd8")
+	)
+	(label "AUXS_P9"
+		(at 115.57 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9194ef30-8e83-5e07-b0d4-c1e917bbb839")
+	)
+	(global_label "G_AUXS_P9"
+		(shape passive)
+		(at 128.27 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "eff71a5c-0910-5742-b80d-47eb4b3ed335")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 128.27 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXS_P10"
+		(exclude_from_sim no)
+		(at 149.86 73.66 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "1da2ac44-5bce-5f99-a184-e05db15c0c5d")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 167.64 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bbc9bf11-7029-5fe6-9a3c-a4954df05aaf")
+		(property "Reference" "R181"
+			(at 167.64 75.946 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 167.64 81.534 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 167.64 80.518 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 167.64 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 167.64 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "748e0a29-fea1-5c4a-831b-06def6fe3164")
+		)
+		(pin "2"
+			(uuid "3f7759c0-5c41-5fe8-89b9-1c91f407c593")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R181")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 163.83 78.74)
+			(xy 161.29 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "daa845fb-845e-582b-8829-33a428863c33")
+	)
+	(wire
+		(pts
+			(xy 171.45 78.74)
+			(xy 173.99 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "185556a3-cf82-56ae-84cb-4c66a0eeffc0")
+	)
+	(label "AUXS_P10"
+		(at 161.29 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "03371a20-ae47-539a-bb7d-5c68d21b234b")
+	)
+	(global_label "G_AUXS_P10"
+		(shape passive)
+		(at 173.99 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ed91631b-ce6c-5c10-9192-a81321208c55")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 173.99 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXS_P11"
+		(exclude_from_sim no)
+		(at 195.58 73.66 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "5d625c4a-6c14-5e55-871d-fac07dddb8da")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 213.36 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "25a8bff8-424d-53eb-a75f-6a00e370fbc5")
+		(property "Reference" "R182"
+			(at 213.36 75.946 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 213.36 81.534 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 213.36 80.518 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 213.36 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 213.36 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d4c923d0-96e4-52ce-835a-50a8ed49cb82")
+		)
+		(pin "2"
+			(uuid "1035a0c2-b061-5897-9fc9-c89df4e5f66a")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R182")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 209.55 78.74)
+			(xy 207.01 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "865696c3-4e4f-5000-a3dd-4659e8562dd5")
+	)
+	(wire
+		(pts
+			(xy 217.17 78.74)
+			(xy 219.71 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e39db211-9569-5399-9d4b-6b029b76bd23")
+	)
+	(label "AUXS_P11"
+		(at 207.01 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a59949b2-052a-52bf-9b39-92199976caaf")
+	)
+	(global_label "G_AUXS_P11"
+		(shape passive)
+		(at 219.71 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5695d3e3-03ef-57d0-8ebd-ef23a4649ea8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 219.71 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(text "AUXS_P12"
+		(exclude_from_sim no)
+		(at 241.3 73.66 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left bottom)
+		)
+		(uuid "0367336f-6fb6-5c76-9528-b7fd24ba7b3b")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 259.08 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "079a2031-aecb-5df0-b663-692dd892714f")
+		(property "Reference" "R183"
+			(at 259.08 75.946 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 259.08 81.534 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 259.08 80.518 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 259.08 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 259.08 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1253b2c3-ddc1-5f9e-aee3-427d111b0abb")
+		)
+		(pin "2"
+			(uuid "a0b60127-fe44-5a75-838c-22a9ae7ecb0d")
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4/c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8"
+					(reference "R183")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 255.27 78.74)
+			(xy 252.73 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c982e59b-4240-5610-aeb6-99a0c19dc014")
+	)
+	(wire
+		(pts
+			(xy 262.89 78.74)
+			(xy 265.43 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3fdb541-bcda-51e8-a4c8-3e93ec0bdf77")
+	)
+	(label "AUXS_P12"
+		(at 252.73 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "17d5206c-f363-5fc1-b668-61dddbda7be2")
+	)
+	(global_label "G_AUXS_P12"
+		(shape passive)
+		(at 265.43 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d8c01dcd-6c7f-5cb7-97b1-6cee8ea34d35")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 265.43 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+)

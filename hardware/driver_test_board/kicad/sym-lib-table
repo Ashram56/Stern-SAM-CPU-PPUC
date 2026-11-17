@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "dtb")(type "KiCad")(uri "${KIPRJMOD}/dtb.kicad_sym")(options "")(descr "Project symbols"))
+)

@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "filename": "driver_test_board.kicad_pro",
+    "version": 3
+  },
+  "sheets": [
+    [
+      "c9c927f4-a363-5e2d-9614-98dee5f585d4",
+      "Root"
+    ],
+    [
+      "b347a258-41f4-5a12-a98a-1b80e78d320d",
+      "Power and USB"
+    ],
+    [
+      "d360c6c3-40d3-5528-aec0-e616a30a2847",
+      "MCU"
+    ],
+    [
+      "b62938dd-bb7a-5b51-ad84-8eaab2319f0d",
+      "Coil outputs"
+    ],
+    [
+      "e354c648-ee5f-5d21-82ca-ff262b34f071",
+      "Lamp matrix"
+    ],
+    [
+      "55f019cf-e35d-5e9b-b605-e65bfbf70435",
+      "Capture"
+    ],
+    [
+      "c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8",
+      "Aux port"
+    ],
+    [
+      "a305cf2a-3b45-5e8f-8834-1e5f7dfc76ae",
+      "Switch simulation"
+    ]
+  ],
+  "text_variables": {}
+}

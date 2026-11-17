@@ -1,0 +1,402 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "c9c927f4-a363-5e2d-9614-98dee5f585d4")
+	(paper "A3")
+	(title_block
+		(title "SAM driver output test board")
+		(date "2026-11-17")
+		(rev "0.1")
+		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
+	)
+	(lib_symbols)
+	(sheet
+		(at 25.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b347a258-41f4-5a12-a98a-1b80e78d320d")
+		(property "Sheetname" "Power and USB"
+			(at 25.4 62.7884 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power_usb.kicad_sch"
+			(at 25.4 89.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4"
+					(page "2")
+				)
+			)
+		)
+	)
+	(text "Isolated USB (ADuM3160), 1 W isolated 5 V, 3.3 V"
+		(exclude_from_sim no)
+		(at 27.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "954a6819-5f5b-546c-a169-58098487e1f0")
+	)
+	(sheet
+		(at 152.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "d360c6c3-40d3-5528-aec0-e616a30a2847")
+		(property "Sheetname" "MCU"
+			(at 152.4 62.7884 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 152.4 89.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4"
+					(page "3")
+				)
+			)
+		)
+	)
+	(text "RP2354B (2 MB flash in package), crystal, core regulator, SWD"
+		(exclude_from_sim no)
+		(at 154.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "fc8666be-7f72-5f53-a077-0706449bd89b")
+	)
+	(sheet
+		(at 279.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b62938dd-bb7a-5b51-ad84-8eaab2319f0d")
+		(property "Sheetname" "Coil outputs"
+			(at 279.4 62.7884 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "coils.kicad_sch"
+			(at 279.4 89.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4"
+					(page "4")
+				)
+			)
+		)
+	)
+	(text "Coil and flasher outputs 1-32: light load + LED to the rail, divider to the 74HC165"
+		(exclude_from_sim no)
+		(at 281.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "8f22698b-72f9-531d-9fe7-1f68b9d8a46b")
+	)
+	(sheet
+		(at 25.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e354c648-ee5f-5d21-82ca-ff262b34f071")
+		(property "Sheetname" "Lamp matrix"
+			(at 25.4 108.5084 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "lamps.kicad_sch"
+			(at 25.4 135.2084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4"
+					(page "5")
+				)
+			)
+		)
+	)
+	(text "Lamp strobes (IO J12) and lamp columns (IO J13)"
+		(exclude_from_sim no)
+		(at 27.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "6aae8386-da95-5f07-bfc3-90f26bb305b2")
+	)
+	(sheet
+		(at 152.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "55f019cf-e35d-5e9b-b605-e65bfbf70435")
+		(property "Sheetname" "Capture"
+			(at 152.4 108.5084 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "capture.kicad_sch"
+			(at 152.4 135.2084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4"
+					(page "6")
+				)
+			)
+		)
+	)
+	(text "74HC165 x 7: 56 inputs sampled in parallel, 1 sample per microsecond"
+		(exclude_from_sim no)
+		(at 154.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "d24c1aca-2b29-5946-905b-481660a67b84")
+	)
+	(sheet
+		(at 279.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "c21e43db-3b12-52c3-b6a6-b6e29a4e9ec8")
+		(property "Sheetname" "Aux port"
+			(at 279.4 108.5084 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "aux.kicad_sch"
+			(at 279.4 135.2084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4"
+					(page "7")
+				)
+			)
+		)
+	)
+	(text "Aux port (IO J2 data + ASTB, IO J3 strobes): 5 V logic, read directly by the PIO"
+		(exclude_from_sim no)
+		(at 281.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "aecb3a7b-fb33-5e62-816b-a404772223cc")
+	)
+	(sheet
+		(at 25.4 154.94)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a305cf2a-3b45-5e8f-8834-1e5f7dfc76ae")
+		(property "Sheetname" "Switch simulation"
+			(at 25.4 154.2284 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "switches.kicad_sch"
+			(at 25.4 180.9284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "driver_test_board"
+				(path "/c9c927f4-a363-5e2d-9614-98dee5f585d4"
+					(page "8")
+				)
+			)
+		)
+	)
+	(text "Switch simulation on the CPU board inputs: 8 strobes read, 16 returns + 24 dedicated driven"
+		(exclude_from_sim no)
+		(at 27.94 160.02 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "bbeae188-7d57-5513-8a9b-c79aaf71ee87")
+	)
+	(text "SAM driver output test board, schematic draft 0.1 (2026-11-17). Licence: CERN-OHL-S v2.\nReplaces the playfield harness on the I/O Power Driver board 520-5249-00 (J6-J10, J12, J13, J2, J3) and the switch\nharness on the CPU board (J1, J2, J3, J6, J12, J13). Every output sees < 1 mA: a stuck-on output cannot burn anything.\nThe 50 V and 20 V rails MUST be on during tests: each output has a 1N4004 flyback diode to its rail on the driver board.\nBoard ground = pinball ground (J10 pins 2-5, IO J12 pin 12, CPU connectors). USB to the PC is isolated (ADuM3160).\nIO J10 pin 1 carries 24 VAC: it is not connected on this board."
+		(exclude_from_sim no)
+		(at 25.4 15.24 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "5c7ae8b6-7d45-5a71-8fdd-dbcfaca0b13b")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
