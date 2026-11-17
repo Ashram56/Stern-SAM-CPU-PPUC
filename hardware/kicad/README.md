@@ -164,6 +164,14 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
     each return byte (Vincent's choice, no PCB change).
   - ERC 0; DRC 0 unconnected, the same 6 starved-thermal errors as before, schematic parity 0.
     Scripts: `tools/changes/c71_review_connectors/`.
+- **Mounting holes restored** (c72, 2026-11-17): the nine board-only hole footprints (keyholes MH3 / MH6, round M4
+  MH4 / MH5 / MH7, Pi standoffs MH9-MH12) had been removed by c63's "footprints gone from the schematic" sweep,
+  so the boards from 5a1ae7c to 724b80a (and the fab files e8b8d23 / 724b80a) had no mounting holes. They are back
+  at their positions (blocks copied from 5a1ae7c~1). Tracks routed across them in the meantime were moved: the
+  four speaker tracks go round the MH5 pad (SPK_L_N north at y 31.5, the other three south), SW_LOAD_N dips south
+  of MH11, the I2S_BCK via by MH12 moved 0.33 mm up. DRC: 0 unconnected, parity 0, the 6 starved thermals and the
+  4 known keyhole slot-size reports. Any future script that removes footprints missing from the schematic must
+  skip `board_only` footprints. Scripts: `tools/changes/c72_mounting_holes/`.
 
 ## Checks
 
