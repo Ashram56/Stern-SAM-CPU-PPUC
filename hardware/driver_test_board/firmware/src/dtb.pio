@@ -1,0 +1,62 @@
+; SAM driver output test board: PIO programs.
+; SPDX-License-Identifier: GPL-3.0-or-later
+
+; ---------------------------------------------------------------------------------------------
+; 7 x 74HC165 read in parallel, one sample per microsecond (75 cycles at 75 MHz, clkdiv 2).
+; side-set: bit 0 = SR_CLK (GPIO7), bit 1 = SR_PL_N (GPIO8). IN base = GPIO0 (SR_Q0..6), 7 pins.
+; Autopush at 28 bits, shift left: word A = reads 1-4 (D7..D4), word B = reads 5-8 (D3..D0),
+; the first read in the top bits. IRQ 0 tells dtb_direct to sample the direct lines at load time.
+; ---------------------------------------------------------------------------------------------
+.program dtb_sr
+.side_set 2
+.wrap_target
+    set x, 7        side 0b00 [3]   ; PL_N low: parallel load, 53 ns
+    irq set 0       side 0b10 [6]   ; PL_N high, Q7 settles (93 ns)
+bit:
+    nop             side 0b10 [2]   ; CLK low 53 ns
+    in pins, 7      side 0b10
+    jmp x-- bit     side 0b11 [3]   ; CLK high 53 ns: shift
+.wrap                                ; 4 + 7 + 8 x 8 = 75 cycles
+
+; ---------------------------------------------------------------------------------------------
+; Direct lines GPIO9-29 (13 aux lines + 8 CPU strobes), sampled at the 74HC165 load instant.
+; IN base = GPIO9, autopush at 21 bits.
+; ---------------------------------------------------------------------------------------------
+.program dtb_direct
+.wrap_target
+    wait 1 irq 0
+    in pins, 21
+.wrap
+
+; ---------------------------------------------------------------------------------------------
+; Aux port edge capture (300 ns strobes): pushes the 13 aux lines (GPIO9-21) on every change,
+; 20 ns resolution at 150 MHz. IN base = GPIO9, IN_COUNT = 13 (RP2350 masks MOV x, PINS), autopush 13.
+; ---------------------------------------------------------------------------------------------
+.program dtb_aux
+    mov x, pins
+.wrap_target
+loop:
+    mov y, pins
+    jmp x!=y changed
+    jmp loop
+changed:
+    in y, 13
+    mov x, y
+.wrap
+
+; ---------------------------------------------------------------------------------------------
+; 74HCT595 switch outputs (PIO1, GPIO base 16). OUT base = GPIO30 (SER_RET, SER_DED), 2 pins;
+; side-set GPIO32 = SRCLK; SET base GPIO33 = RCLK. Autopull at 16 bits, shift right:
+; 3 words per update, each 8 clocks x 2 bits (bit 2i = SER_RET, bit 2i+1 = SER_DED).
+; 50 MHz (clkdiv 3): 80 ns per clock, 24 clocks + latch = about 2 us.
+; ---------------------------------------------------------------------------------------------
+.program dtb_595
+.side_set 1 opt
+.wrap_target
+    set x, 23
+bit:
+    out pins, 2     side 0 [1]
+    jmp x-- bit     side 1 [1]
+    set pins, 1     side 0 [1]      ; RCLK high: outputs take the new state
+    set pins, 0
+.wrap
