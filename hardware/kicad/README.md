@@ -170,7 +170,8 @@ left / right speakers (J10, J22), U24 the subwoofer (J24); both on +12 V, 4 or 8
   at their positions (blocks copied from 5a1ae7c~1). Tracks routed across them in the meantime were moved: the
   four speaker tracks go round the MH5 pad (SPK_L_N north at y 31.5, the other three south), SW_LOAD_N dips south
   of MH11, the I2S_BCK via by MH12 moved 0.33 mm up. DRC: 0 unconnected, parity 0, the 6 starved thermals and the
-  4 known keyhole slot-size reports. Any future script that removes footprints missing from the schematic must
+  4 known keyhole slot-size reports. c73: the speaker detours were widened so no track is closer than 5.5 mm to the centre
+  of MH5 on either side (9 mm M4 washer). Any future script that removes footprints missing from the schematic must
   skip `board_only` footprints. Scripts: `tools/changes/c72_mounting_holes/`.
 
 ## Checks
