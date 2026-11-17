@@ -51,7 +51,7 @@ pad (M4) until the real screw is measured.
 | J2 | dedicated in (lower), 12 pin | 75.85, 201.41 | 151.77, 221.73 | 76 mm left, second row 20.3 mm up |
 | J1 | switch strobes, 9 pin | 115.57, 201.41 | 194.94, 221.73 | 79 mm left, second row 20.3 mm up |
 | J11 | power in | 58.41, 11.18 | same | none |
-| J10 | speakers (now bridged: L+ R+ L- R-) | 85.00, 11.18 | 156.19, 8.76 | 71 mm left |
+| J10 | speakers (bridged: L+ L- R+ R- since c71) | 85.00, 11.18 | 156.19, 8.76 | 71 mm left |
 | J17 | external +5 V terminal, wires from the right edge | 114.5, 18.0 | new | |
 | J23 | external +12 V terminal (audio), wires from the right edge | 114.5, 30.0 | new | |
 | J22 | second speaker connector (L+ L- R+ R-) | 115.0, 41.5 | new | right edge |

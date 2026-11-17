@@ -38,20 +38,36 @@ struct StreamBuilder {
   }
   // The two words switch_chain.pio pushes for this stream.
   uint32_t Word0() const { return static_cast<uint32_t>(bits); }
-  uint32_t Word1() const { return static_cast<uint32_t>((bits >> 32) & 0xFFFFFF) << 8; }
+  uint32_t Word1() const { return static_cast<uint32_t>((bits >> 32) & 0xFFFF) << 16; }
 };
 
 static void TestChainDecode() {
   StreamBuilder s;
-  s.Close(0, 0);    // U30 D0: memory protect
-  s.Close(8, 2);    // U19 D2: matrix return 3
-  s.Close(16, 7);   // U18 D7: matrix return 16
-  s.Close(24, 4);   // U17 D4: D5
-  s.Close(48, 0);   // U14 D0: DIP 1 = D25
-  const ChainInputs in = DecodeChain(ChainStream(s.Word0(), s.Word1()));
-  CHECK(in.mem_protect);
+  s.Close(0, 0);    // U30 D0: D8 (J2 pin 10)
+  s.Close(8, 5);    // U19 D5: matrix return 3 (J6 pin 7)
+  s.Close(16, 0);   // U18 D0: matrix return 16 (J12 pin 1)
+  s.Close(24, 5);   // U17 D5: D5 (J2 pin 7)
+  s.Close(40, 7);   // U15 D7: D24
+  ChainInputs in = DecodeChain(ChainStream(s.Word0(), s.Word1()));
+  CHECK(!in.mem_protect);
   CHECK(in.returns == ((1u << 2) | (1u << 15)));
-  CHECK(in.dedicated == ((1u << 4) | (1u << 24)));
+  CHECK(in.dedicated == ((1u << 4) | (1u << 7) | (1u << 23)));
+
+  // Memory protect alone: U17 D0 (J2 pin 12), no dedicated switch reported.
+  StreamBuilder m;
+  m.Close(24, 0);
+  in = DecodeChain(ChainStream(m.Word0(), m.Word1()));
+  CHECK(in.mem_protect);
+  CHECK(in.returns == 0);
+  CHECK(in.dedicated == 0);
+
+  // Return 1 is J6 pin 9 = U19 D7, return 9 is J12 pin 9 = U18 D7.
+  StreamBuilder r;
+  r.Close(8, 7);
+  r.Close(16, 7);
+  in = DecodeChain(ChainStream(r.Word0(), r.Word1()));
+  CHECK(in.returns == ((1u << 0) | (1u << 8)));
+  CHECK(ReverseBits8(0x01) == 0x80 && ReverseBits8(0xA5) == 0xA5 && ReverseBits8(0x16) == 0x68);
 
   CHECK(PatternStrobe(StrobePattern(3, true, false)) == 3);
   CHECK(StrobePattern(3, true, true) == ((1u << 11) | 0x3));

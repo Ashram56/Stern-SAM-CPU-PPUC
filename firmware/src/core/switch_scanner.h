@@ -5,7 +5,7 @@
 // electrical glitches:
 //   - matrix switches: a change must be seen on 2 consecutive scans, like the
 //     ROM's first stage;
-//   - dedicated switches: sampled on every chain pass (about 6 us), a change
+//   - dedicated switches: sampled on every chain pass (about 5 us), a change
 //     must hold for kDedicatedMinWindowUs;
 //   - a configured `debounce` (ms) lengthens either window;
 //   - PPUC fastFlip mode accepts a closing edge on its first sample.

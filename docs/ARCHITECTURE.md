@@ -534,7 +534,7 @@ So the bus sits low for PIO0, the DMD high for PIO2, and the switch chain in the
 | 32-33 | UART0 TX, RX to the Pi | 2 | UART0 |
 | 34 | IRQ to the Pi | 1 | core0 |
 | 35-36 | GI dimmer header: GI_PWM, GI_SPARE (10.2) | 2 | PWM |
-| 31 | Coin door memory protect (J2 pin 10) | 1 | core0 |
+| 31 | Coin door memory protect (TAMPIN, J2 pin 12) | 1 | core0 |
 | 40-41 | 5 V and 12 V supply monitors (ADC) | 2 | ADC |
 | 42 | status LED | 1 | core0 |
 | **Total** | | **40 of 48** | |

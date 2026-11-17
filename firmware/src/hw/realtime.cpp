@@ -1,5 +1,5 @@
 // core1 loop. Nothing here blocks for more than a few bus cycles, so the
-// switch chain (a pass every ~6 us) is drained continuously and a flipper
+// switch chain (a pass every ~5 us) is drained continuously and a flipper
 // button reaches its coil within one pass plus one bus write.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later

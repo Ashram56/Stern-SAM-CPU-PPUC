@@ -98,12 +98,12 @@ inline bool CoilPortToBus(uint16_t port, uint8_t& reg, uint8_t& bit) {
 
 // Switches: SAM switch numbers. Matrix strobe s (0-7), return r (0-15) is
 // s * 16 + r + 1 (1-128; the ROM scans strobes 0-3). Dedicated D1-D32 are
-// 129-160 (D25-D32 = the DIP switches). Extra inputs follow.
+// 129-160 (D25-D32 were the DIP switches, not fitted on this board). Extra inputs follow.
 constexpr uint16_t kSwitchMatrixFirst = 1;
 constexpr uint16_t kSwitchMatrixLast = 128;
 constexpr uint16_t kSwitchDedicatedFirst = 129;  // D1
-constexpr uint16_t kSwitchDedicatedLast = 160;   // D32 = DIP 8
-constexpr uint16_t kSwitchMemProtect = 161;      // coin door memory protect (J2 pin 10)
+constexpr uint16_t kSwitchDedicatedLast = 160;   // D32 (not fitted)
+constexpr uint16_t kSwitchMemProtect = 161;      // coin door memory protect (TAMPIN, J2 pin 12)
 constexpr uint16_t kSwitch20V = 162;             // STATUS D0, 1 = present
 constexpr uint16_t kSwitch50V = 163;             // STATUS D1
 constexpr uint16_t kSwitchLmp1Fault = 164;       // STATUS D3

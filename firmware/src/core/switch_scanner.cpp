@@ -80,7 +80,7 @@ void SwitchScanner::OnPass(uint32_t now_us, uint16_t latched_pattern, const Chai
     have_sample_ = true;
   }
 
-  // Dedicated switches and DIPs, every pass.
+  // Dedicated switches, every pass (D25-D32 are not fitted and stay open).
   for (uint8_t k = 0; k < 32; ++k) {
     Feed(static_cast<uint16_t>(kSwitchDedicatedFirst + k), (in.dedicated >> k) & 1u, now_us,
          kDedicatedMinWindowUs, d);

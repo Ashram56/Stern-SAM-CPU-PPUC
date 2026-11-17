@@ -115,7 +115,7 @@ flash with picotool or SWD from the Pi.
 | Matrix lamps | SAM lamp number 1-80 |
 | Aux latch outputs | 200 + (reg 0xB strobe bit - 3) x 8 + AUX_DRV bit. Tron LE left tube R/G/B = 213/212/211, right = 221/220/219 |
 | Matrix switches | strobe x 16 + return + 1 (1-128) |
-| Dedicated D1-D32 (D25-D32 = DIP switches) | 129-160 |
+| Dedicated D1-D32 (D25-D32 = DIP switches, not fitted: always open) | 129-160 |
 | Memory protect | 161 |
 | 20 V / 50 V interlocks, lamp driver faults 1/2 (STATUS) | 162 / 163, 164 / 165 |
 
@@ -144,7 +144,7 @@ Additions, to propose upstream (libppuc must send them):
 
 ### Switches
 
-The 74HC165/595 chain is scanned continuously (one pass every ~6 us), so
+The 74HC165/595 chain is scanned continuously (one pass every ~5 us), so
 dedicated switches and flipper buttons are sampled every pass. Debounce is
 kept short because PinMAME runs the ROM's own debounce: matrix switches must
 read the same on two consecutive scans, dedicated ones must hold for 50 us,
