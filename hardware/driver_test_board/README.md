@@ -14,12 +14,44 @@ transistors at risk. Proposal and decisions: https://claude.ai/artifact/ANPhbTuL
   isolated by an ADuM3160 and a 1 W B0505S.
 
 ## Files
-- `kicad/`: KiCad 9 project (schematic draft 0.1, no PCB yet). ERC: 0 violations (`kicad/erc.rpt`).
+- `kicad/`: KiCad 9 project: schematic draft 0.1 (ERC 0, `kicad/erc.rpt`) and the routed PCB
+  `driver_test_board.kicad_pcb` (DRC report `kicad/drc.rpt`).
 - `driver_test_board_schematic_v0.1.pdf`
-- `tools/`: generator (`build_dtb.py` + `design_dtb.py`, kigen/sexp/libs copied from `hardware/kicad/tools`).
-  `KICAD9_SYMBOL_DIR=<kicad symbols> python3 tools/build_dtb.py <out>` regenerates the schematic; after the PCB
-  exists, edit the KiCad files directly instead.
+- `fab/`: JLCPCB BOM and CPL (`driver_test_board-*-jlcpcb.csv`), copper renders. Gerbers come once routing is complete (`tools/make_fab.sh`).
+- `firmware/`: RP2354B firmware (Pico SDK 2.2), see its README. `pc/sam_probe.py`: PC tool (pyserial).
+- `tools/`: everything that produced the files above.
+  - schematic: `build_dtb.py` + `design_dtb.py` (kigen/sexp/libs copied from `hardware/kicad/tools`);
+  - PCB: `place_pcb.py` (placement from the netlist), `make_pro.py` (net classes), `finish_pcb.py`
+    (Freerouting session import, GND / GND_USB pours), `jlc_bom.py` (BOM/CPL), `jlc_rotcheck.py` (JLC footprints).
+  - From now on edit the KiCad files directly; the generators are the record of how the draft was made.
+
+## PCB (draft 0.1)
+
+- 250 x 150 mm, 2 layers, 1.6 mm. Four M3 holes in the corners (H1 = ground lug with pad).
+- Edges: top = CPU J1, J6, J12, J2 + IO J2 (aux out); left = CPU J3, J13; right = IO J12, J13; bottom = IO J8, J9,
+  J7, J6. Inside: IO J3 (aux strobes) and IO J10 (+50 V, ground). USB-C in the bottom-left corner, flush with the edge.
+  All KK-396 friction ramps face the inside of the board.
+- One column of parts per channel facing its pin (LED, pull-up, 220 k / 47 k divider), shift registers next to their
+  channels, RP2354B in the middle with each decoupling capacitor at its supply pin.
+- Net classes: HV (50 / 20 / 18 V lines and the LED nodes): 0.6 mm clearance (IPC-2221 B2, 31-50 V), 0.3 mm tracks.
+  Default 0.2 mm / 0.15 mm (needed to leave the 0.4 mm pitch QFN). Power 0.4 mm.
+- Isolation: GND_USB (PC side) covers x < 35.5 mm, y > 128 mm; a 0.5 mm strip with no track and no via separates it
+  from GND, and the two pours are 1 mm apart. Only U3 (ADuM3160) and PS1 (B0505S) straddle it.
+- Routed with Freerouting 1.9 (single thread: the multi-thread optimiser breaks clearances).
+
+## JLCPCB
+
+- 392 parts placed by JLC (391 SMD + PS1 B0505S through-hole), 31 LCSC codes, all in JLC stock on 2026-11-17 (RP2354B C39843328: 330, ADuM3160BRWZ-RL C284149:
+  7984, B0505S-1WR3 C2992394: 34141, 3.3 uH FNR201610S3R3MT C167673 replaces the AOTA part, out of stock).
+- Hand soldered: the 15 KK-396 headers (Molex 26-60-4090 / 4100 / 4120), SWD header, test points, solder jumpers.
+- CPL rotations checked against the EasyEDA footprint of each LCSC part (`tools/jlc_rotcheck.py`): offsets in
+  `jlc_bom.py` (SOIC and SOT-23-6 +270, 2N7002 and NCP1117 +180, B0505S +270 with its origin at the centre, USB-C
+  origin shifted 1.575 mm). LEDs compared by K/A name (no offset), switch contacts 1-2 / 3-4 match the KiCad pads.
 
 ## Open
-- PCB layout, JLCPCB BOM/CPL with EasyEDA orientation check, stock (B0505S-1WR3, ADuM3160BRWZ, RP2354B).
-- Firmware (PIO capture, switch scenarios) and the PC tool `sam_probe`.
+- **15 connections still to route by hand** (DRC `kicad/drc.rpt`, otherwise 0 clearance error): around the RP2354B
+  (VREG_LX pin 63 to L1, VREG_AVDD pin 61, GND pin 62, +1V1, +3V3 pins 15/64, GP44 test point, ADC_V50, G_AUXO_P8,
+  G_AUXO_P10, G_CSTB5, G_CSTB7) and the two J13 solder jumpers (JP1 pad 2 V18L, JP2 pad 2 LCOLX: Freerouting refuses
+  the bridged pad). Then `tools/make_fab.sh` for the gerbers.
+- Bring-up: firmware untested on hardware (see `firmware/README.md`).
+- Silkscreen: reference designators overlap in the dense channel columns (cosmetic, DRC warnings only).

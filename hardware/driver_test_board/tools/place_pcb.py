@@ -132,6 +132,8 @@ put('J1', 16.0, H - 3.65, 0)
 BAR_X, BAR_Y = 35.5, 128.0
 put('U3', 25.0, BAR_Y, 90)
 put('PS1', 33.0, BAR_Y + 3.81, 180)
+OCC.append((0, BAR_Y - 0.25, BAR_X + 0.25, BAR_Y + 0.25, 'barrier'))
+OCC.append((BAR_X - 0.25, BAR_Y, BAR_X + 0.25, H, 'barrier'))
 
 # ---------------- channel columns ----------------
 def channel(conn_ref, pin, net, side):
@@ -187,17 +189,44 @@ def centroid(ref, skip=('GND', '+3V3', '+5V')):
     if not pts: return None
     return sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts)
 
-# MCU in the centre, its support parts around it
+# MCU in the centre; every support part next to the U5 pins it serves, pushed out of the QFN
 MX, MY = 112.0, 78.0
 put('U5', MX, MY, 0)
-cluster(['Y1'], MX - 10, MY + 10)
-cluster(['L1'], MX + 9, MY + 10)
-for c in parts_on(['+1V1', 'VREG_AVDD', 'XIN', 'XTAL_OUT', 'XOUT'], 'C') + parts_on(['VREG_AVDD', 'XOUT', 'RUN', 'BOOTSEL', 'BOOTSEL_BTN', 'LED_ST_A', 'LED_STATUS'], 'R'):
-    near(c, MX, MY + 13, 0, step=0.5)
+# exposed pad: 3 x 3 GND vias (the QFN-80 footprint has none)
+gnd = FP['U5'].FindPadByNumber('81').GetNet()
+for i in (-1, 0, 1):
+    for j in (-1, 0, 1):
+        v = pcbnew.PCB_VIA(board); v.SetPosition(V(MX + i * 1.1, MY + j * 1.1)); v.SetWidth(mm(0.6)); v.SetDrill(mm(0.3))
+        v.SetNet(gnd); board.Add(v)
+sheet_of = {m.group(1): m.group(2) for m in re.finditer(r'\(comp \(ref "([^"]+)"\)(?:(?!\(comp ).)*?\(sheetpath \(names "([^"]*)"\)', s, re.S)}
+def u5pins(netnames):
+    return [(pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in FP['U5'].Pads()
+            if short(p.GetNetname()) in netnames and p.GetNumber() != '81']
+def near_u5(ref, pts, d):
+    x = sum(p[0] for p in pts) / len(pts); y = sum(p[1] for p in pts) / len(pts)
+    dx, dy = x - MX, y - MY
+    if abs(dx) > abs(dy): tx, ty, rot = MX + math.copysign(5.0 + d, dx), y, 0
+    else: tx, ty, rot = x, MY + math.copysign(5.0 + d, dy), 90
+    if ref.startswith(('Y', 'L', 'SW', 'J', 'D')): rot = 0 if not ref.startswith('J') else 90
+    near(ref, tx, ty, rot, step=0.25, rmax=14)
+near_u5('L1', u5pins({'VREG_LX'}), 2.5)
+near_u5('C12', u5pins({'VREG_AVDD'}), 2.2)
+near_u5('R7', u5pins({'VREG_AVDD'}), 5.5)
+c11 = sorted(r for r in parts_on(['+1V1'], 'C'))
+for c, pin in zip(c11, ['65', '51', '32', '10']):
+    near_u5(c, [pp for pp in u5pins({'+1V1'}) if True][:0] or [(pcbnew.ToMM(q.GetPosition().x), pcbnew.ToMM(q.GetPosition().y)) for q in FP['U5'].Pads() if q.GetNumber() == pin], 2.2)
+# +3V3 decoupling: one 100 nF per supply pin group (pins 59/60 and 68/69 share one)
+c33 = sorted((r for r in comps if sheet_of.get(r) == '/MCU/' and r.startswith('C') and r not in placed
+              and '+3V3' in {short(q.GetNetname()) for q in FP[r].Pads()}), key=lambda r: int(r[1:]))
+for c, pins in zip(c33, [['5'], ['15'], ['24'], ['29'], ['41'], ['50'], ['59', '60'], ['64'], ['68', '69'], ['76']]):
+    near_u5(c, [(pcbnew.ToMM(q.GetPosition().x), pcbnew.ToMM(q.GetPosition().y)) for q in FP['U5'].Pads() if q.GetNumber() in pins], 3.5)
+near_u5('Y1', u5pins({'XIN', 'XOUT'}), 5.0)
+for r in ['R10', 'C28', 'C29']: near_u5(r, u5pins({'XIN', 'XOUT'}), 8.5)
+for r, n in [('R8', 'RUN'), ('R9', 'BOOTSEL'), ('R11', 'LED_STATUS'), ('R3', 'USB_DP_MCU'), ('R4', 'USB_DM_MCU'), ('R170', 'SR_CLK_MCU')]:
+    near_u5(r, u5pins({n}), 2.5)
+for c in [r for r in comps if sheet_of.get(r) == '/MCU/' and r.startswith('C') and r not in placed]:
+    near(c, MX + 9, MY - 9, 0, step=0.5)
 caps_3v3 = parts_on(['+3V3'], 'C')
-for c in caps_3v3[:11]:
-    near(c, MX, MY - 11, 0, step=0.5)
-caps_3v3 = caps_3v3[11:]
 cluster(['SW1', 'SW2'], MX - 22, MY + 20)
 cluster(['J2'], MX + 24, MY + 20, 90)
 cluster(parts_on(['LED_ST_A'], 'D'), MX + 14, MY + 18)
@@ -216,11 +245,14 @@ for r in sorted(r for r in comps if comps[r]['value'] == '74HCT595'):
     if c5: near(c5[0], x + 7, y, 90, step=0.5)
 
 # isolated USB and power: USB side parts below the barrier, regulator and decoupling above it
+fence = (0, 0, BAR_X + 0.25, BAR_Y + 0.25, 'fence')      # keep USB-side parts below the barrier
+OCC.append(fence)
 cluster(['U2'], 9.0, 134.0, 0, step=0.5, rmax=10)
-cluster(parts_on(['CC1', 'CC2'], 'R'), 4.0, 134.0, 90, step=0.5, rmax=10)
-cluster(parts_on(['VBUS_USB', 'VDD1'], 'C'), 20.0, 136.0, 0, step=0.5, rmax=12)
+cluster(parts_on(['CC1', 'CC2'], 'R'), 4.0, 134.0, 90, step=0.5, rmax=30)
+cluster(parts_on(['VBUS_USB', 'VDD1'], 'C'), 20.0, 136.0, 0, step=0.5, rmax=30)
+cluster([r for r in comps if r.startswith('TP') and 'GND_USB' in {short(q.GetNetname()) for q in FP[r].Pads()}], 27.0, 140.0, 0, step=0.5, rmax=30)
+OCC.remove(fence)
 cluster(parts_on(['VDD2'], 'C'), 30.0, 120.0, 0, step=0.5)
-cluster(parts_on(['DDP', 'DDM'], 'R'), 24.0, 118.0, 0, step=0.5)
 near('U4', 52, 104, 0)
 cluster(parts_on(['+5V'], 'C'), 52, 96)
 cluster(caps_3v3, 62, 100)
