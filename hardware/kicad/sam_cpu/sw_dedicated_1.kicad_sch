@@ -2269,6 +2269,133 @@
 		(at 152.4 124.46)
 		(uuid "fe2bf02c-63f8-5f5f-a75e-b50533fc461a")
 	)
+	(symbol
+		(lib_id "power:GND")
+		(at 20.32 121.92 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "13c4dc26-44ec-4fb2-8f62-8dad5017db32")
+		(property "Reference" "#PWR07064"
+			(at 20.32 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 20.32 118.11 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 20.32 121.92 180)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 20.32 121.92 180)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 20.32 121.92 180)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.6 1.6)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "82067c8e-cce9-4cd4-825f-0041e2ad3082")
+		)
+		(instances
+			(project "sam_cpu"
+				(path "/2aea4fdf-a573-57d0-a5af-7bd6ce737647/f653dae6-0566-591b-9d89-a3845bb0bd64"
+					(reference "#PWR07064")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 20.32 124.46) (xy 20.32 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc0a0957-dd5c-427a-bf45-14d2fe3f7b7f")
+	)
+	(wire
+		(pts
+			(xy 27.94 124.46) (xy 33.02 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63e36d23-d97f-4b24-9c41-8608561e7123")
+	)
+	(label "TAMPIN"
+		(at 27.94 124.46 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "72cbf649-3dd8-43d4-aab9-a2eef772d5fb")
+	)
+	(wire
+		(pts
+			(xy 20.32 152.4) (xy 20.32 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bbbdf22-808e-43a9-a20d-44132919df75")
+	)
+	(label "TAMPIN"
+		(at 20.32 157.48 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7b7b73f9-4e3e-4b87-a675-1ecf2a819209")
+	)
 	(wire
 		(pts
 			(xy 281.94 121.92) (xy 281.94 132.08)
@@ -3881,16 +4008,6 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 124.46) (xy 33.02 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8dab23e-3228-54e6-b546-1503e165918a")
-	)
-	(wire
-		(pts
 			(xy 289.56 223.52) (xy 289.56 142.24)
 		)
 		(stroke
@@ -4108,16 +4225,6 @@
 			(type default)
 		)
 		(uuid "bed66dac-8da1-58d0-ae63-67c62fd187a0")
-	)
-	(wire
-		(pts
-			(xy 20.32 152.4) (xy 22.86 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bf3ebfa6-449a-53e6-8dd0-c7ad8d34b69a")
 	)
 	(wire
 		(pts
@@ -4739,7 +4846,7 @@
 		)
 		(uuid "fe5e90c2-d88c-5123-9c5f-655d66d6e1ae")
 	)
-	(global_label "MEM_PROTECT"
+	(global_label "DED8"
 		(shape passive)
 		(at 101.6 254 0)
 		(fields_autoplaced yes)
@@ -6413,7 +6520,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "1.5k"
 			(at 50.8 248.92 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7833,7 +7940,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1.5k"
+		(property "Value" "4.7k"
 			(at 50.8 40.64 0)
 			(show_name no)
 			(do_not_autoplace no)

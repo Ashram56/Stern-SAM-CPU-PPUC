@@ -8161,7 +8161,7 @@
 		)
 		(uuid "64ada00c-572d-419c-a28c-096f6f970480")
 	)
-	(label "SPK_R_P"
+	(label "SPK_L_N"
 		(at 287.02 134.62 180)
 		(effects
 			(font
@@ -8181,7 +8181,7 @@
 		)
 		(uuid "a97e3c4a-5472-4fb8-9441-5828a207f94b")
 	)
-	(label "SPK_L_N"
+	(label "SPK_R_P"
 		(at 287.02 137.16 180)
 		(effects
 			(font
