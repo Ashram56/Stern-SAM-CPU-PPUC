@@ -7,7 +7,7 @@
 	(title_block
 		(title "Header A: 12 universal channels (also direct to GPIO)")
 		(date "2026-11-18")
-		(rev "0.1")
+		(rev "0.2")
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
 	)
 	(lib_symbols
@@ -1564,7 +1564,7 @@
 		(at 53.34 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "d1b78a77-e8a2-5200-a41c-4d141589a08a")
@@ -2039,7 +2039,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 88.9 53.594 90)
 			(effects
 				(font
@@ -2244,7 +2244,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 142.24 53.594 90)
 			(effects
 				(font
@@ -3104,7 +3104,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 231.14 53.594 90)
 			(effects
 				(font
@@ -3309,7 +3309,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 284.48 53.594 90)
 			(effects
 				(font
@@ -4169,7 +4169,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 370.84 53.594 90)
 			(effects
 				(font
@@ -4374,7 +4374,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 424.18 53.594 90)
 			(effects
 				(font
@@ -5234,7 +5234,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 27.94 96.774 90)
 			(effects
 				(font
@@ -5439,7 +5439,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 81.28 96.774 90)
 			(effects
 				(font
@@ -6299,7 +6299,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 170.18 96.774 90)
 			(effects
 				(font
@@ -6504,7 +6504,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 223.52 96.774 90)
 			(effects
 				(font
@@ -7364,7 +7364,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 309.88 96.774 90)
 			(effects
 				(font
@@ -7569,7 +7569,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 363.22 96.774 90)
 			(effects
 				(font
@@ -8429,7 +8429,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 449.58 96.774 90)
 			(effects
 				(font
@@ -8634,7 +8634,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 502.92 96.774 90)
 			(effects
 				(font
@@ -9494,7 +9494,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 27.94 137.414 90)
 			(effects
 				(font
@@ -9699,7 +9699,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 81.28 137.414 90)
 			(effects
 				(font
@@ -10559,7 +10559,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 170.18 137.414 90)
 			(effects
 				(font
@@ -10764,7 +10764,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 223.52 137.414 90)
 			(effects
 				(font
@@ -11624,7 +11624,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 309.88 137.414 90)
 			(effects
 				(font
@@ -11829,7 +11829,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 363.22 137.414 90)
 			(effects
 				(font
@@ -12689,7 +12689,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 449.58 137.414 90)
 			(effects
 				(font
@@ -12894,7 +12894,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 502.92 137.414 90)
 			(effects
 				(font
@@ -13754,7 +13754,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 27.94 178.054 90)
 			(effects
 				(font
@@ -13959,7 +13959,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "22k 0.5W"
 			(at 81.28 178.054 90)
 			(effects
 				(font
