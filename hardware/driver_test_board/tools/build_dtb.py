@@ -1,8 +1,10 @@
-"""Build the KiCad 9 project: python3 build_dtb.py <outdir>"""
+"""Build the KiCad 9 project: python3 build_dtb.py [design_module] <outdir> (default design_dtb)"""
 import sys, os, json, collections
 sys.path.insert(0, os.path.dirname(__file__))
-OUT = sys.argv[1]
-import design_dtb as dd
+import importlib
+MOD = sys.argv[1] if len(sys.argv) > 2 else 'design_dtb'
+OUT = sys.argv[-1]
+dd = importlib.import_module(MOD)
 from kigen import uid, effects, write, POWER_NETS
 from sexp import Sym
 D = dd.D

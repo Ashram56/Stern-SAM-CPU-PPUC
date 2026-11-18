@@ -1,0 +1,402 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "19c1bfc1-da16-5e46-bd6a-8ad8fb716490")
+	(paper "A3")
+	(title_block
+		(title "SAM universal test board (48 channels)")
+		(date "2026-11-18")
+		(rev "0.1")
+		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
+	)
+	(lib_symbols)
+	(sheet
+		(at 25.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b347a258-41f4-5a12-a98a-1b80e78d320d")
+		(property "Sheetname" "Power and USB"
+			(at 25.4 62.7884 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power_usb.kicad_sch"
+			(at 25.4 89.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490"
+					(page "2")
+				)
+			)
+		)
+	)
+	(text "Isolated USB (ADuM3160), 1 W isolated 5 V, 3.3 V"
+		(exclude_from_sim no)
+		(at 27.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "954a6819-5f5b-546c-a169-58098487e1f0")
+	)
+	(sheet
+		(at 152.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "d360c6c3-40d3-5528-aec0-e616a30a2847")
+		(property "Sheetname" "MCU"
+			(at 152.4 62.7884 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 152.4 89.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490"
+					(page "3")
+				)
+			)
+		)
+	)
+	(text "RP2354B (2 MB flash in package), crystal, core regulator, SWD"
+		(exclude_from_sim no)
+		(at 154.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "fc8666be-7f72-5f53-a077-0706449bd89b")
+	)
+	(sheet
+		(at 279.4 63.5)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "d3a1b804-5bd8-57f2-920c-70523803367a")
+		(property "Sheetname" "Header A"
+			(at 279.4 62.7884 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "header_a.kicad_sch"
+			(at 279.4 89.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490"
+					(page "4")
+				)
+			)
+		)
+	)
+	(text "Header A: 12 universal channels (also direct to GPIO)"
+		(exclude_from_sim no)
+		(at 281.94 68.58 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "f0cecfca-248d-5104-89d4-23efce403ec2")
+	)
+	(sheet
+		(at 25.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3bab7166-4af3-54fe-bcde-304399c1f020")
+		(property "Sheetname" "Header B"
+			(at 25.4 108.5084 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "header_b.kicad_sch"
+			(at 25.4 135.2084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490"
+					(page "5")
+				)
+			)
+		)
+	)
+	(text "Header B: 12 universal channels"
+		(exclude_from_sim no)
+		(at 27.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "c95dc706-d7f1-50c4-be11-ea3da546cd79")
+	)
+	(sheet
+		(at 152.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e3dbefb3-187b-56b2-a398-b17a2339a5ba")
+		(property "Sheetname" "Header C"
+			(at 152.4 108.5084 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "header_c.kicad_sch"
+			(at 152.4 135.2084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490"
+					(page "6")
+				)
+			)
+		)
+	)
+	(text "Header C: 12 universal channels"
+		(exclude_from_sim no)
+		(at 154.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "e6a8eb68-e036-5e40-87fd-c56fb3bdc170")
+	)
+	(sheet
+		(at 279.4 109.22)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "21dab9d5-c8ef-5295-95f7-7a7f692a3b20")
+		(property "Sheetname" "Header D"
+			(at 279.4 108.5084 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "header_d.kicad_sch"
+			(at 279.4 135.2084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490"
+					(page "7")
+				)
+			)
+		)
+	)
+	(text "Header D: 12 universal channels"
+		(exclude_from_sim no)
+		(at 281.94 114.3 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "3a77bfb1-de0e-5f37-a498-218b3b759451")
+	)
+	(sheet
+		(at 25.4 154.94)
+		(size 88.9 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3a0f0a8f-3575-5b4c-a820-c3a88dd20382")
+		(property "Sheetname" "Registers"
+			(at 25.4 154.2284 0)
+			(effects
+				(font
+					(size 2 2)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "registers.kicad_sch"
+			(at 25.4 180.9284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490"
+					(page "8")
+				)
+			)
+		)
+	)
+	(text "6 x 74HC165 (capture, 1 sample/us) + 6 x 74HCT595 (BSS123 gates), rail inputs"
+		(exclude_from_sim no)
+		(at 27.94 160.02 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "695d0d23-adac-50ad-8cb0-a6347fdd5314")
+	)
+	(text "SAM universal test board, 48 channels, schematic draft 0.1 (2026-11-18). Licence: CERN-OHL-S v2.\nSame board x 4: coils / lamps + aux / switch matrix / dedicated switches. Role = ID0/ID1 solder jumpers.\nEach header pin: sense (to 74HC165, header A also direct to GPIO), 33 k + LEDs to the header common\n(solder jumper: RAILx from J5, GND or open), BSS123 to ground for switch simulation.\nRails on J5 are only the light-load supply: plug the USB first so the 3.3 V rail absorbs the clamp current.\nBoard ground = pinball ground (J5 pins 5-6, H1 lug). USB to the PC is isolated (ADuM3160)."
+		(exclude_from_sim no)
+		(at 25.4 15.24 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left top)
+		)
+		(uuid "5c7ae8b6-7d45-5a71-8fdd-dbcfaca0b13b")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

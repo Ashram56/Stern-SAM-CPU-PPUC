@@ -1,0 +1,63 @@
+; SAM universal test board: PIO programs.
+; SPDX-License-Identifier: GPL-3.0-or-later
+
+; ---------------------------------------------------------------------------------------------
+; 6 x 74HC165 read in parallel, one sample per microsecond (75 cycles at 75 MHz, clkdiv 2).
+; side-set: bit 0 = SR_CLK (GPIO6), bit 1 = SR_PL_N (GPIO7). IN base = GPIO0 (SR_Q0..5), 6 pins.
+; Autopush at 24 bits, shift left: word A = reads 1-4 (D7..D4), word B = reads 5-8 (D3..D0),
+; the first read in the top bits. IRQ 0 tells stb_direct to sample header A at load time.
+; ---------------------------------------------------------------------------------------------
+.program stb_sr
+.side_set 2
+.wrap_target
+    set x, 7        side 0b00 [3]   ; PL_N low: parallel load, 53 ns
+    irq set 0       side 0b10 [6]   ; PL_N high, Q7 settles (93 ns)
+bit:
+    nop             side 0b10 [2]   ; CLK low 53 ns
+    in pins, 6      side 0b10
+    jmp x-- bit     side 0b11 [3]   ; CLK high 53 ns: shift
+.wrap                                ; 4 + 7 + 8 x 8 = 75 cycles
+
+; ---------------------------------------------------------------------------------------------
+; Header A (GPIO8-19) sampled at the 74HC165 load instant. IN base = GPIO8, autopush at 12 bits.
+; ---------------------------------------------------------------------------------------------
+.program stb_direct
+.wrap_target
+    wait 1 irq 0
+    in pins, 12
+.wrap
+
+; ---------------------------------------------------------------------------------------------
+; Header A edge capture (300 ns aux strobes): pushes the 12 lines on every change,
+; 20 ns resolution at 150 MHz. IN base = GPIO8, IN_COUNT = 12 (RP2350 masks MOV x, PINS), autopush 12.
+; ---------------------------------------------------------------------------------------------
+.program stb_edges
+    mov x, pins
+.wrap_target
+loop:
+    mov y, pins
+    jmp x!=y changed
+    jmp loop
+changed:
+    in y, 12
+    mov x, y
+.wrap
+
+; ---------------------------------------------------------------------------------------------
+; 6 x 74HCT595 in one chain (PIO1). OUT base = GPIO20 (SER), side-set GPIO21 = SRCLK, SET base GPIO22 = RCLK.
+; Autopull at 24 bits, shift right: 2 words per update, channel 47 first (it ends in the last register).
+; 50 MHz (clkdiv 3): 80 ns per clock, 48 clocks + latch = about 4 us.
+; ---------------------------------------------------------------------------------------------
+.program stb_595
+.side_set 1 opt
+.wrap_target
+    set y, 1
+word:
+    set x, 23
+bit:
+    out pins, 1     side 0 [1]
+    jmp x-- bit     side 1 [1]
+    jmp y-- word    side 0
+    set pins, 1     [1]             ; RCLK high: outputs take the new state
+    set pins, 0
+.wrap
