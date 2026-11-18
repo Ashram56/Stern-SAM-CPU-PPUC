@@ -7,7 +7,7 @@
 	(title_block
 		(title "Isolated USB (ADuM3160), 1 W isolated 5 V, 3.3 V")
 		(date "2026-11-18")
-		(rev "0.1")
+		(rev "0.2")
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
 	)
 	(lib_symbols
@@ -2699,7 +2699,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+			(property "Footprint" "sam_test_board:B0505S-1WR3_SIP4"
 				(at 0 -8.89 0)
 				(effects
 					(font
@@ -6507,7 +6507,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+		(property "Footprint" "sam_test_board:B0505S-1WR3_SIP4"
 			(at 40.64 130.81 0)
 			(effects
 				(font

@@ -7,7 +7,7 @@
 	(title_block
 		(title "6 x 74HC165 (capture, 1 sample/us) + 6 x 74HCT595 (BSS123 gates), rail inputs")
 		(date "2026-11-18")
-		(rev "0.1")
+		(rev "0.2")
 		(company "Stern SAM CPU PPUC (CERN-OHL-S v2)")
 	)
 	(lib_symbols

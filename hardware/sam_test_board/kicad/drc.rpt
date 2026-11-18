@@ -1,11 +1,7 @@
 ** Drc report for sam_test_board.kicad_pcb **
-** Created on 2026-11-18T18:13:40+0000 **
+** Created on 2026-11-18T19:53:51+0000 **
 
-** Found 3 DRC violations **
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; warning
-    @(143.0000 mm, 64.0000 mm): Reference field of L1
-    @(141.8900 mm, 64.4400 mm): Segment of L1 on F.Silkscreen
+** Found 2 DRC violations **
 [silk_edge_clearance]: Silkscreen clipped by board edge
     Rule: board setup constraints silk; warning
     @(165.0000 mm, 133.0000 mm): Segment on Edge.Cuts
@@ -15,23 +11,7 @@
     @(165.0000 mm, 133.0000 mm): Segment on Edge.Cuts
     @(153.7000 mm, 131.3500 mm): Segment of J1 on F.Silkscreen
 
-** Found 4 unconnected pads **
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(135.0500 mm, 74.3000 mm): Pad 10 [+1V1] of U5 on F.Cu
-    @(136.2697 mm, 77.7308 mm): Track [+1V1] on B.Cu, length 3.5063 mm
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(106.5250 mm, 29.9125 mm): Track [/Header B/COMB] on F.Cu, length 3.9600 mm
-    @(116.4850 mm, 23.5000 mm): Pad 2 [/Header B/COMB] of JP2 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(140.2180 mm, 112.2700 mm): Track [/Power and USB/VBUS_USB] on F.Cu, length 8.6180 mm
-    @(135.5550 mm, 115.6500 mm): Pad 1 [/Power and USB/VBUS_USB] of U3 on F.Cu
-[unconnected_items]: Missing connection between items
-    Local override; error
-    @(99.9500 mm, 64.9750 mm): Pad 2 [G_B7] of U18 on F.Cu
-    @(89.6737 mm, 43.9012 mm): Track [G_B7] on F.Cu, length 1.4302 mm
+** Found 0 unconnected pads **
 
 ** Found 0 Footprint errors **
 
