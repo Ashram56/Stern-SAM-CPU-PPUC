@@ -58,3 +58,22 @@ also arrives on J13 pin 9, so channel C9 reads high (check the J13 9/10 swap on 
   Default 0.2 / 0.15 mm (0.4 mm pitch QFN). Power 0.4 mm.
 - Isolation: GND_USB (PC side) in the bottom-right corner (x > 129 mm, y > 111 mm), a 0.5 mm strip with no copper
   separates it from GND; only U3 (ADuM3160) and PS1 (B0505S) straddle it.
+- Routed with Freerouting 1.9 (single thread) in two passes, the RP2354B core regulator corner (VREG_LX to L1,
+  VREG_AVDD to C12, GND pin 62 via) drawn by hand first. JP1-JP4 pads have a 0.25 mm local clearance (1.3 mm pitch
+  solder jumper, 50 V max), below the 0.6 mm HV rule on purpose.
+
+## JLCPCB
+
+- 431 parts placed by JLC (430 SMD + PS1 B0505S through-hole), 34 LCSC codes, all in stock: the 31 of the large
+  board (checked 2026-11-17) plus BSS123 C78962 (186 899), 33 k C17633 (531 305), 220 R C17557 (831 265) on 2026-11-18.
+- Hand soldered: the five KK-396 headers (Molex 26-60-4120 x 4, 26-60-4060), SWD and SYNC headers, test points.
+- CPL rotations checked against the EasyEDA footprint of each LCSC part (`tools/jlc_rotcheck.py`): offsets in
+  `jlc_bom.py` (SOIC and SOT-23-6 +270, BSS123 and NCP1117 +180, B0505S +270 with its origin at the centre, USB-C
+  origin shifted 1.575 mm). LEDs compared by K/A name (no offset).
+
+## Open
+
+- **4 connections to route by hand** (`kicad/drc.rpt`, otherwise 0 error): +1V1 at U5 pin 10, COMB to JP2 pad 2,
+  VBUS_USB to U3 pin 1, G_B7 (U18 pin 2 to the gate column of B7). Then `tools/make_fab.sh` for the gerbers
+  (not generated yet on purpose).
+- Silkscreen: 3 cosmetic warnings. Firmware untested on hardware.
