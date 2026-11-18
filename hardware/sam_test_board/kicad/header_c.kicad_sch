@@ -1564,7 +1564,7 @@
 		(at 53.34 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "60400f87-d5c6-5426-973c-2406612354d8")
@@ -2039,7 +2039,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 88.9 53.594 90)
 			(effects
 				(font
@@ -3104,7 +3104,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 231.14 53.594 90)
 			(effects
 				(font
@@ -4169,7 +4169,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 370.84 53.594 90)
 			(effects
 				(font
@@ -5234,7 +5234,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 27.94 96.774 90)
 			(effects
 				(font
@@ -6299,7 +6299,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 170.18 96.774 90)
 			(effects
 				(font
@@ -7364,7 +7364,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 309.88 96.774 90)
 			(effects
 				(font
@@ -8429,7 +8429,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 449.58 96.774 90)
 			(effects
 				(font
@@ -9494,7 +9494,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 27.94 137.414 90)
 			(effects
 				(font
@@ -10559,7 +10559,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 170.18 137.414 90)
 			(effects
 				(font
@@ -11624,7 +11624,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 309.88 137.414 90)
 			(effects
 				(font
@@ -12689,7 +12689,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 449.58 137.414 90)
 			(effects
 				(font
@@ -13754,7 +13754,7 @@
 				)
 			)
 		)
-		(property "Value" "33k"
+		(property "Value" "33k 0.5W"
 			(at 27.94 178.054 90)
 			(effects
 				(font

@@ -5730,7 +5730,7 @@
 		)
 		(uuid "488ce292-4baf-5290-825b-a52ecfc738d6")
 	)
-	(label "UDP"
+	(label "UDP_U3"
 		(at 167.64 66.04 180)
 		(effects
 			(font
@@ -5740,7 +5740,7 @@
 		)
 		(uuid "a96ba23b-2307-5c13-851e-4e2f1336936e")
 	)
-	(label "UDM"
+	(label "UDM_U3"
 		(at 167.64 68.58 180)
 		(effects
 			(font
@@ -8969,7 +8969,7 @@
 		(at 243.84 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "61dafb7c-db81-5718-8717-3f662bca864c")
@@ -9033,7 +9033,7 @@
 		(at 256.54 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "6c4499b8-179a-55f9-87f1-e6556a6b11dc")
@@ -9094,7 +9094,7 @@
 		(at 269.24 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "d816b57e-b963-51d2-8467-3e89ae6781f6")
@@ -9155,7 +9155,7 @@
 		(at 281.94 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "0eabc471-2f66-53e7-a2fe-8ca19eebcc80")
@@ -9216,7 +9216,7 @@
 		(at 294.64 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "9fc844b0-fb67-5475-bd3f-ae0dedb0fba3")
@@ -9280,7 +9280,7 @@
 		(at 307.34 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "0c3d9222-dd20-5ca7-9aa6-3fd755e77ae1")
@@ -9344,7 +9344,7 @@
 		(at 320.04 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "7494c79a-2f47-5ef4-bd91-e2ea3080ff89")
@@ -9408,7 +9408,7 @@
 		(at 332.74 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "4df3b12c-59f9-5247-8a5d-e654225569f4")
@@ -9791,5 +9791,179 @@
 				)
 			)
 		)
+	)	(symbol
+		(lib_id "Device:R")
+		(at 139.7 160.02 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6112714d-c9e1-49a5-9f59-a2c766ad69d6")
+		(property "Reference" "R219"
+			(at 139.7 157.226 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "24"
+			(at 139.7 162.814 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 139.7 161.798 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 139.7 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 139.7 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "093e863a-54d5-4be8-923f-043f96069e59")
+		)
+		(pin "2"
+			(uuid "d617085d-59de-4784-96d7-2aa9d7dc4150")
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490/b347a258-41f4-5a12-a98a-1b80e78d320d"
+					(reference "R219")
+					(unit 1)
+				)
+			)
+		)
 	)
+	(label "UDP"
+		(at 135.89 160.02 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6c1fa3d4-71f2-4b57-b7f0-018cdd28d357")
+	)
+	(label "UDP_U3"
+		(at 143.51 160.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "75e6add2-9f29-430c-9c0f-1800e9537876")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 139.7 170.18 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "30bf30d5-22df-4e74-921d-a1f0bfee2cbf")
+		(property "Reference" "R220"
+			(at 139.7 167.386 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "24"
+			(at 139.7 172.974 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 139.7 171.958 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 139.7 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 139.7 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b0a2f0ef-8e30-46db-af08-62a2d2fab522")
+		)
+		(pin "2"
+			(uuid "e83c3df5-fbc5-4e2d-83b8-9632657fc9a6")
+		)
+		(instances
+			(project "sam_test_board"
+				(path "/19c1bfc1-da16-5e46-bd6a-8ad8fb716490/b347a258-41f4-5a12-a98a-1b80e78d320d"
+					(reference "R220")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "UDM"
+		(at 135.89 170.18 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "67d2ac1e-c70d-42ba-95a4-79a527c41974")
+	)
+	(label "UDM_U3"
+		(at 143.51 170.18 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "11640fff-9f41-42a9-bcf4-587cc47f8ece")
+	)
+
 )
